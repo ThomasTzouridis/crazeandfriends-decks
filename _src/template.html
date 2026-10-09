@@ -6,6 +6,7 @@
 <meta name="robots" content="noindex">
 <title>{{COMPANY}} × Craze&amp;Friends</title>
 <link rel="icon" href="../assets/cf-mark.svg">
+<link rel="stylesheet" href="../vendor/reset.css"><link rel="stylesheet" href="../vendor/reveal.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Chivo:wght@400;500;700&family=Chivo+Mono:wght@400;500&display=swap">
@@ -18,16 +19,16 @@
   --mono:"Chivo Mono",ui-monospace,Consolas,monospace;
 }
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;background:var(--stage);color:var(--ink);font-family:var(--body);overflow:hidden}
-.viewport{position:fixed;inset:0 0 60px 0;display:flex;align-items:center;justify-content:center}
-.stage{width:1280px;height:720px;flex:none;position:relative;transform-origin:center;container-type:inline-size;background:var(--paper)}
-.s{position:absolute;inset:0;background:var(--paper);overflow:hidden;padding:5.5cqw 6cqw;display:flex;flex-direction:column;
-   opacity:0;visibility:hidden;transition:opacity .45s ease,visibility 0s .45s}
-.s.on{opacity:1;visibility:visible;transition:opacity .45s ease}
-.s.on .in{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
-.s.on .in:nth-child(2){animation-delay:.08s}.s.on .in:nth-child(3){animation-delay:.16s}.s.on .in:nth-child(4){animation-delay:.24s}.s.on .in:nth-child(5){animation-delay:.32s}
+html,body{height:100%;margin:0;background:var(--stage);color:var(--ink);font-family:var(--body)}
+.reveal{font-family:var(--body);color:var(--ink)}
+.reveal .slides section{width:1280px;height:720px;padding:0;text-align:left;background:var(--paper);container-type:inline-size}
+.s{position:absolute;inset:0;background:var(--paper);overflow:hidden;padding:5.5cqw 6cqw;display:flex;flex-direction:column;justify-content:center;width:1280px;height:720px}
+section.present .in{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+section.present .in:nth-child(2){animation-delay:.08s}section.present .in:nth-child(3){animation-delay:.16s}section.present .in:nth-child(4){animation-delay:.24s}section.present .in:nth-child(5){animation-delay:.32s}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.s,.s.on{transition:none}.s.on .in{animation:none}.track{animation:none!important}}
+@media (prefers-reduced-motion:reduce){section.present .in{animation:none}.track{animation:none!important}}
+.reveal .controls{color:var(--ink)}.reveal .progress{color:var(--hi);height:4px}
+.reveal .slide-number{background:var(--ink);color:#fff;font:500 12px var(--mono)}
 .eyebrow{font:500 1.15cqw var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 h2{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.92;margin:1.2cqw 0 0;font-size:4.6cqw;text-wrap:balance}
 p{margin:0}
@@ -38,16 +39,17 @@ p{margin:0}
 .co{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:1}
 
 /* cover */
-.cover{justify-content:center}
-.cover .pair{display:flex;align-items:center;gap:3cqw;font-size:7.4cqw;margin-top:2.4cqw}
-.cover .co{font-size:6.2cqw;border-bottom:.5cqw solid var(--hi);padding-bottom:.4cqw;max-width:38cqw}
-.cover .sub{margin-top:4cqw;font-size:2.2cqw;max-width:40ch;line-height:1.35}
+.cover{padding-right:46cqw}
+.cover .pair{display:flex;align-items:center;flex-wrap:wrap;gap:2.2cqw;font-size:6.4cqw;margin-top:2cqw}
+.cover .co{font-size:5.4cqw;border-bottom:.5cqw solid var(--hi);padding-bottom:.3cqw}
+.cover .sub{margin-top:3cqw;font-size:2.1cqw;max-width:30ch;line-height:1.35}
 .cover .prep{margin-top:1.4cqw;font:500 1.3cqw var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.cover .strip{position:absolute;right:0;top:0;bottom:0;width:22cqw;background:url(../assets/team.jpg) 0 0/250% 100%;filter:grayscale(1)}
-.cover .strip::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--paper),transparent 35%)}
+.cover .strip{position:absolute;right:0;top:0;bottom:0;width:42cqw;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr}
+.cover .strip i{background:url(../assets/team.jpg) 0 0/500% 200%;filter:grayscale(1)}
+
 
 /* what we saw */
-.saw{display:grid;grid-template-columns:34cqw 1fr;gap:4cqw;margin-top:3cqw;flex:1;min-height:0}
+.saw{display:grid;grid-template-columns:34cqw 1fr;gap:4cqw;margin-top:3cqw;align-items:center}
 .saw .lines{display:flex;flex-direction:column;gap:1.6cqw;font-size:1.7cqw;line-height:1.45}
 .saw .lines q{font-weight:700}
 .saw .lines .turn{border-left:.4cqw solid var(--hi);padding-left:1.4cqw}
@@ -56,7 +58,7 @@ p{margin:0}
 .shot figcaption{font:400 1cqw var(--mono);color:var(--muted)}
 
 /* who we are */
-.two{display:grid;grid-template-columns:30cqw 1fr;gap:4cqw;flex:1;min-height:0;margin-top:2.6cqw}
+.two{display:grid;grid-template-columns:30cqw 1fr;gap:4cqw;margin-top:2.6cqw}
 .who .lines{display:flex;flex-direction:column;gap:1.4cqw;font-size:1.55cqw;line-height:1.45}
 .grid10{display:grid;grid-template-columns:repeat(5,1fr);gap:.8cqw;align-content:start}
 .p{margin:0}
@@ -66,14 +68,14 @@ p{margin:0}
 .p span{font:400 .82cqw/1.3 var(--mono);color:var(--muted)}
 
 /* help */
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:3cqw;margin-top:3cqw;flex:1}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:4cqw;margin-top:3.4cqw}
 .col{border-top:.25cqw solid var(--ink);padding-top:1.6cqw;display:flex;flex-direction:column;gap:1cqw}
 .col .lab{font:500 1.1cqw var(--mono);letter-spacing:.1em;text-transform:uppercase}
 .col h3{font:800 3.8cqw/1 var(--display);text-transform:uppercase;margin:0}
 .col ul{list-style:none;padding:0;margin:1.2cqw 0 0;display:flex;flex-direction:column;gap:1.4cqw}
 .col li{font-size:2cqw;line-height:1.35;padding-left:2.4cqw;position:relative}
 .col li::before{content:"";position:absolute;left:0;top:.5em;width:.9cqw;height:.9cqw;background:var(--hi);outline:.15cqw solid var(--ink)}
-.bottomline{font-size:1.6cqw;margin-top:2cqw}
+.bottomline{font-size:1.7cqw;margin-top:4cqw;padding-top:1.8cqw;border-top:.12cqw solid var(--line)}
 
 /* models */
 .models{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6cqw;margin-top:3cqw}
@@ -81,7 +83,7 @@ p{margin:0}
 .m .lab{font:500 1cqw var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .m h3{font:800 3.6cqw/1 var(--display);text-transform:uppercase;margin:0}
 .m p{font-size:1.8cqw;line-height:1.4}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6cqw;margin-top:auto;border-top:.12cqw solid var(--line);padding-top:2cqw}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6cqw;margin-top:4cqw;border-top:.12cqw solid var(--line);padding-top:2.4cqw}
 .st{display:flex;align-items:baseline;gap:1.2cqw}
 .st b{font:800 5cqw/1 var(--display);font-variant-numeric:tabular-nums}
 .st span{font:400 1.1cqw/1.35 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
@@ -89,7 +91,7 @@ p{margin:0}
 /* work */
 .cases{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqw;margin-top:2.6cqw}
 .case{display:flex;flex-direction:column;gap:.8cqw}
-.case .img{aspect-ratio:16/9;background:var(--ink) center/cover;display:flex;align-items:center;justify-content:center}
+.case .img{aspect-ratio:4/3;background:var(--ink) center/cover;display:flex;align-items:center;justify-content:center}
 .case .img.logo{background:var(--tile)}
 .case .img.logo img{width:55%}
 .case .yr{font:500 .95cqw var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
@@ -97,7 +99,7 @@ p{margin:0}
 .case p{font-size:1.25cqw;line-height:1.4}
 .quote{margin-top:1.8cqw;font-size:1.45cqw;line-height:1.4}
 .quote small{font:400 1cqw var(--mono);color:var(--muted);margin-left:.6cqw}
-.marquee{margin-top:auto;overflow:hidden;border-top:.12cqw solid var(--line);padding-top:1.6cqw;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee{margin-top:3cqw;overflow:hidden;border-top:.12cqw solid var(--line);padding-top:1.6cqw;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .track{display:flex;gap:4cqw;width:max-content;animation:roll 40s linear infinite}
 .track img{height:3.2cqw;width:auto;display:block}
 @keyframes roll{to{transform:translateX(-50%)}}
@@ -113,37 +115,29 @@ p{margin:0}
 .contact{font:400 1.15cqw/1.6 var(--mono);color:var(--muted)}
 .talk .r{background:url(../assets/team.jpg) center/cover}
 
-/* controls */
-.nav{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));z-index:5;pointer-events:none}
-.nav button{pointer-events:auto;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(19,20,16,.7);color:#fff;font:600 18px var(--body);cursor:pointer}
-.nav button:hover,.nav button:focus-visible{background:var(--hi);color:var(--ink);outline:none}
-.nav button:disabled{opacity:.3;cursor:default;background:rgba(19,20,16,.7);color:#fff}
-.count{pointer-events:auto;font:500 12px var(--mono);color:#fff;background:rgba(19,20,16,.7);padding:6px 10px;border-radius:14px;letter-spacing:.08em;font-variant-numeric:tabular-nums}
-.bar{position:fixed;left:0;top:0;height:3px;background:var(--hi);transition:width .35s;z-index:6}
 </style>
 </head>
 <body>
-<div class="bar" id="bar"></div>
-<div class="viewport"><div class="stage" id="stage">
+<div class="reveal"><div class="slides"><section>
 
-<section class="s cover on" aria-label="Cover">
+<section aria-label="Cover"><div class="s cover">
   <div class="eyebrow in">Partnership proposal</div>
   <div class="pair in"><span class="wm"><span>CRAZE</span><span><i>&amp;</i>FRIENDS</span></span><span class="x">×</span><span class="co">{{COMPANY}}</span></div>
   <p class="sub in">What a partnership could look like, and how we both could benefit from it.</p>
   <p class="prep in">Prepared for {{PREPARED}}</p>
-  <div class="strip" aria-hidden="true"></div>
-</section>
+  <div class="strip" aria-hidden="true"><i style="background-position:0% 0%"></i><i style="background-position:25% 0%"></i><i style="background-position:50% 0%"></i><i style="background-position:0% 100%"></i><i style="background-position:50% 100%"></i><i style="background-position:100% 0%"></i></div>
+</div></section>
 
-<section class="s" aria-label="What we saw">
+<section aria-label="What we saw"><div class="s">
   <div class="eyebrow in">What we saw</div>
   <h2 class="in">What we saw at <span class="mark">{{COMPANY}}</span></h2>
   <div class="saw in">
     <div class="lines">{{SAW_LINES}}</div>
     {{SHOT}}
   </div>
-</section>
+</div></section>
 
-<section class="s who" aria-label="Who we are">
+<section aria-label="Who we are"><div class="s who">
   <div class="eyebrow in">Who we are</div>
   <h2 class="in">Puzzle it with <span class="mark">friends</span>.</h2>
   <div class="two in">
@@ -154,9 +148,9 @@ p{margin:0}
     </div>
     <div class="grid10">{{CELLS}}</div>
   </div>
-</section>
+</div></section>
 
-<section class="s" aria-label="How we could help">
+<section aria-label="How we could help"><div class="s">
   <div class="eyebrow in">How we could help {{COMPANY}}</div>
   <h2 class="in">Your entire Ads &amp; Socials structure, <span class="mark">managed</span>.</h2>
   <div class="cols in">
@@ -166,9 +160,9 @@ p{margin:0}
       <ul><li>{{SOC_1}}</li><li>Executive ghostwriting and social selling</li><li>Newsletter production</li></ul></div>
   </div>
   <p class="bottomline in">Both run from one team, so creative, spend and reporting stay in one place.</p>
-</section>
+</div></section>
 
-<section class="s" aria-label="How we work together">
+<section aria-label="How we work together"><div class="s">
   <div class="eyebrow in">How we work together</div>
   <h2 class="in">Pick the shape that <span class="mark">fits</span>.</h2>
   <div class="models in">
@@ -181,9 +175,9 @@ p{margin:0}
     <div class="st"><b>4H</b><span>Average<br>response time</span></div>
     <div class="st"><b>$200</b><span>Average lead<br>acquisition cost</span></div>
   </div>
-</section>
+</div></section>
 
-<section class="s" aria-label="Some of our work">
+<section aria-label="Some of our work"><div class="s">
   <div class="eyebrow in">Some of our work</div>
   <div class="cases in">
     <div class="case"><div class="img" style="background-image:url(../assets/c_lokation.jpg)"></div><span class="yr">2026 · Real estate</span><h3>LoKation</h3><p>Meta and Google Search campaigns. 1,039 agents recruited across 6 markets in 180 days.</p></div>
@@ -193,9 +187,9 @@ p{margin:0}
   </div>
   <p class="quote in">“craze is an absolute 10 out of 10 on ease to work with.”<small>Matt Van Itallie, CEO, Sema</small></p>
   <div class="marquee in" aria-label="Clients"><div class="track">{{LOGOS}}{{LOGOS}}</div></div>
-</section>
+</div></section>
 
-<section class="s talk" aria-label="Let's talk">
+<section aria-label="Let's talk"><div class="s talk">
   <div class="l">
     <div class="eyebrow in">Next step</div>
     <h2 class="in">Let's talk about <span class="mark">{{COMPANY}}</span> × Craze&amp;Friends</h2>
@@ -204,34 +198,9 @@ p{margin:0}
     <p class="contact in">crazeandfriends.com · linkedin.com/company/crazeandfriends</p>
   </div>
   <div class="r" role="img" aria-label="The Craze&amp;Friends team"></div>
-</section>
+</div></section>
 
-</div></div>
-
-<nav class="nav" aria-label="Slides">
-  <button id="prev" aria-label="Previous slide">←</button>
-  <span class="count" id="count">1 / 7</span>
-  <button id="next" aria-label="Next slide">→</button>
-</nav>
-
-<script>
-(function(){
-  var stage=document.getElementById('stage'),slides=[].slice.call(stage.querySelectorAll('.s')),i=0,n=slides.length;
-  var prev=document.getElementById('prev'),next=document.getElementById('next'),count=document.getElementById('count'),bar=document.getElementById('bar');
-  function fit(){var s=Math.min(innerWidth/1280,(innerHeight-60)/720);stage.style.transform='scale('+s+')';}
-  function go(k){k=Math.max(0,Math.min(n-1,k));slides[i].classList.remove('on');i=k;slides[i].classList.add('on');
-    count.textContent=(i+1)+' / '+n;prev.disabled=i===0;next.disabled=i===n-1;bar.style.width=((i+1)/n*100)+'%';
-    try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
-  prev.onclick=function(){go(i-1)};next.onclick=function(){go(i+1)};
-  addEventListener('keydown',function(e){if(['ArrowRight','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();go(i+1)}
-    else if(['ArrowLeft','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();go(i-1)}
-    else if(e.key==='Home')go(0);else if(e.key==='End')go(n-1)});
-  var x0=null;addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
-  addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)go(i+(d<0?1:-1));x0=null});
-  stage.addEventListener('click',function(e){if(e.target.closest('a'))return;var r=stage.getBoundingClientRect();go(i+(e.clientX>r.left+r.width/2?1:-1))});
-  addEventListener('resize',fit);fit();
-  var h=parseInt(location.hash.slice(1),10);go(h>0?h-1:0);
-})();
-</script>
+</section></div></div>
+<script src="../vendor/reveal.js"></script><script>Reveal.initialize({width:1280,height:720,margin:0,hash:true,controls:true,controlsTutorial:true,progress:true,transition:"slide",center:false});</script>
 </body>
 </html>
