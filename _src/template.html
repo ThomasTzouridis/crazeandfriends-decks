@@ -44,8 +44,8 @@ p{margin:0}
 .cover .co{font-size:5.4cqw;border-bottom:.5cqw solid var(--hi);padding-bottom:.3cqw}
 .cover .sub{margin-top:3cqw;font-size:2.1cqw;max-width:30ch;line-height:1.35}
 .cover .prep{margin-top:1.4cqw;font:500 1.3cqw var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.cover .strip{position:absolute;right:0;top:0;bottom:0;width:42cqw;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr}
-.cover .strip i{background:url(../assets/team.jpg) 0 0/500% 200%;filter:grayscale(1)}
+.cover .strip{position:absolute;right:6cqw;top:5.5cqw;bottom:5.5cqw;width:36cqw;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:.6cqw}
+.cover .strip img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;filter:grayscale(1)}
 
 
 /* what we saw */
@@ -125,7 +125,7 @@ p{margin:0}
   <div class="pair in"><span class="wm"><span>CRAZE</span><span><i>&amp;</i>FRIENDS</span></span><span class="x">×</span><span class="co">{{COMPANY}}</span></div>
   <p class="sub in">What a partnership could look like, and how we both could benefit from it.</p>
   <p class="prep in">Prepared for {{PREPARED}}</p>
-  <div class="strip" aria-hidden="true"><i style="background-position:0% 0%"></i><i style="background-position:25% 0%"></i><i style="background-position:50% 0%"></i><i style="background-position:0% 100%"></i><i style="background-position:50% 100%"></i><i style="background-position:100% 0%"></i></div>
+  <div class="strip" aria-hidden="true"><img src="../assets/team/t1.jpg" alt=""><img src="../assets/team/t2.jpg" alt=""><img src="../assets/team/t3.jpg" alt=""><img src="../assets/team/t6.jpg" alt=""><img src="../assets/team/t8.jpg" alt=""><img src="../assets/team/t5.jpg" alt=""></div>
 </div></section>
 
 <section aria-label="What we saw"><div class="s">
@@ -134,19 +134,6 @@ p{margin:0}
   <div class="saw in">
     <div class="lines">{{SAW_LINES}}</div>
     {{SHOT}}
-  </div>
-</div></section>
-
-<section aria-label="Who we are"><div class="s who">
-  <div class="eyebrow in">Who we are</div>
-  <h2 class="in">Puzzle it with <span class="mark">friends</span>.</h2>
-  <div class="two in">
-    <div class="lines">
-      <p>A full service marketing agency. We design, build, and scale brands with agile, plug and play growth teams.</p>
-      <p>Strategy, design, development, ads, SEO, outreach and social, under one roof.</p>
-      <p>Teams that seamlessly fit into your business, so you deal with one partner instead of a stack of vendors.</p>
-    </div>
-    <div class="grid10">{{CELLS}}</div>
   </div>
 </div></section>
 
@@ -160,6 +147,19 @@ p{margin:0}
       <ul><li>{{SOC_1}}</li><li>Executive ghostwriting and social selling</li><li>Newsletter production</li></ul></div>
   </div>
   <p class="bottomline in">Both run from one team, so creative, spend and reporting stay in one place.</p>
+</div></section>
+
+<section aria-label="Who we are"><div class="s who">
+  <div class="eyebrow in">Who we are</div>
+  <h2 class="in">Puzzle it with <span class="mark">friends</span>.</h2>
+  <div class="two in">
+    <div class="lines">
+      <p>A full service marketing agency. We design, build, and scale brands with agile, plug and play growth teams.</p>
+      <p>Strategy, design, development, ads, SEO, outreach and social, under one roof.</p>
+      <p>Teams that seamlessly fit into your business, so you deal with one partner instead of a stack of vendors.</p>
+    </div>
+    <div class="grid10">{{CELLS}}</div>
+  </div>
 </div></section>
 
 <section aria-label="How we work together"><div class="s">
