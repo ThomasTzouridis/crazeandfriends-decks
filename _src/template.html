@@ -105,7 +105,7 @@ p{margin:0}
 @keyframes roll{to{transform:translateX(-50%)}}
 
 /* talk */
-.talk{display:grid;grid-template-columns:1fr 1fr;padding:0}
+.talk{display:grid;grid-template-columns:1fr 40cqw;padding:0}
 .talk .l{padding:5.5cqw 6cqw;display:flex;flex-direction:column;justify-content:center;gap:2.4cqw}
 .talk h2{font-size:5cqw}
 .btn{align-self:flex-start;display:inline-flex;align-items:center;gap:1cqw;background:var(--ink);color:var(--paper);text-decoration:none;font:700 1.6cqw var(--body);padding:1.3cqw 2.4cqw}
@@ -113,7 +113,10 @@ p{margin:0}
 .talk .pair{display:flex;align-items:center;gap:1.6cqw;font-size:3.2cqw}
 .talk .co{font-size:2.8cqw}
 .contact{font:400 1.15cqw/1.6 var(--mono);color:var(--muted)}
-.talk .r{background:url(../assets/team.jpg) center/cover}
+.talk .r{position:relative;background:#1a1a18 url(../assets/team/ognjen.jpg) 50% 15%/cover no-repeat}
+.talk .r figcaption{position:absolute;left:2.4cqw;bottom:2.4cqw;display:flex;flex-direction:column;gap:.3cqw;background:var(--paper);padding:1cqw 1.4cqw}
+.talk .r b{font:800 1.9cqw/1 var(--display);text-transform:uppercase}
+.talk .r span{font:400 1cqw var(--mono);color:var(--muted)}
 
 </style>
 </head>
@@ -197,7 +200,7 @@ p{margin:0}
     <div class="pair in"><span class="wm"><span>CRAZE</span><span><i>&amp;</i>FRIENDS</span></span><span class="x">×</span><span class="co">{{COMPANY}}</span></div>
     <p class="contact in">crazeandfriends.com · linkedin.com/company/crazeandfriends</p>
   </div>
-  <div class="r" role="img" aria-label="The Craze&amp;Friends team"></div>
+  <figure class="r" style="margin:0" role="img" aria-label="Ognjen Varađanin"><figcaption><b>Ognjen Varađanin</b><span>CEO &amp; Marketing Strategist</span></figcaption></figure>
 </div></section>
 
 </section></div></div>
