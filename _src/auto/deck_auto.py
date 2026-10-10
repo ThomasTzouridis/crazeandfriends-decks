@@ -206,7 +206,6 @@ def validate(sp):
         w = words(s); cap = 25 if i == 2 else 20
         if w > cap: errs.append(f'saw_lines[{i}] has {w} words, max {cap}')
     if len(sl) > 1 and not sl[1].startswith('So '): errs.append('saw_lines[1] must start with "So "')
-    if len(sl) > 2 and '<b>' not in sl[2]: errs.append('saw_lines[2] needs one <b>fix</b>')
     a = sp.get('ads')
     if n_live_total >= 10 and not a: errs.append('ads block required (live ads >= 10)')
     if a:
@@ -215,8 +214,8 @@ def validate(sp):
         for hd, tx in a.get('points') or []:
             if not 2 <= len(hd.split()) <= 6: errs.append(f'headline "{hd}" must be 3 to 5 words')
             if words(tx) > 24: errs.append(f'point "{hd}" text has {words(tx)} words, max 22')
-            if '<b>' not in tx: errs.append(f'point "{hd}" needs one <b>fix</b>')
     blob = json.dumps(sp, ensure_ascii=False)
+    if re.search(r'<\s*/?\s*(b|strong)[\s>]', blob, re.I): errs.append('bold found, never use <b> or <strong>, plain text only')
     if re.search(r'[\u2013\u2014]| - ', html.unescape(blob)): errs.append('dash found, remove every dash')
     for num in set(re.findall(r'\d[\d,]*', html.unescape(blob))):
         v = int(num.replace(',', ''))
