@@ -6,9 +6,9 @@
  "shot": "porter-road.jpg",
  "shot_caption": "porterroad.com",
  "saw_lines": [
-  "Meat shoppers choose a source once, then reorder the same cut for months, so the first purchase is the whole game.",
-  "So the sale is won or lost in the first line of the ad, before the shopper scrolls past.",
-  "Your site offers free shipping nationwide, yet 0 of 14 ads mention it, so open the next batch with free shipping in line one and print it on the creative."
+  "Premium meat buyers pick one source, trust it for the first bite, then reorder it on a schedule without comparing shelves.",
+  "So the sale is won in the first line, where the story has to earn trust before the price shows up.",
+  "Your 14 ads carry 0 proof numbers and your site shows none, so collect your review count and orders shipped, then lead the next batch with it."
  ],
  "ads": {
   "source": "Meta Ad Library, active ads, 10 Oct 2026",
@@ -18,34 +18,34 @@
     "live Meta ads"
    ],
    [
-    "8",
-    "open on two stories"
+    "5",
+    "open on one story"
    ],
    [
     "0",
-    "ads mention free shipping"
+    "mention free shipping"
    ],
    [
     "0",
-    "ads carry a proof number"
+    "carry a proof number"
    ]
   ],
   "points": [
    [
-    "Two stories carry most ads",
-    "5 of 14 ads open on the pasture raised line and 3 on the you pay the price line, so they bid for the same buyers. Test three openers against the winner: price, a Sunday roast, and a customer quote."
+    "One story dominates your hooks",
+    "5 of your 14 ads open on the same pasture raised line, so they compete with each other for one set of buyers. Test three new openers against it: a price objection, a Sunday roast moment, and a customer quote."
    ],
    [
-    "Free shipping never reaches ads",
-    "Your site promotes free shipping, yet 0 of 14 ads mention it, so new buyers get no reason to act. Open two ads with free shipping in line one and headline repeat ads with the $170 box."
+    "The offer sits outside your ads",
+    "Your site pushes 15% subscription savings, yet 1 of 14 ads mention it and 0 mention free shipping, so buyers have no reason to act. Headline 15% on two retention ads and open a new buyer ad with free shipping."
    ],
    [
     "No proof number anywhere",
-    "Your site shows no proof number and 0 of 14 ads carry one, so buyers meet a pitch with no evidence. Collect your review count and orders shipped, then open every ad with that number and one customer quote."
+    "Neither your site nor your 14 ads shows a proof number, so buyers only have your word on pasture raised and no hormones. Collect your review count and orders shipped this month, then lead with that number on the creative."
    ],
    [
-    "Nothing has proven it can scale",
-    "All 14 ads started within the last 10 days, so no winner has proven it can scale yet. Turn your one creator recipe video into a whitelisted ad, then cut three new creator variations from it to test against the pasture opener."
+    "Nothing has proven itself yet",
+    "All 14 ads started within 10 days, so budget is spread across untested ideas and none has proven it can scale. Make three new variations of the oldest ad, the Taste the Difference video, then scale the one that holds up."
    ]
   ],
   "images": [
@@ -54,6 +54,6 @@
    "porter-road_3.jpg"
   ]
  },
- "ads_1": "Price, Sunday roast and customer quote openers tested against the pasture line",
+ "ads_1": "Price, Sunday roast and customer quote angles tested against the pasture raised opener",
  "soc_1": "Brand social strategy across Facebook, Instagram and Twitter"
 }
