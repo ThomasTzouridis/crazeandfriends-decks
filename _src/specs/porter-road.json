@@ -6,46 +6,46 @@
  "shot": "porter-road.jpg",
  "shot_caption": "porterroad.com",
  "saw_lines": [
-  "Premium meat buyers decide on trust in seconds, looking for how the animal was raised.",
-  "So the sale is won or lost in the first line, where the raising story lands or gets scrolled past.",
-  "Your 14 sampled ads open on 9 different lines, and none carry a proof number. Put one farm number in every opening line."
+  "Meat shoppers choose a source once, then reorder the same cut for months, so the first purchase is the whole game.",
+  "So the sale is won or lost in the first line of the ad, before the shopper scrolls past.",
+  "Your site offers free shipping nationwide, yet 0 of 14 ads mention it, so open the next batch with free shipping in line one and print it on the creative."
  ],
  "ads": {
   "source": "Meta Ad Library, active ads, 10 Oct 2026",
   "stats": [
    [
-    "15",
+    "14",
     "live Meta ads"
    ],
    [
-    "5",
-    "open on one line"
-   ],
-   [
-    "14",
-    "sampled ads are video"
+    "8",
+    "open on two stories"
    ],
    [
     "0",
-    "carry a proof number"
+    "ads mention free shipping"
+   ],
+   [
+    "0",
+    "ads carry a proof number"
    ]
   ],
   "points": [
    [
-    "One opener carries the account",
-    "The same pasture-raised first line opens 5 ads, so they fight for the same buyers. Test three new openers this week."
+    "Two stories carry most ads",
+    "5 of 14 ads open on the pasture raised line and 3 on the you pay the price line, so they bid for the same buyers. Test three openers against the winner: price, a Sunday roast, and a customer quote."
    ],
    [
-    "Offer sits below the cut",
-    "The offer lands after 55% of the median ad&rsquo;s copy. Move it into the first two lines."
+    "Free shipping never reaches ads",
+    "Your site promotes free shipping, yet 0 of 14 ads mention it, so new buyers get no reason to act. Open two ads with free shipping in line one and headline repeat ads with the $170 box."
    ],
    [
-    "No proof numbers anywhere",
-    "None of 14 sampled ads carry a proof number, so buyers only get claims. Add one herd number to every ad."
+    "No proof number anywhere",
+    "Your site shows no proof number and 0 of 14 ads carry one, so buyers meet a pitch with no evidence. Collect your review count and orders shipped, then open every ad with that number and one customer quote."
    ],
    [
-    "Video and claims are clean",
-    "All 14 sampled ads are video and none use claim words, so the format is working. Double down with more video."
+    "Nothing has proven it can scale",
+    "All 14 ads started within the last 10 days, so no winner has proven it can scale yet. Turn your one creator recipe video into a whitelisted ad, then cut three new creator variations from it to test against the pasture opener."
    ]
   ],
   "images": [
@@ -54,6 +54,6 @@
    "porter-road_3.jpg"
   ]
  },
- "ads_1": "Farm-to-table video that opens on a dinner problem, not the pasture line",
+ "ads_1": "Price, Sunday roast and customer quote openers tested against the pasture line",
  "soc_1": "Brand social strategy across Facebook, Instagram and Twitter"
 }

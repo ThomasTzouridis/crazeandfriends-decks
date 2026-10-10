@@ -50,7 +50,7 @@ t = re.sub(r'(?is)<(script|style|noscript|svg)[^>]*>.*?</\1>', ' ', h)
 title = re.search(r'(?is)<title[^>]*>(.*?)</title>', t); desc = re.search(r'(?i)<meta[^>]+name="description"[^>]+content="([^"]*)"', t)
 heads = [html.unescape(re.sub(r'<[^>]+>', ' ', x)).strip() for x in re.findall(r'(?is)<h[12][^>]*>(.*?)</h[12]>', t)]
 text = html.unescape(re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '\n', t)))
-site_offer = list(dict.fromkeys(x.strip() for x in re.findall(r'[^.\n]{0,60}(?:' + OFFER[5:] + r')[^.\n]{0,60}', text)))[:6]
+site_offer = [x for x in dict.fromkeys(re.sub(r'\s+', ' ', y).strip(' .!') for y in re.findall(r"(?i)[A-Za-z0-9$%&,' ]{0,50}(?:free shipping|% off|subscribe (?:&|and) save|save \d+%|first order|guarantee|bundle)[A-Za-z0-9$%&,' ]{0,50}", text)) if 2 <= len(x.split()) <= 12][:8]
 site_proof = list(dict.fromkeys(x.strip() for x in re.findall(r'[^.\n]{0,40}\d[\d,]{2,}\+?\s*(?:reviews|customers|families|farms|orders|happy|five.star|5.star|stars)[^.\n]{0,40}', text, re.I)))[:6]
 rating = re.findall(r'(\d\.\d)\s*(?:out of 5|/5|stars|star rating)', text, re.I)[:2]
 socials = sorted({x for x in re.findall(r'(?i)(instagram|tiktok|facebook|pinterest|youtube|twitter|x\.com|linkedin)\.com/', h)})
@@ -61,37 +61,50 @@ F.append("SITE offer lines: " + (' | '.join(site_offer) if site_offer else 'none
 F.append("SITE proof lines: " + (' | '.join(site_proof) if site_proof else 'none found') + (f" | rating {rating[0]}" if rating else ''))
 F.append("SITE linked social channels: " + (', '.join(c.title().replace('X.Com', 'X') for c in socials) or 'none found'))
 # meta ads measured
-n_live_total = metaj.get('ads_active') or len(live)
-F.append(f"\nMETA ADS (Ad Library page {m.get('page_name') or ''}): live Meta ads = {n_live_total}" + (f" ({len(live)} sampled below)" if len(live) < n_live_total else ''))
+n_live_total = len(live) if len(live) >= 10 else (metaj.get('ads_active') or len(live))
+F.append(f"\nMETA ADS: live Meta ads = {n_live_total}")
 if live:
     bodies = [a.get('body') or '' for a in live]
-    openers = Counter(first_line(b) for b in bodies if b)
-    top = openers.most_common(3)
-    F.append(f"hooks: {len(openers)} distinct first lines across {len(bodies)} ads; most repeated first line: \"{top[0][0]}\" in {top[0][1]} ads" + (f"; next: \"{top[1][0]}\" in {top[1][1]}" if len(top) > 1 else ''))
-    pos = []
-    for b in bodies:
-        mm = re.search(OFFER, b)
-        if mm: pos.append(len(b[:mm.start()].split()) / max(len(b.split()), 1))
-    F.append(f"offer: {len(pos)} of {len(bodies)} ads mention an offer (free shipping, % off, guarantee, bundle)" + (f"; it appears after {int(statistics.median(pos) * 100)}% of the copy on the median ad" if pos else ''))
+    fam = Counter(' '.join((b or '').split()[:5]).lower().strip(' ,.!') for b in bodies if b)
+    top = fam.most_common(3)
+    F.append(f"hooks: {len(fam)} different opening stories across {len(bodies)} ads; biggest: \"{top[0][0]}...\" opens {top[0][1]} ads" + (f"; second: \"{top[1][0]}...\" opens {top[1][1]}" if len(top) > 1 else ''))
+    # site offers vs ads
+    offers = {'free shipping': r'(?i)free shipping', 'first order discount': r'(?i)first order|welcome|new customer', 'subscribe and save': r'(?i)subscri', 'percent off': r'(?i)\d+% off|save \d+%', 'guarantee': r'(?i)guarantee', 'bundle': r'(?i)bundle|box'}
+    on_site = [k for k, rx in offers.items() if re.search(rx, ' '.join(site_offer) + ' ' + ' '.join(heads))]
+    F.append("site offers found on the homepage: " + (', '.join(on_site) if on_site else 'none'))
+    for k in on_site: F.append(f"  ads mentioning {k}: {sum(bool(re.search(offers[k], b)) for b in bodies)} of {len(bodies)}")
+    any_off = [b for b in bodies if re.search(OFFER, b)]
+    F.append(f"ads mentioning any offer or discount: {len(any_off)} of {len(bodies)}" + (f"; e.g. \"{' '.join(any_off[0].split()[:14])}\"" if any_off else ''))
+    creator = sum(bool(re.search(r'(?i)#ad|use code|my code|@\w+', b)) for b in bodies)
+    if creator: F.append(f"creator or influencer style ads (code, #ad, @mention): {creator} of {len(bodies)}")
     proofs = Counter(mm[0].replace(',', '') + ' ' + mm[1] for b in bodies for mm in re.findall(PROOF, b))
     F.append(f"proof: {sum(bool(re.search(PROOF, b)) for b in bodies)} of {len(bodies)} ads carry a proof number" + (f"; numbers used: {', '.join(k + ' (x' + str(v) + ')' for k, v in proofs.most_common(4))}" if proofs else ''))
+    def kind(a):
+        f = (a.get('format') or '').upper()
+        if f == 'DPA' or len(a.get('images') or []) >= 4: return 'catalog'
+        if a.get('videos') and not a.get('images'): return 'video'
+        return 'image or carousel'
+    kc = Counter(kind(a) for a in live)
+    F.append("formats: " + ', '.join(f"{v} {k}" for k, v in kc.most_common()))
     wl = [len(b.split()) for b in bodies if b]
-    vids = sum((a.get('format') or '').upper() == 'VIDEO' or bool(a.get('videos')) for a in live)
+    if wl: F.append(f"copy length: median {int(statistics.median(wl))} words, longest {max(wl)}, shortest {min(wl)}" + (f"; offer appears after {int(statistics.median(pos) * 100)}% of the copy on the median ad" if (pos := [len(b[:mm.start()].split()) / max(len(b.split()), 1) for b in bodies if (mm := re.search(OFFER, b))]) and statistics.median(wl) >= 40 else ''))
     starts = sorted(a['start'] for a in live if a.get('start'))
-    plats = Counter(p for a in live for p in (a.get('platforms') or []))
-    ctas = Counter(a.get('cta') for a in live if a.get('cta'))
-    lands = Counter(re.sub(r'\?.*', '', a.get('landing') or '') for a in live if a.get('landing'))
-    F.append(f"format: {vids} of {len(live)} live ads are video; {len(live) - vids} are image or carousel")
-    if wl: F.append(f"copy length: median {int(statistics.median(wl))} words, longest {max(wl)} words, shortest {min(wl)}")
     if starts:
-        d0 = datetime.date.fromisoformat(starts[0]); months = (datetime.date.today() - d0).days // 30
-        F.append(f"run time: oldest live ad started {d0.strftime('%b %Y')} ({months} months ago); {sum(s <= starts[0][:7] + '-31' for s in starts)} ads started that month; newest started {starts[-1]}")
-    F.append(f"placements: {', '.join(k.title().replace('_', ' ') for k, v in plats.most_common())}; CTAs: {', '.join(f'{k} ({v})' for k, v in ctas.most_common(3))}; {len(lands)} different landing pages")
-    F.append(f"claims: {sum(bool(re.search(CLAIM, b)) for b in bodies)} ads contain claim words (clinically, cure, guaranteed results)")
+        d0 = datetime.date.fromisoformat(starts[0]); d1 = datetime.date.fromisoformat(starts[-1]); today = datetime.date.today()
+        F.append(f"run time: oldest live ad started {d0.strftime('%d %b %Y').lstrip('0')} ({(today - d0).days} days ago), newest {d1.strftime('%d %b %Y').lstrip('0')}; all {len(starts)} ads started within the last {(today - d0).days} days" if (today - d0).days <= 45 else f"run time: oldest live ad started {d0.strftime('%b %Y')} ({(today - d0).days // 30} months ago), {sum(s[:7] == starts[0][:7] for s in starts)} ads from that month still run; newest started {d1.strftime('%d %b %Y').lstrip('0')}")
+    plats = Counter(p for a in live for p in (a.get('platforms') or [])); ctas = Counter(a.get('cta') for a in live if a.get('cta'))
+    lands = Counter(re.sub(r'\?.*', '', a.get('landing') or '') for a in live if a.get('landing'))
+    F.append(f"placements: {', '.join(k.title().replace('_', ' ') for k, v in plats.most_common())}; CTAs: {', '.join(f'{k} ({v})' for k, v in ctas.most_common(3))}; {len(lands)} different landing pages" + (f" ({', '.join(list(lands)[:3])})" if lands else ''))
+    rc = sum(bool(re.search(CLAIM, b)) for b in bodies)
+    if rc: F.append(f"claims: {rc} ads contain claim words (clinically, cure, guaranteed results)")
     F.append("sample live ads, longest running first (first 60 words of copy):")
-    for a in sorted(live, key=lambda a: a.get('start') or '9')[:8]:
+    seenb = set()
+    for a in sorted(live, key=lambda a: a.get('start') or '9'):
         b = ' '.join((a.get('body') or '').split()[:60])
-        F.append(f"- [{a.get('format') or ''}, since {a.get('start')}, CTA {a.get('cta') or 'none'}] title: {a.get('title') or ''} | copy: {b}")
+        if b in seenb: continue
+        seenb.add(b)
+        F.append(f"- [{kind(a)}, since {a.get('start')}, CTA {a.get('cta') or 'none'}] title: {a.get('title') or ''} | copy: {b}")
+        if len(seenb) >= 8: break
 # google
 if gj.get('count') or cr:
     F.append(f"\nGOOGLE ADS: {gj.get('count') or len(cr)} creatives in Google Ads Transparency" + (f"; formats {', '.join(f'{v} {k.lower()}' for k, v in (g.get('formats') or {}).items())}" if g.get('formats') else ''))
@@ -203,7 +216,7 @@ def validate(sp):
     sl = sp.get('saw_lines') or []
     if len(sl) != 3: errs.append('saw_lines must have 3 items')
     for i, s in enumerate(sl):
-        w = words(s); cap = 25 if i == 2 else 20
+        w = words(s); cap = 34 if i == 2 else 24
         if w > cap: errs.append(f'saw_lines[{i}] has {w} words, max {cap}')
     if len(sl) > 1 and not sl[1].startswith('So '): errs.append('saw_lines[1] must start with "So "')
     a = sp.get('ads')
@@ -213,8 +226,9 @@ def validate(sp):
         if len(a.get('points') or []) != 4: errs.append('4 points required')
         for hd, tx in a.get('points') or []:
             if not 2 <= len(hd.split()) <= 6: errs.append(f'headline "{hd}" must be 3 to 5 words')
-            if words(tx) > 24: errs.append(f'point "{hd}" text has {words(tx)} words, max 22')
+            if not 24 <= words(tx) <= 46: errs.append(f'point "{hd}" text has {words(tx)} words, must be 28 to 42')
     blob = json.dumps(sp, ensure_ascii=False)
+    if re.search(r'(?i)sampled|scraped|fact sheet|ad library', blob): errs.append('never mention sampled, scraped, fact sheet or Ad Library in the copy')
     if re.search(r'<\s*/?\s*(b|strong)[\s>]', blob, re.I): errs.append('bold found, never use <b> or <strong>, plain text only')
     if re.search(r'[\u2013\u2014]| - ', html.unescape(blob)): errs.append('dash found, remove every dash')
     for num in set(re.findall(r'\d[\d,]*', html.unescape(blob))):
