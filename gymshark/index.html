@@ -109,27 +109,56 @@ p{margin:0}
 .st b{font:800 5cqw/1 var(--display);font-variant-numeric:tabular-nums}
 .st span{font:400 1.1cqw/1.35 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 
-/* work + testimonials: click plays the YouTube video in place */
-.cases{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;margin-top:2.4cqw}
-.case,.tm{display:flex;flex-direction:column;gap:.6cqw}
-.vid{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;cursor:pointer;background:var(--ink) center/cover;overflow:hidden}
-.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.play{position:absolute;left:1cqw;bottom:1cqw;width:3.4cqw;height:3.4cqw;border-radius:50%;background:var(--hi);box-shadow:0 .4cqw 1.2cqw rgba(0,0,0,.35);transition:transform .2s}
+/* work + testimonials: click a card, it grows into a big player while the others slide aside as dimmed strips */
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;margin-top:2.4cqw;transition:grid-template-columns .8s cubic-bezier(.2,.7,.2,1),margin .5s}
+.vgrid.open{margin-top:1.4cqw}
+.card{display:flex;flex-direction:column;gap:.6cqw;min-width:0}
+.vid{position:relative;display:block;width:100%;height:11.7cqw;border:0;padding:0;cursor:pointer;background:var(--ink) center/cover;overflow:hidden;transition:height .8s cubic-bezier(.2,.7,.2,1),width .8s cubic-bezier(.2,.7,.2,1),box-shadow .6s}
+.vid::before{content:"";position:absolute;inset:0;background:inherit;transition:filter .6s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.vid .lbl{position:absolute;top:1cqw;left:.9cqw;z-index:2;writing-mode:vertical-rl;color:#fff;font:800 1.5cqw/1 var(--display);text-transform:uppercase;letter-spacing:.04em;opacity:0;transition:opacity .4s}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1;animation:fadein .6s .4s both}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.play{position:absolute;left:1cqw;bottom:1cqw;z-index:2;width:3.4cqw;height:3.4cqw;border-radius:50%;background:var(--hi);box-shadow:0 .4cqw 1.2cqw rgba(0,0,0,.35);transition:transform .2s,width .5s,height .5s}
 .play::after{content:"";position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);border-style:solid;border-width:.6cqw 0 .6cqw 1cqw;border-color:transparent transparent transparent var(--ink)}
 .vid:hover .play,.vid:focus-visible .play{transform:scale(1.12)}
 .vid:focus-visible{outline:.2cqw solid var(--ink);outline-offset:.2cqw}
+.vid .x{position:absolute;top:.8cqw;right:.8cqw;z-index:3;width:2.6cqw;height:2.6cqw;border-radius:50%;background:var(--hi);color:var(--ink);font:700 1.9cqw/2.6cqw var(--body);text-align:center;display:none;box-shadow:0 .3cqw .9cqw rgba(0,0,0,.35)}
+.vid .x:hover{background:var(--ink);color:var(--hi)}
 .case .yr{font:500 .95cqw var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:.4cqw}
-.case h3{font:800 2cqw/1 var(--display);text-transform:uppercase;margin:0}
+.case h3,.tm h3{font:800 2cqw/1 var(--display);text-transform:uppercase;margin:0;transition:font-size .5s}
 .case .num{font:800 2.6cqw/1 var(--display);align-self:flex-start;background:var(--hi);padding:.1em .2em 0;margin-top:.3cqw}
 .case p{font-size:1.2cqw;line-height:1.4}
-.tms{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;margin-top:2.6cqw}
 .tm .q{font:800 1.9cqw/1.1 var(--display);text-transform:uppercase;margin-top:.6cqw}
 .tm .who{display:flex;flex-direction:column;gap:.15cqw}
 .tm .who b{font-size:1.15cqw}
 .tm .who span{font:400 .9cqw var(--mono);color:var(--muted)}
-.quote{margin-top:3cqw;padding-top:1.8cqw;border-top:.12cqw solid var(--line);font-size:1.5cqw;line-height:1.4}
+/* open state */
+.vgrid.open .vid{height:31cqw}
+.vgrid.open .card.on .vid{box-shadow:0 2cqw 5cqw rgba(19,20,16,.28);cursor:default}
+.vgrid.open .card.on .play{display:none}
+.vgrid.open .card.on .x{display:block}
+.vgrid.open .card:not(.on) .vid::before{filter:grayscale(1) blur(3px) brightness(.45);transform:scale(1.12)}
+.vgrid.open .card:not(.on) .vid:hover::before,.vgrid.open .card:not(.on) .vid:focus-visible::before{filter:grayscale(.3) blur(1px) brightness(.7)}
+.vgrid.open .card:not(.on) .lbl{opacity:1;transition-delay:.4s}
+.vgrid.open .card:not(.on) .vid::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(19,20,16,.5);transition:background .4s}
+.vgrid.open .card:not(.on) .vid:hover::after{background:rgba(19,20,16,.25)}
+.vgrid.open .card:not(.on) .play{width:2.4cqw;height:2.4cqw;left:.8cqw;bottom:.8cqw}
+.vgrid.open .card:not(.on) .play::after{border-width:.42cqw 0 .42cqw .7cqw}
+.vgrid.open .card:not(.on) :is(.yr,.num,p,.q,.who,h3){display:none}
+.vgrid.open .card.on{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:.6cqw 1.4cqw}
+.vgrid.open .card.on .vid{flex:0 0 100%}
+.vgrid.open .card.on>:not(.vid){animation:rise .5s .45s both}
+.vgrid.open .card.on .num{margin-top:0}
+.vgrid.open .case.on p:not(.num){flex:1;min-width:18cqw}
+.vgrid.open .tm.on .q{flex:1;min-width:26cqw;margin-top:0}
+.vgrid.open .tm.on.vert{display:grid;grid-template-columns:17.4cqw 1fr;grid-template-rows:auto auto;align-content:center;column-gap:2.6cqw;row-gap:1cqw}
+.vgrid.open .tm.on.vert .vid{grid-row:1/3;width:17.4cqw}
+.vgrid.open .tm.on.vert .q{font-size:3cqw;min-width:0;align-self:end}
+.vgrid.open .tm.on.vert .who{align-self:start}
+.quote{margin-top:3cqw;padding-top:1.8cqw;border-top:.12cqw solid var(--line);font-size:1.5cqw;line-height:1.4;max-height:12cqw;overflow:hidden;transition:max-height .6s,margin .6s,padding .6s,opacity .4s}
 .quote small{display:block;font:400 1cqw var(--mono);color:var(--muted);margin-top:.5cqw}
-.marquee{margin-top:2.6cqw;overflow:hidden;border-top:.12cqw solid var(--line);padding-top:1.6cqw;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee{margin-top:2.6cqw;overflow:hidden;border-top:.12cqw solid var(--line);padding-top:1.6cqw;max-height:12cqw;transition:max-height .6s,margin .6s,padding .6s,opacity .4s;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.vgrid.open~.marquee,.vgrid.open~.quote{max-height:0;margin-top:0;padding-top:0;border-top-width:0;opacity:0}
 .track{display:flex;gap:4cqw;width:max-content;animation:roll 40s linear infinite}
 .track img{height:3cqw;width:auto;display:block}
 @keyframes roll{to{transform:translateX(-50%)}}
@@ -215,14 +244,14 @@ h2 .mark{background:linear-gradient(var(--hi),var(--hi)) 0 50%/100% .9em no-repe
 
 <section aria-label="Some of our work"><div class="s">
   <h2 class="in">Work that <span class="mark">moved numbers</span></h2>
-  <div class="cases in"><div class="case"><button class="vid" data-yt="gTPsKRjMxR4" style="background-image:url(../assets/work/lokation.jpg)" aria-label="Play LoKation video"><span class="play"></span></button><span class="yr">2026 · Real estate</span><h3>LoKation</h3><p class="num">1,039</p><p>agents recruited across 6 markets in 180 days</p></div><div class="case"><button class="vid" data-yt="Gn2myuEDP0Y" style="background-image:url(../assets/work/essi.jpg)" aria-label="Play ESSI video"><span class="play"></span></button><span class="yr">2026 · Medical clinic</span><h3>ESSI</h3><p class="num">$150 → $38</p><p>cost per lead in four months, surgical capacity full</p></div><div class="case"><button class="vid" data-yt="F6_V04qGMeY" style="background-image:url(../assets/work/optionsplaybook.jpg)" aria-label="Play Options Playbook video"><span class="play"></span></button><span class="yr">2026 · Education</span><h3>Options Playbook</h3><p class="num">+1,400%</p><p>book sales, with 95% of organic traffic kept through the SEO migration</p></div><div class="case"><button class="vid" data-yt="ERCAXsdbWKE" style="background-image:url(../assets/work/whippedvelvet.jpg)" aria-label="Play Whipped Velvet video"><span class="play"></span></button><span class="yr">2026 · Skincare</span><h3>Whipped Velvet</h3><p class="num">Full brand</p><p>identity, packaging and a Shopify store built to convert</p></div></div>
+  <div class="cases vgrid in"><div class="case card"><button class="vid" data-yt="gTPsKRjMxR4" style="background-image:url(../assets/work/lokation.jpg)" aria-label="Play LoKation video"><span class="lbl">LoKation</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Real estate</span><h3>LoKation</h3><p class="num">1,039</p><p>agents recruited across 6 markets in 180 days</p></div><div class="case card"><button class="vid" data-yt="Gn2myuEDP0Y" style="background-image:url(../assets/work/essi.jpg)" aria-label="Play ESSI video"><span class="lbl">ESSI</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Medical clinic</span><h3>ESSI</h3><p class="num">$150 → $38</p><p>cost per lead in four months, surgical capacity full</p></div><div class="case card"><button class="vid" data-yt="F6_V04qGMeY" style="background-image:url(../assets/work/optionsplaybook.jpg)" aria-label="Play Options Playbook video"><span class="lbl">Options Playbook</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Education</span><h3>Options Playbook</h3><p class="num">+1,400%</p><p>book sales, with 95% of organic traffic kept through the SEO migration</p></div><div class="case card"><button class="vid" data-yt="ERCAXsdbWKE" style="background-image:url(../assets/work/whippedvelvet.jpg)" aria-label="Play Whipped Velvet video"><span class="lbl">Whipped Velvet</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Skincare</span><h3>Whipped Velvet</h3><p class="num">Full brand</p><p>identity, packaging and a Shopify store built to convert</p></div></div>
   <div class="marquee in" aria-label="Clients"><div class="track"><img src="../assets/logos/l1.svg" alt=""><img src="../assets/logos/l2.svg" alt=""><img src="../assets/logos/l4.svg" alt=""><img src="../assets/logos/l5.svg" alt=""><img src="../assets/logos/l6.svg" alt=""><img src="../assets/logos/l7.svg" alt=""><img src="../assets/logos/l8.svg" alt=""><img src="../assets/logos/l9.svg" alt=""><img src="../assets/logos/l10.svg" alt=""><img src="../assets/logos/l1.svg" alt=""><img src="../assets/logos/l2.svg" alt=""><img src="../assets/logos/l4.svg" alt=""><img src="../assets/logos/l5.svg" alt=""><img src="../assets/logos/l6.svg" alt=""><img src="../assets/logos/l7.svg" alt=""><img src="../assets/logos/l8.svg" alt=""><img src="../assets/logos/l9.svg" alt=""><img src="../assets/logos/l10.svg" alt=""></div></div>
 </div></section>
 
 <section aria-label="What clients say"><div class="s">
   <div class="eyebrow in">What clients say</div>
   <h2 class="in">Hear it from <span class="mark">them</span></h2>
-  <div class="tms in"><div class="tm"><button class="vid" data-yt="y3dsJ-2xVGE" style="background-image:url(../assets/work/t_antonia.jpg)" aria-label="Play Antonia video"><span class="play"></span></button><p class="q">“Incredibly responsive, knowledgeable.”</p><p class="who"><b>Antonia</b><span>Marketing Director, ESSI</span></p></div><div class="tm"><button class="vid" data-yt="31Cl9aB3HyA" style="background-image:url(../assets/work/t_fridrik.jpg)" aria-label="Play Friðrik Larsen video"><span class="play"></span></button><p class="q">“They always do more than you expect.”</p><p class="who"><b>Friðrik Larsen</b><span>Founder, Brandr</span></p></div><div class="tm"><button class="vid" data-yt="VC5S49ADlZY" style="background-image:url(../assets/work/t_matt.jpg)" aria-label="Play Matt Van Itallie video"><span class="play"></span></button><p class="q">“A 10 out of 10 for ease of collaboration.”</p><p class="who"><b>Matt Van Itallie</b><span>CEO, Sema</span></p></div><div class="tm"><button class="vid" data-yt="S_RW0IcMt44" style="background-image:url(../assets/work/t_christos.jpg)" aria-label="Play Christos video"><span class="play"></span></button><p class="q">“Working with Craze for over 4 years. Nailed it on the first try.”</p><p class="who"><b>Christos</b><span>CMO, ARB TG</span></p></div></div>
+  <div class="tms vgrid in"><div class="tm card vert"><button class="vid" data-yt="y3dsJ-2xVGE" style="background-image:url(../assets/work/t_antonia.jpg)" aria-label="Play Antonia video"><span class="play"></span><span class="x" aria-hidden="true">×</span></button><p class="q">“Incredibly responsive, knowledgeable.”</p><p class="who"><b>Antonia</b><span>Marketing Director, ESSI</span></p></div><div class="tm card vert"><button class="vid" data-yt="31Cl9aB3HyA" style="background-image:url(../assets/work/t_fridrik.jpg)" aria-label="Play Friðrik Larsen video"><span class="lbl">Friðrik Larsen</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><p class="q">“They always do more than you expect.”</p><p class="who"><b>Friðrik Larsen</b><span>Founder, Brandr</span></p></div><div class="tm card"><button class="vid" data-yt="VC5S49ADlZY" style="background-image:url(../assets/work/t_matt.jpg)" aria-label="Play Matt Van Itallie video"><span class="lbl">Matt Van Itallie</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><p class="q">“A 10 out of 10 for ease of collaboration.”</p><p class="who"><b>Matt Van Itallie</b><span>CEO, Sema</span></p></div><div class="tm card"><button class="vid" data-yt="S_RW0IcMt44" style="background-image:url(../assets/work/t_christos.jpg)" aria-label="Play Christos video"><span class="lbl">Christos</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><p class="q">“Working with Craze for over 4 years. Nailed it on the first try.”</p><p class="who"><b>Christos</b><span>CMO, ARB TG</span></p></div></div>
   <p class="quote in">“We started with a small project two years ago, and it quickly expanded into a full retainer across brand building, design, and marketing.”<small>Friðrik Larsen, Founder, Brandr</small></p>
 </div></section>
 
@@ -239,9 +268,22 @@ h2 .mark{background:linear-gradient(var(--hi),var(--hi)) 0 50%/100% .9em no-repe
 </section></div></div>
 <script src="../vendor/reveal.js"></script><script>Reveal.initialize({width:1280,height:720,margin:0,hash:true,controls:true,controlsTutorial:true,progress:true,transition:"slide",center:false,scrollActivationWidth:null});</script>
 <script>
-document.addEventListener('click',e=>{const v=e.target.closest('.vid');if(!v||v.querySelector('iframe'))return;
-v.insertAdjacentHTML('beforeend','<iframe src="https://www.youtube.com/embed/'+v.dataset.yt+'?autoplay=1&rel=0&playsinline=1&origin='+encodeURIComponent(location.origin)+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" title="Video"></iframe>');});
-Reveal.on('slidechanged',()=>document.querySelectorAll('.vid iframe').forEach(f=>f.remove()));
+/* expanding video cards: the clicked card grows to 5 of 8 columns and plays, the others slide aside; X / Esc / slide change closes */
+(()=>{
+const EMBED=id=>'<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1&origin='+encodeURIComponent(location.origin)+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" title="Video"></iframe>';
+const stop=g=>{g.querySelectorAll('.on').forEach(c=>c.classList.remove('on'));g.querySelectorAll('iframe').forEach(f=>f.remove());};
+const closeAll=()=>document.querySelectorAll('.vgrid.open').forEach(g=>{stop(g);g.classList.remove('open');g.style.gridTemplateColumns='';});
+document.addEventListener('click',e=>{
+  if(e.target.closest('.x')){e.preventDefault();closeAll();return;}
+  const v=e.target.closest('.vid');if(!v)return;e.preventDefault();
+  const card=v.closest('.card'),grid=card.parentElement;if(card.classList.contains('on'))return;
+  stop(grid);const cards=[...grid.children],i=cards.indexOf(card);
+  grid.style.gridTemplateColumns=cards.map((c,j)=>j===i?'5fr':'1fr').join(' ');
+  grid.classList.add('open');card.classList.add('on');v.insertAdjacentHTML('beforeend',EMBED(v.dataset.yt));
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('.vgrid.open')){e.stopImmediatePropagation();e.preventDefault();closeAll();}},true);
+Reveal.on('slidechanged',closeAll);
+})();
 </script>
 </body>
 </html>
