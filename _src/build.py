@@ -13,8 +13,17 @@ def logo_tag(f, company):
         vb = re.search(r'viewBox="([^"]+)"', open(p, encoding='utf-8').read()).group(1).replace(',', ' ').split()
         w, h = float(vb[2]), float(vb[3])
     else:
-        from PIL import Image
-        w, h = Image.open(p).size
+        from PIL import Image, ImageChops
+        im = Image.open(p).convert('RGBA')
+        # trim empty margins (transparent or white) so padding inside the file can't shrink or offset the logo
+        a = im.getchannel('A').point(lambda v: 255 if v > 8 else 0)
+        ink = ImageChops.multiply(a, im.convert('L').point(lambda v: 255 if v < 245 else 0))
+        bb = ink.getbbox() or a.getbbox()
+        if bb and bb != (0, 0) + im.size: im = im.crop(bb); im.save(p); print('trimmed', f)
+        # a white logo disappears on the white slide
+        px = [l for l, al in zip(im.convert('L').tobytes(), im.getchannel('A').tobytes()) if al > 128]
+        if px and sum(px) / len(px) > 200: sys.exit(f"{f}: logo is light/white, use the dark version")
+        w, h = im.size
     r = w / h
     lh = min(.8, (1.5 / r) ** .5)
     if lh * r > 3.6: lh = 3.6 / r
