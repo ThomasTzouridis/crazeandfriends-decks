@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Gymshark × craze&amp;friends</title>
 <link rel="icon" href="../assets/cf-mark.svg">
 <link rel="stylesheet" href="../vendor/reset.css"><link rel="stylesheet" href="../vendor/reveal.css">
@@ -23,6 +24,8 @@ html,body{height:100%;margin:0;background:var(--stage);color:var(--ink);font-fam
 .reveal{font-family:var(--body);color:var(--ink)}
 .reveal .slides section{width:1280px;height:720px;padding:0;text-align:left;background:var(--paper);container-type:inline-size}
 .s{position:absolute;inset:0;background:var(--paper);overflow:hidden;padding:5.5cqw 6cqw;display:flex;flex-direction:column;justify-content:center;width:1280px;height:720px}
+/* slides without an eyebrow: headline sits where the eyebrow used to be */
+.s.up{padding-bottom:8.2cqw}
 section.present .in{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
 section.present .in:nth-child(2){animation-delay:.08s}section.present .in:nth-child(3){animation-delay:.16s}section.present .in:nth-child(4){animation-delay:.24s}section.present .in:nth-child(5){animation-delay:.32s}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -161,7 +164,7 @@ h2 .mark{background:linear-gradient(var(--hi),var(--hi)) 0 50%/100% .9em no-repe
   <div class="strip" aria-hidden="true"><img src="../assets/team/t1.jpg" alt=""><img src="../assets/team/t2.jpg" alt=""><img src="../assets/team/t3.jpg" alt=""><img src="../assets/team/t6.jpg" alt=""><img src="../assets/team/t8.jpg" alt=""><img src="../assets/team/t5.jpg" alt=""></div>
 </div></section>
 
-<section aria-label="What we saw"><div class="s">
+<section aria-label="What we saw"><div class="s up">
   <h2 class="in">What we saw at <span class="mark">Gymshark</span></h2>
   <div class="saw in">
     <div class="lines"><p>Workout clothes for lifters, runners and rest days, designed in house since 2012.</p><p><q>A new era of lifting sets.</q> New drops lead the homepage, for women and men.</p><p class="turn">Seven channels from Discord to TikTok, plus the app and Gymshark Central, and every drop has to land on all of them.</p></div>
@@ -211,7 +214,6 @@ h2 .mark{background:linear-gradient(var(--hi),var(--hi)) 0 50%/100% .9em no-repe
 </div></section>
 
 <section aria-label="Some of our work"><div class="s">
-  <div class="eyebrow in">Some of our work</div>
   <h2 class="in">Work that <span class="mark">moved numbers</span></h2>
   <div class="cases in"><div class="case"><button class="vid" data-yt="gTPsKRjMxR4" style="background-image:url(../assets/work/lokation.jpg)" aria-label="Play LoKation video"><span class="play"></span></button><span class="yr">2026 · Real estate</span><h3>LoKation</h3><p class="num">1,039</p><p>agents recruited across 6 markets in 180 days</p></div><div class="case"><button class="vid" data-yt="Gn2myuEDP0Y" style="background-image:url(../assets/work/essi.jpg)" aria-label="Play ESSI video"><span class="play"></span></button><span class="yr">2026 · Medical clinic</span><h3>ESSI</h3><p class="num">$150 → $38</p><p>cost per lead in four months, surgical capacity full</p></div><div class="case"><button class="vid" data-yt="F6_V04qGMeY" style="background-image:url(../assets/work/optionsplaybook.jpg)" aria-label="Play Options Playbook video"><span class="play"></span></button><span class="yr">2026 · Education</span><h3>Options Playbook</h3><p class="num">+1,400%</p><p>book sales, with 95% of organic traffic kept through the SEO migration</p></div><div class="case"><button class="vid" data-yt="ERCAXsdbWKE" style="background-image:url(../assets/work/whippedvelvet.jpg)" aria-label="Play Whipped Velvet video"><span class="play"></span></button><span class="yr">2026 · Skincare</span><h3>Whipped Velvet</h3><p class="num">Full brand</p><p>identity, packaging and a Shopify store built to convert</p></div></div>
   <div class="marquee in" aria-label="Clients"><div class="track"><img src="../assets/logos/l1.svg" alt=""><img src="../assets/logos/l2.svg" alt=""><img src="../assets/logos/l4.svg" alt=""><img src="../assets/logos/l5.svg" alt=""><img src="../assets/logos/l6.svg" alt=""><img src="../assets/logos/l7.svg" alt=""><img src="../assets/logos/l8.svg" alt=""><img src="../assets/logos/l9.svg" alt=""><img src="../assets/logos/l10.svg" alt=""><img src="../assets/logos/l1.svg" alt=""><img src="../assets/logos/l2.svg" alt=""><img src="../assets/logos/l4.svg" alt=""><img src="../assets/logos/l5.svg" alt=""><img src="../assets/logos/l6.svg" alt=""><img src="../assets/logos/l7.svg" alt=""><img src="../assets/logos/l8.svg" alt=""><img src="../assets/logos/l9.svg" alt=""><img src="../assets/logos/l10.svg" alt=""></div></div>
@@ -238,7 +240,7 @@ h2 .mark{background:linear-gradient(var(--hi),var(--hi)) 0 50%/100% .9em no-repe
 <script src="../vendor/reveal.js"></script><script>Reveal.initialize({width:1280,height:720,margin:0,hash:true,controls:true,controlsTutorial:true,progress:true,transition:"slide",center:false,scrollActivationWidth:null});</script>
 <script>
 document.addEventListener('click',e=>{const v=e.target.closest('.vid');if(!v||v.querySelector('iframe'))return;
-v.insertAdjacentHTML('beforeend','<iframe src="https://www.youtube-nocookie.com/embed/'+v.dataset.yt+'?autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" title="Video"></iframe>');});
+v.insertAdjacentHTML('beforeend','<iframe src="https://www.youtube.com/embed/'+v.dataset.yt+'?autoplay=1&rel=0&playsinline=1&origin='+encodeURIComponent(location.origin)+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" title="Video"></iframe>');});
 Reveal.on('slidechanged',()=>document.querySelectorAll('.vid iframe').forEach(f=>f.remove()));
 </script>
 </body>

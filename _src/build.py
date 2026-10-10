@@ -45,7 +45,7 @@ for path in sys.argv[1:]:
         pts = ''.join(f'<div class="pt"><b>{h}</b><p>{p}</p></div>' for h,p in a['points'])
         imgs = ''.join(f'<img src="../assets/ads/{x}" alt="Current ad">' for x in a['images'])
         sts = ''.join(f'<div><b>{n}</b><span>{l}</span></div>' for n,l in a['stats'])
-        ads = (f'<section aria-label="Your ads"><div class="s"><div class="eyebrow in">What we saw in your ads</div>'
+        ads = (f'<section aria-label="Your ads"><div class="s up">'
                f'<h2 class="in">Where your ads could <span class="mark">work harder</span></h2>'
                f'<div class="adsgrid in"><div class="pts">{pts}</div><div><div class="adimgs">{imgs}</div><div class="adstats">{sts}</div>'
                f'<p class="adsrc">Source: {e(a["source"])}</p></div></div></div></section>')
