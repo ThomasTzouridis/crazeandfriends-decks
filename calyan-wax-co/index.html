@@ -8,7 +8,7 @@
 <title>Calyan Wax Co. × craze&amp;friends</title>
 <link rel="icon" href="../assets/cf-mark.svg">
 <link rel="stylesheet" href="../vendor/reset.css"><link rel="stylesheet" href="../vendor/reveal.css" id="rv">
-<script>/* phones: one scrolling page instead of a shrunken 1280x720 stage */if(matchMedia("(max-width:700px)").matches){document.documentElement.classList.add("ph");document.getElementById("rv").disabled=true}</script>
+<script>/* phones: one scrolling page instead of a shrunken 1280x720 stage */if(matchMedia("(max-width:700px)").matches){document.documentElement.classList.add("cfphone");document.getElementById("rv").disabled=true}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Chivo:wght@400;500;700&family=Chivo+Mono:wght@400;500&display=swap">
@@ -183,104 +183,118 @@ h2 .mark{background:linear-gradient(var(--hi),var(--hi)) 0 50%/100% .9em no-repe
 .talk .r b{font:800 1.9cqw/1 var(--display);text-transform:uppercase}
 .talk .r span{font:400 1cqw var(--mono);color:var(--muted)}
 
-/* ===== phone layout (html.ph, set in head for screens up to 700px): every slide becomes a full width block, text at reading size ===== */
-html.ph,html.ph body{background:var(--paper);height:auto;overflow:auto;-webkit-text-size-adjust:100%}
-html.ph .reveal,html.ph .slides{position:static;width:auto;height:auto}
-html.ph .reveal .slides section{width:auto;height:auto;padding:0;container-type:normal;display:block}
-html.ph .s{position:static;width:auto;height:auto;padding:36px 20px 40px;display:block;overflow:visible;border-bottom:1px solid var(--line)}
-html.ph .in{animation:none!important}
-html.ph .eyebrow{font-size:11px;letter-spacing:.14em}
-html.ph h2{font-size:38px;margin-top:10px}
-html.ph h2 .mark{background-size:100% .85em}
+/* ===== phone deck (html.cfphone, set in head for screens up to 700px): one slide per screen, swipe or the bar at the bottom to move ===== */
+html.cfphone,html.cfphone body{background:var(--paper);height:100%;overflow:hidden;-webkit-text-size-adjust:100%}
+html.cfphone .reveal{position:static;width:auto;height:auto}
+html.cfphone .slides{position:static;width:auto;height:calc(100dvh - 56px);overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior:contain;scroll-behavior:smooth}
+html.cfphone .slides>section{display:block;width:auto;height:auto;padding:0;container-type:normal}
+html.cfphone .slides>section>section{display:block;width:auto;height:calc(100dvh - 56px);padding:0;container-type:normal;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden}
+html.cfphone .s{position:static;width:auto;height:100%;padding:22px 18px 18px;display:flex;flex-direction:column;justify-content:flex-start;overflow-y:auto;overscroll-behavior:contain}
+html.cfphone .in{animation:none!important}
+html.cfphone .s>*{min-width:0;max-width:100%}
+html.cfphone img,html.cfphone video{max-width:100%}
+html.cfphone .eyebrow{font-size:10px;letter-spacing:.14em}
+html.cfphone h2{font-size:30px;margin-top:6px}
+html.cfphone h2 .mark{background-size:100% .85em}
+/* bottom bar */
+.pnav{display:none}
+html.cfphone .pnav{position:fixed;left:0;right:0;bottom:0;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 10px env(safe-area-inset-bottom,0);background:var(--ink);color:var(--paper);z-index:50}
+html.cfphone .pb{width:64px;height:44px;border:0;border-radius:4px;background:var(--hi);color:var(--ink);font:700 26px/44px var(--body);cursor:pointer}
+html.cfphone .pb[disabled]{opacity:.25}
+html.cfphone .pc{font:500 13px var(--mono);letter-spacing:.08em;display:flex;align-items:center;gap:6px}
+html.cfphone .pc b{font:800 22px/1 var(--display);color:var(--hi)}
+html.cfphone .pd{display:flex;gap:5px;margin-left:10px}
+html.cfphone .pd i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3)}
+html.cfphone .pd i.on{background:var(--hi)}
 /* cover */
-html.ph .cover{padding-right:20px;padding-top:40px}
-html.ph .cover .pair{flex-wrap:wrap;gap:14px 18px;font-size:48px;margin-top:14px}
-html.ph .cover .sub{font-size:19px;max-width:none;margin-top:22px}
-html.ph .cover .prep{font-size:12px;margin-top:12px}
-html.ph .cover .strip{position:static;width:auto;grid-template-rows:auto;gap:6px;margin-top:28px}
-html.ph .cover .strip img{aspect-ratio:4/5;height:auto}
+html.cfphone .cover{padding-right:18px;padding-top:30px;justify-content:center}
+html.cfphone .cover .pair{flex-wrap:wrap;gap:10px 16px;font-size:44px;margin-top:10px}
+html.cfphone .cover .sub{font-size:17px;max-width:none;margin-top:18px}
+html.cfphone .cover .prep{font-size:11px;margin-top:10px}
+html.cfphone .cover .strip{position:static;width:auto;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto;gap:5px;margin-top:22px}
+html.cfphone .cover .strip img{aspect-ratio:4/5;height:auto}
 /* what we saw */
-html.ph .saw{grid-template-columns:1fr;gap:22px;margin-top:22px}
-html.ph .saw .lines{font-size:17px;gap:14px}
-html.ph .saw .lines .turn{border-left-width:4px;padding-left:14px}
-html.ph .shot img{border-width:1px;box-shadow:0 10px 26px rgba(19,20,16,.16)}
-html.ph .shot figcaption{font-size:11px}
+html.cfphone .saw{grid-template-columns:1fr;gap:16px;margin-top:14px}
+html.cfphone .saw .lines{font-size:15px;gap:10px;line-height:1.4}
+html.cfphone .saw .lines .turn{border-left-width:3px;padding-left:12px}
+html.cfphone .shot img{border-width:1px;box-shadow:0 8px 20px rgba(19,20,16,.14)}
+html.cfphone .shot figcaption{font-size:10px}
 /* ads */
-html.ph .adsgrid{grid-template-columns:1fr;gap:24px;margin-top:22px}
-html.ph .pts{grid-template-columns:1fr;gap:18px}
-html.ph .pt{border-top-width:3px;padding-top:10px;gap:6px}
-html.ph .pt b{font-size:24px}
-html.ph .pt p{font-size:15px}
-html.ph .adimgs{gap:6px}
-html.ph .adimgs img{height:auto;aspect-ratio:3/4;border-width:1px}
-html.ph .adstats{gap:14px 16px;margin-top:16px}
-html.ph .adstats div{gap:10px}
-html.ph .adstats b{font-size:30px}
-html.ph .adstats span{font-size:10px}
-html.ph .adsrc{font-size:10px;margin-top:14px}
+html.cfphone .adsgrid{grid-template-columns:1fr;gap:14px;margin-top:12px}
+html.cfphone .pts{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px}
+html.cfphone .pt{border-top-width:2px;padding-top:7px;gap:4px}
+html.cfphone .pt b{font-size:15px}
+html.cfphone .pt p{font-size:12px;line-height:1.35}
+html.cfphone .adimgs{gap:5px;grid-template-columns:repeat(3,minmax(0,1fr))}
+html.cfphone .adimgs img{height:118px;border-width:1px}
+html.cfphone .adstats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px;margin-top:10px}
+html.cfphone .adstats div{gap:8px}
+html.cfphone .adstats b{font-size:24px}
+html.cfphone .adstats span{font-size:9px}
+html.cfphone .adsrc{font-size:9px;margin-top:8px}
 /* help */
-html.ph .cols{grid-template-columns:1fr;gap:28px;margin-top:26px}
-html.ph .col{border-top-width:3px;padding-top:14px;gap:8px}
-html.ph .col .lab{font-size:11px}
-html.ph .col h3{font-size:30px}
-html.ph .col ul{gap:12px;margin-top:10px}
-html.ph .col li{font-size:16px;padding-left:24px}
-html.ph .col li::before{width:9px;height:9px;outline-width:1.5px;top:.45em}
-html.ph .bottomline{font-size:15px;margin-top:26px;padding-top:14px;border-top-width:1px}
-/* who we are */
-html.ph .two{grid-template-columns:1fr;gap:24px;margin-top:20px}
-html.ph .who .lines{font-size:16px;gap:12px}
-html.ph .grid10{grid-template-columns:repeat(2,1fr);gap:14px 12px}
-html.ph .p figcaption{margin-top:7px;gap:2px}
-html.ph .p b{font-size:15px}
-html.ph .p span{font-size:11px}
+html.cfphone .cols{grid-template-columns:1fr;gap:16px;margin-top:14px}
+html.cfphone .col{border-top-width:2px;padding-top:8px;gap:4px}
+html.cfphone .col .lab{font-size:10px}
+html.cfphone .col h3{font-size:22px}
+html.cfphone .col ul{gap:6px;margin-top:6px}
+html.cfphone .col li{font-size:14px;padding-left:18px;line-height:1.3}
+html.cfphone .col li::before{width:7px;height:7px;outline-width:1.5px;top:.4em}
+html.cfphone .bottomline{font-size:13px;margin-top:14px;padding-top:10px;border-top-width:1px}
+/* who we are: five across, names only */
+html.cfphone .two{grid-template-columns:1fr;gap:16px;margin-top:12px}
+html.cfphone .who .lines{font-size:15px;gap:8px;line-height:1.4}
+html.cfphone .grid10{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px 6px}
+html.cfphone .p figcaption{margin-top:4px;gap:0}
+html.cfphone .p b{font-size:10px;line-height:1.2}
+html.cfphone .p span{display:none}
 /* models */
-html.ph .models{grid-template-columns:1fr;gap:12px;margin-top:22px}
-html.ph .m{padding:20px 20px 24px;gap:8px}
-html.ph .m .lab{font-size:10px}
-html.ph .m h3{font-size:30px}
-html.ph .m p{font-size:15px}
-html.ph .stats{grid-template-columns:1fr;gap:16px;margin-top:26px;padding-top:20px;border-top-width:1px}
-html.ph .st{gap:14px}
-html.ph .st b{font-size:44px}
-html.ph .st span{font-size:11px}
-/* work: cards stacked, tap plays full width in place */
-html.ph .s.top{padding-top:36px}
-html.ph .vgrid{grid-template-columns:1fr!important;gap:26px;margin-top:22px}
-html.ph .card{gap:8px}
-html.ph .vid{height:auto!important;width:100%!important;aspect-ratio:16/9;flex:none;box-shadow:none!important;transition:none}
-html.ph .vgrid,html.ph .play{transition:none}
-html.ph .vid::before{filter:none!important;transform:none!important}
-html.ph .vid::after,html.ph .vid .lbl{display:none!important}
-html.ph .play{width:52px;height:52px;left:14px;bottom:14px;box-shadow:0 4px 14px rgba(0,0,0,.35)}
-html.ph .play::after{border-width:9px 0 9px 15px}
-html.ph .vgrid.open .card:not(.on) .play{width:52px;height:52px;left:14px;bottom:14px}
-html.ph .vgrid.open .card:not(.on) .play::after{border-width:9px 0 9px 15px}
-html.ph .vgrid.open .card:not(.on) :is(.yr,.num,p,h3){display:block}
-html.ph .vgrid.open .card.on{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:8px}
-html.ph .vgrid.open .card.on .vid,html.ph .vgrid.open .case.on p:not(.num){flex:none;min-width:0}
-html.ph .vgrid.open .card.on>:not(.vid){animation:none}
-html.ph .vid .x{width:38px;height:38px;top:10px;right:10px;font-size:26px;line-height:38px}
-html.ph .case .yr{font-size:11px;margin-top:4px}
-html.ph .case h3{font-size:26px}
-html.ph .case .num{font-size:32px;margin-top:4px}
-html.ph .case p{font-size:15px}
-html.ph .vgrid.open .case.on .num{margin-top:4px}
-html.ph .marquee{margin-top:28px;padding-top:16px;border-top-width:1px;max-height:none}
-html.ph .vgrid.open~.marquee{max-height:none;opacity:1;margin-top:28px;padding-top:16px;border-top-width:1px}
-html.ph .track{gap:36px}
-html.ph .track img{height:26px}
+html.cfphone .models{grid-template-columns:1fr;gap:8px;margin-top:14px}
+html.cfphone .m{padding:12px 14px 14px;gap:3px}
+html.cfphone .m .lab{font-size:9px}
+html.cfphone .m h3{font-size:24px}
+html.cfphone .m p{font-size:13px;line-height:1.35}
+html.cfphone .stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px;padding-top:14px;border-top-width:1px}
+html.cfphone .st{flex-direction:column;align-items:flex-start;gap:4px}
+html.cfphone .st b{font-size:30px}
+html.cfphone .st span{font-size:9px}
+/* work: 2 x 2, the tapped card goes full width and plays */
+html.cfphone .s.top{padding-top:22px}
+html.cfphone .vgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px 12px;margin-top:14px}
+html.cfphone .card{gap:4px}
+html.cfphone .vid{height:auto!important;width:100%!important;aspect-ratio:16/9;flex:none;box-shadow:none!important;transition:none}
+html.cfphone .vgrid,html.cfphone .play{transition:none}
+html.cfphone .vid::before{filter:none!important;transform:none!important}
+html.cfphone .vid::after,html.cfphone .vid .lbl{display:none!important}
+html.cfphone .play{width:34px;height:34px;left:8px;bottom:8px;box-shadow:0 3px 10px rgba(0,0,0,.35)}
+html.cfphone .play::after{border-width:6px 0 6px 10px}
+html.cfphone .vgrid.open .card:not(.on) .play{width:34px;height:34px;left:8px;bottom:8px}
+html.cfphone .vgrid.open .card:not(.on) .play::after{border-width:6px 0 6px 10px}
+html.cfphone .vgrid.open .card:not(.on) :is(.yr,.num,p,h3){display:block}
+html.cfphone .vgrid.open .card.on{grid-column:1/-1;order:-1;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:6px}
+html.cfphone .vgrid.open .card.on .vid,html.cfphone .vgrid.open .case.on p:not(.num){flex:none;min-width:0}
+html.cfphone .vgrid.open .card.on>:not(.vid){animation:none}
+html.cfphone .vid .x{width:34px;height:34px;top:8px;right:8px;font-size:24px;line-height:34px}
+html.cfphone .case .yr{font-size:9px;margin-top:2px}
+html.cfphone .case h3{font-size:17px}
+html.cfphone .case .num{font-size:20px;margin-top:2px}
+html.cfphone .case p{font-size:12px;line-height:1.3}
+html.cfphone .vgrid.open .case.on .num{margin-top:2px}
+html.cfphone .marquee{margin-top:auto;padding-top:12px;border-top-width:1px;max-height:none}
+html.cfphone .vgrid.open~.marquee{max-height:none;opacity:1;margin-top:16px;padding-top:12px;border-top-width:1px}
+html.cfphone .track{gap:30px}
+html.cfphone .track img{height:22px}
 /* talk */
-html.ph .talk{grid-template-columns:1fr;padding:0;border-bottom:0}
-html.ph .talk .l{padding:36px 20px 32px;gap:22px}
-html.ph .talk h2{font-size:38px;margin-top:0}
-html.ph .btn{font-size:17px;padding:15px 24px;gap:10px}
-html.ph .talk .pair{flex-wrap:wrap;gap:12px 14px;font-size:34px}
-html.ph .contact{font-size:12px;line-height:1.8}
-html.ph .talk .r{height:420px;background-position:50% 12%}
-html.ph .talk .r figcaption{left:16px;bottom:16px;padding:10px 14px;gap:3px}
-html.ph .talk .r b{font-size:18px}
-html.ph .talk .r span{font-size:11px}
+html.cfphone .talk{display:grid;grid-template-columns:1fr;grid-template-rows:auto 1fr;padding:0;overflow:hidden}
+html.cfphone .talk .l{padding:22px 18px 16px;gap:12px}
+html.cfphone .talk h2{font-size:28px;margin-top:0}
+html.cfphone .btn{font-size:16px;padding:13px 22px;gap:8px}
+html.cfphone .talk .pair{flex-wrap:wrap;gap:8px 12px;font-size:30px}
+html.cfphone .contact{font-size:11px;line-height:1.7}
+html.cfphone .talk .r{min-height:230px;background-position:50% 28%}
+html.cfphone .talk .r figcaption{left:14px;bottom:14px;padding:8px 12px;gap:2px}
+html.cfphone .talk .r b{font-size:16px}
+html.cfphone .talk .r span{font-size:10px}
 </style>
 </head>
 <body>
@@ -360,7 +374,8 @@ html.ph .talk .r span{font-size:11px}
 </div></section>
 
 </section></div></div>
-<script src="../vendor/reveal.js"></script><script>if(!document.documentElement.classList.contains("ph"))Reveal.initialize({width:1280,height:720,margin:0,hash:true,controls:true,controlsTutorial:true,progress:true,transition:"slide",center:false,scrollActivationWidth:null});</script>
+<nav class="pnav" aria-label="Slides"><button class="pb" data-d="-1" aria-label="Previous slide">&#8249;</button><span class="pc"><b>1</b>/ <span class="pnt">8</span><span class="pd"></span></span><button class="pb" data-d="1" aria-label="Next slide">&#8250;</button></nav>
+<script src="../vendor/reveal.js"></script><script>if(!document.documentElement.classList.contains("cfphone"))Reveal.initialize({width:1280,height:720,margin:0,hash:true,controls:true,controlsTutorial:true,progress:true,transition:"slide",center:false,scrollActivationWidth:null});</script>
 <script>
 /* expanding video cards: the clicked card grows to 5 of 8 columns and plays its self-hosted mp4, the others slide aside; X / Esc / slide change closes */
 (()=>{
@@ -376,8 +391,19 @@ document.addEventListener('click',e=>{
   grid.classList.add('open');card.classList.add('on');v.insertAdjacentHTML('beforeend',EMBED(v.dataset.v));
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('.vgrid.open')){e.stopImmediatePropagation();e.preventDefault();closeAll();}},true);
-if(!document.documentElement.classList.contains("ph"))Reveal.on('slidechanged',closeAll);
+if(!document.documentElement.classList.contains("cfphone"))Reveal.on('slidechanged',closeAll);
 })();
+</script>
+<script>
+/* phone deck: the bar at the bottom and the swipe both move one slide at a time; leaving a slide stops its video */
+(()=>{if(!document.documentElement.classList.contains("cfphone"))return;
+const sc=document.querySelector('.slides'),sl=[...document.querySelectorAll('.slides>section>section')],cnt=document.querySelector('.pc b'),dots=document.querySelector('.pd'),bs=[...document.querySelectorAll('.pb')];
+document.querySelector('.pnt').textContent=sl.length;dots.innerHTML=sl.map(()=>'<i></i>').join('');let cur=-1;
+const show=i=>{if(i===cur)return;cur=i;cnt.textContent=i+1;[...dots.children].forEach((d,j)=>d.classList.toggle('on',j===i));bs[0].disabled=i===0;bs[1].disabled=i===sl.length-1;document.querySelectorAll('.vgrid.open .x').forEach(x=>x.click());};
+const go=i=>{i=Math.max(0,Math.min(sl.length-1,i));sl[i].scrollIntoView({block:'start'});show(i);};
+bs.forEach(b=>b.addEventListener('click',()=>go(cur+ +b.dataset.d)));
+sc.addEventListener('scroll',()=>show(Math.round(sc.scrollTop/sc.clientHeight)),{passive:true});
+show(0);})();
 </script>
 </body>
 </html>
