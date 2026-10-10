@@ -1,3 +1,15 @@
-{"slug":"allbirds","company":"Allbirds","first_name":"","shot":"allbirds.jpg","shot_caption":"allbirds.com",
- "saw_lines":["Comfort shoes, socks and apparel made with wool, tree fiber and sugarcane.","<q>Wildly Comfortable. Super Natural.</q> The new Dasher NZ collection leads the homepage.","Six channels under Follow The Flock, from Instagram to TikTok, and each new collection has to land on all of them."],
- "ads_1":"Performance creative for every new collection launch","soc_1":"Brand social strategy for Follow The Flock"}
+{
+ "slug": "allbirds",
+ "company": "Allbirds",
+ "full_name": "Tim Brown",
+ "logo": "allbirds.svg",
+ "shot": "allbirds.jpg",
+ "shot_caption": "allbirds.com",
+ "saw_lines": [
+  "Comfort shoes, socks and apparel made with wool, tree fiber and sugarcane.",
+  "<q>Wildly Comfortable. Super Natural.</q> The new Dasher NZ collection leads the homepage.",
+  "Six channels under Follow The Flock, from Instagram to TikTok, and each new collection has to land on all of them."
+ ],
+ "ads_1": "Performance creative for every new collection launch",
+ "soc_1": "Brand social strategy for Follow The Flock"
+}

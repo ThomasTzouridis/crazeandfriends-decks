@@ -1,7 +1,8 @@
 {
  "slug": "dental-boutique",
  "company": "Dental Boutique",
- "first_name": "Dr May Chan",
+ "full_name": "Dr May Chan",
+ "logo": "dentalboutique.svg",
  "shot": "dentalboutique.jpg",
  "shot_caption": "dentalboutique.com.au",
  "saw_lines": [
