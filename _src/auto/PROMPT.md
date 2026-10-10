@@ -25,7 +25,7 @@ SLIDE 2 "What we saw" = "saw_lines", exactly 3 strings:
 
 SLIDE 3 "Where your ads could work harder" = "ads", only if the FACT SHEET says live Meta ads >= 10:
 - "stats": exactly 4 pairs [number, label of 2 to 4 words]. The first is always [live ads count, "live Meta ads"]. The others are the three strongest measured numbers, each one backing a point.
-- "points": exactly 4 pairs [HEADLINE, text] in the order Hooks, Offer, Proof, Consistency and reach. HEADLINE 3 to 6 words, sentence case, sharp, no colon. Text 30 to 42 words (never fewer than 30): finding with ONE or TWO numbers from the FACT SHEET, one clause on why it costs them, then the concrete next move with specifics (which angle, which offer, which number, how many variations). Use the whole range, the slide has room.
+- "points": exactly 4 pairs [HEADLINE, text] in the order Hooks, Offer, Proof, Consistency and reach. HEADLINE 3 to 5 words, never more (count them), sentence case, sharp, no colon, e.g. "No offer anywhere", "One hook carries the account". Text 30 to 42 words (never fewer than 30): finding with ONE or TWO numbers from the FACT SHEET, one clause on why it costs them, then the concrete next move with specifics (which angle, which offer, which number, how many variations). Use the whole range, the slide has room.
 
 ALSO
 - "ads_1": one line (8 to 14 words) naming the paid creative direction we would run for them, specific to their product and the hook finding.

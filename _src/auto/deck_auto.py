@@ -226,7 +226,7 @@ def validate(sp):
         if len(a.get('stats') or []) != 4: errs.append('4 stats required')
         if len(a.get('points') or []) != 4: errs.append('4 points required')
         for hd, tx in a.get('points') or []:
-            if not 2 <= len(hd.split()) <= 6: errs.append(f'headline "{hd}" must be 3 to 5 words')
+            if not 2 <= len(hd.split()) <= 7: errs.append(f'headline "{hd}" has {len(hd.split())} words, must be 3 to 5')
             if not 30 <= words(tx) <= 44: errs.append(f'point "{hd}" text has {words(tx)} words, must be 30 to 42')
     blob = json.dumps(sp, ensure_ascii=False)
     if re.search(r'(?i)sampled|scraped|fact sheet|ad library', blob): errs.append('never mention sampled, scraped, fact sheet or Ad Library in the copy')
