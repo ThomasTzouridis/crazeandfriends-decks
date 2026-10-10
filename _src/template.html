@@ -110,6 +110,7 @@ p{margin:0}
 .st span{font:400 1.1cqw/1.35 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 
 /* work + testimonials: click a card, it grows into a big player while the others slide aside as dimmed strips */
+.s.top{justify-content:flex-start;padding-top:6.5cqw}
 .vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;margin-top:2.4cqw;transition:grid-template-columns .8s cubic-bezier(.2,.7,.2,1),margin .5s}
 .vgrid.open{margin-top:1.4cqw}
 .card{display:flex;flex-direction:column;gap:.6cqw;min-width:0}
@@ -243,7 +244,7 @@ h2 .mark{background:linear-gradient(var(--hi),var(--hi)) 0 50%/100% .9em no-repe
   </div>
 </div></section>
 
-<section aria-label="Some of our work"><div class="s">
+<section aria-label="Some of our work"><div class="s top">
   <h2 class="in">Work that <span class="mark">moved numbers</span></h2>
   <div class="cases vgrid in"><div class="case card"><button class="vid" data-v="lokation" style="background-image:url(../assets/work/lokation.jpg)" aria-label="Play LoKation video"><span class="lbl">LoKation</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Real estate</span><h3>LoKation</h3><p class="num">1,039</p><p>agents recruited across 6 markets in 180 days</p></div><div class="case card"><button class="vid" data-v="essi" style="background-image:url(../assets/work/essi.jpg)" aria-label="Play ESSI video"><span class="lbl">ESSI</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Medical clinic</span><h3>ESSI</h3><p class="num">$150 → $38</p><p>cost per lead in four months, surgical capacity full</p></div><div class="case card"><button class="vid" data-v="optionsplaybook" style="background-image:url(../assets/work/optionsplaybook.jpg)" aria-label="Play Options Playbook video"><span class="lbl">Options Playbook</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Education</span><h3>Options Playbook</h3><p class="num">+1,400%</p><p>book sales, with 95% of organic traffic kept through the SEO migration</p></div><div class="case card"><button class="vid" data-v="whippedvelvet" style="background-image:url(../assets/work/whippedvelvet.jpg)" aria-label="Play Whipped Velvet video"><span class="lbl">Whipped Velvet</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Skincare</span><h3>Whipped Velvet</h3><p class="num">0 → live store</p><p>logo, packaging, copy and a Shopify store, built from nothing by one team</p></div></div>
   <div class="marquee in" aria-label="Clients"><div class="track">{{LOGOS}}{{LOGOS}}</div></div>
