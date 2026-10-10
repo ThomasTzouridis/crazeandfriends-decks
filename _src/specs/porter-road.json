@@ -1,0 +1,59 @@
+{
+ "slug": "porter-road",
+ "company": "Porter Road",
+ "full_name": "James Peisker",
+ "logo": "porter-road.svg",
+ "shot": "porter-road.jpg",
+ "shot_caption": "porterroad.com",
+ "saw_lines": [
+  "Premium meat buyers decide on trust in seconds, looking for how the animal was raised.",
+  "So the sale is won or lost in the first line, where the raising story lands or gets scrolled past.",
+  "Your 14 sampled ads open on 9 different lines, and none carry a proof number. <b>Put one farm number in every opening line.</b>"
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 10 Oct 2026",
+  "stats": [
+   [
+    "15",
+    "live Meta ads"
+   ],
+   [
+    "5",
+    "open on one line"
+   ],
+   [
+    "14",
+    "sampled ads are video"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ]
+  ],
+  "points": [
+   [
+    "One opener carries the account",
+    "The same pasture-raised first line opens 5 ads, so they fight for the same buyers. <b>Test three new openers this week.</b>"
+   ],
+   [
+    "Offer sits below the cut",
+    "The offer lands after 55% of the median ad&rsquo;s copy. <b>Move it into the first two lines.</b>"
+   ],
+   [
+    "No proof numbers anywhere",
+    "None of 14 sampled ads carry a proof number, so buyers only get claims. <b>Add one herd number to every ad.</b>"
+   ],
+   [
+    "Video and claims are clean",
+    "All 14 sampled ads are video and none use claim words, so the format is working. <b>Double down with more video.</b>"
+   ]
+  ],
+  "images": [
+   "porter-road_1.jpg",
+   "porter-road_2.jpg",
+   "porter-road_3.jpg"
+  ]
+ },
+ "ads_1": "Farm-to-table video that opens on a dinner problem, not the pasture line",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Twitter"
+}
