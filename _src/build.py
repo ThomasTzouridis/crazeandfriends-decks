@@ -29,7 +29,7 @@ for path in sys.argv[1:]:
     prep = e(sp['full_name'])
     logo = logo_tag(sp['logo'], sp['company'])
     lines = ''.join(f'<p>{l}</p>' for l in sp['saw_lines'][:-1]) + f'<p class="turn">{sp["saw_lines"][-1]}</p>'
-    shot = (f'<figure class="shot"><img src="../assets/shots/{sp["shot"]}" alt="{co} website"><figcaption>{e(sp["shot_caption"])}, today</figcaption></figure>' if sp.get('shot') else '<div></div>')
+    shot = (f'<figure class="shot"><img src="../assets/shots/{sp["shot"]}" alt="{co} website"></figure>' if sp.get('shot') else '<div></div>')
     ads = ''
     if sp.get('ads'):
         a = sp['ads']
