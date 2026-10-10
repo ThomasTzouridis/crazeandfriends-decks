@@ -221,12 +221,12 @@ html.cfphone .shot img{border-width:1px;box-shadow:0 8px 20px rgba(19,20,16,.14)
 html.cfphone .shot figcaption{font-size:10px}
 /* ads */
 html.cfphone .adsgrid{grid-template-columns:1fr;gap:14px;margin-top:12px}
-html.cfphone .pts{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px}
+html.cfphone .pts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px}
 html.cfphone .pt{border-top-width:2px;padding-top:7px;gap:4px}
 html.cfphone .pt b{font-size:15px}
-html.cfphone .pt p{font-size:12px;line-height:1.35}
+html.cfphone .pt p{font-size:11.5px;line-height:1.3}
 html.cfphone .adimgs{gap:5px;grid-template-columns:repeat(3,minmax(0,1fr))}
-html.cfphone .adimgs img{height:118px;border-width:1px}
+html.cfphone .adimgs img{height:96px;border-width:1px}
 html.cfphone .adstats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px;margin-top:10px}
 html.cfphone .adstats div{gap:8px}
 html.cfphone .adstats b{font-size:24px}
@@ -402,6 +402,12 @@ document.querySelector('.pnt').textContent=sl.length;dots.innerHTML=sl.map(()=>'
 const show=i=>{if(i===cur)return;cur=i;cnt.textContent=i+1;[...dots.children].forEach((d,j)=>d.classList.toggle('on',j===i));bs[0].disabled=i===0;bs[1].disabled=i===sl.length-1;document.querySelectorAll('.vgrid.open .x').forEach(x=>x.click());};
 const go=i=>{i=Math.max(0,Math.min(sl.length-1,i));sl[i].scrollIntoView({block:'start'});show(i);};
 bs.forEach(b=>b.addEventListener('click',()=>go(cur+ +b.dataset.d)));
+/* short phones: a slide taller than the screen is zoomed down just enough to fit (never below 0.7) */
+const fit=()=>sl.forEach(x=>{const s=x.querySelector('.s'),kids=[...s.children];kids.forEach(k=>k.style.zoom='');
+  for(let n=0;n<5&&s.scrollHeight>s.clientHeight+1;n++){const z=+(kids[0].style.zoom||1),pad=parseFloat(getComputedStyle(s).paddingTop)+parseFloat(getComputedStyle(s).paddingBottom);
+    const f=Math.max(.7,z*(s.clientHeight-pad)/(s.scrollHeight-pad)-.01);kids.forEach(k=>{if(!k.classList.contains('r'))k.style.zoom=f});}});
+(document.fonts?document.fonts.ready:Promise.resolve()).then(fit);addEventListener('load',fit);addEventListener('resize',fit);
+
 sc.addEventListener('scroll',()=>show(Math.round(sc.scrollTop/sc.clientHeight)),{passive:true});
 show(0);})();
 </script>
