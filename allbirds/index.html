@@ -106,26 +106,36 @@ p{margin:0}
 .st b{font:800 5cqw/1 var(--display);font-variant-numeric:tabular-nums}
 .st span{font:400 1.1cqw/1.35 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 
-/* work */
-.cases{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqw;margin-top:2.6cqw}
-.case{display:flex;flex-direction:column;gap:.8cqw}
-.case .img{aspect-ratio:4/3;background:var(--ink) center/cover;display:flex;align-items:center;justify-content:center}
-.case .img.logo{background:var(--tile)}
-.case .img.logo img{width:55%}
-.case .yr{font:500 .95cqw var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+/* work + testimonials: click plays the YouTube video in place */
+.cases{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;margin-top:2.4cqw}
+.case,.tm{display:flex;flex-direction:column;gap:.6cqw}
+.vid{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;cursor:pointer;background:var(--ink) center/cover;overflow:hidden}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{position:absolute;left:1cqw;bottom:1cqw;width:3.4cqw;height:3.4cqw;border-radius:50%;background:var(--hi);box-shadow:0 .4cqw 1.2cqw rgba(0,0,0,.35);transition:transform .2s}
+.play::after{content:"";position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);border-style:solid;border-width:.6cqw 0 .6cqw 1cqw;border-color:transparent transparent transparent var(--ink)}
+.vid:hover .play,.vid:focus-visible .play{transform:scale(1.12)}
+.vid:focus-visible{outline:.2cqw solid var(--ink);outline-offset:.2cqw}
+.case .yr{font:500 .95cqw var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:.4cqw}
 .case h3{font:800 2cqw/1 var(--display);text-transform:uppercase;margin:0}
-.case p{font-size:1.25cqw;line-height:1.4}
-.quote{margin-top:1.8cqw;font-size:1.45cqw;line-height:1.4}
-.quote small{font:400 1cqw var(--mono);color:var(--muted);margin-left:.6cqw}
-.marquee{margin-top:3cqw;overflow:hidden;border-top:.12cqw solid var(--line);padding-top:1.6cqw;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.case .num{font:800 2.6cqw/1 var(--display);align-self:flex-start;background:var(--hi);padding:.1em .2em 0;margin-top:.3cqw}
+.case p{font-size:1.2cqw;line-height:1.4}
+.tms{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;margin-top:2.6cqw}
+.tm .q{font:800 1.9cqw/1.1 var(--display);text-transform:uppercase;margin-top:.6cqw}
+.tm .who{display:flex;flex-direction:column;gap:.15cqw}
+.tm .who b{font-size:1.15cqw}
+.tm .who span{font:400 .9cqw var(--mono);color:var(--muted)}
+.quote{margin-top:3cqw;padding-top:1.8cqw;border-top:.12cqw solid var(--line);font-size:1.5cqw;line-height:1.4}
+.quote small{display:block;font:400 1cqw var(--mono);color:var(--muted);margin-top:.5cqw}
+.marquee{margin-top:2.6cqw;overflow:hidden;border-top:.12cqw solid var(--line);padding-top:1.6cqw;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .track{display:flex;gap:4cqw;width:max-content;animation:roll 40s linear infinite}
-.track img{height:3.2cqw;width:auto;display:block}
+.track img{height:3cqw;width:auto;display:block}
 @keyframes roll{to{transform:translateX(-50%)}}
 
 /* talk */
 .talk{display:grid;grid-template-columns:1fr 40cqw;padding:0}
 .talk .l{padding:5.5cqw 6cqw;display:flex;flex-direction:column;justify-content:center;gap:4cqw}
 .contact a{color:inherit;text-decoration:none}
+
 h2 .mark{background:linear-gradient(var(--hi),var(--hi)) 0 50%/100% .9em no-repeat}
 .talk h2{font-size:5cqw}
 .btn{align-self:flex-start;display:inline-flex;align-items:center;gap:1cqw;background:var(--ink);color:var(--paper);text-decoration:none;font:700 1.6cqw var(--body);padding:1.3cqw 2.4cqw}
@@ -202,14 +212,16 @@ h2 .mark{background:linear-gradient(var(--hi),var(--hi)) 0 50%/100% .9em no-repe
 
 <section aria-label="Some of our work"><div class="s">
   <div class="eyebrow in">Some of our work</div>
-  <div class="cases in">
-    <div class="case"><div class="img" style="background-image:url(../assets/c_lokation.jpg)"></div><span class="yr">2026 · Real estate</span><h3>LoKation</h3><p>Meta and Google Search campaigns. 1,039 agents recruited across 6 markets in 180 days.</p></div>
-    <div class="case"><div class="img" style="background-image:url(../assets/c_whipped.jpg)"></div><span class="yr">2026 · Skincare</span><h3>Whipped Velvet</h3><p>Brand identity, packaging and Shopify development for a tallow skincare label.</p></div>
-    <div class="case"><div class="img logo"><img src="../assets/logos/l2.svg" alt="ESSI"></div><span class="yr">2026 · Medical clinic</span><h3>ESSI</h3><p>Server side tracking and multi channel ads for a medical clinic.</p></div>
-    <div class="case"><div class="img logo" style="background:var(--hi)"><img src="../assets/logos/l6.svg" alt="Brandr"></div><span class="yr">2026 · SaaS</span><h3>Brandr</h3><p>Strategic website build for a brand intelligence platform.</p></div>
-  </div>
-  <p class="quote in">“craze is an absolute 10 out of 10 on ease to work with.”<small>Matt Van Itallie, CEO, Sema</small></p>
+  <h2 class="in">Work that <span class="mark">moved numbers</span></h2>
+  <div class="cases in"><div class="case"><button class="vid" data-yt="gTPsKRjMxR4" style="background-image:url(../assets/work/lokation.jpg)" aria-label="Play LoKation video"><span class="play"></span></button><span class="yr">2026 · Real estate</span><h3>LoKation</h3><p class="num">1,039</p><p>agents recruited across 6 markets in 180 days</p></div><div class="case"><button class="vid" data-yt="Gn2myuEDP0Y" style="background-image:url(../assets/work/essi.jpg)" aria-label="Play ESSI video"><span class="play"></span></button><span class="yr">2026 · Medical clinic</span><h3>ESSI</h3><p class="num">$150 → $38</p><p>cost per lead in four months, surgical capacity full</p></div><div class="case"><button class="vid" data-yt="F6_V04qGMeY" style="background-image:url(../assets/work/optionsplaybook.jpg)" aria-label="Play Options Playbook video"><span class="play"></span></button><span class="yr">2026 · Education</span><h3>Options Playbook</h3><p class="num">+1,400%</p><p>book sales, with 95% of organic traffic kept through the SEO migration</p></div><div class="case"><button class="vid" data-yt="ERCAXsdbWKE" style="background-image:url(../assets/work/whippedvelvet.jpg)" aria-label="Play Whipped Velvet video"><span class="play"></span></button><span class="yr">2026 · Skincare</span><h3>Whipped Velvet</h3><p class="num">Full brand</p><p>identity, packaging and a Shopify store built to convert</p></div></div>
   <div class="marquee in" aria-label="Clients"><div class="track"><img src="../assets/logos/l1.svg" alt=""><img src="../assets/logos/l2.svg" alt=""><img src="../assets/logos/l4.svg" alt=""><img src="../assets/logos/l5.svg" alt=""><img src="../assets/logos/l6.svg" alt=""><img src="../assets/logos/l7.svg" alt=""><img src="../assets/logos/l8.svg" alt=""><img src="../assets/logos/l9.svg" alt=""><img src="../assets/logos/l10.svg" alt=""><img src="../assets/logos/l1.svg" alt=""><img src="../assets/logos/l2.svg" alt=""><img src="../assets/logos/l4.svg" alt=""><img src="../assets/logos/l5.svg" alt=""><img src="../assets/logos/l6.svg" alt=""><img src="../assets/logos/l7.svg" alt=""><img src="../assets/logos/l8.svg" alt=""><img src="../assets/logos/l9.svg" alt=""><img src="../assets/logos/l10.svg" alt=""></div></div>
+</div></section>
+
+<section aria-label="What clients say"><div class="s">
+  <div class="eyebrow in">What clients say</div>
+  <h2 class="in">Hear it from <span class="mark">them</span></h2>
+  <div class="tms in"><div class="tm"><button class="vid" data-yt="y3dsJ-2xVGE" style="background-image:url(../assets/work/t_antonia.jpg)" aria-label="Play Antonia video"><span class="play"></span></button><p class="q">“Incredibly responsive, knowledgeable.”</p><p class="who"><b>Antonia</b><span>Marketing Director, ESSI</span></p></div><div class="tm"><button class="vid" data-yt="31Cl9aB3HyA" style="background-image:url(../assets/work/t_fridrik.jpg)" aria-label="Play Friðrik Larsen video"><span class="play"></span></button><p class="q">“They always do more than you expect.”</p><p class="who"><b>Friðrik Larsen</b><span>Founder, Brandr</span></p></div><div class="tm"><button class="vid" data-yt="VC5S49ADlZY" style="background-image:url(../assets/work/t_matt.jpg)" aria-label="Play Matt Van Itallie video"><span class="play"></span></button><p class="q">“A 10 out of 10 for ease of collaboration.”</p><p class="who"><b>Matt Van Itallie</b><span>CEO, Sema</span></p></div><div class="tm"><button class="vid" data-yt="S_RW0IcMt44" style="background-image:url(../assets/work/t_christos.jpg)" aria-label="Play Christos video"><span class="play"></span></button><p class="q">“Working with Craze for over 4 years. Nailed it on the first try.”</p><p class="who"><b>Christos</b><span>CMO, ARB TG</span></p></div></div>
+  <p class="quote in">“We started with a small project two years ago, and it quickly expanded into a full retainer across brand building, design, and marketing.”<small>Friðrik Larsen, Founder, Brandr</small></p>
 </div></section>
 
 <section aria-label="Let's talk"><div class="s talk">
@@ -224,5 +236,10 @@ h2 .mark{background:linear-gradient(var(--hi),var(--hi)) 0 50%/100% .9em no-repe
 
 </section></div></div>
 <script src="../vendor/reveal.js"></script><script>Reveal.initialize({width:1280,height:720,margin:0,hash:true,controls:true,controlsTutorial:true,progress:true,transition:"slide",center:false,scrollActivationWidth:null});</script>
+<script>
+document.addEventListener('click',e=>{const v=e.target.closest('.vid');if(!v||v.querySelector('iframe'))return;
+v.insertAdjacentHTML('beforeend','<iframe src="https://www.youtube-nocookie.com/embed/'+v.dataset.yt+'?autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" title="Video"></iframe>');});
+Reveal.on('slidechanged',()=>document.querySelectorAll('.vid iframe').forEach(f=>f.remove()));
+</script>
 </body>
 </html>
