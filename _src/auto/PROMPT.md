@@ -4,7 +4,8 @@ HARD RULES
 - Every number you write must appear in the FACT SHEET (or be the plain difference or sum of two numbers in it). Never invent, round or estimate a number. Never compute percentages.
 - No dashes of any kind: no em dash, no en dash, no " - ". Use commas and periods. Compound words like "Co-Founder" are fine.
 - NEVER use bold or any HTML formatting tag. Plain text only. Use HTML entities for curly quotes and apostrophes: &rsquo; &ldquo; &rdquo;.
-- Second person, direct, plain, like a senior media buyer texting a founder. No hype, no agency jargon, no pricing.
+- Second person, direct, plain, like a senior media buyer texting a founder. Neutral and normal sounding, the way a person writes an email, e.g. "Your site promotes free shipping, yet 0 of 15 ads mention it, so new buyers get no reason to act." No hype, no agency jargon, no clever phrasing, no slogans, no pricing.
+- LENGTH IS A RULE, NOT A RANGE TO UNDERSHOOT. Each slide 3 point is 30 to 42 words and slide 2 line 3 is 22 to 32 words, every time. The slide is designed to be full; a short point looks like we did not bother. Spend the words on the next move, never on padding.
 - Never mention how we measured: no "sampled", "pulled", "scraped", "Ad Library shows", "fact sheet". Say "your ads", "your site".
 - Nothing the founder already knows about their own company unless it is tied to a finding.
 
@@ -20,11 +21,11 @@ Pick findings by impact on revenue, not by what is easiest to say. If a check is
 SLIDE 2 "What we saw" = "saw_lines", exactly 3 strings:
 1. Buyer truth. One sharp thing about how THEIR customers buy in this exact category, something the founder would nod at. Not generic ("buyers want trust"), specific to the product (how it is chosen, replaced, gifted, subscribed, compared). Category level, no company facts. 12 to 22 words.
 2. Consequence. Starts with "So ". Where the sale is won or lost because of 1 (the first line, the offer, the proof, the follow up, the page). 12 to 22 words.
-3. Proof + fix. Starts with "Your " or with a number about them. The single strongest finding from the checks above, with its numbers, then the one move to make. 18 to 32 words.
+3. Proof + fix. Starts with "Your " or with a number about them. The single strongest finding from the checks above, with its numbers, then the one move to make. 22 to 32 words.
 
 SLIDE 3 "Where your ads could work harder" = "ads", only if the FACT SHEET says live Meta ads >= 10:
 - "stats": exactly 4 pairs [number, label of 2 to 4 words]. The first is always [live ads count, "live Meta ads"]. The others are the three strongest measured numbers, each one backing a point.
-- "points": exactly 4 pairs [HEADLINE, text] in the order Hooks, Offer, Proof, Consistency and reach. HEADLINE 3 to 6 words, sentence case, sharp, no colon. Text 28 to 42 words: finding with ONE or TWO numbers from the FACT SHEET, one clause on why it costs them, then the concrete next move with specifics (which angle, which offer, which number, how many variations). Use the whole range, the slide has room.
+- "points": exactly 4 pairs [HEADLINE, text] in the order Hooks, Offer, Proof, Consistency and reach. HEADLINE 3 to 6 words, sentence case, sharp, no colon. Text 30 to 42 words (never fewer than 30): finding with ONE or TWO numbers from the FACT SHEET, one clause on why it costs them, then the concrete next move with specifics (which angle, which offer, which number, how many variations). Use the whole range, the slide has room.
 
 ALSO
 - "ads_1": one line (8 to 14 words) naming the paid creative direction we would run for them, specific to their product and the hook finding.

@@ -218,6 +218,7 @@ def validate(sp):
     for i, s in enumerate(sl):
         w = words(s); cap = 34 if i == 2 else 24
         if w > cap: errs.append(f'saw_lines[{i}] has {w} words, max {cap}')
+        if i == 2 and w < 22: errs.append(f'saw_lines[2] has {w} words, must be 22 to 32')
     if len(sl) > 1 and not sl[1].startswith('So '): errs.append('saw_lines[1] must start with "So "')
     a = sp.get('ads')
     if n_live_total >= 10 and not a: errs.append('ads block required (live ads >= 10)')
@@ -226,7 +227,7 @@ def validate(sp):
         if len(a.get('points') or []) != 4: errs.append('4 points required')
         for hd, tx in a.get('points') or []:
             if not 2 <= len(hd.split()) <= 6: errs.append(f'headline "{hd}" must be 3 to 5 words')
-            if not 24 <= words(tx) <= 46: errs.append(f'point "{hd}" text has {words(tx)} words, must be 28 to 42')
+            if not 30 <= words(tx) <= 44: errs.append(f'point "{hd}" text has {words(tx)} words, must be 30 to 42')
     blob = json.dumps(sp, ensure_ascii=False)
     if re.search(r'(?i)sampled|scraped|fact sheet|ad library', blob): errs.append('never mention sampled, scraped, fact sheet or Ad Library in the copy')
     if re.search(r'<\s*/?\s*(b|strong)[\s>]', blob, re.I): errs.append('bold found, never use <b> or <strong>, plain text only')
