@@ -142,12 +142,6 @@ def sync_sheet(state):
                         a.get('live', ''), chk, k.get('note', '') or st.get('error', '')])
         if out:
             sv.values().update(spreadsheetId=SHEET, range="'%s'!A2" % TAB, valueInputOption='RAW', body={'values': out}).execute()
-        try:   # Performance tab, column K = leads per sender in the 5 campaigns (denominator of the connection back rate); the rate formulas live in the sheet
-            cnt = {}
-            for v in state.get('_all', {}).values(): cnt[v['sender']] = cnt.get(v['sender'], 0) + 1
-            names = sv.values().get(spreadsheetId=SHEET, range="Performance!A2:A6").execute().get('values', [])
-            sv.values().update(spreadsheetId=SHEET, range="Performance!K2", valueInputOption='RAW', body={'values': [[cnt.get(x[0], 0) if x else ''] for x in names]}).execute()
-        except Exception as e: say('performance counts failed', e)
         for r, lid in zip(out, order):
             c = r[27]
             if not c or c == 'OK' or c.startswith('OK ') or c in ('BUILDING', 'BUILT BUT NOT LIVE YET', 'not connected yet'): continue
