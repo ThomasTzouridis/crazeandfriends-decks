@@ -6,46 +6,46 @@
  "shot": "porter-road.jpg",
  "shot_caption": "porterroad.com",
  "saw_lines": [
-  "Premium meat buyers pick one source, trust it for the first bite, then reorder it on a schedule without comparing shelves.",
-  "So the sale is won in the first line, where the story has to earn trust before the price shows up.",
-  "Your 14 ads carry 0 proof numbers and your site shows none, so collect your review count and orders shipped, then lead the next batch with it."
+  "Meat buyers pick a cut and a source, then reorder the same box on a schedule once it tastes right.",
+  "So the sale is won in the first line, where a new buyer decides whether a scheduled box is worth trying.",
+  "Your 14 ads mostly skip the subscribe offer, only 1 of 14 mentions it, so put subscribe and save in the first line of three new ads and on the creative."
  ],
  "ads": {
-  "source": "Meta Ad Library, active ads, 10 Oct 2026",
+  "source": "Meta Ad Library, active ads, 11 Oct 2026",
   "stats": [
    [
     "14",
     "live Meta ads"
    ],
    [
+    "1",
+    "ad uses subscribe offer"
+   ],
+   [
     "5",
-    "open on one story"
+    "ads share one copy"
    ],
    [
     "0",
-    "mention free shipping"
-   ],
-   [
-    "0",
-    "carry a proof number"
+    "ads carry proof numbers"
    ]
   ],
   "points": [
    [
-    "One story dominates your hooks",
-    "5 of your 14 ads open on the same pasture raised line, so they compete with each other for one set of buyers. Test three new openers against it: a price objection, a Sunday roast moment, and a customer quote."
+    "Subscribe offer missing from ads",
+    "Your site offers Subscribe and Save, yet only 1 of 14 ads mentions it. New buyers get no reason to start a recurring box. Put the offer in the first line of three new ads and on the creative."
    ],
    [
-    "The offer sits outside your ads",
-    "Your site pushes 15% subscription savings, yet 1 of 14 ads mention it and 0 mention free shipping, so buyers have no reason to act. Headline 15% on two retention ads and open a new buyer ad with free shipping."
+    "How it arrives is unanswered",
+    "Your site explains how the order ships and why the meat is vacuum sealed, yet 0 of 14 ads say how it arrives, so buyers hesitate. Shoot one video of the box arriving and opening, with the vacuum sealed bags inside."
+   ],
+   [
+    "One copy runs five times",
+    "One exact copy runs in 5 of 14 ads, so the same buyers see the same message over and over and tune it out. Keep the body copy, but change the opening line and creative in each of the five ads."
    ],
    [
     "No proof number anywhere",
-    "Neither your site nor your 14 ads shows a proof number, so buyers only have your word on pasture raised and no hormones. Collect your review count and orders shipped this month, then lead with that number on the creative."
-   ],
-   [
-    "Nothing has proven itself yet",
-    "All 14 ads started within 10 days, so budget is spread across untested ideas and none has proven it can scale. Make three new variations of the oldest ad, the Taste the Difference video, then scale the one that holds up."
+    "None of your 14 ads carries a proof number, so a new buyer has nothing concrete to trust before clicking. Collect one real number, such as orders shipped, and open the next three ads with it."
    ]
   ],
   "images": [
@@ -54,6 +54,6 @@
    "porter-road_3.jpg"
   ]
  },
- "ads_1": "Price, Sunday roast and customer quote angles tested against the pasture raised opener",
+ "ads_1": "Subscribe-led creative showing the box arriving, opening on the pasture-raised cut",
  "soc_1": "Brand social strategy across Facebook, Instagram and Twitter"
 }

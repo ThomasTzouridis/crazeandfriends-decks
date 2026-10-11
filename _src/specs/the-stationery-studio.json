@@ -1,0 +1,59 @@
+{
+ "slug": "the-stationery-studio",
+ "company": "The Stationery Studio",
+ "full_name": "Renee Redman",
+ "logo": "the-stationery-studio.png",
+ "shot": "",
+ "shot_caption": "thestationerystudio.com",
+ "saw_lines": [
+  "Party buyers pick supplies by theme and deadline, then compare delivery times and prices before they commit to a table setup.",
+  "So the price, the offer and the delivery answer belong in line one, before a buyer decides to scroll past.",
+  "Your site offers up to 30% off, yet 0 of 20 ads mention any offer. Put it in the first line of three new ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 11 Oct 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers up to 30% off, yet 0 of 20 ads mention any offer, so a new buyer has no reason to act. Put the 30% off in the first line of three new ads, with SHIP125 on the creative."
+   ],
+   [
+    "Shipping questions go unanswered",
+    "Your site explains free shipping, yet 0 of 29 ads mention shipping or delivery, so a gift buyer wondering about arrival has to leave to find out. Lead three new ads with free shipping over $125."
+   ],
+   [
+    "Price is missing everywhere",
+    "Your site shows prices from $25 to $125, yet 0 of 29 ads mention price, so buyers have no number to compare. Lead one new ad with a price, such as $25, beside what a store charges."
+   ],
+   [
+    "Proof numbers never reach ads",
+    "None of your 29 live ads carries a proof number, so a first-time buyer has to trust the design alone. Collect one number, such as orders shipped or average rating, and lead three new ads with it on the creative."
+   ]
+  ],
+  "images": [
+   "the-stationery-studio_1.jpg",
+   "the-stationery-studio_2.jpg",
+   "the-stationery-studio_3.jpg"
+  ]
+ },
+ "ads_1": "Offer first creative with 30% off in line one, tested against the birthday scene",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok, Twitter and YouTube"
+}

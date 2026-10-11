@@ -6,9 +6,9 @@
  "shot": "primal-pastures.jpg",
  "shot_caption": "primalpastures.com",
  "saw_lines": [
-  "Chicken and beef get bought by the box, and buyers compare them against the grocery store before they click.",
-  "So the sale is won in the first line, where a buyer decides whether the box is worth the shipping cost.",
-  "Your site offers 10% off your first order, yet 0 of 22 ads mention it, so a new buyer has no reason to act. Open three new video ads with that line."
+  "Frozen meat buyers decide once, on trust, then reorder the same cut without comparing again.",
+  "So the trust is won or lost in the first line, before a new buyer clicks a box they cannot touch.",
+  "Your site shows 100,000+ orders and 4,000+ five-star reviews, yet only 2 of 30 ads carry either. Put 100,000+ orders on the creative and open two ads with a review quote."
  ],
  "ads": {
   "source": "Meta Ad Library, active ads, 11 Oct 2026",
@@ -18,34 +18,34 @@
     "live Meta ads"
    ],
    [
-    "10",
-    "different opening stories"
+    "2",
+    "proof numbers in ads"
    ],
    [
     "0",
-    "ads mention any offer"
+    "ads mention the offer"
    ],
    [
-    "3",
-    "ads running 60+ days"
+    "10",
+    "openers across 22 ads"
    ]
   ],
   "points": [
    [
-    "First order offer missing",
-    "Your site offers 10% off your first order, yet 0 of 22 ads mention it, so a new buyer has no reason to act today. Open three new video ads with that 10% line and test them against the chicken story."
+    "Proof stays on the site",
+    "Your site shows 100,000+ orders and 4,000+ five-star reviews, yet only 2 of 30 ads carry either number. New buyers need that proof before they click. Put 100,000+ orders on the creative and open two ads with a review quote."
    ],
    [
-    "Ten openings, none dominant",
-    "Your 22 fixed copy ads open with 10 different stories, and the biggest, the &ldquo;most chicken never sees the&rdquo; line, leads only 4. Repeat viewers never get one clear idea. Make six variations of that opener and drop the single-use stories."
+    "Offer missing from ads",
+    "Your site offers 10% off your first order, yet 0 of 22 copy ads mention any offer, so a new buyer has no reason to act today. Open three new ads with 10% off your first order, printed on the creative."
    ],
    [
-    "Price and subscription unanswered",
-    "Your homepage shows prices from $11.00 to $27.99, yet none of your 30 ads answers price, and 0 mention subscription. Shipping gets 5 ads, so the cost question stays open. Launch two subscription ads that send buyers to your bundle page."
+    "Price never appears in ads",
+    "Your site lists prices from $11.00 to $27.99, but none of your 30 ads mention price or cost. Shoppers compare before they click, so silence reads as expensive. Lead one ad with the price per box or per pound."
    ],
    [
-    "Winners need fresh variations",
-    "3 ads have run 60+ days, so that copy works. Build fresh variations of those winners, each with a new opening line and the 10% first order offer, three versions per winner. Keep the frozen line in each."
+    "Openers spread too thin",
+    "Your 22 copy ads open with 10 different stories, and the biggest leads only 4 ads. Build the next batch from two openers, the chicken line and the every box line, and stop spreading new ones."
    ]
   ],
   "images": [
@@ -54,6 +54,6 @@
    "primal-pastures_3.jpg"
   ]
  },
- "ads_1": "Offer-led video ads built on the chicken opener and the frozen delivery angle",
+ "ads_1": "Proof and first-order offer openers, tested against the chicken story.",
  "soc_1": "Brand social strategy for the channels your buyers already use"
 }

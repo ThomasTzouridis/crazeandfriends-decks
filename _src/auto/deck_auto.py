@@ -42,14 +42,27 @@ F = []  # fact sheet lines
 F.append(f"LEAD: {full_name}, {company}, {domain}")
 # website: homepage + the pages a buyer sees (about, shipping/FAQ, reviews, rewards), whole text scanned
 import requests
+MAC = 'thomastzouridis@100.93.68.58'
+def mac_fetch(u):
+    """blocked from the PC: same page through one of the 500 Webshare proxies on the Mac (~/ads_ecom/mac_fetch.py)"""
+    try:
+        r = subprocess.run(['ssh', '-o', 'ConnectTimeout=20', MAC, 'cd ~/ads_ecom && source .venv/bin/activate 2>/dev/null; PYTHONPATH="$HOME/Desktop/AIOS/Internal Clay" python3 mac_fetch.py ' + u],
+                           capture_output=True, text=True, encoding='utf-8', errors='ignore', timeout=300)
+        return r.stdout if len(r.stdout) > 2000 else ''
+    except Exception:
+        return ''
+BLOCK = r'(?i)<title>\s*(just a moment|attention required|access denied|verify you are|security check)'
 def fetch(u):
     try:
         r = requests.get(u, headers={'User-Agent': UA, 'Accept-Language': 'en-US,en;q=0.9'}, timeout=30)
-        if r.status_code != 200: return ''
-        if re.search(r'(?i)<title>\s*(just a moment|attention required|access denied|verify you are)', r.text[:3000]): return ''
-        return r.text
+        if r.status_code == 200 and not re.search(BLOCK, r.text[:3000]): return r.text
+        blocked = r.status_code in (403, 429, 503) or bool(re.search(BLOCK, r.text[:3000]))
     except Exception:
-        return ''
+        blocked = True
+    if blocked:
+        t = mac_fetch(u)
+        if t: print('fetched via Mac proxies:', u); return t
+    return ''
 def totext(h_):
     t_ = re.sub(r'(?is)<(script|style|noscript|svg|template)[^>]*>.*?</\1>', ' ', h_)
     return html.unescape(re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '\n', t_)))
@@ -85,7 +98,9 @@ if site_ok:
     F.append("SITE offers (scanned all loaded pages incl. footer): " + (' | '.join(site_offer) if site_offer else 'none found on any loaded page'))
     F.append("SITE proof numbers: " + (' | '.join(site_proof) if site_proof else 'none found') + (f" | rating {rating[0]}" if rating else ''))
     F.append("SITE linked social channels: " + (', '.join(c.title() for c in socials) or 'none linked'))
-    prices = list(dict.fromkeys(re.findall(r'\$\d{1,4}(?:\.\d\d)?', totext(h))))[:12]
+    ht = totext(h)
+    prices = [m.group(0) for m in re.finditer(r'\$\d{1,4}(?:\.\d\d)?', ht) if not re.search(r'(?i)over|orders? of|above|free shipping|threshold|minimum|spend', ht[max(0, m.start() - 40):m.end() + 20])]
+    prices = sorted(dict.fromkeys(prices), key=lambda x: float(x[1:]))[:12]
     if prices: F.append("SITE prices seen on homepage: " + ', '.join(prices))
     prods = [x for x in re.findall(r'(?is)<h[23][^>]*>(.*?)</h[23]>', h)]
     prods = list(dict.fromkeys(html.unescape(re.sub(r'<[^>]+>', ' ', x)).strip() for x in prods))
@@ -147,9 +162,11 @@ if live:
     if rc: F.append(f"claims: {rc} ads contain claim words (clinically, cure, guaranteed results)")
     def fulltext(a): return ' '.join(((a.get('body') or '') + ' ' + (a.get('title') or '') + ' ' + (a.get('link_description') or '') + ' ' + (a.get('caption') or '')).split())
     obj = {'shipping or delivery': r'(?i)shipping|delivery|deliver', 'frozen or how it arrives': r'(?i)frozen|arrives|packed|cooler|dry ice', 'price or cost': r'(?i)price|cost|\$\d|per lb|per pound|afford', 'returns or guarantee': r'(?i)return|refund|guarantee', 'taste': r'(?i)taste|flavor|delicious|tender', 'subscription': r'(?i)subscri|monthly|every month'}
-    F.append("objection coverage, counted over ALL " + str(len(live)) + " live ads (body + title + description): " + '; '.join(f"{k}: {sum(bool(re.search(rx, fulltext(a))) for a in live)} ads" for k, rx in obj.items()))
-    pn = [re.sub(r'[^0-9]', '', x) for x in re.findall(r'\d[\d,]{2,}\+?', ' '.join(site_proof))]
-    if pn: F.append("site proof numbers in ads, counted over all live ads: " + '; '.join(f"{n}: {sum(n in re.sub(r'[^0-9]', '', fulltext(a)) for a in live)} ads" for n in dict.fromkeys(pn)))
+    objc = {k: sum(bool(re.search(rx, fulltext(a))) for a in live) for k, rx in obj.items()}
+    F.append("objection coverage, counted over ALL " + str(len(live)) + " live ads (body + title + description): " + '; '.join(f"{k}: {v} ads" for k, v in objc.items()))
+    pn = list(dict.fromkeys(re.sub(r'[^0-9]', '', x) for x in re.findall(r'\d[\d,]{2,}\+?', ' '.join(site_proof))))
+    pcount = {n: sum(n in re.sub(r'[^0-9]', '', fulltext(a)) for a in live) for n in pn}
+    if pn: F.append("site proof numbers in ads, counted over all live ads: " + '; '.join(f"{n}: {v} ads" for n, v in pcount.items()))
     F.append("live ads, full text, longest running first. xN = N ads run this exact copy, count them as N ads, never as one:")
     seenb = {}
     for a in sorted(live_copy, key=lambda a: a.get('start') or '9'):
@@ -158,6 +175,90 @@ if live:
         seenb[b] = [a, 1]
     for b, (a, n) in list(seenb.items())[:12]:
         F.append(f"- [{kind(a)}, since {a.get('start')}, CTA {a.get('cta') or 'none'}, x{n}] title: {a.get('title') or ''} | description: {(a.get('link_description') or '')[:160]} | copy: {b}")
+# ---------- point selection by fixed rules (the model writes, it does not choose) ----------
+cands = []
+if live:
+    nL, nC = len(live), max(len(live_copy), 1)
+    pf = ', '.join(dict.fromkeys(m.strip() for m in re.findall(r'\d[\d,]{2,}\+?\s*(?:[A-Za-z-]+\s){0,2}[A-Za-z-]+', ' '.join(site_proof))))[:160]
+    pin = max(pcount.values()) if pcount else 0
+    if pn and pin <= 0.2 * nL:
+        cands.append((90, 'proof gap', f"the site shows {pf}; these numbers appear in only {pin} of {nL} ads" + (" (and only in the small link description, not the copy)" if pin and not any(n in re.sub(r'[^0-9]', '', a.get('body') or '') for a in live for n in pn) else ''), "put the number on the creative and in the first line, open two ads with a review quote"))
+    elif pn and pin <= 0.5 * nL:
+        cands.append((70, 'proof gap', f"the site shows {pf}; the numbers appear in {pin} of {nL} ads", "one proof number on every creative"))
+    elif not pn and sum(bool(re.search(PROOF, b)) for b in bodies) == 0:
+        cands.append((55, 'no proof number in the ads', f"none of the {nL} ads shows a proof number (we found no review count on the site pages we loaded either, but never claim the site has none, only talk about the ads)", "collect one (review count, orders shipped) and lead with it"))
+    kinds = Counter(mm[1].lower() for b in bodies for mm in re.findall(PROOF, b))
+    byk = {}
+    for b in bodies:
+        for mm in re.findall(PROOF, b): byk.setdefault(mm[1].lower(), set()).add(mm[0].replace(',', ''))
+    conf = {k: v for k, v in byk.items() if len(v) > 1}
+    if conf:
+        k0 = next(iter(conf)); cands.append((85, 'conflicting proof numbers', f"ads use different numbers for {k0}: {', '.join(sorted(conf[k0]))}", "pick one number and use it everywhere"))
+    real_off = [k for k in on_site if k != 'bundle']
+    strong = [k for k in real_off if k != 'free shipping']
+    if strong and all(sum(bool(re.search(offers[k], b)) for b in bodies) <= 0.2 * nC for k in strong):
+        k0 = strong[0]; oline = next((x for x in site_offer if re.search(offers[k0], x)), k0); cands.append((80, 'site offer missing from ads', f"the site offers {k0} (site text: \"{oline}\"); {sum(bool(re.search(offers[k0], b)) for b in bodies)} of {nC} ads mention it, {len(any_off)} of {nC} mention any offer", "put the offer in the first line of three new ads and on the creative"))
+    elif real_off == ['free shipping'] and sum(bool(re.search(offers['free shipping'], b)) for b in bodies) == 0:
+        cands.append((40, 'free shipping never in ads', f"the site promotes free shipping; 0 of {nC} ads mention it", "answer the shipping question in the first line of the ads for new buyers"))
+    elif not any_off:
+        cands.append((35, 'no offer in the ads', f"0 of {nC} ads carry an offer (never claim the site has no offer, only talk about the ads)", "give new buyers one reason to act today, a first order offer or a bundle"))
+    if 'subscribe and save' in on_site and objc.get('subscription', 0) == 0:
+        cands.append((65, 'subscription never advertised', f"the site has subscribe and save; 0 of {nL} ads mention a subscription", "run two retention ads with the subscription saving as the headline"))
+    if top and top[0][1] >= max(4, 0.4 * nC):
+        cands.append((75, 'one opener carries the account', f"{top[0][1]} of {nC} copy ads open on \"{top[0][0]}...\"", "name 2 or 3 new angles from their own product and run them against it"))
+    elif top and top[0][1] >= max(3, 0.25 * nC):
+        cands.append((50, 'one opener leads', f"{top[0][1]} of {nC} copy ads open on \"{top[0][0]}...\", the rest are single use", "test two new angles against that opener"))
+    elif top and len(fam) >= 0.4 * nC and nC >= 10:
+        cands.append((30, 'openers spread thin', f"{len(fam)} different openings across {nC} copy ads, the biggest leads {top[0][1]}", "pick the two best stories and make the next batch from them"))
+    faqt = ' '.join(faqs) if site_ok and 'faqs' in globals() else ''
+    if site_ok and re.search(r'(?i)shipping|deliver', faqt + ' '.join(pages)) and objc.get('shipping or delivery', 0) == 0:
+        cands.append((70, 'shipping question unanswered in ads', f"the site answers how it ships; 0 of {nL} ads mention shipping or delivery", "answer the shipping question in the first line of ads for new buyers"))
+    if site_ok and prices and objc.get('price or cost', 0) == 0 and nL >= 10:
+        cands.append((60, 'price never in ads', f"the site shows prices {prices[0]} to {prices[-1]}; 0 of {nL} ads mention price", "lead one ad with the price per box or per pound and what it compares to"))
+    if site_ok and re.search(r'(?i)frozen|dry ice|cooler', alltext) and objc.get('frozen or how it arrives', 0) == 0:
+        cands.append((60, 'how it arrives is unanswered', f"the site explains how it arrives; 0 of {nL} ads do", "show the box arriving in one video ad"))
+    posl = [len(b[:mm.start()].split()) / max(len(b.split()), 1) for b in bodies if (mm := re.search(OFFER, b))]
+    if posl and wl and statistics.median(wl) >= 60 and statistics.median(posl) > 0.5:
+        cands.append((65, 'offer buried in long copy', f"the offer appears after {int(statistics.median(posl) * 100)}% of the copy on a median ad of {int(statistics.median(wl))} words", "first two lines, every ad"))
+    if creator >= 2:
+        cands.append((55, 'creator content run as brand ads', f"{creator} of {nC} ads are creator posts run from the brand page", "whitelist them from the creator account and cut three variations"))
+    vids = kc.get('video', 0)
+    if nL >= 10 and vids == 0:
+        cands.append((60, 'no video', f"0 of {nL} ads are video", "three short videos of the product in use"))
+    elif nL >= 10 and vids == nL:
+        cands.append((40, 'all video, no stills', f"all {nL} ads are video", "add still images for retargeting and catalog")
+    )
+    if rc >= 2:
+        cands.append((60, 'claim words limit reach', f"{rc} of {nC} ads use claim words (clinically, cure, guaranteed results)", "say what customers noticed instead"))
+    if starts and (datetime.date.today() - datetime.date.fromisoformat(starts[0])).days <= 21:
+        cands.append((55, 'every ad is brand new', f"all {nL} ads started within the last {(datetime.date.today() - datetime.date.fromisoformat(starts[0])).days} days", "pick one ad to keep and build the next three as variations of it"))
+    dup = max((n for b, (a, n) in seenb.items()), default=0)
+    if dup >= max(3, 0.3 * nC):
+        cands.append((60, 'same copy reused', f"one exact copy runs in {dup} of {nC} ads", "keep the copy, change the opening line and the creative in each"))
+    if catalog and len(catalog) > 0.5 * nL:
+        cands.append((45, 'mostly catalog ads', f"{len(catalog)} of {nL} ads are feed ads with no story", "add three story ads that give the feed a reason"))
+    if wl and statistics.median(wl) > 120:
+        cands.append((40, 'copy runs long', f"median ad is {int(statistics.median(wl))} words, longest {max(wl)}", "two lines and the offer"))
+    home_land = sum(1 for (c, l), n in cta_land.items() if c == 'Shop now' and re.sub(r'https?://(www\.)?', '', l).rstrip('/') == domain for _ in range(n))
+    if home_land >= 3:
+        cands.append((45, 'Shop now ads land on the homepage', f"{home_land} Shop now ads send buyers to the homepage instead of a product or collection page", "point each to the product the ad shows"))
+    # low value fallbacks so there are always 4
+    if old:
+        oldk = {' '.join((a.get('body') or '').split()[:5]).lower() for a in old}
+        newer = [a for a in live if a not in old]
+        reused = sum(' '.join((a.get('body') or '').split()[:5]).lower() in oldk for a in newer)
+        if newer and reused == 0:
+            cands.append((35, 'winners not built on', f"{len(old)} ads have run 60+ days; none of the {len(newer)} newer ads reuses a winner's opening line", "build the next three ads as variations of the oldest winner"))
+        else:
+            cands.append((20, 'winners', f"{len(old)} ads have run 60+ days", "build three more variations of the oldest winner"))
+    cands.append((15, 'one call to action', f"CTAs: {', '.join(f'{k} ({v})' for k, v in ctas.most_common(2))}", "match the CTA to the page"))
+    cands.append((10, 'placements', f"ads run on {', '.join(k.title() for k, v in plats.most_common(3))}", "cut the placements that do not convert"))
+    cands.sort(key=lambda c: -c[0])
+    picked4 = cands[:4]
+    F.append("\nPOINTS TO WRITE, exactly these 4, in this order, one finding per point. Point 1 is also the highlighted line on slide 2:")
+    for i, (sc, name, finding, tip) in enumerate(picked4, 1):
+        F.append(f"{i}. {name}: {finding}. Direction for the fix: {tip}.")
+    log['points'] = [(sc, name) for sc, name, _, _ in cands]
 # google
 if gj.get('count') or cr:
     F.append(f"\nGOOGLE ADS: {gj.get('count') or len(cr)} creatives in Google Ads Transparency" + (f"; formats {', '.join(f'{v} {k.lower()}' for k, v in (g.get('formats') or {}).items())}" if g.get('formats') else ''))
@@ -318,7 +419,7 @@ if spec is None:
     log['status'] = 'FAILED validation'; json.dump(log, open(os.path.join(work, 'run.json'), 'w'), indent=1); sys.exit('copy failed hard validation, one call only, no retry')
 
 # ---------- 4. spec + build ----------
-final = {'slug': slug, 'company': company, 'full_name': full_name, 'logo': logo_file, 'shot': slug + '.jpg', 'shot_caption': domain,
+final = {'slug': slug, 'company': company, 'full_name': full_name, 'logo': logo_file, 'shot': (slug + '.jpg') if os.path.exists(os.path.join(ROOT, 'assets', 'shots', slug + '.jpg')) else '', 'shot_caption': domain,
          'saw_lines': spec['saw_lines']}
 if spec.get('ads') and len(images) >= 1:
     final['ads'] = {'source': f"Meta Ad Library, active ads, {datetime.date.today().strftime('%d %b %Y').lstrip('0')}",
