@@ -278,7 +278,17 @@ if not os.path.exists(os.path.join(ROOT, 'assets', 'shots', slug + '.jpg')):
     subprocess.run(['py', SHOT, slug, shotdir, url], capture_output=True, text=True, timeout=240)
     s1 = os.path.join(shotdir, slug + '_1.jpg')
     if os.path.exists(s1): shutil.copy(s1, os.path.join(ROOT, 'assets', 'shots', slug + '.jpg')); print('shot ok')
-    else: print('SHOT FAILED')
+    else:
+        print('shot blocked on the PC, retrying on the Mac through a proxy')
+        try:
+            rr = subprocess.run(['ssh', '-o', 'ConnectTimeout=20', MAC, 'cd ~/ads_ecom && python3 mac_shot.py ' + url + ' /tmp/cf_shot_' + slug + '.png'], capture_output=True, text=True, timeout=300)
+            if 'ok' in rr.stdout:
+                os.makedirs(shotdir, exist_ok=True); lp = os.path.join(shotdir, slug + '_mac.png')
+                subprocess.run(['scp', '-q', MAC + ':/tmp/cf_shot_' + slug + '.png', lp], timeout=120)
+                from PIL import Image as _I
+                _I.open(lp).convert('RGB').resize((1200, 750)).save(os.path.join(ROOT, 'assets', 'shots', slug + '.jpg'), quality=88); print('shot ok (Mac)')
+            else: print('SHOT FAILED')
+        except Exception as e: print('SHOT FAILED', e)
 # logo: shot.py info candidates, else header <img ...logo...>, else text wordmark
 logo_file = None
 for ext in ('svg', 'png'):
