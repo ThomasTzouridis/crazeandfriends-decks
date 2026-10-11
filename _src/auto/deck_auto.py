@@ -85,6 +85,17 @@ if site_ok:
     F.append("SITE offers (scanned all loaded pages incl. footer): " + (' | '.join(site_offer) if site_offer else 'none found on any loaded page'))
     F.append("SITE proof numbers: " + (' | '.join(site_proof) if site_proof else 'none found') + (f" | rating {rating[0]}" if rating else ''))
     F.append("SITE linked social channels: " + (', '.join(c.title() for c in socials) or 'none linked'))
+    prices = list(dict.fromkeys(re.findall(r'\$\d{1,4}(?:\.\d\d)?', totext(h))))[:12]
+    if prices: F.append("SITE prices seen on homepage: " + ', '.join(prices))
+    prods = [x for x in re.findall(r'(?is)<h[23][^>]*>(.*?)</h[23]>', h)]
+    prods = list(dict.fromkeys(html.unescape(re.sub(r'<[^>]+>', ' ', x)).strip() for x in prods))
+    prods = [x for x in prods if 3 < len(x) < 60 and not re.search(r'(?i)^(shop|menu|cart|search|faq|about|contact|follow|newsletter|sign)', x)][:14]
+    if prods: F.append("SITE product and section names: " + ' | '.join(prods))
+    quotes = re.findall(r'[\u201c"]([^\u201d"]{40,220})[\u201d"]', alltext)[:4]
+    if quotes: F.append("SITE customer quotes: " + ' || '.join(q.strip() for q in quotes))
+    faqs = [x for x in re.findall(r'(?i)((?:how|what|where|when|is|are|do|does|can)[^?]{10,90}\?)', alltext)]
+    faqs = list(dict.fromkeys(x.strip() for x in faqs))[:8]
+    if faqs: F.append("SITE questions it answers (FAQ): " + ' | '.join(faqs))
 else:
     F.append("SITE: COULD NOT BE LOADED (blocked or down). You know nothing about the website. Do not write any sentence about the site, the homepage, its offers, its proof or its channels.")
 # meta ads measured
@@ -134,14 +145,19 @@ if live:
     if old: F.append(f"proven winners: {len(old)} ads have run 60+ days (oldest since {min(a['start'] for a in old)}), that is evidence they work; never say nothing is proven")
     rc = sum(bool(re.search(CLAIM, b)) for b in bodies)
     if rc: F.append(f"claims: {rc} ads contain claim words (clinically, cure, guaranteed results)")
-    F.append("sample live ads, longest running first (first 60 words of copy):")
-    seenb = set()
+    def fulltext(a): return ' '.join(((a.get('body') or '') + ' ' + (a.get('title') or '') + ' ' + (a.get('link_description') or '') + ' ' + (a.get('caption') or '')).split())
+    obj = {'shipping or delivery': r'(?i)shipping|delivery|deliver', 'frozen or how it arrives': r'(?i)frozen|arrives|packed|cooler|dry ice', 'price or cost': r'(?i)price|cost|\$\d|per lb|per pound|afford', 'returns or guarantee': r'(?i)return|refund|guarantee', 'taste': r'(?i)taste|flavor|delicious|tender', 'subscription': r'(?i)subscri|monthly|every month'}
+    F.append("objection coverage, counted over ALL " + str(len(live)) + " live ads (body + title + description): " + '; '.join(f"{k}: {sum(bool(re.search(rx, fulltext(a))) for a in live)} ads" for k, rx in obj.items()))
+    pn = [re.sub(r'[^0-9]', '', x) for x in re.findall(r'\d[\d,]{2,}\+?', ' '.join(site_proof))]
+    if pn: F.append("site proof numbers in ads, counted over all live ads: " + '; '.join(f"{n}: {sum(n in re.sub(r'[^0-9]', '', fulltext(a)) for a in live)} ads" for n in dict.fromkeys(pn)))
+    F.append("live ads, full text, longest running first. xN = N ads run this exact copy, count them as N ads, never as one:")
+    seenb = {}
     for a in sorted(live_copy, key=lambda a: a.get('start') or '9'):
-        b = ' '.join((a.get('body') or '').split()[:60])
-        if b in seenb: continue
-        seenb.add(b)
-        F.append(f"- [{kind(a)}, since {a.get('start')}, CTA {a.get('cta') or 'none'}] title: {a.get('title') or ''} | copy: {b}")
-        if len(seenb) >= 8: break
+        b = ' '.join((a.get('body') or '').split())[:900]
+        if b in seenb: seenb[b][1] += 1; continue
+        seenb[b] = [a, 1]
+    for b, (a, n) in list(seenb.items())[:12]:
+        F.append(f"- [{kind(a)}, since {a.get('start')}, CTA {a.get('cta') or 'none'}, x{n}] title: {a.get('title') or ''} | description: {(a.get('link_description') or '')[:160]} | copy: {b}")
 # google
 if gj.get('count') or cr:
     F.append(f"\nGOOGLE ADS: {gj.get('count') or len(cr)} creatives in Google Ads Transparency" + (f"; formats {', '.join(f'{v} {k.lower()}' for k, v in (g.get('formats') or {}).items())}" if g.get('formats') else ''))
