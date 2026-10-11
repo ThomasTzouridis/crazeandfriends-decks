@@ -56,6 +56,16 @@ Picture found -> two columns, text left, picture right, exactly as always. No pi
 flush left with the title, 78cqw wide, 2.1cqw font, fewer lines (class `noshot`, set by build.py). No third variant, never a
 placeholder image.
 
+## Mac automation (live 2026-10-11)
+`cf_poll.py` on the Mac (`~/cf-decks`, mac-hub job `cf_decks`, every 15 min): HeyReach campaigns 649994 to 649998, leads with an accepted or
+existing connection -> `_private/cf_leads.json` (LinkedIn id -> slug, company, website; gitignored, copy it to the Mac after any lead change)
+-> `deck_auto.py` (runs fully local on the Mac: proxies, Playwright, Claude token from AIOS .env) -> commit + push. Message 1 goes out 1 day
+after the accept, the build takes about 3 minutes.
+- Fallback: `404.html` (`build_fallback.py`) is served by GitHub Pages for every slug that has no deck yet, so a link is never dead. Regenerate it
+  after any lead map change, commit it.
+- State: `_private/cf_poll_state.json` on the Mac. `failed` is never retried (one model call only). To rebuild one, delete its entry and run
+  `python3 _src/auto/cf_poll.py --slug <slug> --force`. `--dry` lists who would be built.
+- Failures DM Thomas on Slack (the mac-hub alert channel is archived).
+
 ## Open
 - No rerun path at all yet for a hard check failure: plan is to cut an unsupported sentence and fill a missing field by script.
-- The Mac poll job (HeyReach ConnectionAccepted every 30 min -> build -> push) is not built. Do not launch the campaign before it.

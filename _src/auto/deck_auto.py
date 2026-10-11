@@ -11,6 +11,9 @@ from collections import Counter
 sys.stdout.reconfigure(encoding='utf-8')
 HERE = os.path.dirname(os.path.abspath(__file__)); SRC = os.path.dirname(HERE); ROOT = os.path.dirname(SRC)
 SHOT = r"C:\Users\Thomas\Desktop\Presentations\3DforScience\_src\tools\shot.py"
+WIN = os.name == 'nt'  # PC: PC Playwright first, Mac over ssh as fallback. Mac (the poll job): everything runs locally
+MAC_VENV = os.path.expanduser('~/ads_ecom/.venv/bin/python3')  # has curl_cffi
+MAC_CLAY = os.path.expanduser('~/Desktop/AIOS/Internal Clay')  # proxy_fetch.load_pool()
 MODEL = os.environ.get('CF_MODEL', 'claude-haiku-5-5')
 UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36'
 OFFER = r'(?i)buy one|bogo|b1g1|\d+% off|free shipping|save \$?\d|discount|bundle|guarantee|first order|\$\d+ off'
@@ -45,6 +48,13 @@ import requests
 MAC = 'thomastzouridis@100.93.68.58'
 def mac_fetch(u):
     """blocked from the PC: same page through one of the 500 Webshare proxies on the Mac (~/ads_ecom/mac_fetch.py)"""
+    if not WIN:
+        try:
+            r = subprocess.run([MAC_VENV, os.path.join(HERE, 'mac_fetch.py'), u], capture_output=True, text=True, encoding='utf-8',
+                               errors='ignore', timeout=300, env=dict(os.environ, PYTHONPATH=MAC_CLAY))
+            return r.stdout if len(r.stdout) > 2000 else ''
+        except Exception:
+            return ''
     try:
         r = subprocess.run(['ssh', '-o', 'ConnectTimeout=20', MAC, 'cd ~/ads_ecom && source .venv/bin/activate 2>/dev/null; PYTHONPATH="$HOME/Desktop/AIOS/Internal Clay" python3 mac_fetch.py ' + u],
                            capture_output=True, text=True, encoding='utf-8', errors='ignore', timeout=300)
@@ -274,7 +284,16 @@ allowed |= {a + b for a in allowed for b in allowed if a < 100000 and b < 100000
 
 # ---------- 2. assets ----------
 shotdir = os.path.join(work, 'shot')
-if not os.path.exists(os.path.join(ROOT, 'assets', 'shots', slug + '.jpg')):
+if not WIN and not os.path.exists(os.path.join(ROOT, 'assets', 'shots', slug + '.jpg')):
+    os.makedirs(shotdir, exist_ok=True); lp = os.path.join(shotdir, slug + '_mac.png')
+    try:
+        rr = subprocess.run([sys.executable, os.path.join(HERE, 'mac_shot.py'), url, lp], capture_output=True, text=True, timeout=420)
+        if 'ok' in rr.stdout and os.path.exists(lp):
+            from PIL import Image as _I
+            _I.open(lp).convert('RGB').resize((1200, 750)).save(os.path.join(ROOT, 'assets', 'shots', slug + '.jpg'), quality=88); print('shot ok (Mac)')
+        else: print('SHOT FAILED', rr.stdout[-200:], rr.stderr[-300:])
+    except Exception as e: print('SHOT FAILED', e)
+elif not os.path.exists(os.path.join(ROOT, 'assets', 'shots', slug + '.jpg')):
     subprocess.run(['py', SHOT, slug, shotdir, url], capture_output=True, text=True, timeout=240)
     s1 = os.path.join(shotdir, slug + '_1.jpg')
     if os.path.exists(s1): shutil.copy(s1, os.path.join(ROOT, 'assets', 'shots', slug + '.jpg')); print('shot ok')
@@ -326,7 +345,7 @@ if not logo_file:
     if not logo_file:
         from PIL import ImageDraw, ImageFont
         fnt = None
-        for fp in (r'C:\Windows\Fonts\arialbd.ttf', r'C:\Windows\Fonts\impact.ttf'):
+        for fp in (r'C:\Windows\Fonts\arialbd.ttf', r'C:\Windows\Fonts\impact.ttf', '/System/Library/Fonts/Supplemental/Arial Bold.ttf', '/System/Library/Fonts/Supplemental/Impact.ttf'):
             if os.path.exists(fp): fnt = ImageFont.truetype(fp, 120); break
         im = Image.new('RGBA', (2400, 200), (0, 0, 0, 0)); ImageDraw.Draw(im).text((10, 20), company.upper(), font=fnt, fill=(19, 20, 16, 255))
         im = im.crop(im.getbbox()); logo_file = slug + '.png'; im.save(os.path.join(ROOT, 'assets', 'clients', logo_file)); print('logo: text wordmark fallback')
@@ -366,7 +385,37 @@ print('ad images', images)
 PROMPT = open(os.path.join(HERE, 'PROMPT.md'), encoding='utf-8').read()
 
 
+CLAUDE_ARGS = ['-p', '--model', MODEL, '--output-format', 'json', '--tools', '', '--disable-slash-commands', '--setting-sources', '',
+               '--no-session-persistence', '--system-prompt', 'You are a precise copywriter. Return only JSON.']
+UNAVAILABLE = r'(?i)not logged in|usage limit|limit reached|out of usage|session limit|weekly limit|disabled claude subscription|oauth token|revoked'
+
+
+def mac_tokens():
+    """Mac: the long lived setup-token tokens in AIOS .env, in order. An account that cannot serve (not logged in, limit hit)
+    answers with 0 tokens and no copy, so moving to the next one is not a second model call."""
+    envf = os.path.expanduser('~/Desktop/AIOS/.env')
+    kv = dict(re.findall(r'^([A-Z0-9_]+)=(.*)$', open(envf, encoding='utf-8').read(), re.M)) if os.path.exists(envf) else {}
+    names = os.environ.get('CF_CLAUDE_TOKENS', 'REPLYOS_CLAUDE_OAUTH_TOKEN_2,REPLYOS_CLAUDE_OAUTH_TOKEN').split(',')
+    return [kv[n].strip().strip('"').strip("'") for n in names if kv.get(n, '').strip()]
+
+
 def call(msg):
+    if not WIN:
+        cbin = os.path.expanduser('~/.local/bin/claude'); cfg = os.path.expanduser('~/.claude-accounts/cf-decks')
+        os.makedirs(cfg, exist_ok=True)
+        for tok in mac_tokens():
+            e = {k: v for k, v in os.environ.items() if k != 'ANTHROPIC_API_KEY'}
+            e.update(CLAUDE_CONFIG_DIR=cfg, CLAUDE_CODE_OAUTH_TOKEN=tok)
+            r = subprocess.run([cbin] + CLAUDE_ARGS, input=msg, capture_output=True, text=True, encoding='utf-8', timeout=300, cwd=work, env=e)
+            d = json.loads(r.stdout[r.stdout.index('{'):])
+            if d.get('is_error') and re.search(UNAVAILABLE, str(d.get('result'))) and not (d.get('usage') or {}).get('output_tokens'):
+                print('claude account unavailable, next token:', str(d.get('result'))[:80]); continue
+            break
+        else:
+            raise SystemExit('no Claude account could serve the call')
+        u = d['usage']; log['calls'].append(dict({k: u.get(k) for k in ('input_tokens', 'cache_creation_input_tokens', 'cache_read_input_tokens', 'output_tokens')}, cost_usd=d.get('total_cost_usd'), model=list(d.get('modelUsage', {}))))
+        if d.get('is_error'): raise SystemExit('claude error: ' + str(d.get('result'))[:300])
+        return d['result']
     r = subprocess.run(['claude', '-p', '--model', MODEL, '--output-format', 'json', '--tools', '', '--disable-slash-commands',
                         '--setting-sources', '', '--no-session-persistence', '--system-prompt', 'You are a precise copywriter. Return only JSON.'],
                        input=msg, capture_output=True, text=True, encoding='utf-8', timeout=300, cwd=work, shell=True)
@@ -438,7 +487,7 @@ final['ads_1'] = spec['ads_1']
 final['soc_1'] = spec['soc_1'] if socials else 'Brand social strategy for the channels your buyers already use'  # no social links found on the site: never guess channels
 sp_path = os.path.join(SRC, 'specs', slug + '.json')
 json.dump(final, open(sp_path, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
-b = subprocess.run(['py', 'build.py', os.path.join('specs', slug + '.json')], cwd=SRC, capture_output=True, text=True, encoding='utf-8')
+b = subprocess.run([sys.executable, 'build.py', os.path.join('specs', slug + '.json')], cwd=SRC, capture_output=True, text=True, encoding='utf-8')
 print(b.stdout.strip(), b.stderr.strip()[-300:])
 log['status'] = 'built' if 'built' in b.stdout else 'build failed'
 tot = {k: sum(c[k] or 0 for c in log['calls']) for k in ('input_tokens', 'cache_creation_input_tokens', 'cache_read_input_tokens', 'output_tokens')}

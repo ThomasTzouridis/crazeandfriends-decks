@@ -12,8 +12,8 @@ document.querySelectorAll('iframe').forEach(f=>{const r=f.getBoundingClientRect(
 document.body.style.overflow='auto';return 1;})()"""
 pool = load_pool(); ok = False
 with sync_playwright() as p:
-    for i in range(5):
-        px = random.choice(pool); m = re.match(r'https?://([^:]+):([^@]+)@([^:]+):(\d+)', px)
+    for i in range(6):  # try 0 = direct (a site that does not block needs no proxy), then 5 random Webshare proxies
+        px = random.choice(pool) if i else ''; m = re.match(r'https?://([^:]+):([^@]+)@([^:]+):(\d+)', px)
         prox = {'server': f'http://{m.group(3)}:{m.group(4)}', 'username': m.group(1), 'password': m.group(2)} if m else None
         try:
             b = p.chromium.launch(proxy=prox)
