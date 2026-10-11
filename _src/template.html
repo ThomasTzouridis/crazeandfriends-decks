@@ -61,6 +61,8 @@ img.wm{display:block;height:1.62em;width:auto;max-width:none}
 .saw .lines{display:flex;flex-direction:column;gap:1.6cqw;font-size:1.7cqw;line-height:1.45}
 .saw .lines q,.saw .lines b{font-weight:700}
 .saw .lines .turn{border-left:.4cqw solid var(--hi);padding-left:1.4cqw}
+.saw.noshot{grid-template-columns:1fr;justify-items:center}
+.saw.noshot .lines{max-width:64cqw;font-size:2.1cqw;gap:2.2cqw}
 .shot{margin:0;display:flex;flex-direction:column;gap:.8cqw;min-height:0}
 .shot img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border:.1cqw solid var(--line);box-shadow:0 1.6cqw 3.6cqw rgba(19,20,16,.16);display:block}
 .shot figcaption{font:400 1cqw var(--mono);color:var(--muted)}
@@ -311,7 +313,7 @@ html.cfphone .talk .r span{font-size:10px}
 
 <section aria-label="What we saw"><div class="s up">
   <h2 class="in">What we saw at <span class="mark">{{COMPANY}}</span></h2>
-  <div class="saw in">
+  <div class="saw in{{SAW_CLASS}}">
     <div class="lines">{{SAW_LINES}}</div>
     {{SHOT}}
   </div>

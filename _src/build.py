@@ -50,7 +50,7 @@ for path in sys.argv[1:]:
                f'<div class="adsgrid in"><div class="pts">{pts}</div><div><div class="adimgs">{imgs}</div><div class="adstats">{sts}</div>'
                f'<p class="adsrc">Source: {e(a["source"])}</p></div></div></div></section>')
     out = open(os.path.join(HERE,'template.html'),encoding='utf-8').read()
-    for k,v in {'COMPANY':co,'PREPARED':prep,'SAW_LINES':lines,'SHOT':shot,'CELLS':CELLS,'LOGOS':LOGOS,'ADS_SLIDE':ads,'LOGO':logo,'ADS_1':sp['ads_1'],'SOC_1':sp['soc_1']}.items():
+    for k,v in {'COMPANY':co,'PREPARED':prep,'SAW_LINES':lines,'SHOT':shot,'CELLS':CELLS,'LOGOS':LOGOS,'ADS_SLIDE':ads,'LOGO':logo,'ADS_1':sp['ads_1'],'SOC_1':sp['soc_1'],'SAW_CLASS':'' if sp.get('shot') else ' noshot'}.items():
         out = out.replace('{{'+k+'}}', v)
     d = os.path.join(ROOT, sp['slug']); os.makedirs(d, exist_ok=True)
     open(os.path.join(d,'index.html'),'w',encoding='utf-8').write(out)
