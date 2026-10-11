@@ -7,7 +7,7 @@ Writes ONLY columns B:E of the tab "Performance" (one total, rewritten each run,
   E Meeting booking rate per msged  = leads tagged "meeting..." in the HeyReach inbox / totalMessageStarted
 Rows: every sender whose full name is in column A (match on name, new senders: just type the name in A), the row whose A text
 starts with "Ecom Leads" (= every campaign whose leads come from HeyReach list 1013263, matched by profile URL), and "Total"
-(whole workspace). F onwards is never touched.
+(the sender accounts listed above it added up, the ecom row is never added). F onwards is never touched.
   python3 _src/auto/cf_perf.py          real run
   python3 _src/auto/cf_perf.py --dry    print, write nothing
 """
@@ -72,16 +72,18 @@ def main():
     sv = P.sheets_svc()
     col_a = sv.values().get(spreadsheetId=P.SHEET, range='%s!A2:A40' % TAB).execute().get('values', [])
     by_name = {n: i for i, n in accts.items()}
-    data, log = [], []
+    data, log, names_seen = [], [], []
     for r, cell in enumerate(col_a, start=2):
         name = (cell[0] if cell else '').strip()
         if not name: continue
         if name in by_name:
+            names_seen.append(name)
             aid = by_name[name]; s = stats(key, [aid], []); v = vals(s, meet.get(aid, 0))
         elif name.lower().startswith('ecom leads'):
             s = stats(key, [], ecom_camps) if ecom_camps else None; v = vals(s, meet_ecom) if s else ['', '', '', '']
-        elif name.lower() == 'total':
-            s = stats(key, [], []); v = vals(s, sum(meet.values()))
+        elif name.lower() == 'total':   # Total = the sender rows above added up (raw counts), the ecom row is a subset and never added
+            aids = [by_name[n] for n in names_seen]
+            s = stats(key, aids, []) if aids else None; v = vals(s, sum(meet.get(a, 0) for a in aids)) if s else ['', '', '', '']
         else:
             continue
         data.append({'range': '%s!B%d:E%d' % (TAB, r, r), 'values': [v]})

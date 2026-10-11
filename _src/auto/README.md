@@ -80,7 +80,7 @@ Google Sheet "Craze&Friends | Meetings & Tracking" (id 1ZJp5PxD40R43vZRSMHY7KCYs
 - Automated columns are B:E ONLY, all-time totals straight from HeyReach `GetOverallStats`, overwritten every run (no per-day rows), real numbers in 0.0% format:
   B connection back = connectionsAccepted / connectionsSent; C reply = totalMessageReplies / totalMessageStarted; D interested = autoTaggedInterested / totalMessageStarted;
   E meeting booking = inbox conversations with a tag containing "meeting" / totalMessageStarted. HeyReach has no meetings field: tag the lead "Meeting booked" in the HeyReach inbox and it counts.
-- Rows are matched by column A: a sender's full name (exactly as in HeyReach, all campaigns of that account), the row starting "Ecom Leads" (every campaign whose leads are 90%+ from HeyReach list 1013263, matched by profile URL), and "Total" (whole workspace). New sender: type the name in A.
+- Rows are matched by column A: a sender's full name (exactly as in HeyReach, all campaigns of that account), the row starting "Ecom Leads" (every campaign whose leads are 90%+ from HeyReach list 1013263, matched by profile URL), and "Total" (the sender accounts in A added up as raw counts, then divided; the ecom row is a subset and is never added). New sender: type the name in A.
 - F onwards (show up, closing, deal value, LTV) is manual, never touched. Empty cell = denominator 0 (nobody messaged yet).
 - Run by hand: `python3 _src/auto/cf_perf.py --dry` (print only) or without `--dry`.
 - Row order is stable (new connections are appended). Do not sort the tab, use a filter view.
