@@ -40,34 +40,64 @@ m = res.get('meta') or {}; ads = m.get('ads') or []; live = [a for a in ads if a
 g = res.get('google') or {}; cr = g.get('creatives') or []
 F = []  # fact sheet lines
 F.append(f"LEAD: {full_name}, {company}, {domain}")
-# website
-try:
-    import requests
-    h = requests.get(url, headers={'User-Agent': UA}, timeout=30).text
-except Exception as e:
-    h = ''; print('site fetch failed', e)
-t = re.sub(r'(?is)<(script|style|noscript|svg)[^>]*>.*?</\1>', ' ', h)
-title = re.search(r'(?is)<title[^>]*>(.*?)</title>', t); desc = re.search(r'(?i)<meta[^>]+name="description"[^>]+content="([^"]*)"', t)
-heads = [html.unescape(re.sub(r'<[^>]+>', ' ', x)).strip() for x in re.findall(r'(?is)<h[12][^>]*>(.*?)</h[12]>', t)]
-text = html.unescape(re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '\n', t)))
-site_offer = [x for x in dict.fromkeys(re.sub(r'\s+', ' ', y).strip(' .!') for y in re.findall(r"(?i)[A-Za-z0-9$%&,' ]{0,50}(?:free shipping|% off|subscribe (?:&|and) save|save \d+%|first order|guarantee|bundle)[A-Za-z0-9$%&,' ]{0,50}", text)) if 2 <= len(x.split()) <= 12][:8]
-site_proof = list(dict.fromkeys(x.strip() for x in re.findall(r'[^.\n]{0,40}\d[\d,]{2,}\+?\s*(?:reviews|customers|families|farms|orders|happy|five.star|5.star|stars)[^.\n]{0,40}', text, re.I)))[:6]
+# website: homepage + the pages a buyer sees (about, shipping/FAQ, reviews, rewards), whole text scanned
+import requests
+def fetch(u):
+    try:
+        r = requests.get(u, headers={'User-Agent': UA, 'Accept-Language': 'en-US,en;q=0.9'}, timeout=30)
+        if r.status_code != 200: return ''
+        if re.search(r'(?i)<title>\s*(just a moment|attention required|access denied|verify you are)', r.text[:3000]): return ''
+        return r.text
+    except Exception:
+        return ''
+def totext(h_):
+    t_ = re.sub(r'(?is)<(script|style|noscript|svg|template)[^>]*>.*?</\1>', ' ', h_)
+    return html.unescape(re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '\n', t_)))
+h = fetch(url)
+site_ok = bool(h) and len(totext(h)) > 400
+pages = {}
+if site_ok:
+    links = re.findall(r'href="([^"#?]+)"', h)
+    want = re.compile(r'(?i)about|our-story|story|shipping|delivery|faq|review|testimonial|guarantee|subscri|reward|loyalty|why-')
+    seen_p = set()
+    for l in links:
+        if not want.search(l): continue
+        u = l if l.startswith('http') else url.rstrip('/') + '/' + l.lstrip('/')
+        if domain not in u or u in seen_p: continue
+        seen_p.add(u)
+        ph = fetch(u)
+        if ph: pages[u] = totext(ph)
+        if len(pages) >= 5: break
+alltext = (totext(h) if site_ok else '') + ' ' + ' '.join(pages.values())
+title = re.search(r'(?is)<title[^>]*>(.*?)</title>', h) if site_ok else None
+desc = re.search(r'(?i)<meta[^>]+name="description"[^>]+content="([^"]*)"', h) if site_ok else None
+heads = [html.unescape(re.sub(r'<[^>]+>', ' ', x)).strip() for x in re.findall(r'(?is)<h[12][^>]*>(.*?)</h[12]>', h)] if site_ok else []
+text = alltext
+site_offer = [x for x in dict.fromkeys(re.sub(r'\s+', ' ', y).strip(' .!,') for y in re.findall(r"(?i)[A-Za-z0-9$%&' ]{0,25}(?:free shipping[^.|]{0,40}|\d+% off[^.|]{0,40}|subscribe (?:&|and) save[^.|]{0,30}|save \d+%[^.|]{0,40}|first order[^.|]{0,30}|money.back guarantee|\d+.day guarantee|bundle and save)", text)) if 2 <= len(x.split()) <= 18][:8]
+site_proof = list(dict.fromkeys(x.strip() for x in re.findall(r'[^.\n|]{0,40}\d[\d,]{2,}\+?\s*(?:reviews|customers|families|farms|orders|happy|five.star|5.star|stars|members|years)[^.\n|]{0,40}', text, re.I)))[:6]
 rating = re.findall(r'(\d\.\d)\s*(?:out of 5|/5|stars|star rating)', text, re.I)[:2]
-socials = sorted({x for x in re.findall(r'(?i)(instagram|tiktok|facebook|pinterest|youtube|twitter|x\.com|linkedin)\.com/', h)})
-F.append("SITE title: " + html.unescape(title.group(1)).strip()[:120] if title else "SITE title: n/a")
-if desc: F.append("SITE description: " + html.unescape(desc.group(1))[:200])
-if heads: F.append("SITE headlines: " + ' | '.join(dict.fromkeys(x for x in heads if 3 < len(x) < 90))[:400])
-F.append("SITE offer lines: " + (' | '.join(site_offer) if site_offer else 'none found'))
-F.append("SITE proof lines: " + (' | '.join(site_proof) if site_proof else 'none found') + (f" | rating {rating[0]}" if rating else ''))
-F.append("SITE linked social channels: " + (', '.join(c.title().replace('X.Com', 'X') for c in socials) or 'none found'))
+socials = sorted({x.lower() for x in re.findall(r'(?i)(?:https?:)?//(?:www\.)?(instagram|tiktok|facebook|pinterest|youtube|twitter|x)\.com/[A-Za-z0-9_.@-]{2,}', h)}) if site_ok else []
+if site_ok:
+    F.append("SITE: loaded homepage" + (f" + {len(pages)} more pages ({', '.join(re.sub(r'https?://[^/]+', '', u) for u in pages)})" if pages else ''))
+    F.append("SITE title: " + (html.unescape(title.group(1)).strip()[:120] if title else 'n/a'))
+    if desc: F.append("SITE description: " + html.unescape(desc.group(1))[:200])
+    if heads: F.append("SITE headlines: " + ' | '.join(dict.fromkeys(x for x in heads if 3 < len(x) < 90))[:400])
+    F.append("SITE offers (scanned all loaded pages incl. footer): " + (' | '.join(site_offer) if site_offer else 'none found on any loaded page'))
+    F.append("SITE proof numbers: " + (' | '.join(site_proof) if site_proof else 'none found') + (f" | rating {rating[0]}" if rating else ''))
+    F.append("SITE linked social channels: " + (', '.join(c.title() for c in socials) or 'none linked'))
+else:
+    F.append("SITE: COULD NOT BE LOADED (blocked or down). You know nothing about the website. Do not write any sentence about the site, the homepage, its offers, its proof or its channels.")
 # meta ads measured
 n_live_total = len(live) if len(live) >= 10 else (metaj.get('ads_active') or len(live))
 F.append(f"\nMETA ADS: live Meta ads = {n_live_total}")
 if live:
-    bodies = [a.get('body') or '' for a in live]
+    catalog = [a for a in live if '{{' in (a.get('body') or '') + (a.get('title') or '')]
+    live_copy = [a for a in live if a not in catalog]
+    bodies = [a.get('body') or '' for a in live_copy]
+    if catalog: F.append(f"catalog ads (product feed, no fixed copy, never quote them): {len(catalog)} of {len(live)}; the hook, offer and proof counts below are over the other {len(live_copy)} ads")
     fam = Counter(' '.join((b or '').split()[:5]).lower().strip(' ,.!') for b in bodies if b)
     top = fam.most_common(3)
-    F.append(f"hooks: {len(fam)} different opening stories across {len(bodies)} ads; biggest: \"{top[0][0]}...\" opens {top[0][1]} ads" + (f"; second: \"{top[1][0]}...\" opens {top[1][1]}" if len(top) > 1 else ''))
+    F.append(f"hooks: {len(fam)} different opening stories across {len(bodies)} ads with fixed copy; biggest: \"{top[0][0]}...\" opens {top[0][1]} ads" + (f"; second: \"{top[1][0]}...\" opens {top[1][1]}" if len(top) > 1 else ''))
     # site offers vs ads
     offers = {'free shipping': r'(?i)free shipping', 'first order discount': r'(?i)first order|welcome|new customer', 'subscribe and save': r'(?i)subscri', 'percent off': r'(?i)\d+% off|save \d+%', 'guarantee': r'(?i)guarantee', 'bundle': r'(?i)bundle|box'}
     on_site = [k for k, rx in offers.items() if re.search(rx, ' '.join(site_offer) + ' ' + ' '.join(heads))]
@@ -95,11 +125,18 @@ if live:
     plats = Counter(p for a in live for p in (a.get('platforms') or [])); ctas = Counter(a.get('cta') for a in live if a.get('cta'))
     lands = Counter(re.sub(r'\?.*', '', a.get('landing') or '') for a in live if a.get('landing'))
     F.append(f"placements: {', '.join(k.title().replace('_', ' ') for k, v in plats.most_common())}; CTAs: {', '.join(f'{k} ({v})' for k, v in ctas.most_common(3))}; {len(lands)} different landing pages" + (f" ({', '.join(list(lands)[:3])})" if lands else ''))
+    done = []
+    cta_land = Counter((a.get('cta') or 'none', re.sub(r'\?.*', '', a.get('landing') or '')) for a in live)
+    for (c, l), n in cta_land.most_common():
+        done.append(f"{n} '{c}' ads go to {l.replace('https://', '').replace('http://', '')}")
+    F.append("ALREADY DONE (never recommend these, they do it already): " + '; '.join(done))
+    old = [a for a in live if a.get('start') and (datetime.date.today() - datetime.date.fromisoformat(a['start'])).days >= 60]
+    if old: F.append(f"proven winners: {len(old)} ads have run 60+ days (oldest since {min(a['start'] for a in old)}), that is evidence they work; never say nothing is proven")
     rc = sum(bool(re.search(CLAIM, b)) for b in bodies)
     if rc: F.append(f"claims: {rc} ads contain claim words (clinically, cure, guaranteed results)")
     F.append("sample live ads, longest running first (first 60 words of copy):")
     seenb = set()
-    for a in sorted(live, key=lambda a: a.get('start') or '9'):
+    for a in sorted(live_copy, key=lambda a: a.get('start') or '9'):
         b = ' '.join((a.get('body') or '').split()[:60])
         if b in seenb: continue
         seenb.add(b)
@@ -241,20 +278,28 @@ def validate(sp):
 
 
 msg = PROMPT + '\n\nFACT SHEET\n' + facts + '\n\nReturn the JSON now.'
-spec = None
-for attempt in range(2):
-    out = call(msg)
-    try: sp = json.loads(out[out.index('{'):out.rindex('}') + 1])
-    except Exception as e:
-        errs = ['output was not valid JSON: ' + str(e)]
-    else:
-        errs = validate(sp)
-    if not errs: spec = sp; break
-    print('attempt', attempt + 1, 'errors:', errs)
-    msg = PROMPT + '\n\nFACT SHEET\n' + facts + '\n\nYour previous answer:\n' + out + '\n\nIt failed these checks, fix ALL of them and return the full JSON again:\n- ' + '\n- '.join(errs)
-log['validation_errors_last'] = errs
+out = call(msg)
+def mech(x):
+    """fixes that never need the model: strip bold tags, turn dashes into commas"""
+    if isinstance(x, str):
+        x = re.sub(r'</?\s*(b|strong)\s*>', '', x, flags=re.I)
+        return re.sub(r'\s*[\u2013\u2014]\s*| - ', ', ', x)
+    if isinstance(x, list): return [mech(i) for i in x]
+    if isinstance(x, dict): return {k: mech(v) for k, v in x.items()}
+    return x
+try:
+    sp = mech(json.loads(out[out.index('{'):out.rindex('}') + 1]))
+    errs = validate(sp)
+except Exception as e:
+    sp, errs = None, ['output was not valid JSON: ' + str(e)]
+hard = [e for e in errs if 'not in the FACT SHEET' in e or 'JSON' in e or 'required' in e or 'must have 3' in e or 'missing' in e]
+soft = [e for e in errs if e not in hard]
+if soft: print('soft issues (kept, no second call):', soft)
+spec = None if hard else sp
+if hard: print('HARD errors, no second call, deck not built:', hard)
+log['validation_errors_last'] = errs; log['soft_issues'] = soft if sp else []
 if spec is None:
-    log['status'] = 'FAILED validation'; json.dump(log, open(os.path.join(work, 'run.json'), 'w'), indent=1); sys.exit('copy failed validation twice')
+    log['status'] = 'FAILED validation'; json.dump(log, open(os.path.join(work, 'run.json'), 'w'), indent=1); sys.exit('copy failed hard validation, one call only, no retry')
 
 # ---------- 4. spec + build ----------
 final = {'slug': slug, 'company': company, 'full_name': full_name, 'logo': logo_file, 'shot': slug + '.jpg', 'shot_caption': domain,
@@ -262,7 +307,8 @@ final = {'slug': slug, 'company': company, 'full_name': full_name, 'logo': logo_
 if spec.get('ads') and len(images) >= 1:
     final['ads'] = {'source': f"Meta Ad Library, active ads, {datetime.date.today().strftime('%d %b %Y').lstrip('0')}",
                     'stats': spec['ads']['stats'], 'points': spec['ads']['points'], 'images': images}
-final['ads_1'] = spec['ads_1']; final['soc_1'] = spec['soc_1']
+final['ads_1'] = spec['ads_1']
+final['soc_1'] = spec['soc_1'] if socials else 'Brand social strategy for the channels your buyers already use'  # no social links found on the site: never guess channels
 sp_path = os.path.join(SRC, 'specs', slug + '.json')
 json.dump(final, open(sp_path, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
 b = subprocess.run(['py', 'build.py', os.path.join('specs', slug + '.json')], cwd=SRC, capture_output=True, text=True, encoding='utf-8')

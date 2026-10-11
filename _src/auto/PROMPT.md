@@ -8,6 +8,13 @@ HARD RULES
 - LENGTH IS A RULE, NOT A RANGE TO UNDERSHOOT. Each slide 3 point is 30 to 42 words and slide 2 line 3 is 22 to 32 words, every time. The slide is designed to be full; a short point looks like we did not bother. Spend the words on the next move, never on padding.
 - Never mention how we measured: no "sampled", "pulled", "scraped", "Ad Library shows", "fact sheet". Say "your ads", "your site".
 - Nothing the founder already knows about their own company unless it is tied to a finding.
+- TRUTH RULES, these decide whether the founder trusts us:
+  a) A recommendation must be something they do NOT do yet. The FACT SHEET has an "ALREADY DONE" line, never recommend anything on it, and never recommend an offer or proof number the ads already carry.
+  b) If the FACT SHEET says "SITE: COULD NOT BE LOADED", write nothing about the site. No "your site shows", no "your homepage", no site offers, no site proof. Base everything on the ads only.
+  c) If the sheet lists site offers, they exist. Never write "no offer on the site". Say which offer it is and that the ads do not use it.
+  d) If the sheet lists "proven winners" (ads running 60+ days), they have proven ads. Never write "nothing is proven" or "no winner". Say instead that the winners need fresh variations.
+  e) Catalog ads have no fixed copy. Never quote or count them as a hook, never call them template code.
+  f) Every number must be in the sheet. If you cannot support a sentence with the sheet, cut the sentence and say less.
 
 HOW TO ASSESS (think like a media buyer who has run accounts in this category)
 The reader should finish each point knowing three things: what we found (with the number), why it costs them sales, and the exact next move they could make on Monday. A finding without a consequence is trivia. A tip without a number is an opinion.

@@ -1,0 +1,59 @@
+{
+ "slug": "primal-pastures",
+ "company": "Primal Pastures",
+ "full_name": "Robert Mcdaniel",
+ "logo": "primal-pastures.png",
+ "shot": "primal-pastures.jpg",
+ "shot_caption": "primalpastures.com",
+ "saw_lines": [
+  "Frozen meat buyers choose on trust in the claims, then reorder the same box once the first delivery arrives.",
+  "So the trust signal has to sit in the first line, or the buyer scrolls past before trust forms.",
+  "Your site shows 100,000+ orders and 4,000+ reviews, yet 0 of 22 ads carry a number. Put 4,000+ reviews on the creative and open two ads with review quotes."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 11 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "3",
+    "ads running 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Ten stories split the spend",
+    "Ten openers run across 22 ads, and the biggest opens only 4. Each one gets too little volume to learn from. Keep the chicken line as control and test three new openers against it: price, a cooking night, a customer quote."
+   ],
+   [
+    "First order offer is missing",
+    "Your site offers 10% off a first order, yet 0 of 22 ads mention any offer. New buyers have no reason to act today. Open three new ads with the first order offer and print it on the creative."
+   ],
+   [
+    "Proof missing from ads",
+    "Your site shows 100,000+ orders shipped and 4,000+ reviews, yet 0 of 22 ads carry a proof number. Pasture meat buyers need that trust before clicking. Print 4,000+ reviews on the creative and open two ads with review quotes."
+   ],
+   [
+    "Winners need fresh variations",
+    "Three ads have run 60+ days, so they work and need fresh variations. Take the oldest winner and make three new versions with different opening lines and the 10% first order offer. Run them beside it until one beats the original."
+   ]
+  ],
+  "images": [
+   "primal-pastures_1.jpg",
+   "primal-pastures_2.jpg",
+   "primal-pastures_3.jpg"
+  ]
+ },
+ "ads_1": "Pasture chicken story as control, tested against price and cooking-night openers",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
