@@ -33,6 +33,7 @@ for path in sys.argv[1:]:
     sp = json.load(open(path, encoding='utf-8'))
     e = html.escape
     co = e(sp['company'])
+    if sp.get('shot') and not os.path.exists(os.path.join(ROOT, 'assets', 'shots', sp['shot'])): sp['shot'] = ''  # missing file = no picture layout, never a broken image
     if not sp.get('full_name'): sys.exit(f"{path}: full_name missing (cover says Prepared for <full name>)")
     if not sp.get('logo'): sys.exit(f"{path}: logo missing (assets/clients/<file>)")
     prep = e(sp['full_name'])
