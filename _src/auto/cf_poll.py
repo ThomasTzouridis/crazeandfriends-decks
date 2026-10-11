@@ -21,7 +21,17 @@ CONNECTED = re.compile(r'(?i)accept|^connected|already')
 NOT_CONNECTED = {'None', 'ConnectionSent', 'ConnectionRequested', 'Pending'}
 MAX_ATTEMPTS = 3
 PER_RUN = 12            # decks per run, the rest waits for the next run (15 min)
-slack_text = []
+LISTS = dict(zip(CAMPAIGNS, [1013964, 1013965, 1013966, 1013967, 1013968]))  # campaign -> its lead list (carries the URL custom field)
+SHEET = '1ZJp5PxD40R43vZRSMHY7KCYsBsjU3l-V7-Ao8Qqxb2U'  # "Craze&Friends | Meetings & Tracking"
+TAB_LOG, TAB_CTL = 'Deck Log', 'Connection Control'
+LOG_HDR = ['Time', 'Slug', 'Company', 'Lead', 'Sender', 'Result', 'Attempt', 'Model calls', 'Input tokens', 'Cache write tokens', 'Cache read tokens',
+           'Output tokens', 'Total tokens', 'Cost USD', 'Seconds', 'Deck URL', 'Note or error']
+CTL_HDR = ['Lead', 'Company', 'Sender', 'Campaign', 'HeyReach status', 'First seen connected', 'Message 1 due (about)', 'Deck URL HeyReach sends',
+           'Deck slug (lead map)', 'Deck status', 'Deck built at', 'Live check', 'Check', 'LinkedIn id']
+SITE = 'https://crazeandfriends-cases.com/'
+sys.path.insert(0, os.path.join(HOME, 'Desktop', 'AIOS'))
+log_rows = []
+KEY = ''
 
 
 def now(): return datetime.datetime.now().isoformat(timespec='seconds')
@@ -62,6 +72,79 @@ def hr(path, key, body=None, method='POST'):
             raise
 
 
+def sheets_svc():
+    from google_auth import get_creds
+    from googleapiclient.discovery import build
+    return build('sheets', 'v4', credentials=get_creds(), cache_discovery=False).spreadsheets()
+
+
+def ensure_tabs(sv):
+    have = {x['properties']['title'] for x in sv.get(spreadsheetId=SHEET, fields='sheets.properties').execute()['sheets']}
+    add = [t for t in (TAB_LOG, TAB_CTL) if t not in have]
+    if not add: return
+    r = sv.batchUpdate(spreadsheetId=SHEET, body={'requests': [{'addSheet': {'properties': {'title': t, 'gridProperties': {'frozenRowCount': 1}}}} for t in add]}).execute()
+    fmt = [{'repeatCell': {'range': {'sheetId': x['addSheet']['properties']['sheetId'], 'startRowIndex': 0, 'endRowIndex': 1},
+                           'cell': {'userEnteredFormat': {'textFormat': {'bold': True}, 'backgroundColor': {'red': .9, 'green': .9, 'blue': .9}}},
+                           'fields': 'userEnteredFormat(textFormat,backgroundColor)'}} for x in r['replies']]
+    sv.batchUpdate(spreadsheetId=SHEET, body={'requests': fmt}).execute()
+    for x in r['replies']:
+        t = x['addSheet']['properties']['title']
+        sv.values().update(spreadsheetId=SHEET, range="'%s'!A1" % t, valueInputOption='RAW', body={'values': [LOG_HDR if t == TAB_LOG else CTL_HDR]}).execute()
+
+
+def live_code(slug):
+    """200 = a real deck is served, 404 = GitHub Pages is serving the generic fallback."""
+    try:
+        return urllib.request.urlopen(urllib.request.Request(SITE + slug + '/', headers={'User-Agent': 'Mozilla/5.0'}), timeout=15).status
+    except urllib.error.HTTPError as e: return e.code
+    except Exception: return 0
+
+
+def verdict(c, st):
+    slug, hu = c['slug'], c.get('hr_url') or ''
+    if not hu: return 'NO URL FIELD IN HEYREACH'
+    if hu.rstrip('/').split('/')[-1] != slug: return 'URL MISMATCH: HeyReach sends /%s/, lead map says /%s/' % (hu.rstrip('/').split('/')[-1], slug)
+    age = (time.time() - c['first_ts']) / 60
+    s = st.get('status')
+    if c.get('live') == 200 and s == 'built': return 'OK'
+    if c.get('live') == 200: return 'OK (live, built earlier or by hand)'
+    if s == 'failed': return 'DECK FAILED, fallback page is shown'
+    if s == 'built': return 'BUILT BUT NOT LIVE YET' if (time.time() - st.get('built_ts', 0)) < 900 else 'BUILT BUT NOT LIVE, CHECK PAGES'
+    return 'BUILDING' if age < 30 else 'NO DECK %d min after connect' % age
+
+
+def sync_sheet(state):
+    """Deck Log = append only, one row per build attempt. Connection Control = one row per connected lead, rewritten from state each run.
+    A sheet failure never stops decks: unsent log rows stay in state and go out next run."""
+    try:
+        sv = sheets_svc(); ensure_tabs(sv)
+        rows = state.get('_unsent_log', []) + log_rows
+        if rows:
+            sv.values().append(spreadsheetId=SHEET, range="'%s'!A1" % TAB_LOG, valueInputOption='RAW', insertDataOption='INSERT_ROWS', body={'values': rows}).execute()
+        state['_unsent_log'] = []; log_rows.clear()
+        out = []
+        for lid, c in sorted(state.get('_conn', {}).items(), key=lambda kv: kv[1]['first_ts']):
+            st = state.get(c['slug'], {})
+            chk = verdict(c, st); c['chk'] = chk
+            due = datetime.datetime.fromtimestamp(c['first_ts'] + 86400).strftime('%Y-%m-%d %H:%M')
+            out.append([c['name'], c['company'], c['sender'], c['campaign'], c['status'], c['first_seen'], due, c.get('hr_url', ''), c['slug'],
+                        st.get('status', 'not started'), st.get('at', '') if st.get('status') == 'built' else '', c.get('live', ''), chk, lid])
+        sv.values().clear(spreadsheetId=SHEET, range="'%s'!A2:N" % TAB_CTL, body={}).execute()
+        if out:
+            sv.values().update(spreadsheetId=SHEET, range="'%s'!A2" % TAB_CTL, valueInputOption='RAW', body={'values': out}).execute()
+        for r in out:
+            if r[12] == 'OK' or r[12].startswith('OK ') or r[12] == 'BUILDING' or r[12] == 'BUILT BUT NOT LIVE YET': continue
+            k = r[13] + '|' + r[12][:20]
+            if k not in state.setdefault('_flagged', []):
+                state['_flagged'].append(k); alert('control check: %s (%s, %s): %s' % (r[0], r[1], r[7], r[12]))
+        state['_sheet_alerted'] = False
+        say('sheet synced:', len(rows), 'log rows,', len(out), 'control rows')
+    except Exception as e:
+        state['_unsent_log'] = state.get('_unsent_log', []) + log_rows; log_rows.clear()
+        say('sheet sync failed', e)
+        if not state.get('_sheet_alerted'): state['_sheet_alerted'] = True; alert('sheet sync failed: %s' % str(e)[-200:])
+
+
 def git(*args, check=True):
     r = subprocess.run(['git'] + list(args), cwd=ROOT, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=300)
     if check and r.returncode: raise RuntimeError('git %s: %s' % (' '.join(args), (r.stderr or r.stdout)[-400:]))
@@ -71,6 +154,8 @@ def git(*args, check=True):
 def connected_leads():
     """{linkedin /in/ id lowercased: status} for every lead in the 5 campaigns whose connection is accepted or pre-existing."""
     key = hr('/management/organizations/api-keys/workspaces/%d' % WS, env('HEYREACH_API_KEY'), method='GET')['publicApi']
+    global KEY
+    KEY = key
     out, seen = {}, {}
     for cid in CAMPAIGNS:
         off = 0
@@ -82,11 +167,25 @@ def connected_leads():
                 seen[st] = seen.get(st, 0) + 1
                 m = re.search(r'linkedin\.com/in/([^/?#]+)', (i.get('linkedInUserProfile') or {}).get('profileUrl') or '', re.I)
                 if m and st not in NOT_CONNECTED and CONNECTED.search(st):
-                    out[requote(m.group(1))] = st
+                    pr = i.get('linkedInUserProfile') or {}
+                    out[requote(m.group(1))] = {'status': st, 'campaign': cid, 'sender': i.get('linkedInSenderFullName') or '',
+                                                'name': ('%s %s' % (pr.get('firstName') or '', pr.get('lastName') or '')).strip()}
             if len(items) < 100: break
             off += 100
     say('HeyReach connection statuses:', seen)
     return out
+
+
+def list_urls(cid):
+    """profile id -> the URL custom field in this campaign's lead list, i.e. exactly what message 1 will send."""
+    out, off = {}, 0
+    while True:
+        items = hr('/list/GetLeadsFromList', KEY, {'listId': LISTS[cid], 'offset': off, 'limit': 100}).get('items') or []
+        for i in items:
+            m = re.search(r'linkedin\.com/in/([^/?#]+)', i.get('profileUrl') or '', re.I)
+            if m: out[requote(m.group(1))] = next((f['value'] for f in (i.get('customFields') or []) if f.get('name') == 'URL'), '')
+        if len(items) < 100: return out
+        off += 100
 
 
 def requote(s):
@@ -122,14 +221,22 @@ def slug_files(slug):
     return [f for f in out if os.path.exists(os.path.join(ROOT, f))]
 
 
+def log_row(slug, lead, st, result, ran, secs, note):
+    t = ran.get('total') or {}
+    log_rows.append([now(), slug, lead['company'], lead['name'], lead.get('sender', ''), result, st.get('attempts', 0), len(ran.get('calls') or []),
+                     t.get('input_tokens', ''), t.get('cache_creation_input_tokens', ''), t.get('cache_read_input_tokens', ''), t.get('output_tokens', ''),
+                     t.get('all_tokens', ''), t.get('cost_usd', ''), secs, SITE + slug + '/', (note or '')[:300].replace('\n', ' ')])
+
+
 def build(slug, lead, state):
     st = state.setdefault(slug, {'status': 'new', 'attempts': 0})
+    t0 = time.time()
     domain = norm_domain(lead['website'])
     data = os.path.join(HOME, 'cf-run', slug)
     shutil.rmtree(data, ignore_errors=True)
     res = extract(domain, data)
     if not res:
-        st.update(status='failed', error='no ads data for ' + domain, at=now())
+        st.update(status='failed', error='no ads data for ' + domain, at=now()); log_row(slug, lead, st, 'FAILED no ads data', {}, 0, 'no record for ' + domain)
         alert('no ads data for %s (%s). The generic fallback page stays live at /%s/.' % (lead['company'], domain, slug)); return False
     st['attempts'] += 1
     runj = os.path.join(SRC, 'auto', 'runs', slug, 'run.json')
@@ -146,7 +253,8 @@ def build(slug, lead, state):
     if ok:
         git('add', '--', *slug_files(slug))
         git('commit', '-q', '-m', 'deck %s (auto)\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>' % slug)
-        st.update(status='built', at=now(), tokens=(ran.get('total') or {}).get('all_tokens'))
+        st.update(status='built', at=now(), built_ts=time.time(), tokens=(ran.get('total') or {}).get('all_tokens'))
+        log_row(slug, lead, st, 'BUILT', ran, int(time.time() - t0), '; '.join(ran.get('soft_issues') or []))
         say('built', slug, st.get('tokens'), 'tokens'); return True
     # failure: remove half written files of this slug, the fallback keeps serving the URL
     for f in slug_files(slug):
@@ -158,12 +266,14 @@ def build(slug, lead, state):
     if os.path.exists(sp): os.remove(sp)
     if called:
         st.update(status='failed', error='copy or build failed after the model call, never retried', at=now())
+        log_row(slug, lead, st, 'FAILED after model call (no retry)', ran, int(time.time() - t0), str(ran.get('validation_errors_last') or tail[-200:]))
         alert('deck for %s (/%s/) failed after the one model call, not retried. Fallback page stays. %s' % (lead['company'], slug, tail[-250:]))
     elif st['attempts'] >= MAX_ATTEMPTS:
         st.update(status='failed', error='infra failed %d times' % st['attempts'], at=now())
+        log_row(slug, lead, st, 'FAILED infra, gave up', ran, int(time.time() - t0), tail[-250:])
         alert('deck for %s (/%s/) failed %d times before the model call. Fallback page stays. %s' % (lead['company'], slug, st['attempts'], tail[-250:]))
     else:
-        st.update(status='retry', error=tail[-200:], at=now()); say('infra failure, retry next run:', slug, tail[-200:])
+        st.update(status='retry', error=tail[-200:], at=now()); log_row(slug, lead, st, 'RETRY (infra, before model call)', ran, int(time.time() - t0), tail[-250:]); say('infra failure, retry next run:', slug, tail[-200:])
     return False
 
 
@@ -187,6 +297,19 @@ def main():
         state = json.load(open(STATE, encoding='utf-8')) if os.path.exists(STATE) else {}
         conn = connected_leads()
         say('connected leads in HeyReach:', len(conn))
+        urls = {}
+        for cid in CAMPAIGNS:
+            try: urls.update(list_urls(cid))
+            except Exception as e: say('list urls failed', cid, e)
+        cs = state.setdefault('_conn', {})
+        for lid, info in conn.items():
+            lead = leads.get(lid)
+            if not lead: continue
+            c = cs.get(lid)
+            if not c:
+                c = cs[lid] = {'first_ts': time.time(), 'first_seen': now()}
+            c.update(name=lead['name'], company=lead['company'], sender=info['sender'] or lead.get('sender', ''), campaign=info['campaign'],
+                     status=info['status'], slug=lead['slug'], hr_url=urls.get(lid, c.get('hr_url', '')))
         todo, unmatched = {}, []
         for lid, stt in conn.items():
             lead = leads.get(lid)
@@ -202,7 +325,9 @@ def main():
             if new: alert('%d connected leads are not in the lead map, no deck: %s' % (len(new), ', '.join(new[:5]))); known += new
         pending = [s for s in todo if state.get(s, {}).get('status') in (None, 'new', 'retry') and not os.path.exists(os.path.join(ROOT, s, 'index.html'))]
         say('slugs connected:', len(todo), 'to build:', len(pending), pending[:20])
-        if a.dry: return
+        if a.dry:
+            for lid, c in state.get('_conn', {}).items(): print(c['company'], c['slug'], c.get('hr_url'), c['first_seen'])
+            return
         built = 0
         for slug in pending[:PER_RUN]:
             try:
@@ -216,6 +341,12 @@ def main():
         elif not built:
             ahead = git('rev-list', '--count', '@{u}..HEAD', check=False).strip()
             if ahead not in ('', '0'): push()
+        done = {}
+        for lid, c in cs.items():
+            if c['slug'] not in done: done[c['slug']] = live_code(c['slug'])
+            c['live'] = done[c['slug']]
+        sync_sheet(state)
+        json.dump(state, open(STATE, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
         if len(pending) > PER_RUN: say('%d more waiting for the next run' % (len(pending) - PER_RUN))
     finally:
         try: os.remove(LOCK)
