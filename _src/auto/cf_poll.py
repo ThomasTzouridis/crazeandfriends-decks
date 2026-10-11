@@ -331,7 +331,7 @@ def main():
             ra = al.setdefault(lid, {})
             ra.update(info); ra['connected'] = lid in conn
             ra['name'] = lead.get('name') or info['name']; ra['company'] = lead.get('company') or info['company']; ra['slug'] = lead.get('slug', '')
-            ra['hr_url'] = urls.get(lid, a.get('hr_url', ''))
+            ra['hr_url'] = urls.get(lid, ra.get('hr_url', ''))
             if ra['connected'] and not ra.get('first_ts'):
                 ra['first_ts'] = (cs.get(lid) or {}).get('first_ts') or time.time(); ra['first_seen'] = (cs.get(lid) or {}).get('first_seen') or now()
         todo, unmatched = {}, []
