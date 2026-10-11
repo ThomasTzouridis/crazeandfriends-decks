@@ -20,7 +20,7 @@ LOCK = os.path.join(ROOT, '_private', 'cf_poll.lock')
 CONNECTED = re.compile(r'(?i)accept|^connected|already')
 NOT_CONNECTED = {'None', 'ConnectionSent', 'ConnectionRequested', 'Pending'}
 MAX_ATTEMPTS = 3
-PER_RUN = 12            # decks per run, the rest waits for the next run (15 min)
+PER_RUN = 40            # decks per run (runs every 6h, message 1 is 24h after the accept), the rest waits for the next run
 LISTS = dict(zip(CAMPAIGNS, [1013964, 1013965, 1013966, 1013967, 1013968]))  # campaign -> its lead list (carries the URL custom field)
 SHEET = '1ZJp5PxD40R43vZRSMHY7KCYsBsjU3l-V7-Ao8Qqxb2U'  # "Craze&Friends | Meetings & Tracking"
 TAB_LOG, TAB_CTL = 'Deck Log', 'Connection Control'
@@ -109,8 +109,8 @@ def verdict(c, st):
     if c.get('live') == 200 and s == 'built': return 'OK'
     if c.get('live') == 200: return 'OK (live, built earlier or by hand)'
     if s == 'failed': return 'DECK FAILED, fallback page is shown'
-    if s == 'built': return 'BUILT BUT NOT LIVE YET' if (time.time() - st.get('built_ts', 0)) < 900 else 'BUILT BUT NOT LIVE, CHECK PAGES'
-    return 'BUILDING' if age < 30 else 'NO DECK %d min after connect' % age
+    if s == 'built': return 'BUILT BUT NOT LIVE YET' if (time.time() - st.get('built_ts', 0)) < 1800 else 'BUILT BUT NOT LIVE, CHECK PAGES'
+    return 'BUILDING' if age < 420 else 'NO DECK %d min after connect' % age
 
 
 def sync_sheet(state):
@@ -289,7 +289,7 @@ def push():
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--dry', action='store_true'); ap.add_argument('--slug'); ap.add_argument('--force', action='store_true')
     a = ap.parse_args()
-    if os.path.exists(LOCK) and time.time() - os.path.getmtime(LOCK) < 3 * 3600: say('locked, previous run active'); return
+    if os.path.exists(LOCK) and time.time() - os.path.getmtime(LOCK) < 4 * 3600: say('locked, previous run active'); return
     open(LOCK, 'w').write(now())
     try:
         git('pull', '--rebase', '--autostash', '-q')

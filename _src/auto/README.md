@@ -57,7 +57,7 @@ flush left with the title, 78cqw wide, 2.1cqw font, fewer lines (class `noshot`,
 placeholder image.
 
 ## Mac automation (live 2026-10-11)
-`cf_poll.py` on the Mac (`~/cf-decks`, mac-hub job `cf_decks`, every 15 min): HeyReach campaigns 649994 to 649998, leads with an accepted or
+`cf_poll.py` on the Mac (`~/cf-decks`, mac-hub job `cf_decks`, every 6 h): HeyReach campaigns 649994 to 649998, leads with an accepted or
 existing connection -> `_private/cf_leads.json` (LinkedIn id -> slug, company, website; gitignored, copy it to the Mac after any lead change)
 -> `deck_auto.py` (runs fully local on the Mac: proxies, Playwright, Claude token from AIOS .env) -> commit + push. Message 1 goes out 1 day
 after the accept, the build takes about 3 minutes.
