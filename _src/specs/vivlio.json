@@ -1,0 +1,59 @@
+{
+ "slug": "vivlio",
+ "company": "Vivlio",
+ "full_name": "Romain Ducroiset",
+ "logo": "vivlio.png",
+ "shot": "vivlio.jpg",
+ "shot_caption": "vivlio.com",
+ "saw_lines": [
+  "Romance ebook readers buy the next book in a series they like, and decide from the first line of the blurb.",
+  "So the sale is won or lost in the first line of your ad, before any price or proof is seen.",
+  "Your 5 of 13 copy ads reuse one exact copy, so the same message repeats across the account. Keep that copy but swap the opening line and creative in each."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 12 Oct 2026",
+  "stats": [
+   [
+    "14",
+    "live Meta ads"
+   ],
+   [
+    "5",
+    "share one exact copy"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "185",
+    "median words per ad"
+   ]
+  ],
+  "points": [
+   [
+    "One copy repeats often",
+    "5 of your 13 copy ads run one exact copy, so a reader who sees two sees the same story twice. Keep that copy, change the opening line and creative in each of those 5 ads, and test two new openers."
+   ],
+   [
+    "No proof in your ads",
+    "0 of 13 copy ads carry a proof number, so a buyer weighing a new ebook has no reason to trust the story yet. Pull one real number, such as a review count, and lead every ad with it."
+   ],
+   [
+    "One opener leads the account",
+    "5 of your 13 copy ads open on the same opener, &ldquo;vijf warme, romantische feelgoodverhalen vol&rdquo;, while the other 8 each open differently. Test two new angles against it, a price line and a first chapter hook."
+   ],
+   [
+    "Copy runs too long",
+    "Your median ad runs 185 words and the longest 414, so the reason to buy sits far below where readers stop. Keep each ad to two lines, a price or first chapter hook, then the buy button."
+   ]
+  ],
+  "images": [
+   "vivlio_1.jpg",
+   "vivlio_2.jpg",
+   "vivlio_3.jpg"
+  ]
+ },
+ "ads_1": "New openers for the five repeated ads, tested against a price angle",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
