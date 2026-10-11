@@ -38,6 +38,8 @@ for path in sys.argv[1:]:
     prep = e(sp['full_name'])
     logo = logo_tag(sp['logo'], sp['company'])
     lines = ''.join(f'<p>{l}</p>' for l in sp['saw_lines'][:-1]) + f'<p class="turn">{sp["saw_lines"][-1]}</p>'
+    # HARD RULE (Thomas 2026-10-11): spec has a shot file -> two column slide 2 with the picture, exactly as always.
+    # No shot -> text only, flush left, wider (class noshot in template.html). No other variant, never invent a picture.
     shot = (f'<figure class="shot"><img src="../assets/shots/{sp["shot"]}" alt="{co} website"></figure>' if sp.get('shot') else '<div></div>')
     ads = ''
     if sp.get('ads'):
