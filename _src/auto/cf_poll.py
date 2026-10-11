@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""craze&friends deck poller. Runs on the Mac (mac-hub job cf_decks, every 15 min), checkout ~/cf-decks.
+"""craze&friends deck poller. Runs on the Mac (mac-hub job cf_decks, every 6 h), checkout ~/cf-decks.
 HeyReach campaigns 649994-649998 -> leads who connected -> one deck per company slug (deck_auto.py, ONE Haiku call)
 -> git push (GitHub Pages). Every slug already resolves to the generic 404.html fallback, so a lead is never sent a dead link.
 Rules: a slug is built once; a hard copy failure is never retried (no second model call), it is alerted and the fallback stays;
@@ -23,14 +23,17 @@ MAX_ATTEMPTS = 3
 PER_RUN = 40            # decks per run (runs every 6h, message 1 is 24h after the accept), the rest waits for the next run
 LISTS = dict(zip(CAMPAIGNS, [1013964, 1013965, 1013966, 1013967, 1013968]))  # campaign -> its lead list (carries the URL custom field)
 SHEET = '1ZJp5PxD40R43vZRSMHY7KCYsBsjU3l-V7-Ao8Qqxb2U'  # "Craze&Friends | Meetings & Tracking"
-TAB_LOG, TAB_CTL = 'Deck Log', 'Connection Control'
-LOG_HDR = ['Time', 'Slug', 'Company', 'Lead', 'Sender', 'Result', 'Attempt', 'Model calls', 'Input tokens', 'Cache write tokens', 'Cache read tokens',
-           'Output tokens', 'Total tokens', 'Cost USD', 'Seconds', 'Deck URL', 'Note or error']
-CTL_HDR = ['Lead', 'Company', 'Sender', 'Campaign', 'HeyReach status', 'First seen connected', 'Message 1 due (about)', 'Deck URL HeyReach sends',
-           'Deck slug (lead map)', 'Deck status', 'Deck built at', 'Live check', 'Check', 'LinkedIn id']
+TAB = 'Presentation Log'   # ONE tab, one row per lead of the 5 campaigns. Auto columns A:AC are rewritten every run, manual columns AD:AK are never touched.
+AUTO_HDR = ['Lead', 'Company', 'Sender', 'Campaign', 'LinkedIn id', 'Connection status (HeyReach)', 'Connected', 'First seen connected', 'Message 1 due (about)',
+            'Message status (HeyReach)', 'Replied (HeyReach)', 'Campaign status (HeyReach)', 'Last action (HeyReach)', 'Deck URL HeyReach sends', 'Deck slug (lead map)',
+            'Deck status', 'Deck built at', 'Attempts', 'Last build result', 'Model calls', 'Input tokens', 'Cache write tokens', 'Cache read tokens', 'Output tokens',
+            'Total tokens', 'Build seconds', 'Live check', 'Check', 'Note or error']
+MAN_HDR = ['Reply date', 'Reply summary', 'Interested', 'Meeting booked date', 'Showed up', 'Closed', 'Deal value', 'Notes']
+HDR = AUTO_HDR + MAN_HDR
+NA = len(AUTO_HDR)
 SITE = 'https://crazeandfriends-cases.com/'
 sys.path.insert(0, os.path.join(HOME, 'Desktop', 'AIOS'))
-log_rows = []
+ALL = {}      # every lead of the 5 campaigns this run: id -> HeyReach facts
 KEY = ''
 
 
@@ -78,18 +81,16 @@ def sheets_svc():
     return build('sheets', 'v4', credentials=get_creds(), cache_discovery=False).spreadsheets()
 
 
-def ensure_tabs(sv):
-    have = {x['properties']['title'] for x in sv.get(spreadsheetId=SHEET, fields='sheets.properties').execute()['sheets']}
-    add = [t for t in (TAB_LOG, TAB_CTL) if t not in have]
-    if not add: return
-    r = sv.batchUpdate(spreadsheetId=SHEET, body={'requests': [{'addSheet': {'properties': {'title': t, 'gridProperties': {'frozenRowCount': 1}}}} for t in add]}).execute()
-    fmt = [{'repeatCell': {'range': {'sheetId': x['addSheet']['properties']['sheetId'], 'startRowIndex': 0, 'endRowIndex': 1},
-                           'cell': {'userEnteredFormat': {'textFormat': {'bold': True}, 'backgroundColor': {'red': .9, 'green': .9, 'blue': .9}}},
-                           'fields': 'userEnteredFormat(textFormat,backgroundColor)'}} for x in r['replies']]
-    sv.batchUpdate(spreadsheetId=SHEET, body={'requests': fmt}).execute()
-    for x in r['replies']:
-        t = x['addSheet']['properties']['title']
-        sv.values().update(spreadsheetId=SHEET, range="'%s'!A1" % t, valueInputOption='RAW', body={'values': [LOG_HDR if t == TAB_LOG else CTL_HDR]}).execute()
+def ensure_tab(sv):
+    """Create the Presentation Log tab (frozen header, bold) if missing and keep its header row current."""
+    sh = sv.get(spreadsheetId=SHEET, fields='sheets.properties').execute()['sheets']
+    if not any(x['properties']['title'] == TAB for x in sh):
+        r = sv.batchUpdate(spreadsheetId=SHEET, body={'requests': [{'addSheet': {'properties': {'title': TAB, 'gridProperties': {'frozenRowCount': 1, 'columnCount': len(HDR) + 2}}}}]}).execute()
+        sid = r['replies'][0]['addSheet']['properties']['sheetId']
+        sv.batchUpdate(spreadsheetId=SHEET, body={'requests': [{'repeatCell': {'range': {'sheetId': sid, 'startRowIndex': 0, 'endRowIndex': 1},
+            'cell': {'userEnteredFormat': {'textFormat': {'bold': True}, 'backgroundColor': {'red': .9, 'green': .9, 'blue': .9}}},
+            'fields': 'userEnteredFormat(textFormat,backgroundColor)'}}]}).execute()
+    sv.values().update(spreadsheetId=SHEET, range="'%s'!A1" % TAB, valueInputOption='RAW', body={'values': [HDR]}).execute()
 
 
 def live_code(slug):
@@ -114,33 +115,42 @@ def verdict(c, st):
 
 
 def sync_sheet(state):
-    """Deck Log = append only, one row per build attempt. Connection Control = one row per connected lead, rewritten from state each run.
-    A sheet failure never stops decks: unsent log rows stay in state and go out next run."""
+    """Presentation Log: one row per lead of the 5 campaigns (connected or not), keyed by LinkedIn id (column E). Existing rows keep their position and their
+    manual columns; only the auto block A:AC is rewritten. New leads are appended. A sheet failure never stops decks, the next run catches up."""
     try:
-        sv = sheets_svc(); ensure_tabs(sv)
-        rows = state.get('_unsent_log', []) + log_rows
-        if rows:
-            sv.values().append(spreadsheetId=SHEET, range="'%s'!A1" % TAB_LOG, valueInputOption='RAW', insertDataOption='INSERT_ROWS', body={'values': rows}).execute()
-        state['_unsent_log'] = []; log_rows.clear()
+        sv = sheets_svc(); ensure_tab(sv)
+        old = sv.values().get(spreadsheetId=SHEET, range="'%s'!E2:E" % TAB).execute().get('values', [])
+        order = [r[0] if r else '' for r in old]
+        al = state.get('_all', {})
+        have = set(order)
+        for lid in sorted((l for l in al if l not in have), key=lambda l: (not al[l].get('connected'), al[l].get('first_ts') or 9e12, al[l]['name'])): order.append(lid)
         out = []
-        for lid, c in sorted(state.get('_conn', {}).items(), key=lambda kv: kv[1]['first_ts']):
-            st = state.get(c['slug'], {})
-            chk = verdict(c, st); c['chk'] = chk
-            due = datetime.datetime.fromtimestamp(c['first_ts'] + 86400).strftime('%Y-%m-%d %H:%M')
-            out.append([c['name'], c['company'], c['sender'], c['campaign'], c['status'], c['first_seen'], due, c.get('hr_url', ''), c['slug'],
-                        st.get('status', 'not started'), st.get('at', '') if st.get('status') == 'built' else '', c.get('live', ''), chk, lid])
-        sv.values().clear(spreadsheetId=SHEET, range="'%s'!A2:N" % TAB_CTL, body={}).execute()
+        for lid in order:
+            a = al.get(lid)
+            if not a: out.append([''] * NA); continue
+            slug = a.get('slug', ''); st = state.get(slug, {}) if slug else {}; k = st.get('last') or {}
+            if a.get('connected') and slug:
+                chk = verdict({'slug': slug, 'hr_url': a.get('hr_url', ''), 'first_ts': a['first_ts'], 'live': a.get('live')}, st)
+            elif a.get('connected'): chk = 'NOT IN LEAD MAP, no deck'
+            else: chk = 'not connected yet'
+            due = datetime.datetime.fromtimestamp(a['first_ts'] + 86400).strftime('%Y-%m-%d %H:%M') if a.get('connected') else ''
+            ms = a.get('msg_status', '')
+            out.append([a['name'], a['company'], a['sender'], a['campaign'], lid, a['status'], 'Yes' if a.get('connected') else 'No', a.get('first_seen', ''), due,
+                        ms, 'Yes' if 'repl' in ms.lower() else 'No', a.get('camp_status', ''), a.get('last_action', ''), a.get('hr_url', ''), slug,
+                        (st.get('status', 'not started') if slug else 'no slug'), st.get('at', '') if st.get('status') == 'built' else '', st.get('attempts', ''),
+                        k.get('result', ''), k.get('calls', ''), k.get('in', ''), k.get('cw', ''), k.get('cr', ''), k.get('out', ''), k.get('total', ''), k.get('secs', ''),
+                        a.get('live', ''), chk, k.get('note', '') or st.get('error', '')])
         if out:
-            sv.values().update(spreadsheetId=SHEET, range="'%s'!A2" % TAB_CTL, valueInputOption='RAW', body={'values': out}).execute()
-        for r in out:
-            if r[12] == 'OK' or r[12].startswith('OK ') or r[12] == 'BUILDING' or r[12] == 'BUILT BUT NOT LIVE YET': continue
-            k = r[13] + '|' + r[12][:20]
-            if k not in state.setdefault('_flagged', []):
-                state['_flagged'].append(k); alert('control check: %s (%s, %s): %s' % (r[0], r[1], r[7], r[12]))
+            sv.values().update(spreadsheetId=SHEET, range="'%s'!A2" % TAB, valueInputOption='RAW', body={'values': out}).execute()
+        for r, lid in zip(out, order):
+            c = r[27]
+            if not c or c == 'OK' or c.startswith('OK ') or c in ('BUILDING', 'BUILT BUT NOT LIVE YET', 'not connected yet'): continue
+            kf = lid + '|' + c[:20]
+            if kf not in state.setdefault('_flagged', []):
+                state['_flagged'].append(kf); alert('control check: %s (%s, %s): %s' % (r[0], r[1], r[13], c))
         state['_sheet_alerted'] = False
-        say('sheet synced:', len(rows), 'log rows,', len(out), 'control rows')
+        say('sheet synced:', len(out), 'lead rows')
     except Exception as e:
-        state['_unsent_log'] = state.get('_unsent_log', []) + log_rows; log_rows.clear()
         say('sheet sync failed', e)
         if not state.get('_sheet_alerted'): state['_sheet_alerted'] = True; alert('sheet sync failed: %s' % str(e)[-200:])
 
@@ -157,6 +167,7 @@ def connected_leads():
     global KEY
     KEY = key
     out, seen = {}, {}
+    ALL.clear()
     for cid in CAMPAIGNS:
         off = 0
         while True:
@@ -166,8 +177,11 @@ def connected_leads():
                 st = i.get('leadConnectionStatus') or 'None'
                 seen[st] = seen.get(st, 0) + 1
                 m = re.search(r'linkedin\.com/in/([^/?#]+)', (i.get('linkedInUserProfile') or {}).get('profileUrl') or '', re.I)
+                pr = i.get('linkedInUserProfile') or {}
+                if m: ALL[requote(m.group(1))] = {'status': st, 'campaign': cid, 'sender': i.get('linkedInSenderFullName') or '', 'msg_status': i.get('leadMessageStatus') or '',
+                                                  'camp_status': i.get('leadCampaignStatus') or '', 'last_action': (i.get('lastActionTime') or '')[:19].replace('T', ' '),
+                                                  'name': ('%s %s' % (pr.get('firstName') or '', pr.get('lastName') or '')).strip(), 'company': pr.get('companyName') or ''}
                 if m and st not in NOT_CONNECTED and CONNECTED.search(st):
-                    pr = i.get('linkedInUserProfile') or {}
                     out[requote(m.group(1))] = {'status': st, 'campaign': cid, 'sender': i.get('linkedInSenderFullName') or '',
                                                 'name': ('%s %s' % (pr.get('firstName') or '', pr.get('lastName') or '')).strip()}
             if len(items) < 100: break
@@ -222,10 +236,11 @@ def slug_files(slug):
 
 
 def log_row(slug, lead, st, result, ran, secs, note):
+    """Per slug build facts, shown on every lead row of that slug in the Presentation Log. No cost column: it runs on the Claude subscription."""
     t = ran.get('total') or {}
-    log_rows.append([now(), slug, lead['company'], lead['name'], lead.get('sender', ''), result, st.get('attempts', 0), len(ran.get('calls') or []),
-                     t.get('input_tokens', ''), t.get('cache_creation_input_tokens', ''), t.get('cache_read_input_tokens', ''), t.get('output_tokens', ''),
-                     t.get('all_tokens', ''), t.get('cost_usd', ''), secs, SITE + slug + '/', (note or '')[:300].replace('\n', ' ')])
+    st['last'] = {'result': result, 'calls': len(ran.get('calls') or []), 'in': t.get('input_tokens', ''), 'cw': t.get('cache_creation_input_tokens', ''),
+                  'cr': t.get('cache_read_input_tokens', ''), 'out': t.get('output_tokens', ''), 'total': t.get('all_tokens', ''), 'secs': secs,
+                  'note': (note or '')[:300].replace('\n', ' ')}
 
 
 def build(slug, lead, state):
@@ -302,6 +317,7 @@ def main():
             try: urls.update(list_urls(cid))
             except Exception as e: say('list urls failed', cid, e)
         cs = state.setdefault('_conn', {})
+        al = state.setdefault('_all', {})
         for lid, info in conn.items():
             lead = leads.get(lid)
             if not lead: continue
@@ -310,6 +326,14 @@ def main():
                 c = cs[lid] = {'first_ts': time.time(), 'first_seen': now()}
             c.update(name=lead['name'], company=lead['company'], sender=info['sender'] or lead.get('sender', ''), campaign=info['campaign'],
                      status=info['status'], slug=lead['slug'], hr_url=urls.get(lid, c.get('hr_url', '')))
+        for lid, info in ALL.items():
+            lead = leads.get(lid) or {}
+            a = al.setdefault(lid, {})
+            a.update(info); a['connected'] = lid in conn
+            a['name'] = lead.get('name') or info['name']; a['company'] = lead.get('company') or info['company']; a['slug'] = lead.get('slug', '')
+            a['hr_url'] = urls.get(lid, a.get('hr_url', ''))
+            if a['connected'] and not a.get('first_ts'):
+                a['first_ts'] = (cs.get(lid) or {}).get('first_ts') or time.time(); a['first_seen'] = (cs.get(lid) or {}).get('first_seen') or now()
         todo, unmatched = {}, []
         for lid, stt in conn.items():
             lead = leads.get(lid)
@@ -345,6 +369,7 @@ def main():
         for lid, c in cs.items():
             if c['slug'] not in done: done[c['slug']] = live_code(c['slug'])
             c['live'] = done[c['slug']]
+            if lid in al: al[lid]['live'] = c['live']
         sync_sheet(state)
         json.dump(state, open(STATE, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
         if len(pending) > PER_RUN: say('%d more waiting for the next run' % (len(pending) - PER_RUN))

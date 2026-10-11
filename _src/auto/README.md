@@ -69,3 +69,10 @@ after the accept, the build takes about 3 minutes.
 
 ## Open
 - No rerun path at all yet for a hard check failure: plan is to cut an unsupported sentence and fill a missing field by script.
+
+## Tracking sheet (the one source of truth, read this before touching it)
+Google Sheet "Craze&Friends | Meetings & Tracking" (id 1ZJp5PxD40R43vZRSMHY7KCYsBsjU3l-V7-Ao8Qqxb2U), tab **Presentation Log**. One tab, one row per lead of the 5 HeyReach campaigns (649994 to 649998), connected or not, keyed by LinkedIn id (column E). Everything lives here; the old tabs Deck Log and Connection Control are gone. No cost column on purpose, decks run on the Claude subscription (tokens are tracked, dollars are not).
+- **Auto columns A:AC**: rewritten by cf_poll.py every 6 h from HeyReach + build state: connection status, Connected Yes/No, first seen connected, message 1 due (accept + 24 h), HeyReach message status and Replied, campaign status, last action, deck URL HeyReach sends, deck slug, deck status, built at, attempts, last build result, model calls, tokens, build seconds, live HTTP check (200 = real deck, 404 = fallback page), **Check** (OK or the exact problem: NO URL FIELD, URL MISMATCH, DECK FAILED, NO DECK n min after connect, NOT IN LEAD MAP), note or error. Never edit these by hand.
+- **Manual columns AD:AK** (never touched by the poller; Claude fills them from replies and meetings): Reply date, Reply summary, Interested, Meeting booked date, Showed up, Closed, Deal value, Notes.
+- **Reading it**: filter Connected = Yes for who accepted; Check not OK = lead without a working presentation; Connected = Yes and Deck status = built is the "got the deck" group; Replied/Interested/Meeting/Showed up/Closed give the funnel per sender, campaign and company. Performance tab (backrate, reply rate, interested rate, booking rate, show up rate, closing rate, deal value) is computed from this tab with formulas, per sender (column C).
+- Row order is stable (new leads are appended, connected ones first). Do not sort the tab, use a filter view.
