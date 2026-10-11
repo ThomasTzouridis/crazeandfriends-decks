@@ -328,12 +328,12 @@ def main():
                      status=info['status'], slug=lead['slug'], hr_url=urls.get(lid, c.get('hr_url', '')))
         for lid, info in ALL.items():
             lead = leads.get(lid) or {}
-            a = al.setdefault(lid, {})
-            a.update(info); a['connected'] = lid in conn
-            a['name'] = lead.get('name') or info['name']; a['company'] = lead.get('company') or info['company']; a['slug'] = lead.get('slug', '')
-            a['hr_url'] = urls.get(lid, a.get('hr_url', ''))
-            if a['connected'] and not a.get('first_ts'):
-                a['first_ts'] = (cs.get(lid) or {}).get('first_ts') or time.time(); a['first_seen'] = (cs.get(lid) or {}).get('first_seen') or now()
+            ra = al.setdefault(lid, {})
+            ra.update(info); ra['connected'] = lid in conn
+            ra['name'] = lead.get('name') or info['name']; ra['company'] = lead.get('company') or info['company']; ra['slug'] = lead.get('slug', '')
+            ra['hr_url'] = urls.get(lid, a.get('hr_url', ''))
+            if ra['connected'] and not ra.get('first_ts'):
+                ra['first_ts'] = (cs.get(lid) or {}).get('first_ts') or time.time(); ra['first_seen'] = (cs.get(lid) or {}).get('first_seen') or now()
         todo, unmatched = {}, []
         for lid, stt in conn.items():
             lead = leads.get(lid)
