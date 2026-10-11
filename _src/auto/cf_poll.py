@@ -23,7 +23,7 @@ MAX_ATTEMPTS = 3
 PER_RUN = 40            # decks per run (runs every 6h, message 1 is 24h after the accept), the rest waits for the next run
 LISTS = dict(zip(CAMPAIGNS, [1013964, 1013965, 1013966, 1013967, 1013968]))  # campaign -> its lead list (carries the URL custom field)
 SHEET = '1ZJp5PxD40R43vZRSMHY7KCYsBsjU3l-V7-Ao8Qqxb2U'  # "Craze&Friends | Meetings & Tracking"
-TAB = 'Presentation Log'   # ONE tab, one row per lead of the 5 campaigns. Auto columns A:AC are rewritten every run, manual columns AD:AK are never touched.
+TAB = 'Presentation Log'   # ONE tab, one row per lead who CONNECTED BACK (never the unconnected campaign leads). Auto columns A:AC are rewritten every run, manual columns AD:AK are never touched.
 AUTO_HDR = ['Lead', 'Company', 'Sender', 'Campaign', 'LinkedIn id', 'Connection status (HeyReach)', 'Connected', 'First seen connected', 'Message 1 due (about)',
             'Message status (HeyReach)', 'Replied (HeyReach)', 'Campaign status (HeyReach)', 'Last action (HeyReach)', 'Deck URL HeyReach sends', 'Deck slug (lead map)',
             'Deck status', 'Deck built at', 'Attempts', 'Last build result', 'Model calls', 'Input tokens', 'Cache write tokens', 'Cache read tokens', 'Output tokens',
@@ -115,13 +115,13 @@ def verdict(c, st):
 
 
 def sync_sheet(state):
-    """Presentation Log: one row per lead of the 5 campaigns (connected or not), keyed by LinkedIn id (column E). Existing rows keep their position and their
+    """Presentation Log: one row per lead who connected back, keyed by LinkedIn id (column E). Existing rows keep their position and their
     manual columns; only the auto block A:AC is rewritten. New leads are appended. A sheet failure never stops decks, the next run catches up."""
     try:
         sv = sheets_svc(); ensure_tab(sv)
         old = sv.values().get(spreadsheetId=SHEET, range="'%s'!E2:E" % TAB).execute().get('values', [])
         order = [r[0] if r else '' for r in old]
-        al = state.get('_all', {})
+        al = {l: v for l, v in state.get('_all', {}).items() if v.get('connected') or l in set(order)}   # connected leads only, a row once written stays
         have = set(order)
         for lid in sorted((l for l in al if l not in have), key=lambda l: (not al[l].get('connected'), al[l].get('first_ts') or 9e12, al[l]['name'])): order.append(lid)
         out = []
