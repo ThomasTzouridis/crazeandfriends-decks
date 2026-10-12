@@ -1,0 +1,59 @@
+{
+ "slug": "krollcosmetics",
+ "company": "KrollCosmetics",
+ "full_name": "Alexander Francke",
+ "logo": "krollcosmetics.svg",
+ "shot": "krollcosmetics.jpg",
+ "shot_caption": "no-cosmetics.de",
+ "saw_lines": [
+  "Skincare buyers judge a serum by its first week on skin, then reorder only when the bottle runs low.",
+  "So the sale is won in the first line, where a shopper decides whether a new brand deserves a second look.",
+  "Your ads show a proof number in 0 of 24 copy ads. Collect one, such as a review count or orders shipped, and lead the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 12 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "ads carry an offer"
+   ],
+   [
+    "15",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 24 copy ads shows a proof number, so a new buyer has nothing concrete to trust. Pick one real figure, like a review count or orders shipped, and put it on every creative as the opening line."
+   ],
+   [
+    "Creator posts run as ads",
+    "2 of your 24 copy ads are creator posts run from the brand page, so the creator&rsquo;s trust stays on their account. Whitelist both from the creator account and cut three variations, each with a new opening line."
+   ],
+   [
+    "No offer in your ads",
+    "0 of your 24 copy ads carry an offer, and none mentions the bundle your site lists, so a new buyer has no reason to act today. Put a first order offer in line one of three new ads."
+   ],
+   [
+    "Openers spread too thin",
+    "15 different openings across 24 copy ads, and the biggest opener leads only 4 ads, so no single story builds recognition. Pick the two best openers and rebuild the next batch from them, with four variations of each."
+   ]
+  ],
+  "images": [
+   "krollcosmetics_1.jpg",
+   "krollcosmetics_2.jpg",
+   "krollcosmetics_3.jpg"
+  ]
+ },
+ "ads_1": "Two proven stories rebuilt with proof numbers, tested against a first order offer.",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
