@@ -116,6 +116,8 @@ lead website (free mail excluded), then exact unique full name. So a booking mat
 - Presentation Log AL:AT, one value set per deck slug (column O), written to every row of that slug:
   AL Deck opens, AM Deck sessions, AN First opened, AO Last opened, AP Deepest slide, AQ Time on deck (s), AR Videos played,
   AS Book clicks (clicks on Book a call), AT Meeting booked (Calendly) = date/time of an active booking. AD:AK stay manual and are never touched.
+  AU Opened from = visitor locations per session (hub logs the public IP via X-Forwarded-For from the Funnel, ipinfo.io resolves City, CC,
+  cached in the state file). Opens from Serbia (RS) are flagged "C&F?" because the client sits there and leads do not.
 - Meetings tab: one row per Calendly invitee, A:G (name, email, website, LinkedIn, company LinkedIn, phone, event date, "(canceled)" / "(no lead match)"),
   key = invitee URI in column K. H:J (Conversation, Outcome, $ Collected) stay manual.
 - Performance tab column C "Presentation open rate per messaged lead": per sender and Total, both sections. Messaged = Presentation Log J not empty/None;

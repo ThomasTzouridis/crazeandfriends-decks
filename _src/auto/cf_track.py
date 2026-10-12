@@ -16,7 +16,8 @@ EVENTS = os.path.expanduser('~/Desktop/AIOS/automations/mac-hub/logs/events.json
 STATE = os.path.join(P.ROOT, '_private', 'cf_track_state.json')
 LEADS = os.path.join(P.ROOT, '_private', 'cf_leads.json')
 CAL_USER = 'https://api.calendly.com/users/e8387d2b-fadf-4ca2-9e61-e9496cb002f0'   # og_crazeandfriends (the PAT has no users:read, so the URI is fixed)
-TRACK_HDR = ['Deck opens', 'Deck sessions', 'First opened', 'Last opened', 'Deepest slide', 'Time on deck (s)', 'Videos played', 'Book clicks', 'Meeting booked (Calendly)']
+TRACK_HDR = ['Deck opens', 'Deck sessions', 'First opened', 'Last opened', 'Deepest slide', 'Time on deck (s)', 'Videos played', 'Book clicks', 'Meeting booked (Calendly)', 'Opened from']
+HOME_CC = 'RS'   # Craze & Friends sit in Serbia: opens from there are most likely the client, flagged in 'Opened from'
 TRACK_COL = 'AL'   # first column after the manual block AD:AK
 MEET_KEY_COL = 'K'
 from zoneinfo import ZoneInfo
@@ -24,6 +25,18 @@ BERLIN = ZoneInfo("Europe/Berlin")
 
 
 def ts(t): return datetime.datetime.fromtimestamp(t, BERLIN).strftime('%Y-%m-%d %H:%M')
+
+
+def geo(ip, cache):
+    """'City, CC' for a public IP via ipinfo.io (free, no token), cached forever in the state file."""
+    if not ip or ip.startswith(('10.', '100.', '127.', '192.168.')): return ''
+    if ip in cache: return cache[ip]
+    try:
+        d = json.loads(urllib.request.urlopen(urllib.request.Request('https://ipinfo.io/%s/json' % ip, headers={'User-Agent': 'Mozilla/5.0'}), timeout=15).read().decode())
+        cache[ip] = ', '.join(x for x in (d.get('city'), d.get('country')) if x) or '?'
+    except Exception as e:
+        P.say('geo lookup failed', ip, e); return ''
+    return cache[ip]
 
 
 def read_events(st):
@@ -47,6 +60,7 @@ def read_events(st):
             a = agg.setdefault(slug, {'opens': 0, 'sids': {}, 'first': t, 'last': t, 'max': 0, 'videos': [], 'book': 0})
             a['first'], a['last'] = min(a['first'], t), max(a['last'], t)
             s = a['sids'].setdefault(sid, {'secs': 0, 'max': 1})
+            if e.get('ip') and not s.get('ip'): s['ip'] = e['ip']
             if ev == 'open': a['opens'] += 1
             elif ev in ('slide', 'leave', 'ping', 'book'):
                 s['max'] = max(s['max'], int(p.get('max') or 0)); a['max'] = max(a['max'], s['max'])
@@ -55,6 +69,10 @@ def read_events(st):
             elif ev == 'video' and p.get('v') and p['v'] not in a['videos']: a['videos'].append(p['v'])
             a['max'] = max(a['max'], 1)
     st['offset'] = off
+    cache = st.setdefault('geo', {})
+    for a in agg.values():
+        for s in a['sids'].values():
+            if s.get('ip') and 'loc' not in s: s['loc'] = geo(s['ip'], cache)
 
 
 def cal(path, tok, q=None):
@@ -101,6 +119,14 @@ def match(inv, leads):
     return None, None, ''
 
 
+def where(a):
+    """'Paris, FR (2), Belgrade, RS (1, C&F?)': opens per location, home country flagged as probably the client."""
+    n = {}
+    for s in a['sids'].values():
+        if s.get('loc'): n[s['loc']] = n.get(s['loc'], 0) + 1
+    return ', '.join('%s (%d%s)' % (k, v, ', C&F?' if k.endswith(', ' + HOME_CC) else '') for k, v in sorted(n.items(), key=lambda x: -x[1]))
+
+
 def main():
     st = json.load(open(STATE, encoding='utf-8')) if os.path.exists(STATE) else {}
     leads = json.load(open(LEADS, encoding='utf-8'))
@@ -129,16 +155,16 @@ def main():
     # Presentation Log tracking block: one value set per deck slug (column O), written to every row of that slug
     meta = sv.get(spreadsheetId=P.SHEET, fields='sheets.properties').execute()['sheets']
     pl = next(x['properties'] for x in meta if x['properties']['title'] == P.TAB)
-    need = 37 + len(TRACK_HDR)
+    need = 37 + len(TRACK_HDR)   # AL = column 38
     if pl['gridProperties']['columnCount'] < need:
         sv.batchUpdate(spreadsheetId=P.SHEET, body={'requests': [{'appendDimension': {'sheetId': pl['sheetId'], 'dimension': 'COLUMNS', 'length': need - pl['gridProperties']['columnCount']}}]}).execute()
     slugs = [r[0] if r else '' for r in sv.values().get(spreadsheetId=P.SHEET, range="'%s'!O2:O" % P.TAB).execute().get('values', [])]
     rows = []
     for s in slugs:
         a = st['slugs'].get(s)
-        if not a: rows.append(['', '', '', '', '', '', '', '', booked.get(s, '')]); continue
+        if not a: rows.append(['', '', '', '', '', '', '', '', booked.get(s, ''), '']); continue
         rows.append([a['opens'], len(a['sids']), ts(a['first']), ts(a['last']), a['max'], sum(x['secs'] for x in a['sids'].values()),
-                     ', '.join(a['videos']), a['book'], booked.get(s, '')])
+                     ', '.join(a['videos']), a['book'], booked.get(s, ''), where(a)])
     sv.values().update(spreadsheetId=P.SHEET, range="'%s'!%s1" % (P.TAB, TRACK_COL), valueInputOption='RAW', body={'values': [TRACK_HDR] + rows}).execute()
     # Performance tab column C "Presentation open rate per messaged lead": leads whose message 1 (with the deck link) went out (Presentation Log J
     # not None) and whose deck has at least one open, per sender (column A name = Presentation Log sender) and Total. Decks exist only in the
