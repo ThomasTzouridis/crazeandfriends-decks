@@ -85,3 +85,13 @@ Google Sheet "Craze&Friends | Meetings & Tracking" (id 1ZJp5PxD40R43vZRSMHY7KCYs
 - F onwards (show up, closing, deal value, LTV) is manual, never touched. Empty cell = denominator 0 (nobody messaged yet).
 - Run by hand: `python3 _src/auto/cf_perf.py --dry` (print only) or without `--dry`.
 - Row order is stable (new connections are appended). Do not sort the tab, use a filter view.
+
+## Deck tracking + bookings (cf_track.py, mac-hub job `cf_track`, every 15 min, live 2026-10-12)
+- Book a call button = https://calendly.com/og_crazeandfriends/30min (template, 404 fallback, every deck). PAT: `CALENDLY_CRAZEANDFRIENDS_PAT` in AIOS .env (no `users:read` scope, so the user URI is fixed in the script).
+- Every deck (template + 404) carries a tracking script: open, deepest slide, video plays, Book clicks, time on deck -> POST to mac-hub
+  `https://macbook-air-von-thomas.tail94ea31.ts.net/webhook/cf-deck-track` (unrouted on purpose: hub logs every POST to `logs/events.jsonl`).
+  Skipped: Playwright/bots (`navigator.webdriver`), browsers flagged with `?cfint=1` (undo `?cfint=0`). Devices on the tailnet are blocked by Chrome anyway.
+- The Book button gets `utm_source=cf-deck&utm_campaign=<slug>&utm_content=<session>`, so a booking matches its lead even with another email.
+- Sheet: Presentation Log AL:AT (opens, sessions, first/last opened, deepest slide, seconds, videos, Book clicks, meeting booked) per deck slug;
+  Meetings tab A:G one row per Calendly invitee (match: deck UTM, then email domain = lead website, then exact name), key in column K, H:J manual.
+- State `_private/cf_track_state.json` on the Mac (events offset + per slug aggregates). Decks built before 2026-10-12 17:00 (dental-boutique etc.) have no tracker.
