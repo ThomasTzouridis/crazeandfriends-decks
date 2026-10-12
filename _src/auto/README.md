@@ -86,7 +86,7 @@ Google Sheet "Craze&Friends | Meetings & Tracking" (id 1ZJp5PxD40R43vZRSMHY7KCYs
 - Run by hand: `python3 _src/auto/cf_perf.py --dry` (print only) or without `--dry`.
 - Row order is stable (new connections are appended). Do not sort the tab, use a filter view.
 
-## Deck tracking + bookings, the full pathway (cf_track.py, mac-hub job `cf_track`, every 15 min, live 2026-10-12)
+## Deck tracking + bookings, the full pathway (cf_track.py, mac-hub job `cf_track`, every 2 h since 2026-10-12 evening, before that every 15 min, live 2026-10-12)
 Sheet: Craze&Friends | Meetings & Tracking, https://docs.google.com/spreadsheets/d/1ZJp5PxD40R43vZRSMHY7KCYsBsjU3l-V7-Ao8Qqxb2U
 
 **1. Booking link.** Every Book a call button (template, 404 fallback, every deck, every copy on the PC) = https://calendly.com/og_crazeandfriends/30min.
@@ -132,7 +132,7 @@ name there and the Presentation Log uses that lead for AT; the row itself is nev
 Calendly email when the lead booked themselves, else the lead's HeyReach email; E from Supabase), L = "Booked by <name>, <email>" when someone
 else booked. Offline test harness with all rules: `%TEMP%\claude\...\scratchpad\test_match.py` (fake HeyReach/Supabase/sheet, no writes).
 
-**5. What lands where (all automatic, every 15 min).**
+**5. What lands where (all automatic, every 2 h).**
 - Presentation Log AL:AT, one value set per deck slug (column O), written to every row of that slug:
   AL Deck opens, AM Deck sessions, AN First opened, AO Last opened, AP Deepest slide, AQ Time on deck (s), AR Videos played,
   AS Book clicks (clicks on Book a call), AT Meeting booked (Calendly) = date/time of an active booking. AD:AK stay manual and are never touched.
@@ -144,7 +144,7 @@ else booked. Offline test harness with all rules: `%TEMP%\claude\...\scratchpad\
 - Performance tab column C "Presentation open rate per messaged lead": per sender and Total, both sections. Messaged = Presentation Log J not empty/None;
   opened = that lead's deck has at least 1 open. Blank until someone is messaged. cf_perf.py owns B and D:F, cf_track owns C only.
 
-**6. Moving parts.** Mac checkout ~/cf-decks (git pull --ff-only), job wrapper `mac-hub/jobs/cf_track.py`, entry `cf_track` every 900 s in
+**6. Moving parts.** Mac checkout ~/cf-decks (git pull --ff-only), job wrapper `mac-hub/jobs/cf_track.py`, entry `cf_track` every 7200 s in
 schedule_table.py, state `_private/cf_track_state.json` (events byte offset + per slug aggregates). Run by hand: `python3 _src/auto/cf_track.py`.
 Test from the PC only with Playwright + `--host-resolver-rules=MAP macbook-air-von-thomas.tail94ea31.ts.net 185.40.234.37` and webdriver=false,
 otherwise the tailnet block eats the beacons. New decks get the tracker from the template automatically.

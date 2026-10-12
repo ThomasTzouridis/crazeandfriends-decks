@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""craze&friends deck tracking + Calendly booking match. Runs on the Mac (mac-hub job cf_track, every 15 min), checkout ~/cf-decks.
+"""craze&friends deck tracking + Calendly booking match. Runs on the Mac (mac-hub job cf_track, every 2 h), checkout ~/cf-decks.
 1. Deck events: every deck posts open / slide / video / book / ping / leave beacons to mac-hub (/webhook/cf-deck-track), which appends them to
    ~/Desktop/AIOS/automations/mac-hub/logs/events.jsonl with the visitor IP. Read incrementally (byte offset in _private/cf_track_state.json),
    aggregated per slug and per session. -> Presentation Log columns AL:AU (after the manual block AD:AK, which is never touched).
