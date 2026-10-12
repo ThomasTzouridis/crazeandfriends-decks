@@ -1,0 +1,59 @@
+{
+ "slug": "lake-cycling",
+ "company": "Lake Cycling",
+ "full_name": "Christian van Asten",
+ "logo": "lake-cycling.png",
+ "shot": "lake-cycling.jpg",
+ "shot_caption": "lakecycling.com",
+ "saw_lines": [
+  "Cyclists buy shoes once, fit them to their feet, then replace them only when the old pair wears out.",
+  "So the sale is won or lost in line one, where the offer and price settle the doubt before the click.",
+  "Your site offers 25% off an accessory, yet 0 of 15 ads mention percent off, so put the 25% off in line one of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 12 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention percent off"
+   ],
+   [
+    "0",
+    "ads show a price"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers 25% off an accessory, yet 0 of 15 ads mention percent off, so a first time buyer has no reason to act. Put the 25% off in line one of three new ads and on the creative."
+   ],
+   [
+    "Price never reaches the ads",
+    "Your site shows prices from $49.99 to $529.99, yet 0 of 30 ads mention price. A buyer needs a number before clicking, or the ad gets skipped. Lead one ad with the $179.99 price and name the tier it compares to."
+   ],
+   [
+    "Delivery goes unanswered",
+    "Your site explains how orders arrive, yet 0 of 30 ads cover delivery. Someone buying shoes online wants the timing settled before clicking. Show the box arriving in one video ad and put the delivery window in the first line."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so new buyers have nothing concrete before the click. Pick one real figure you can stand behind, such as a review count or orders shipped, and open the next batch with it."
+   ]
+  ],
+  "images": [
+   "lake-cycling_1.jpg",
+   "lake-cycling_2.jpg",
+   "lake-cycling_3.jpg"
+  ]
+ },
+ "ads_1": "Price and offer led creative for shoes, opening on the 25% accessory discount",
+ "soc_1": "Brand social strategy across Facebook, Instagram, X and YouTube"
+}
