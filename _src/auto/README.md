@@ -86,12 +86,44 @@ Google Sheet "Craze&Friends | Meetings & Tracking" (id 1ZJp5PxD40R43vZRSMHY7KCYs
 - Run by hand: `python3 _src/auto/cf_perf.py --dry` (print only) or without `--dry`.
 - Row order is stable (new connections are appended). Do not sort the tab, use a filter view.
 
-## Deck tracking + bookings (cf_track.py, mac-hub job `cf_track`, every 15 min, live 2026-10-12)
-- Book a call button = https://calendly.com/og_crazeandfriends/30min (template, 404 fallback, every deck). PAT: `CALENDLY_CRAZEANDFRIENDS_PAT` in AIOS .env (no `users:read` scope, so the user URI is fixed in the script).
-- Every deck (template + 404) carries a tracking script: open, deepest slide, video plays, Book clicks, time on deck -> POST to mac-hub
-  `https://macbook-air-von-thomas.tail94ea31.ts.net/webhook/cf-deck-track` (unrouted on purpose: hub logs every POST to `logs/events.jsonl`).
-  Skipped: Playwright/bots (`navigator.webdriver`), browsers flagged with `?cfint=1` (undo `?cfint=0`). Devices on the tailnet are blocked by Chrome anyway.
-- The Book button gets `utm_source=cf-deck&utm_campaign=<slug>&utm_content=<session>`, so a booking matches its lead even with another email.
-- Sheet: Presentation Log AL:AT (opens, sessions, first/last opened, deepest slide, seconds, videos, Book clicks, meeting booked) per deck slug;
-  Meetings tab A:G one row per Calendly invitee (match: deck UTM, then email domain = lead website, then exact name), key in column K, H:J manual.
-- State `_private/cf_track_state.json` on the Mac (events offset + per slug aggregates). Decks built before 2026-10-12 17:00 (dental-boutique etc.) have no tracker.
+## Deck tracking + bookings, the full pathway (cf_track.py, mac-hub job `cf_track`, every 15 min, live 2026-10-12)
+Sheet: Craze&Friends | Meetings & Tracking, https://docs.google.com/spreadsheets/d/1ZJp5PxD40R43vZRSMHY7KCYsBsjU3l-V7-Ao8Qqxb2U
+
+**1. Booking link.** Every Book a call button (template, 404 fallback, every deck, every copy on the PC) = https://calendly.com/og_crazeandfriends/30min.
+Never any other link. Calendly PAT: `CALENDLY_CRAZEANDFRIENDS_PAT` in AIOS .env (PC + Mac); no `users:read` scope, so the user URI is fixed in the script.
+
+**2. How a deck reports.** Every deck (template.html, 404.html, all `*/index.html`) carries one tracking `<script>` before `</body>`. It sends small
+beacons (`navigator.sendBeacon`, text/plain, no CORS preflight) to mac-hub `https://macbook-air-von-thomas.tail94ea31.ts.net/webhook/cf-deck-track`
+(Tailscale Funnel to hub.py :8787; unrouted on purpose, hub appends every POST to `~/Desktop/AIOS/automations/mac-hub/logs/events.jsonl`).
+Events per visit (one random session id each):
+- `open` on load (referrer, user agent, screen width, timezone, language, slide count, phone or desktop)
+- `slide` whenever a new deepest slide is reached
+- `video` when a video is played (which one)
+- `book` when the Book a call button is clicked
+- `ping` every 30 s while the tab is visible (time on deck so far), `leave` on tab hidden / pagehide
+
+**3. Who is NOT counted (us vs lead).**
+- Our PC and Mac: on the tailnet the funnel resolves to a 100.x address and Chrome's Local Network Access blocks the beacon. Never counted.
+- Any other device of ours / the senders: open any deck once with `?cfint=1` (e.g. https://crazeandfriends-cases.com/kiabi/?cfint=1). That browser
+  is flagged in localStorage and never counted again on any deck. Undo with `?cfint=0`. A sender who opens a deck without this counts as a lead open.
+- Bots and Playwright (`navigator.webdriver`).
+
+**4. Booking match.** The Book button gets `utm_source=cf-deck&utm_campaign=<slug>&utm_content=<session id>`; Calendly stores these on the invitee.
+cf_track lists every Calendly event + invitee and matches to a lead (`_private/cf_leads.json`) in this order: deck UTM slug, then email domain =
+lead website (free mail excluded), then exact unique full name. So a booking matches its lead even with a different email.
+
+**5. What lands where (all automatic, every 15 min).**
+- Presentation Log AL:AT, one value set per deck slug (column O), written to every row of that slug:
+  AL Deck opens, AM Deck sessions, AN First opened, AO Last opened, AP Deepest slide, AQ Time on deck (s), AR Videos played,
+  AS Book clicks (clicks on Book a call), AT Meeting booked (Calendly) = date/time of an active booking. AD:AK stay manual and are never touched.
+- Meetings tab: one row per Calendly invitee, A:G (name, email, website, LinkedIn, company LinkedIn, phone, event date, "(canceled)" / "(no lead match)"),
+  key = invitee URI in column K. H:J (Conversation, Outcome, $ Collected) stay manual.
+- Performance tab column C "Presentation open rate per messaged lead": per sender and Total, both sections. Messaged = Presentation Log J not empty/None;
+  opened = that lead's deck has at least 1 open. Blank until someone is messaged. cf_perf.py owns B and D:F, cf_track owns C only.
+
+**6. Moving parts.** Mac checkout ~/cf-decks (git pull --ff-only), job wrapper `mac-hub/jobs/cf_track.py`, entry `cf_track` every 900 s in
+schedule_table.py, state `_private/cf_track_state.json` (events byte offset + per slug aggregates). Run by hand: `python3 _src/auto/cf_track.py`.
+Test from the PC only with Playwright + `--host-resolver-rules=MAP macbook-air-von-thomas.tail94ea31.ts.net 185.40.234.37` and webdriver=false,
+otherwise the tailnet block eats the beacons. New decks get the tracker from the template automatically.
+
+**7. Limits.** Tracking is per deck slug: leads sharing one deck (e.g. KIABI) share the numbers. Old/example decks are tracked but have no Log row.
