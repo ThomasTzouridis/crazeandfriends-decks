@@ -1,0 +1,59 @@
+{
+ "slug": "namhya-foods",
+ "company": "Namhya Foods",
+ "full_name": "Ridhima Arora",
+ "logo": "namhya-foods.png",
+ "shot": "namhya-foods.jpg",
+ "shot_caption": "namhyafoods.com",
+ "saw_lines": [
+  "Tea buyers pick a blend for one health goal, then reorder the same box for months without thinking.",
+  "So the first order is won or lost on whether the ad answers shipping and the subscription before the click.",
+  "Your site offers subscribe and save, yet 0 of 29 ads mention it or any offer. Put that offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 12 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "offer mentions"
+   ],
+   [
+    "0",
+    "shipping mentions"
+   ],
+   [
+    "4",
+    "claim word ads"
+   ]
+  ],
+  "points": [
+   [
+    "Subscribe offer missing from ads",
+    "Your site offers subscribe and save, but 0 of 29 ads mention it or any offer. New buyers see no reason to act today. Put subscribe and save in the first line of three new ads and on the creative."
+   ],
+   [
+    "Shipping question goes unanswered",
+    "Your site explains how orders ship, yet 0 of 30 ads mention shipping or delivery. A new buyer who cannot tell when the tea arrives scrolls past. Lead your new buyer ads with the free shipping above Rs 50."
+   ],
+   [
+    "Subscription never advertised",
+    "The site has subscribe and save, yet 0 of 30 ads mention a subscription. Reorders are where this tea earns its keep, but nobody is asked to lock one in. Run two retention ads with the subscription saving as the headline."
+   ],
+   [
+    "Claim words limit reach",
+    "4 of 29 ads use claim words such as clinically, cure and guaranteed results. Those lines limit reach, and a buyer skeptical of cures scrolls past. Say what customers noticed in week one instead."
+   ]
+  ],
+  "images": [
+   "namhya-foods_1.jpg",
+   "namhya-foods_2.jpg",
+   "namhya-foods_3.jpg"
+  ]
+ },
+ "ads_1": "Subscribe and save, free shipping and new buyer creative for tea buyers",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Twitter"
+}
