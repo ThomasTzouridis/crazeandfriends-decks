@@ -140,6 +140,23 @@ def main():
         rows.append([a['opens'], len(a['sids']), ts(a['first']), ts(a['last']), a['max'], sum(x['secs'] for x in a['sids'].values()),
                      ', '.join(a['videos']), a['book'], booked.get(s, '')])
     sv.values().update(spreadsheetId=P.SHEET, range="'%s'!%s1" % (P.TAB, TRACK_COL), valueInputOption='RAW', body={'values': [TRACK_HDR] + rows}).execute()
+    # Performance tab column C "Presentation open rate per messaged lead": leads whose message 1 (with the deck link) went out (Presentation Log J
+    # not None) and whose deck has at least one open, per sender (column A name = Presentation Log sender) and Total. Decks exist only in the
+    # ecom campaigns, so both sections get the same numbers. Blank = nobody messaged yet.
+    pl_rows = sv.values().get(spreadsheetId=P.SHEET, range="'%s'!C2:O" % P.TAB).execute().get('values', [])
+    per = {}
+    for r in pl_rows:
+        r = r + [''] * (13 - len(r))
+        if r[7] in ('', 'None'): continue
+        a = st['slugs'].get(r[12]); c = per.setdefault(r[0], [0, 0]); c[0] += 1; c[1] += 1 if a and a['opens'] else 0
+    rate = lambda m, o: ('%.1f%%' % (100.0 * o / m)) if m else ''
+    data = []
+    for i, cell in enumerate(sv.values().get(spreadsheetId=P.SHEET, range='Performance!A1:A80').execute().get('values', []), start=1):
+        n = (cell[0] if cell else '').strip()
+        if n == 'Total': data.append({'range': 'Performance!C%d' % i, 'values': [[rate(sum(v[0] for v in per.values()), sum(v[1] for v in per.values()))]]})
+        elif n and i > 1 and 'campaign' not in n.lower() and 'ecom leads' not in n.lower(): data.append({'range': 'Performance!C%d' % i, 'values': [[rate(*per.get(n, [0, 0]))]]})
+    if data: sv.values().batchUpdate(spreadsheetId=P.SHEET, body={'valueInputOption': 'RAW', 'data': data}).execute()
+    P.say('open rate per sender (messaged, opened):', per)
     json.dump(st, open(STATE, 'w', encoding='utf-8'))
     P.say('tracked decks:', len(st['slugs']), 'rows:', len(rows))
 
