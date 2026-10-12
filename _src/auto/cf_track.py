@@ -48,9 +48,9 @@ def read_events(st):
             a['first'], a['last'] = min(a['first'], t), max(a['last'], t)
             s = a['sids'].setdefault(sid, {'secs': 0, 'max': 1})
             if ev == 'open': a['opens'] += 1
-            elif ev in ('slide', 'leave', 'book'):
+            elif ev in ('slide', 'leave', 'ping', 'book'):
                 s['max'] = max(s['max'], int(p.get('max') or 0)); a['max'] = max(a['max'], s['max'])
-                if ev == 'leave': s['secs'] = max(s['secs'], int(p.get('secs') or 0))
+                if ev in ('leave', 'ping'): s['secs'] = max(s['secs'], int(p.get('secs') or 0))
                 if ev == 'book': a['book'] += 1
             elif ev == 'video' and p.get('v') and p['v'] not in a['videos']: a['videos'].append(p['v'])
             a['max'] = max(a['max'], 1)

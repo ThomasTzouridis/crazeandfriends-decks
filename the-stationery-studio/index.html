@@ -430,7 +430,8 @@ let max=0,act=0,last=Date.now();
 send('open',{ref:document.referrer||'',ua:navigator.userAgent,w:innerWidth,tz:(Intl.DateTimeFormat().resolvedOptions().timeZone||''),lang:navigator.language||'',total:tot,phone});
 setInterval(()=>{const n=Date.now();if(document.visibilityState==='visible')act+=n-last;last=n;const i=idx();if(i>max){max=i;if(i>1)send('slide',{max,total:tot})}},1000);
 document.addEventListener('click',e=>{const v=e.target.closest('.vid');if(v)send('video',{v:v.dataset.v});if(e.target.closest('a[href*="calendly.com"]'))send('book',{max})},true);
-addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')send('leave',{secs:Math.round(act/1000),max})});
+let gone=0;const bye=()=>{if(gone)return;gone=1;send('leave',{secs:Math.round(act/1000),max})};document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')bye();else gone=0});addEventListener('pagehide',bye);
+setInterval(()=>{if(document.visibilityState==='visible')send('ping',{secs:Math.round(act/1000),max})},30000);
 })();
 </script>
 </body>
