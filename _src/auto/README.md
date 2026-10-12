@@ -108,9 +108,29 @@ Events per visit (one random session id each):
   is flagged in localStorage and never counted again on any deck. Undo with `?cfint=0`. A sender who opens a deck without this counts as a lead open.
 - Bots and Playwright (`navigator.webdriver`).
 
-**4. Booking match.** The Book button gets `utm_source=cf-deck&utm_campaign=<slug>&utm_content=<session id>`; Calendly stores these on the invitee.
-cf_track lists every Calendly event + invitee and matches to a lead (`_private/cf_leads.json`) in this order: deck UTM slug, then email domain =
-lead website (free mail excluded), then exact unique full name. So a booking matches its lead even with a different email.
+**4. Booking match (live 2026-10-12).** One Calendly link everywhere, no form question. Every booking becomes one Meetings row with THE LEAD in
+column A, even when a colleague or business partner booked for them (Thomas: "if I forward it to my partner, my name should still be in as booked").
+Evidence used: the deck tag (Book button carries `utm_source=cf-deck&utm_campaign=<slug>&utm_content=<session id>`, Calendly stores it on the
+invitee), the tracked session behind that id (time, city from IP, browser timezone, phone/desktop), every campaign lead's facts from HeyReach
+(name, emails, location; 6 campaigns incl. the paused healthcare one, cached 6 h in `_private/cf_hr_leads.json`), the HeyReach inbox (who got the
+Calendly link or the deck link in a message, who mentioned a partner's name or email), Supabase ocean_leads (emails of 300k people and their
+companies, so a colleague's work email resolves to the lead's company), and the invitee's timezone (country via zone.tab). Rules, first hit wins,
+the reason lands in column M as a plain sentence:
+0. internal: email domain actiscale/aementum/crazeandfriends or a team member's name -> row "INTERNAL: <name>".
+1. deck tag: the deck's leads; booker is one of them by name or email -> that lead; one lead on the deck -> that lead ("booked by another person
+   for this lead"); several leads (shared deck) -> the one who got the message, timezone tie-break; session opened from Serbia/Slovenia and the
+   booker is no lead -> internal (the client clicking through).
+2. email: booker email is a lead's email (HeyReach, then Supabase) -> lead. Work email domain = a lead's website (kiabi.fr = kiabi.com, free mail
+   excluded), or Supabase knows the person and their company domain = a lead's website -> that lead, "booked by a colleague".
+3. chat: booker name or email appears in a lead's HeyReach conversation -> that lead.
+4. name: unique accent-free name match among all campaign leads (exact, or missing name part, or initial, or a typo) -> lead.
+5. plain link: leads who were sent the Calendly link in HeyReach in the last 30 days, timezone fit, newest first -> best guess, marked CHECK.
+6. timing: a deck opened or Book clicked within 2 h before the booking whose session timezone fits the booker -> best guess, CHECK.
+7. nothing: row "<name> (no lead match)", CHECK; timezone Belgrade/Ljubljana -> INTERNAL instead.
+Reschedules keep the original row (key = root invitee, date in G updated), cancels get " (canceled)" in G. Column N "Lead override": type the lead's
+name there and the Presentation Log uses that lead for AT; the row itself is never rewritten. A matched lead gets the lead's data in A:F (B = the
+Calendly email when the lead booked themselves, else the lead's HeyReach email; E from Supabase), L = "Booked by <name>, <email>" when someone
+else booked. Offline test harness with all rules: `%TEMP%\claude\...\scratchpad\test_match.py` (fake HeyReach/Supabase/sheet, no writes).
 
 **5. What lands where (all automatic, every 15 min).**
 - Presentation Log AL:AT, one value set per deck slug (column O), written to every row of that slug:
@@ -118,8 +138,9 @@ lead website (free mail excluded), then exact unique full name. So a booking mat
   AS Book clicks (clicks on Book a call), AT Meeting booked (Calendly) = date/time of an active booking. AD:AK stay manual and are never touched.
   AU Opened from = visitor locations per session (hub logs the public IP via X-Forwarded-For from the Funnel, ipinfo.io resolves City, CC,
   cached in the state file). Opens from Serbia (RS) are flagged "C&F?" because the client sits there and leads do not.
-- Meetings tab: one row per Calendly invitee, A:G (name, email, website, LinkedIn, company LinkedIn, phone, event date, "(canceled)" / "(no lead match)"),
-  key = invitee URI in column K. H:J (Conversation, Outcome, $ Collected) stay manual.
+- Meetings tab: one row per booking, A:G the lead (name, email, website, LinkedIn, company LinkedIn, phone, event date + "(canceled)"), K = root
+  invitee URI (key), L = Booked by (if not the lead), M = Matched by (the rule sentence, "CHECK" when it is a best guess), N = Lead override (manual).
+  H:J (Conversation, Outcome, $ Collected) stay manual. Header K1:N1 is kept current by the script.
 - Performance tab column C "Presentation open rate per messaged lead": per sender and Total, both sections. Messaged = Presentation Log J not empty/None;
   opened = that lead's deck has at least 1 open. Blank until someone is messaged. cf_perf.py owns B and D:F, cf_track owns C only.
 

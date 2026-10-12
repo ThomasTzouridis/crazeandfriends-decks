@@ -1,32 +1,177 @@
 # -*- coding: utf-8 -*-
 """craze&friends deck tracking + Calendly booking match. Runs on the Mac (mac-hub job cf_track, every 15 min), checkout ~/cf-decks.
-1. Deck events: every deck posts open / slide / video / book / leave beacons to mac-hub (/webhook/cf-deck-track), which appends them to
-   ~/Desktop/AIOS/automations/mac-hub/logs/events.jsonl. Read incrementally (byte offset in _private/cf_track_state.json), aggregated per slug.
-   -> Presentation Log columns AL:AT (after the manual block AD:AK, which is never touched). Every row with that deck slug gets the numbers.
-2. Calendly (og_crazeandfriends/30min, CALENDLY_CRAZEANDFRIENDS_PAT): every booking -> one row in the Meetings tab (A:G + key in K).
-   Match order: utm_campaign = deck slug (the deck's Book button carries it), then email domain = lead website, then full name.
-   Rows are appended once per invitee, keyed by the Calendly invitee URI in column K. H:J (Conversation, Outcome, $ Collected) stay manual.
+1. Deck events: every deck posts open / slide / video / book / ping / leave beacons to mac-hub (/webhook/cf-deck-track), which appends them to
+   ~/Desktop/AIOS/automations/mac-hub/logs/events.jsonl with the visitor IP. Read incrementally (byte offset in _private/cf_track_state.json),
+   aggregated per slug and per session. -> Presentation Log columns AL:AU (after the manual block AD:AK, which is never touched).
+2. Calendly (og_crazeandfriends/30min, CALENDLY_CRAZEANDFRIENDS_PAT): every booking -> one row in the Meetings tab, the LEAD in column A
+   (Thomas 2026-10-12: if the lead forwards the deck and a partner books, the lead still goes in; the booker lands in column L).
+   The match is deterministic, first rule that hits wins, written as one plain sentence in column M (see resolve()):
+     0 internal (our domains / team names)
+     1 deck tag: the deck's Book button carries utm_campaign=<slug>&utm_content=<session>, the session gives time, city, timezone
+     2 email: booker email is a lead's email (HeyReach / Supabase), or belongs to a person at a lead's company (Supabase, 300k people),
+       or its domain is a lead's website
+     3 chat: booker name or email appears in a lead's HeyReach conversation ("my partner Marko will book")
+     4 name: unique (fuzzy, accent-free) name match among all campaign leads, ties broken by who got the link / timezone
+     5 plain link: leads who were sent the Calendly link in HeyReach in the last 30 days, timezone, newest first
+     6 timing: a deck with a Book click / open shortly before the booking whose session timezone fits the booker
+     else no match (row kept, marked), and bookings that look like us (Serbia / Slovenia) are marked INTERNAL.
+   Rows are appended once per booking (key = root invitee URI in K, reschedules update the date on the same row, cancels mark it).
+   H:J (Conversation, Outcome, $ Collected) and N (Lead override) stay manual; a filled N wins for the Presentation Log.
+3. Performance tab column C: presentation open rate per messaged lead, per sender and Total.
   python3 _src/auto/cf_track.py
 """
-import os, sys, re, json, time, datetime, urllib.request, urllib.parse
+import os, sys, re, json, time, datetime, difflib, unicodedata, urllib.request, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import cf_poll as P
 
 EVENTS = os.path.expanduser('~/Desktop/AIOS/automations/mac-hub/logs/events.jsonl')
 STATE = os.path.join(P.ROOT, '_private', 'cf_track_state.json')
 LEADS = os.path.join(P.ROOT, '_private', 'cf_leads.json')
+HR_CACHE = os.path.join(P.ROOT, '_private', 'cf_hr_leads.json')   # HeyReach lead facts (email, location), refreshed every 6 h when a booking needs matching
 CAL_USER = 'https://api.calendly.com/users/e8387d2b-fadf-4ca2-9e61-e9496cb002f0'   # og_crazeandfriends (the PAT has no users:read, so the URI is fixed)
 TRACK_HDR = ['Deck opens', 'Deck sessions', 'First opened', 'Last opened', 'Deepest slide', 'Time on deck (s)', 'Videos played', 'Book clicks', 'Meeting booked (Calendly)', 'Opened from']
 HOME_CC = 'RS'   # Craze & Friends sit in Serbia: opens from there are most likely the client, flagged in 'Opened from'
+OUR_CC = {'RS', 'SI'}   # the client (Serbia) and Thomas (Slovenia): a booking from there that matches no lead is internal
+INTERNAL_DOMAINS = {'actiscale.com', 'aementum.com', 'crazeandfriends.com', 'crazeandfriends.rs'}
+TEAM = {'ognjen varadanin', 'veljko sprecakovic', 'jovana milojevic', 'dorde radovanovic', 'iva varadanin', 'thomas tzouridis'}
 TRACK_COL = 'AL'   # first column after the manual block AD:AK
 MEET_KEY_COL = 'K'
+MEET_HDR_LN = ['Booked by (if not the lead)', 'Matched by', 'Lead override (type the lead name, the row is then yours)']
+CAMPAIGNS_ALL = P.CAMPAIGNS + [639478]   # + the paused healthcare campaign: no decks, but its connected leads can still book
+LINK_RE = re.compile(r'(?i)calendly\.com/og_crazeandfriends')
+DECK_RE = re.compile(r'(?i)crazeandfriends-cases\.com')
+EMAIL_RE = re.compile(r'[\w.+-]+@[\w-]+(?:\.[\w-]+)+')
+FREE = {'gmail', 'googlemail', 'outlook', 'hotmail', 'live', 'yahoo', 'ymail', 'rocketmail', 'icloud', 'me', 'mac', 'gmx', 'web', 't-online', 'proton',
+        'protonmail', 'pm', 'aol', 'msn', 'orange', 'wanadoo', 'free', 'sfr', 'laposte', 'yandex', 'mail', 'libero', 'virgilio', 'tiscali', 'bluewin',
+        'telenet', 'skynet', 'ziggo', 'kpnmail', 'comcast', 'att', 'verizon', 'btinternet', 'sky', 'zoho', 'hey', 'fastmail', 'posteo', 'mailbox', 'tutanota', 'tuta'}
+COUNTRY = {'france': 'FR', 'germany': 'DE', 'deutschland': 'DE', 'united states': 'US', 'usa': 'US', 'united states of america': 'US', 'united kingdom': 'GB',
+           'uk': 'GB', 'england': 'GB', 'scotland': 'GB', 'wales': 'GB', 'italy': 'IT', 'italia': 'IT', 'spain': 'ES', 'espana': 'ES', 'netherlands': 'NL',
+           'the netherlands': 'NL', 'belgium': 'BE', 'switzerland': 'CH', 'schweiz': 'CH', 'austria': 'AT', 'osterreich': 'AT', 'sweden': 'SE', 'norway': 'NO',
+           'denmark': 'DK', 'finland': 'FI', 'ireland': 'IE', 'portugal': 'PT', 'poland': 'PL', 'czechia': 'CZ', 'czech republic': 'CZ', 'hungary': 'HU',
+           'greece': 'GR', 'romania': 'RO', 'croatia': 'HR', 'serbia': 'RS', 'slovenia': 'SI', 'canada': 'CA', 'australia': 'AU', 'new zealand': 'NZ',
+           'mexico': 'MX', 'brazil': 'BR', 'japan': 'JP', 'united arab emirates': 'AE', 'israel': 'IL', 'turkey': 'TR', 'turkiye': 'TR', 'luxembourg': 'LU',
+           'south africa': 'ZA', 'india': 'IN', 'singapore': 'SG', 'hong kong': 'HK', 'argentina': 'AR', 'chile': 'CL', 'colombia': 'CO', 'estonia': 'EE',
+           'latvia': 'LV', 'lithuania': 'LT', 'slovakia': 'SK', 'bulgaria': 'BG', 'ukraine': 'UA', 'iceland': 'IS', 'malta': 'MT', 'cyprus': 'CY'}
+CITY = {'US': 'new york|los angeles|san francisco|chicago|boston|seattle|denver|austin|dallas|houston|miami|atlanta|phoenix|san diego|portland|washington|detroit|'
+              'philadelphia|minneapolis|salt lake|las vegas|nashville|charlotte|orlando|tampa|san jose|sacramento|pittsburgh|cleveland|cincinnati|columbus|indianapolis|'
+              'kansas city|st louis|milwaukee|raleigh|richmond|baltimore|new jersey|brooklyn|manhattan|silicon valley|bay area|california|texas|florida',
+        'GB': 'london|manchester|birmingham|leeds|glasgow|edinburgh|bristol|liverpool|sheffield|nottingham|newcastle|cambridge|oxford|brighton|belfast|cardiff|leicester|southampton',
+        'CA': 'toronto|vancouver|montreal|calgary|ottawa|edmonton|quebec|winnipeg', 'AU': 'sydney|melbourne|brisbane|perth|adelaide|gold coast|canberra', 'NZ': 'auckland|wellington|christchurch',
+        'IE': 'dublin|cork|galway', 'FR': 'paris|lyon|marseille|bordeaux|lille|toulouse|nantes|nice|strasbourg|montpellier|rennes|grenoble|ile de france',
+        'DE': 'berlin|munich|munchen|hamburg|frankfurt|cologne|koln|dusseldorf|stuttgart|leipzig|dresden|hannover|nuremberg|nurnberg|bremen|essen|dortmund|mannheim|karlsruhe|bonn|mainz|wiesbaden',
+        'NL': 'amsterdam|rotterdam|utrecht|eindhoven|the hague|den haag|groningen', 'BE': 'brussels|bruxelles|antwerp|antwerpen|ghent|gent|leuven|liege',
+        'CH': 'zurich|geneva|geneve|basel|bern|lausanne|lugano|winterthur|zug', 'AT': 'vienna|wien|graz|linz|salzburg|innsbruck', 'LU': 'luxembourg',
+        'IT': 'milan|milano|rome|roma|turin|torino|florence|firenze|bologna|naples|napoli|venice|venezia|verona', 'ES': 'madrid|barcelona|valencia|seville|sevilla|malaga|bilbao|palma',
+        'PT': 'lisbon|lisboa|porto', 'SE': 'stockholm|gothenburg|goteborg|malmo', 'NO': 'oslo|bergen', 'DK': 'copenhagen|kobenhavn|aarhus', 'FI': 'helsinki|tampere',
+        'PL': 'warsaw|warszawa|krakow|wroclaw|gdansk|poznan', 'CZ': 'prague|praha|brno', 'HU': 'budapest', 'GR': 'athens|thessaloniki', 'RO': 'bucharest', 'HR': 'zagreb', 'RS': 'belgrade|beograd|novi sad',
+        'SI': 'ljubljana|maribor', 'AE': 'dubai|abu dhabi', 'IL': 'tel aviv|jerusalem', 'SG': 'singapore', 'HK': 'hong kong', 'MX': 'mexico city|guadalajara|monterrey',
+        'BR': 'sao paulo|rio de janeiro', 'ZA': 'cape town|johannesburg', 'TR': 'istanbul|ankara', 'IN': 'mumbai|bangalore|bengaluru|delhi|hyderabad|pune|chennai', 'JP': 'tokyo|osaka'}
+CITY = {c: cc for cc, cs in CITY.items() for c in cs.split('|')}
 from zoneinfo import ZoneInfo
 BERLIN = ZoneInfo("Europe/Berlin")
+UTC = datetime.timezone.utc
 
 
 def ts(t): return datetime.datetime.fromtimestamp(t, BERLIN).strftime('%Y-%m-%d %H:%M')
 
 
+ISO_RE = re.compile(r'(\d{4})-(\d\d)-(\d\d)[T ](\d\d):(\d\d):(\d\d)(?:\.(\d+))?\s*(Z|[+-]\d\d:?\d\d)?')
+
+
+def iso(s):
+    """Calendly ('2026-10-12T10:00:00.123456Z') / HeyReach ('2026-10-12T10:00:00.1234567', UTC) timestamp -> aware UTC datetime, None if missing."""
+    m = ISO_RE.match(s or '')
+    if not m: return None
+    y, mo, d, h, mi, se, frac, z = m.groups()
+    off = datetime.timedelta(0)
+    if z and z != 'Z': off = datetime.timedelta(hours=int(z[1:3]), minutes=int(z[-2:])) * (1 if z[0] == '+' else -1)
+    try: return datetime.datetime(int(y), int(mo), int(d), int(h), int(mi), int(se), int((frac or '0')[:6].ljust(6, '0')), tzinfo=UTC) - off
+    except ValueError: return None
+
+
+def ago(delta):
+    s = int(abs(delta.total_seconds()))
+    return '%d min' % (s // 60) if s < 7200 else '%.1f h' % (s / 3600) if s < 172800 else '%d days' % (s // 86400)
+
+
+# ---------- normalising ----------
+def norm(s):
+    """accent-free lowercase letters and spaces: 'Olivia MASSEROT CORRÉ' -> 'olivia masserot corre'."""
+    s = (s or '').lower()
+    for a, b in (('đ', 'd'), ('ð', 'd'), ('ł', 'l'), ('ø', 'o'), ('ß', 'ss'), ('æ', 'ae'), ('œ', 'oe')): s = s.replace(a, b)
+    s = ''.join(c for c in unicodedata.normalize('NFKD', s) if not unicodedata.combining(c))
+    return ' '.join(re.sub(r'[^a-z ]', ' ', s).split())
+
+
+def toks(s): return norm(s).split()
+
+
+def name_rel(a, b):
+    """'exact' | 'strong' | None between two person names."""
+    ta, tb = toks(a), toks(b)
+    if not ta or not tb: return None
+    if sorted(ta) == sorted(tb): return 'exact'
+    sa, sb = set(ta), set(tb)
+    if min(len(sa), len(sb)) >= 2 and (sa <= sb or sb <= sa): return 'strong'
+    if ta[-1] == tb[-1] and (ta[0] == tb[0] or (len(ta[0]) == 1 and tb[0].startswith(ta[0])) or (len(tb[0]) == 1 and ta[0].startswith(tb[0]))): return 'strong'
+    if difflib.SequenceMatcher(None, ' '.join(ta), ' '.join(tb)).ratio() >= 0.88: return 'strong'
+    return None
+
+
+def dom(u):
+    """registrable domain of a URL / email domain, no www."""
+    u = (u or '').strip().lower()
+    if '@' in u: u = u.split('@')[-1]
+    host = urllib.parse.urlparse(u if '//' in u else '//' + u).netloc or u
+    return re.sub(r'^www\.', '', host.split(':')[0])
+
+
+def label(d):
+    p = dom(d).split('.')
+    if len(p) >= 3 and p[-2] in ('co', 'com', 'org', 'net', 'gov', 'ac', 'edu'): return p[-3]
+    return p[-2] if len(p) >= 2 else (p[0] if p else '')
+
+
+def same_company(d1, d2):
+    """kiabi.com = kiabi.fr = shop.kiabi.com; short labels only on a full match (muse.io is not musewearables.com)."""
+    a, b = dom(d1), dom(d2)
+    if not a or not b: return False
+    if a == b or a.endswith('.' + b) or b.endswith('.' + a): return True
+    return label(a) == label(b) and len(label(a)) >= 5
+
+
+def is_free(email): return label(email) in FREE or dom(email).split('.')[0] in FREE
+
+
+_ZONES = None
+def tz_cc(tz):
+    """IANA timezone -> country code via the system zone.tab (macOS has it), '' if unknown."""
+    global _ZONES
+    if _ZONES is None:
+        _ZONES = {}
+        for pth in ('/usr/share/zoneinfo/zone.tab', '/usr/share/zoneinfo/zone1970.tab'):
+            try:
+                for line in open(pth, encoding='utf-8'):
+                    if line.startswith('#'): continue
+                    f = line.rstrip('\n').split('\t')
+                    if len(f) >= 3: _ZONES.setdefault(f[2], f[0].split(',')[0])
+            except OSError: pass
+    return _ZONES.get(tz or '', '')
+
+
+def loc_cc(location):
+    """'Lille, Hauts-de-France, France' / 'United States' / 'Paris, FR' -> country code, '' if unknown."""
+    parts = [norm(x) for x in (location or '').split(',')]
+    for cand in (parts[-1] if parts else '', norm(location)):
+        if cand in COUNTRY: return COUNTRY[cand]
+        if len(cand) == 2 and cand.upper() in COUNTRY.values(): return cand.upper()
+    m = re.search(r', ([A-Z]{2})$', location or '')
+    if m: return m.group(1)
+    padded = ' ' + norm(location) + ' '   # 'Greater Manchester', 'Zürich Metropolitan Area': a known city anywhere in the text
+    return next((cc for city, cc in CITY.items() if ' ' + city + ' ' in padded), '')
+
+
+# ---------- deck events ----------
 def geo(ip, cache):
     """'City, CC' for a public IP via ipinfo.io (free, no token), cached forever in the state file."""
     if not ip or ip.startswith(('10.', '100.', '127.', '192.168.')): return ''
@@ -40,7 +185,7 @@ def geo(ip, cache):
 
 
 def read_events(st):
-    """New cf-deck-track beacons since the stored offset -> st['slugs'][slug] aggregates."""
+    """New cf-deck-track beacons since the stored offset -> st['slugs'][slug] aggregates (per session: secs, max, ip, loc, tz, phone, open_t, book_t)."""
     size = os.path.getsize(EVENTS)
     off = st.get('offset')
     if off is None or off > size: off = max(0, size - 2_000_000) if off is None else 0   # first run: only the tail (tracking started 2026-10-12)
@@ -59,13 +204,15 @@ def read_events(st):
             if not slug or slug.startswith('_'): continue
             a = agg.setdefault(slug, {'opens': 0, 'sids': {}, 'first': t, 'last': t, 'max': 0, 'videos': [], 'book': 0})
             a['first'], a['last'] = min(a['first'], t), max(a['last'], t)
-            s = a['sids'].setdefault(sid, {'secs': 0, 'max': 1})
+            s = a['sids'].setdefault(sid, {'secs': 0, 'max': 1, 'open_t': t})
             if e.get('ip') and not s.get('ip'): s['ip'] = e['ip']
-            if ev == 'open': a['opens'] += 1
+            if ev == 'open':
+                a['opens'] += 1
+                s['open_t'] = min(s.get('open_t', t), t); s['tz'] = p.get('tz') or ''; s['phone'] = bool(p.get('phone'))
             elif ev in ('slide', 'leave', 'ping', 'book'):
                 s['max'] = max(s['max'], int(p.get('max') or 0)); a['max'] = max(a['max'], s['max'])
                 if ev in ('leave', 'ping'): s['secs'] = max(s['secs'], int(p.get('secs') or 0))
-                if ev == 'book': a['book'] += 1
+                if ev == 'book': a['book'] += 1; s['book_t'] = t
             elif ev == 'video' and p.get('v') and p['v'] not in a['videos']: a['videos'].append(p['v'])
             a['max'] = max(a['max'], 1)
     st['offset'] = off
@@ -75,6 +222,26 @@ def read_events(st):
             if s.get('ip') and 'loc' not in s: s['loc'] = geo(s['ip'], cache)
 
 
+def where(a):
+    """'Paris, FR (2), Belgrade, RS (1, C&F?)': opens per location, home country flagged as probably the client."""
+    n = {}
+    for s in a['sids'].values():
+        if s.get('loc'): n[s['loc']] = n.get(s['loc'], 0) + 1
+    return ', '.join('%s (%d%s)' % (k, v, ', C&F?' if k.endswith(', ' + HOME_CC) else '') for k, v in sorted(n.items(), key=lambda x: -x[1]))
+
+
+def sess_cc(s): return (s.get('loc') or '').rsplit(', ', 1)[-1] if s.get('loc') and ', ' in s['loc'] else tz_cc(s.get('tz'))
+
+
+def sess_t(s): return s.get('book_t') or s.get('open_t') or 0
+
+
+def sess_str(s):
+    when = 'book_t' if s.get('book_t') else 'open_t'
+    return '%s %s from %s%s' % ('Book clicked' if when == 'book_t' else 'deck opened', ts(sess_t(s)), s.get('loc') or s.get('tz') or '?', ' on phone' if s.get('phone') else '')
+
+
+# ---------- Calendly ----------
 def cal(path, tok, q=None):
     url = 'https://api.calendly.com' + path + ('?' + urllib.parse.urlencode(q) if q else '') if path.startswith('/') else path
     r = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + tok, 'User-Agent': 'Mozilla/5.0'})
@@ -82,7 +249,7 @@ def cal(path, tok, q=None):
 
 
 def bookings(tok):
-    """Every invitee of every event on the C&F Calendly (active and canceled), newest first."""
+    """Every invitee of every event on the C&F Calendly (active and canceled), as (event, invitee)."""
     out, d = [], cal('/scheduled_events', tok, {'user': CAL_USER, 'count': 100, 'sort': 'start_time:desc'})
     while True:
         for ev in d.get('collection', []):
@@ -94,64 +261,318 @@ def bookings(tok):
     return out
 
 
-def dom(u): return re.sub(r'^www\.', '', urllib.parse.urlparse(u if '//' in (u or '') else '//' + (u or '')).netloc.lower())
+# ---------- context for matching (HeyReach, Supabase), built only when a booking needs a match ----------
+class Ctx:
+    def __init__(self, st, leads):
+        self.st, self.leads = st, leads
+        self.sids = {sid: (slug, s) for slug, a in st['slugs'].items() for sid, s in a['sids'].items()}
+        self.by_slug = {}
+        for k, v in leads.items(): self.by_slug.setdefault(v['slug'], []).append(k)
+        self._hr = self._convs = self._sb = None
+        self.key = None
+
+    def hr_key(self):
+        if not self.key: self.key = P.hr('/management/organizations/api-keys/workspaces/%d' % P.WS, P.env('HEYREACH_API_KEY'), method='GET')['publicApi']
+        return self.key
+
+    def hr(self):
+        """{lead id: {name, company, emails, location, cc, sender, msg_sent, campaign}} for every lead of every campaign, cached 6 h."""
+        if self._hr is not None: return self._hr
+        try:
+            c = json.load(open(HR_CACHE, encoding='utf-8'))
+            if time.time() - c.get('at', 0) < 6 * 3600: self._hr = c['leads']; return self._hr
+        except (OSError, ValueError, KeyError): pass
+        out = {}
+        for cid in CAMPAIGNS_ALL:
+            off = 0
+            while True:
+                d = P.hr('/campaign/GetLeadsFromCampaign', self.hr_key(), {'campaignId': cid, 'offset': off, 'limit': 100})
+                items = d.get('items') or []
+                for i in items:
+                    pr = i.get('linkedInUserProfile') or {}
+                    m = re.search(r'linkedin\.com/in/([^/?#]+)', pr.get('profileUrl') or '', re.I)
+                    if not m: continue
+                    emails = {e.lower() for e in (pr.get('emailAddress'), pr.get('customEmailAddress'), pr.get('enrichedEmailAddress')) if e and '@' in e}
+                    out[P.requote(m.group(1))] = {'name': ('%s %s' % (pr.get('firstName') or '', pr.get('lastName') or '')).strip(), 'company': pr.get('companyName') or '',
+                                                   'emails': sorted(emails), 'location': pr.get('location') or '', 'cc': loc_cc(pr.get('location') or ''),
+                                                   'sender': i.get('linkedInSenderFullName') or '', 'msg_sent': (i.get('leadMessageStatus') or 'None') != 'None',
+                                                   'campaign': cid, 'connected': bool(P.CONNECTED.search(i.get('leadConnectionStatus') or ''))}
+                if len(items) < 100: break
+                off += 100
+        self._hr = out
+        json.dump({'at': time.time(), 'leads': out}, open(HR_CACHE, 'w', encoding='utf-8'))
+        return out
+
+    def convs(self):
+        """{lead id: {link_sent: [utc...], deck_sent: [utc...], text: all message text, emails: set, last_lead_at}} from the HeyReach inbox."""
+        if self._convs is not None: return self._convs
+        out, off = {}, 0
+        while True:
+            d = P.hr('/inbox/GetConversationsV2', self.hr_key(), {'filters': {}, 'offset': off, 'limit': 100})
+            items = d.get('items') or []
+            for c in items:
+                cp = c.get('correspondentProfile') or {}
+                m = re.search(r'linkedin\.com/in/([^/?#]+)', cp.get('profileUrl') or '', re.I)
+                if not m: continue
+                lid = P.requote(m.group(1))
+                v = out.setdefault(lid, {'link_sent': [], 'deck_sent': [], 'text': '', 'emails': set(), 'last_lead_at': None})
+                for msg in c.get('messages') or []:
+                    body, t = msg.get('body') or '', iso(msg.get('createdAt'))
+                    ours = (msg.get('sender') or '').upper() == 'ME'
+                    if ours and t and LINK_RE.search(body): v['link_sent'].append(t)
+                    if ours and t and DECK_RE.search(body): v['deck_sent'].append(t)
+                    if not ours and t and (v['last_lead_at'] is None or t > v['last_lead_at']): v['last_lead_at'] = t
+                    v['text'] += ' ' + body
+                    v['emails'] |= {e.lower() for e in EMAIL_RE.findall(body)}
+            if len(items) < 100: break
+            off += 100
+        self._convs = out
+        return out
+
+    def sb(self):
+        """Supabase connection (ocean_leads), None if unreachable: the match then runs without it."""
+        if self._sb is None:
+            try:
+                import psycopg2
+                self._sb = psycopg2.connect(host='aws-0-eu-central-1.pooler.supabase.com', port=5432, user='postgres.' + P.env('SUPABASE_PROJECT_REF'),
+                                            password=P.env('SUPABASE_DB_PASSWORD'), dbname='postgres', sslmode='require', connect_timeout=30)
+                self._sb.autocommit = True
+            except Exception as e:
+                P.say('supabase unavailable:', e); self._sb = False
+        return self._sb or None
+
+    def sb_by_email(self, email):
+        """people in ocean_leads with that email: [(linkedin id, name, company, domain)]."""
+        c = self.sb()
+        if not c or not email: return []
+        try:
+            cur = c.cursor()
+            cur.execute("""select person_linkedin, coalesce(person_name, fullnames, ''), coalesce(company, companyname, ''), coalesce(domain, companywebsite, company_email_domain, '')
+                           from ocean_leads where lower(person_email)=%(e)s or lower(email)=%(e)s or lower(findymail_email)=%(e)s or lower(email_2)=%(e)s
+                              or lower(email_3)=%(e)s or lower(email_4)=%(e)s or lower(email_5)=%(e)s limit 10""", {'e': email.lower()})
+            out = []
+            for li, nm, co, d in cur.fetchall():
+                m = re.search(r'linkedin\.com/in/([^/?#]+)', li or '', re.I)
+                out.append((P.requote(m.group(1)) if m else '', nm, co, d))
+            return out
+        except Exception as e:
+            P.say('supabase query failed:', e); return []
+
+    def sb_company_linkedin(self, lid):
+        """the lead's company LinkedIn page from ocean_leads (cf_leads.json has none), '' if unknown."""
+        c = self.sb()
+        if not c or not lid: return ''
+        try:
+            cur = c.cursor()
+            cur.execute("select coalesce(company_linkedin_url, linkedincompanypageurl, sheet_company_linkedin, '') from ocean_leads where person_linkedin ilike %s limit 5",
+                        ('%/in/' + lid + '%',))
+            return next((r[0] for r in cur.fetchall() if r[0]), '')
+        except Exception as e:
+            P.say('supabase query failed:', e); return ''
+
+    def fact(self, lid):
+        """one merged view of a lead: cf_leads (deck) + HeyReach (email, location)."""
+        a, b = self.leads.get(lid) or {}, self.hr().get(lid) or {}
+        return {'id': lid, 'name': a.get('name') or b.get('name') or lid, 'company': a.get('company') or b.get('company') or '', 'website': a.get('website') or '',
+                'slug': a.get('slug') or '', 'emails': b.get('emails') or [], 'location': b.get('location') or '', 'cc': b.get('cc') or '',
+                'sender': a.get('sender') or b.get('sender') or '', 'msg_sent': b.get('msg_sent', False), 'connected': b.get('connected', False)}
+
+    def all_ids(self): return list(dict.fromkeys(list(self.leads) + list(self.hr())))
 
 
-def match(inv, leads):
-    """(lead id, lead, how) for an invitee, or (None, None, '')."""
+def pick_by_person(ctx, cands, name, email):
+    """inside a candidate list: the lead the booker IS (name or email), else None."""
+    for rel in ('exact', 'strong'):
+        hit = [l for l in cands if name_rel(ctx.fact(l)['name'], name) == rel]
+        if len(hit) == 1: return hit[0], 'name matches'
+        if hit: return hit[0], 'name matches (%d leads with that name)' % len(hit)
+    if email:
+        hit = [l for l in cands if email.lower() in ctx.fact(l)['emails']]
+        if hit: return hit[0], 'email is the lead\'s email'
+    return None, ''
+
+
+def pick_among(ctx, cands, created, inv_cc):
+    """several leads, booker is none of them: who got the link / deck message, timezone fit, most recently active. Returns (lead, note, sure)."""
+    cv = ctx.convs()
+    got = [l for l in cands if cv.get(l, {}).get('link_sent') or cv.get(l, {}).get('deck_sent') or ctx.fact(l)['msg_sent']]
+    pool = got or cands
+    if inv_cc:
+        fit = [l for l in pool if ctx.fact(l)['cc'] == inv_cc]
+        if fit: pool = fit
+    if len(pool) == 1: return pool[0], '', True
+    def last(l):
+        v = cv.get(l, {}); t = max(v.get('link_sent', []) + v.get('deck_sent', []) + ([v['last_lead_at']] if v.get('last_lead_at') else []), default=None)
+        return t or datetime.datetime(2000, 1, 1, tzinfo=UTC)
+    pool = sorted(pool, key=last, reverse=True)
+    return pool[0], 'also possible: ' + ', '.join(ctx.fact(l)['name'] for l in pool[1:4]), False
+
+
+def resolve(ctx, inv, ev):
+    """-> {'lead': id|None, 'internal': bool, 'how': sentence, 'check': bool, 'booker_is_lead': bool}"""
+    name, email = (inv.get('name') or '').strip(), (inv.get('email') or '').strip().lower()
+    created = iso(inv.get('created_at')) or iso(ev.get('created_at')) or datetime.datetime.now(UTC)
+    inv_cc = tz_cc(inv.get('timezone'))
     tr = inv.get('tracking') or {}
+    def R(lead, how, check=False):
+        f = ctx.fact(lead) if lead else {}
+        return {'lead': lead, 'internal': False, 'how': how, 'check': check,
+                'booker_is_lead': bool(lead) and (name_rel(f['name'], name) is not None or (email and email in f['emails']))}
+    INT = lambda how: {'lead': None, 'internal': True, 'how': how, 'check': False, 'booker_is_lead': False}
+    # 0 internal
+    if dom(email) in INTERNAL_DOMAINS: return INT('internal: email domain %s' % dom(email))
+    if norm(name) in TEAM: return INT('internal: team member %s' % name)
+    # 1 deck tag
     slug = (tr.get('utm_campaign') or '').lower() if (tr.get('utm_source') or '') == 'cf-deck' else ''
-    name = (inv.get('name') or '').strip().lower()
-    by_slug = [(k, v) for k, v in leads.items() if v.get('slug') == slug] if slug else []
-    if by_slug:
-        named = [x for x in by_slug if x[1].get('name', '').lower() == name]
-        k, v = (named or by_slug)[0]
-        return k, v, 'deck link (%s)' % slug + ('' if named or len(by_slug) == 1 else ', %d leads share this deck' % len(by_slug))
-    d = (inv.get('email') or '').split('@')[-1].lower()
-    if d and d not in ('gmail.com', 'outlook.com', 'hotmail.com', 'yahoo.com', 'icloud.com', 'gmx.de', 'web.de', 'proton.me', 'protonmail.com'):
-        hit = [(k, v) for k, v in leads.items() if dom(v.get('website', '')) == d]
+    if slug:
+        sid = tr.get('utm_content') or ''
+        s = ctx.sids.get(sid, (None, None))[1]
+        ev_s = 'deck tag %s' % slug + ((', ' + sess_str(s) + ', booking %s later' % ago(created - datetime.datetime.fromtimestamp(sess_t(s), UTC))) if s and sess_t(s) else ', untracked device')
+        cands = ctx.by_slug.get(slug, [])
+        if cands:
+            lead, why = pick_by_person(ctx, cands, name, email)
+            if lead: return R(lead, ev_s + ', ' + why)
+            if s and sess_cc(s) in OUR_CC: return INT(ev_s + ': opened from our side, booker %s is no lead' % name)
+            if len(cands) == 1: return R(cands[0], ev_s + ', booked by another person for this lead (colleague or partner)')
+            lead, note, sure = pick_among(ctx, cands, created, inv_cc)
+            return R(lead, ev_s + ', shared deck, booker is not one of the leads; ' + (note or 'this lead got the message'), not sure)
+    # 2 email
+    if email:
+        hit = [l for l in ctx.all_ids() if email in ctx.fact(l)['emails']]
+        if hit: return R(hit[0], 'email %s is the lead\'s email (HeyReach)' % email)
+        for lid, nm, co, d in ctx.sb_by_email(email):
+            if lid and (lid in ctx.leads or lid in ctx.hr()): return R(lid, 'email %s is the lead\'s email (Supabase)' % email)
+        if not is_free(email):
+            at = [l for l in ctx.all_ids() if same_company(email, ctx.fact(l)['website'])]
+            if not at:
+                for lid, nm, co, d in ctx.sb_by_email(email):
+                    at = [l for l in ctx.all_ids() if d and same_company(d, ctx.fact(l)['website'])]
+                    if at: break
+            if at:
+                lead, why = pick_by_person(ctx, at, name, email)
+                if lead: return R(lead, 'email domain %s = lead website, %s' % (dom(email), why))
+                lead, note, sure = pick_among(ctx, at, created, inv_cc)
+                return R(lead, 'email domain %s = lead website, booked by a colleague; %s' % (dom(email), note or 'this lead got the message'), not sure)
+    # 3 chat
+    cv = ctx.convs()
+    nt = [t for t in toks(name) if len(t) >= 3]
+    hit = [l for l, v in cv.items() if (email and email in v['emails']) or (len(nt) >= 2 and all(t in norm(v['text']).split() for t in nt))]
+    if len(hit) == 1: return R(hit[0], 'booker %s %s is mentioned in the lead\'s HeyReach chat' % (name, email))
+    if hit:
+        lead, note, sure = pick_among(ctx, hit, created, inv_cc)
+        return R(lead, 'booker mentioned in several chats; ' + note, True)
+    # 4 name
+    for rel in ('exact', 'strong'):
+        hit = [l for l in ctx.all_ids() if name_rel(ctx.fact(l)['name'], name) == rel]
+        if len(hit) == 1: return R(hit[0], 'name matches a campaign lead (%s)' % rel + (', timezone %s fits' % inv.get('timezone') if inv_cc and ctx.fact(hit[0])['cc'] == inv_cc else ''))
         if hit:
-            named = [x for x in hit if x[1].get('name', '').lower() == name]
-            k, v = (named or hit)[0]
-            return k, v, 'email domain'
-    hit = [(k, v) for k, v in leads.items() if name and v.get('name', '').lower() == name]
-    if len(hit) == 1: return hit[0][0], hit[0][1], 'name'
-    return None, None, ''
+            lead, note, sure = pick_among(ctx, hit, created, inv_cc)
+            return R(lead, 'name matches %d campaign leads; %s' % (len(hit), note or 'this one got the message'), not sure)
+    # 5 plain link recipients
+    recent = [(max(v['link_sent']), l) for l, v in cv.items() if v['link_sent'] and created - datetime.timedelta(days=30) <= max(v['link_sent']) <= created]
+    if recent:
+        recent.sort(reverse=True)
+        pool = [l for t, l in recent]
+        fit = [l for l in pool if inv_cc and ctx.fact(l)['cc'] == inv_cc]
+        lead = (fit or pool)[0]
+        t = dict((l, t) for t, l in recent)[lead]
+        others = [ctx.fact(l)['name'] for l in (fit or pool)[1:4]]
+        return R(lead, 'best guess: Calendly link sent in HeyReach %s, booking %s later, booker %s is not the lead%s%s' % (
+            t.astimezone(BERLIN).strftime('%Y-%m-%d %H:%M'), ago(created - t), name, ', timezone fits' if fit else '', ('; also possible: ' + ', '.join(others)) if others else ''),
+            check=True)
+    # 6 deck activity shortly before the booking
+    near = []
+    for sid, (sl, s) in ctx.sids.items():
+        t = sess_t(s)
+        if t and 0 <= (created - datetime.datetime.fromtimestamp(t, UTC)).total_seconds() <= 2 * 3600 and ctx.by_slug.get(sl) and sess_cc(s) not in OUR_CC:
+            near.append((int(bool(s.get('book_t'))), int(bool(inv_cc) and sess_cc(s) == inv_cc), t, sl, s))
+    if near:
+        near.sort(key=lambda x: x[:3], reverse=True)   # Book click before plain open, timezone fit, then latest
+        booked_click, fits, t, sl, s = near[0]
+        lead, note, sure = pick_among(ctx, ctx.by_slug[sl], created, inv_cc)
+        return R(lead, 'best guess: %s, booking %s later, no tag%s%s' % (sess_str(s), ago(created - datetime.datetime.fromtimestamp(t, UTC)),
+                                                                      ', timezone fits' if fits else '', ('; ' + note) if note else ''), check=True)
+    # nothing
+    if inv_cc in OUR_CC: return INT('internal: timezone %s, no lead matches %s %s' % (inv.get('timezone'), name, email))
+    return {'lead': None, 'internal': False, 'how': 'no lead matches %s %s' % (name, email), 'check': True, 'booker_is_lead': False}
 
 
-def where(a):
-    """'Paris, FR (2), Belgrade, RS (1, C&F?)': opens per location, home country flagged as probably the client."""
-    n = {}
-    for s in a['sids'].values():
-        if s.get('loc'): n[s['loc']] = n.get(s['loc'], 0) + 1
-    return ', '.join('%s (%d%s)' % (k, v, ', C&F?' if k.endswith(', ' + HOME_CC) else '') for k, v in sorted(n.items(), key=lambda x: -x[1]))
+# ---------- Meetings tab ----------
+def chain_root(inv, by_uri):
+    seen = set()
+    while inv.get('old_invitee') and inv['old_invitee'] in by_uri and inv['uri'] not in seen:
+        seen.add(inv['uri']); inv = by_uri[inv['old_invitee']]
+    return inv['uri']
 
 
+def meet_row(ctx, res, inv, ev, start, key):
+    name, email = (inv.get('name') or '').strip(), (inv.get('email') or '').strip()
+    phone = inv.get('text_reminder_number') or next((q.get('answer', '') for q in inv.get('questions_and_answers') or [] if re.search(r'(?i)phone|whatsapp|number', q.get('question', ''))), '')
+    lead = ctx.fact(res['lead']) if res['lead'] else None
+    if res['internal']:
+        row = ['INTERNAL: ' + name, email, '', '', '', phone, start, '', '', '', key, '', res['how'], '']
+    elif lead:
+        row = [lead['name'], email if res['booker_is_lead'] else (lead['emails'][0] if lead['emails'] else ''), ('https://' + dom(lead['website'])) if lead['website'] else '',
+               'https://www.linkedin.com/in/%s/' % lead['id'], ctx.sb_company_linkedin(lead['id']), phone, start, '', '', '', key,
+               '' if res['booker_is_lead'] else 'Booked by %s, %s' % (name, email), res['how'] + (', CHECK' if res['check'] else ''), '']
+    else:
+        row = [name + ' (no lead match)', email, '', '', '', phone, start, '', '', '', key, '', res['how'] + ', CHECK', '']
+    return row
+
+
+def sync_meetings(sv, st, leads, tok):
+    """Calendly -> Meetings tab. Returns {slug: booking date} of active bookings for the Presentation Log."""
+    booked = {}
+    rows = sv.values().get(spreadsheetId=P.SHEET, range='Meetings!A2:N').execute().get('values', [])
+    hdr = sv.values().get(spreadsheetId=P.SHEET, range='Meetings!K1:N1').execute().get('values', [[]])[0]
+    hdr = hdr + [''] * (4 - len(hdr))
+    want = ['Calendly invitee (auto key)'] + MEET_HDR_LN
+    if hdr != want: sv.values().update(spreadsheetId=P.SHEET, range='Meetings!K1:N1', valueInputOption='RAW', body={'values': [want]}).execute()
+    have = {}   # key -> (row number, row values)
+    for i, r in enumerate(rows, start=2):
+        r = r + [''] * (14 - len(r))
+        if r[10]: have[r[10]] = (i, r)
+    ctx = Ctx(st, leads)
+    name_of = {norm(v['name']): k for k, v in leads.items()}
+    all_inv = bookings(tok)
+    by_uri = {i['uri']: i for ev, i in all_inv}
+    ev_of = {i['uri']: ev for ev, i in all_inv}
+    new, updates = [], []
+    for ev, inv in sorted(all_inv, key=lambda x: iso(x[1].get('created_at')) or datetime.datetime.now(UTC)):
+        if inv.get('rescheduled') and inv.get('new_invitee') in by_uri: continue   # superseded by the rescheduled invitee
+        key = chain_root(inv, by_uri)
+        start = iso(ev['start_time']).astimezone(BERLIN).strftime('%Y-%m-%d %H:%M')
+        active = ev.get('status') == 'active' and inv.get('status') == 'active'
+        cell = start + ('' if active else ' (canceled)')
+        if key in have:
+            rn, r = have[key]
+            if r[6] != cell: updates.append({'range': 'Meetings!G%d' % rn, 'values': [[cell]]}); r[6] = cell
+            lid = name_of.get(norm(r[13])) if r[13] else next((k for k in leads if r[3].rstrip('/').lower().endswith('/in/' + k.lower())), None)
+            if active and lid and leads[lid].get('slug'): booked[leads[lid]['slug']] = start
+            continue
+        res = resolve(ctx, inv, ev)
+        row = meet_row(ctx, res, inv, ev, cell, key)
+        new.append(row); have[key] = (None, row)
+        if active and res['lead'] and (leads.get(res['lead']) or {}).get('slug'): booked[leads[res['lead']]['slug']] = start
+        P.say('booking', inv.get('name'), inv.get('email'), start, '->', row[0], '|', res['how'])
+    if updates: sv.values().batchUpdate(spreadsheetId=P.SHEET, body={'valueInputOption': 'RAW', 'data': updates}).execute()
+    if new: sv.values().append(spreadsheetId=P.SHEET, range='Meetings!A1', valueInputOption='RAW', insertDataOption='INSERT_ROWS', body={'values': new}).execute()
+    return booked
+
+
+# ---------- main ----------
 def main():
     st = json.load(open(STATE, encoding='utf-8')) if os.path.exists(STATE) else {}
     leads = json.load(open(LEADS, encoding='utf-8'))
     read_events(st)
+    json.dump(st, open(STATE, 'w', encoding='utf-8'))   # events are consumed, save before anything that can fail
     sv = P.sheets_svc()
-    booked = {}   # slug -> booking date, for the Presentation Log column
+    booked, failed = {}, None   # slug -> booking date, for the Presentation Log column
     tok = P.env('CALENDLY_CRAZEANDFRIENDS_PAT')
     if tok:
-        have = {r[0] for r in sv.values().get(spreadsheetId=P.SHEET, range='Meetings!%s2:%s' % (MEET_KEY_COL, MEET_KEY_COL)).execute().get('values', []) if r}
-        if 'Calendly invitee (auto key)' not in str(sv.values().get(spreadsheetId=P.SHEET, range='Meetings!%s1' % MEET_KEY_COL).execute().get('values')):
-            sv.values().update(spreadsheetId=P.SHEET, range='Meetings!%s1' % MEET_KEY_COL, valueInputOption='RAW', body={'values': [['Calendly invitee (auto key)']]}).execute()
-        new = []
-        for ev, i in reversed(bookings(tok)):
-            lid, lead, how = match(i, leads)
-            start = datetime.datetime.fromisoformat(ev['start_time'].replace('Z', '+00:00')).astimezone(BERLIN).strftime('%Y-%m-%d %H:%M')
-            if lead and ev.get('status') == 'active': booked[lead['slug']] = start
-            if i['uri'] in have: continue
-            phone = i.get('text_reminder_number') or next((q.get('answer', '') for q in i.get('questions_and_answers') or [] if re.search(r'(?i)phone|whatsapp|number', q.get('question', ''))), '')
-            web = (lead or {}).get('website', '')
-            new.append([i.get('name', '') + ('' if lead else ' (no lead match)'), i.get('email', ''), ('https://' + dom(web)) if web else '',
-                        ('https://www.linkedin.com/in/%s/' % lid) if lid else '', (lead or {}).get('company_linkedin', ''), phone,
-                        start + ('' if ev.get('status') == 'active' else ' (canceled)'), '', '', '', i['uri']])
-            P.say('booking', i.get('name'), i.get('email'), start, 'matched by', how or 'NOTHING')
-        if new:
-            sv.values().append(spreadsheetId=P.SHEET, range='Meetings!A1', valueInputOption='RAW', insertDataOption='INSERT_ROWS', body={'values': new}).execute()
+        try: booked = sync_meetings(sv, st, leads, tok)
+        except Exception as e:   # the tracking columns still get written, the error is raised at the end so the job shows as failed
+            failed = e; P.say('MEETINGS SYNC FAILED:', repr(e))
     # Presentation Log tracking block: one value set per deck slug (column O), written to every row of that slug
     meta = sv.get(spreadsheetId=P.SHEET, fields='sheets.properties').execute()['sheets']
     pl = next(x['properties'] for x in meta if x['properties']['title'] == P.TAB)
@@ -185,6 +606,7 @@ def main():
     P.say('open rate per sender (messaged, opened):', per)
     json.dump(st, open(STATE, 'w', encoding='utf-8'))
     P.say('tracked decks:', len(st['slugs']), 'rows:', len(rows))
+    if failed: raise failed
 
 
 if __name__ == '__main__':
