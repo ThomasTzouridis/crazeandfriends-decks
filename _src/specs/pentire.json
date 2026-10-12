@@ -1,0 +1,59 @@
+{
+ "slug": "pentire",
+ "company": "Pentire",
+ "full_name": "Edward Grieg-Gran",
+ "logo": "pentire.svg",
+ "shot": "pentire.jpg",
+ "shot_caption": "pentiredrinks.com",
+ "saw_lines": [
+  "Non-alcoholic drinkers ask whether it tastes like a real aperitif, then reorder only when it does.",
+  "So the sale turns on line one, where the offer and the answer to taste must land before the shopper scrolls.",
+  "Your site offers 10% off your first order, yet 3 of 27 ads mention it, so buyers have no reason to act. Put the offer in line one of three new ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 12 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "3",
+    "ads mention first order"
+   ],
+   [
+    "0",
+    "ads mention subscription"
+   ],
+   [
+    "0",
+    "ads carry proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "First order offer barely appears",
+    "Your site gives new buyers 10% off their first order, yet 3 of 27 ads mention it, so a first time buyer has no reason to click. Open three new ads with the offer in line one and on the creative."
+   ],
+   [
+    "Subscription never gets advertised",
+    "Your site offers Subscribe and save, 15% off every order that follows, yet 0 of 30 ads mention a subscription. Buyers get no prompt to reorder, so repeats depend on memory. Run two retention ads with the saving as the headline."
+   ],
+   [
+    "How it arrives is unanswered",
+    "Your site explains how it ships, yet 0 of 30 ads show how an order arrives. Buyers unsure about delivery scroll past without asking. Shoot one video ad of the box arriving, with the delivery promise in line one."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 30 ads carry a proof number, so a first buyer has nothing concrete to trust before clicking. Collect one real figure you can stand behind, like a review count or orders shipped, and lead the next batch with it."
+   ]
+  ],
+  "images": [
+   "pentire_1.jpg",
+   "pentire_2.jpg",
+   "pentire_3.jpg"
+  ]
+ },
+ "ads_1": "Offer-first creative for Coastal Spritz, with the founder hook cut to one test",
+ "soc_1": "Brand social strategy across Instagram, your only linked channel"
+}
