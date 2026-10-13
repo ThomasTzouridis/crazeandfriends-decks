@@ -1,0 +1,59 @@
+{
+ "slug": "click-and-grow",
+ "company": "Click And Grow",
+ "full_name": "Johan Schepers",
+ "logo": "click-and-grow.png",
+ "shot": "click-and-grow.jpg",
+ "shot_caption": "clickandgrow.com",
+ "saw_lines": [
+  "Nobody buys an indoor garden on impulse. They weigh one system&rsquo;s price against store herbs, then reorder pods.",
+  "So the sale is won or lost in the first line, where price and a reason to buy now must appear.",
+  "Your site offers 30% off and free shipping over $150, yet 0 of 27 ads mention either. Put the 30% offer in the first line of three new ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 13 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "use the site offer"
+   ],
+   [
+    "0",
+    "mention price"
+   ],
+   [
+    "7",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers 30% off and free shipping over $150, yet 0 of 27 ads mention either, so a first-time buyer has no reason to act. Put the 30% offer in the first line of three new ads."
+   ],
+   [
+    "Price never appears in ads",
+    "Your site shows prices from $14.95 to $299.95, yet 0 of 30 ads mention price, so buyers cannot judge cost before they click. Lead one ad with the price per pod and what fresh herbs cost at the store."
+   ],
+   [
+    "Your ads carry no proof",
+    "0 of 27 ads carry a proof number, so a buyer paying $209 for a system has nothing concrete to trust. Collect one real count, such as reviews or orders shipped, and lead the next batch with it."
+   ],
+   [
+    "Seven ads are proven winners",
+    "Seven ads have kept running for 60+ days, so they are your proven winners. Build three more variations of your longest-running winner, changing only the opening line and keeping the same scene and product."
+   ]
+  ],
+  "images": [
+   "click-and-grow_1.jpg",
+   "click-and-grow_2.jpg",
+   "click-and-grow_3.jpg"
+  ]
+ },
+ "ads_1": "Offer-first creative leading with 30% off and free shipping over $150",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest and TikTok"
+}
