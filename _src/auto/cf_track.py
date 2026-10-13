@@ -225,8 +225,9 @@ def read_events(st):
 
 
 def counted(a):
-    """Slug totals over the sessions that count (not from NOT_COUNTED_CC), None if none is left."""
-    ss = [s for s in a['sids'].values() if sess_cc(s) not in NOT_COUNTED_CC] if a else []
+    """Slug totals over the sessions that count, None if none is left. Not counted: NOT_COUNTED_CC, and sessions without IP
+    (only our own launch tests of 2026-10-12, before the hub logged IPs; every real visitor since has one)."""
+    ss = [s for s in a['sids'].values() if s.get('ip') and sess_cc(s) not in NOT_COUNTED_CC] if a else []
     if not ss: return None
     videos = list(dict.fromkeys(v for s in ss for v in s['videos']))
     return {'opens': sum(s['opens'] for s in ss), 'sessions': len(ss), 'first': min(s['first'] for s in ss), 'last': max(s['last'] for s in ss),
