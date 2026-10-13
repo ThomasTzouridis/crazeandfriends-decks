@@ -107,6 +107,8 @@ Events per visit (one random session id each):
 - Any other device of ours / the senders: open any deck once with `?cfint=1` (e.g. https://crazeandfriends-cases.com/kiabi/?cfint=1). That browser
   is flagged in localStorage and never counted again on any deck. Undo with `?cfint=0`. A sender who opens a deck without this counts as a lead open.
 - Bots and Playwright (`navigator.webdriver`).
+- Anything opened from Slovenia (we sit in Celje): cf_track.py drops every session whose IP country is SI (or, without IP location, timezone
+  Europe/Ljubljana) from Presentation Log AL:AU and the open rate (NOT_COUNTED_CC, Thomas 2026-10-13). This catches every device of ours, cfint or not.
 
 **4. Booking match (live 2026-10-12).** One Calendly link everywhere, no form question. Every booking becomes one Meetings row with THE LEAD in
 column A, even when a colleague or business partner booked for them (Thomas: "if I forward it to my partner, my name should still be in as booked").
