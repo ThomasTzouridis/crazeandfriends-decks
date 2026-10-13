@@ -1,0 +1,59 @@
+{
+ "slug": "izi",
+ "company": "IZI",
+ "full_name": "Ishan Haydn",
+ "logo": "izi.png",
+ "shot": "izi.jpg",
+ "shot_caption": "izicart.com",
+ "saw_lines": [
+  "Creators buy a drone or action camera once, then return for the accessory, battery or gimbal that goes with it.",
+  "So the sale is won or lost in the first line of the ad, where a creator decides whether to click.",
+  "Your site shows 3457 reviews, yet 0 of 28 live ads carry a proof number, so put the review count on every new creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 13 Oct 2026",
+  "stats": [
+   [
+    "28",
+    "live Meta ads"
+   ],
+   [
+    "3457",
+    "reviews on your site"
+   ],
+   [
+    "77%",
+    "copy before the offer"
+   ],
+   [
+    "0",
+    "ads name the subscription"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers missing from ads",
+    "Your site shows 3457 reviews, yet 0 of 28 live ads carry a proof number, so cold buyers have no reason to trust the drone. Put the review count on every new creative and open two ads with a customer quote."
+   ],
+   [
+    "Site offer missing from ads",
+    "Your site offers subscribe and save, yet 0 of 26 ads mention it, so a first-time buyer has no price reason to act. Put the offer in the first line of three new ads and on the creative."
+   ],
+   [
+    "Subscription never advertised",
+    "Your site runs subscribe and save, yet 0 of 28 ads name a subscription, so repeat buyers never hear about it. Run two retention ads with the subscription saving as the headline, aimed at past buyers."
+   ],
+   [
+    "Offer buried in long copy",
+    "The offer appears after 77% of the copy on a median ad of 72 words, so buyers read most of the copy before they see it. Move the offer into the first two lines of every ad."
+   ]
+  ],
+  "images": [
+   "izi_1.jpg",
+   "izi_2.jpg",
+   "izi_3.jpg"
+  ]
+ },
+ "ads_1": "Review and subscription creative for the Brephos Mini, offer in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram, X and Youtube"
+}
