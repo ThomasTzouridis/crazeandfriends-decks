@@ -1,0 +1,59 @@
+{
+ "slug": "sokos",
+ "company": "Sokos",
+ "full_name": "Kai Lindström",
+ "logo": "sokos.svg",
+ "shot": "sokos.jpg",
+ "shot_caption": "sokos.fi",
+ "saw_lines": [
+  "Hair buyers pick a product by hair type and problem, then reorder it, and trust a salon name they recognize.",
+  "So the sale is won or lost in the first line, before a shopper reaches any offer or proof.",
+  "Your 28 copy ads carry 0 proof numbers, so collect one real figure, such as reviews left or orders shipped, and open three new ads with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 13 Oct 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "7",
+    "open on one line"
+   ],
+   [
+    "0",
+    "ads carry proof numbers"
+   ],
+   [
+    "0",
+    "ads carry an offer"
+   ]
+  ],
+  "points": [
+   [
+    "Ads show no proof number",
+    "0 of 28 copy ads carry a proof number, so buyers see claims with nothing to check them. Collect one real figure, such as reviews left or orders shipped, and open three new ads with it on the creative."
+   ],
+   [
+    "Creator posts run as ads",
+    "2 of 28 copy ads are creator posts run from your brand page, so the recommendation reads as a brand ad. Whitelist both from the creator&rsquo;s account, then cut three variations of each with the code in line one."
+   ],
+   [
+    "One opener leads",
+    "7 of 28 copy ads open on one line, and 21 are single use. Seven ads repeat one pitch to the same buyers. Test two new openers against it, one on dry hair routines and one on stylist quotes."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 28 copy ads carry an offer, and 0 of 29 answer price or returns. New buyers get no reason to act today. Put a first order offer or a bundle in line one of three new ads."
+   ]
+  ],
+  "images": [
+   "sokos_1.jpg",
+   "sokos_2.jpg",
+   "sokos_3.jpg"
+  ]
+ },
+ "ads_1": "Dry hair routines and stylist quotes as the new openers, with one proof number",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
