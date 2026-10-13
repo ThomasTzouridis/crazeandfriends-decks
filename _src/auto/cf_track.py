@@ -32,6 +32,7 @@ CAL_USER = 'https://api.calendly.com/users/e8387d2b-fadf-4ca2-9e61-e9496cb002f0'
 TRACK_HDR = ['Deck opens', 'Deck sessions', 'First opened', 'Last opened', 'Deepest slide', 'Time on deck (s)', 'Videos played', 'Book clicks', 'Meeting booked (Calendly)', 'Opened from']
 HOME_CC = 'RS'   # Craze & Friends sit in Serbia: opens from there are most likely the client, flagged in 'Opened from'
 OUR_CC = {'RS', 'SI'}   # the client (Serbia) and Thomas (Slovenia): a booking from there that matches no lead is internal
+NOT_COUNTED_CC = {'SI'}   # Thomas 2026-10-13: we sit in Celje, every deck session from Slovenia is ours and never counts in the Presentation Log or open rate
 INTERNAL_DOMAINS = {'actiscale.com', 'aementum.com', 'crazeandfriends.com', 'crazeandfriends.rs'}
 TEAM = {'ognjen varadanin', 'veljko sprecakovic', 'jovana milojevic', 'dorde radovanovic', 'iva varadanin', 'thomas tzouridis'}
 TRACK_COL = 'AL'   # first column after the manual block AD:AK
@@ -185,8 +186,10 @@ def geo(ip, cache):
 
 
 def read_events(st):
-    """New cf-deck-track beacons since the stored offset -> st['slugs'][slug] aggregates (per session: secs, max, ip, loc, tz, phone, open_t, book_t)."""
+    """New cf-deck-track beacons since the stored offset -> st['slugs'][slug]['sids'][sid] (opens, first, last, secs, max, videos, book, ip, loc, tz, phone, open_t, book_t).
+    Slug totals are built at write time by counted(), so sessions from NOT_COUNTED_CC can be left out."""
     size = os.path.getsize(EVENTS)
+    if st.get('v') != 2: st.update(v=2, offset=0, slugs={})   # 2026-10-13: per session counts, replay the log once (tracking started 2026-10-12)
     off = st.get('offset')
     if off is None or off > size: off = max(0, size - 2_000_000) if off is None else 0   # first run: only the tail (tracking started 2026-10-12)
     agg = st.setdefault('slugs', {})
@@ -202,19 +205,18 @@ def read_events(st):
             p = e.get('payload') or {}
             slug, sid, ev, t = (p.get('slug') or '').lower(), p.get('sid') or '', p.get('ev') or '', e.get('ts') or time.time()
             if not slug or slug.startswith('_'): continue
-            a = agg.setdefault(slug, {'opens': 0, 'sids': {}, 'first': t, 'last': t, 'max': 0, 'videos': [], 'book': 0})
-            a['first'], a['last'] = min(a['first'], t), max(a['last'], t)
-            s = a['sids'].setdefault(sid, {'secs': 0, 'max': 1, 'open_t': t})
+            a = agg.setdefault(slug, {'sids': {}})
+            s = a['sids'].setdefault(sid, {'opens': 0, 'first': t, 'last': t, 'secs': 0, 'max': 1, 'videos': [], 'book': 0, 'open_t': t})
+            s['first'], s['last'] = min(s['first'], t), max(s['last'], t)
             if e.get('ip') and not s.get('ip'): s['ip'] = e['ip']
             if ev == 'open':
-                a['opens'] += 1
+                s['opens'] += 1
                 s['open_t'] = min(s.get('open_t', t), t); s['tz'] = p.get('tz') or ''; s['phone'] = bool(p.get('phone'))
             elif ev in ('slide', 'leave', 'ping', 'book'):
-                s['max'] = max(s['max'], int(p.get('max') or 0)); a['max'] = max(a['max'], s['max'])
+                s['max'] = max(s['max'], int(p.get('max') or 0))
                 if ev in ('leave', 'ping'): s['secs'] = max(s['secs'], int(p.get('secs') or 0))
-                if ev == 'book': a['book'] += 1; s['book_t'] = t
-            elif ev == 'video' and p.get('v') and p['v'] not in a['videos']: a['videos'].append(p['v'])
-            a['max'] = max(a['max'], 1)
+                if ev == 'book': s['book'] += 1; s['book_t'] = t
+            elif ev == 'video' and p.get('v') and p['v'] not in s['videos']: s['videos'].append(p['v'])
     st['offset'] = off
     cache = st.setdefault('geo', {})
     for a in agg.values():
@@ -222,10 +224,19 @@ def read_events(st):
             if s.get('ip') and 'loc' not in s: s['loc'] = geo(s['ip'], cache)
 
 
-def where(a):
+def counted(a):
+    """Slug totals over the sessions that count (not from NOT_COUNTED_CC), None if none is left."""
+    ss = [s for s in a['sids'].values() if sess_cc(s) not in NOT_COUNTED_CC] if a else []
+    if not ss: return None
+    videos = list(dict.fromkeys(v for s in ss for v in s['videos']))
+    return {'opens': sum(s['opens'] for s in ss), 'sessions': len(ss), 'first': min(s['first'] for s in ss), 'last': max(s['last'] for s in ss),
+            'max': max(s['max'] for s in ss), 'secs': sum(s['secs'] for s in ss), 'videos': videos, 'book': sum(s['book'] for s in ss), 'sids': ss}
+
+
+def where(ss):
     """'Paris, FR (2), Belgrade, RS (1, C&F?)': opens per location, home country flagged as probably the client."""
     n = {}
-    for s in a['sids'].values():
+    for s in ss:
         if s.get('loc'): n[s['loc']] = n.get(s['loc'], 0) + 1
     return ', '.join('%s (%d%s)' % (k, v, ', C&F?' if k.endswith(', ' + HOME_CC) else '') for k, v in sorted(n.items(), key=lambda x: -x[1]))
 
@@ -582,10 +593,10 @@ def main():
     slugs = [r[0] if r else '' for r in sv.values().get(spreadsheetId=P.SHEET, range="'%s'!O2:O" % P.TAB).execute().get('values', [])]
     rows = []
     for s in slugs:
-        a = st['slugs'].get(s)
+        a = counted(st['slugs'].get(s))
         if not a: rows.append(['', '', '', '', '', '', '', '', booked.get(s, ''), '']); continue
-        rows.append([a['opens'], len(a['sids']), ts(a['first']), ts(a['last']), a['max'], sum(x['secs'] for x in a['sids'].values()),
-                     ', '.join(a['videos']), a['book'], booked.get(s, ''), where(a)])
+        rows.append([a['opens'], a['sessions'], ts(a['first']), ts(a['last']), a['max'], a['secs'],
+                     ', '.join(a['videos']), a['book'], booked.get(s, ''), where(a['sids'])])
     sv.values().update(spreadsheetId=P.SHEET, range="'%s'!%s1" % (P.TAB, TRACK_COL), valueInputOption='RAW', body={'values': [TRACK_HDR] + rows}).execute()
     # Performance tab column C "Presentation open rate per messaged lead": leads whose message 1 (with the deck link) went out (Presentation Log J
     # not None) and whose deck has at least one open, per sender (column A name = Presentation Log sender) and Total. Decks exist only in the
@@ -595,7 +606,7 @@ def main():
     for r in pl_rows:
         r = r + [''] * (13 - len(r))
         if r[7] in ('', 'None'): continue
-        a = st['slugs'].get(r[12]); c = per.setdefault(r[0], [0, 0]); c[0] += 1; c[1] += 1 if a and a['opens'] else 0
+        a = counted(st['slugs'].get(r[12])); c = per.setdefault(r[0], [0, 0]); c[0] += 1; c[1] += 1 if a and a['opens'] else 0
     rate = lambda m, o: ('%.1f%%' % (100.0 * o / m)) if m else ''
     data = []
     for i, cell in enumerate(sv.values().get(spreadsheetId=P.SHEET, range='Performance!A1:A80').execute().get('values', []), start=1):

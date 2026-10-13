@@ -134,6 +134,8 @@ else booked. Offline test harness with all rules: `%TEMP%\claude\...\scratchpad\
 
 **5. What lands where (all automatic, every 2 h).**
 - Presentation Log AL:AT, one value set per deck slug (column O), written to every row of that slug:
+  Sessions from Slovenia (IP country SI, else timezone Europe/Ljubljana) are us in Celje and never count here or in the open rate (Thomas 2026-10-13);
+  they stay in the state file only for the booking matcher.
   AL Deck opens, AM Deck sessions, AN First opened, AO Last opened, AP Deepest slide, AQ Time on deck (s), AR Videos played,
   AS Book clicks (clicks on Book a call), AT Meeting booked (Calendly) = date/time of an active booking. AD:AK stay manual and are never touched.
   AU Opened from = visitor locations per session (hub logs the public IP via X-Forwarded-For from the Funnel, ipinfo.io resolves City, CC,
@@ -145,7 +147,7 @@ else booked. Offline test harness with all rules: `%TEMP%\claude\...\scratchpad\
   opened = that lead's deck has at least 1 open. Blank until someone is messaged. cf_perf.py owns B and D:F, cf_track owns C only.
 
 **6. Moving parts.** Mac checkout ~/cf-decks (git pull --ff-only), job wrapper `mac-hub/jobs/cf_track.py`, entry `cf_track` every 7200 s in
-schedule_table.py, state `_private/cf_track_state.json` (events byte offset + per slug aggregates). Run by hand: `python3 _src/auto/cf_track.py`.
+schedule_table.py, state `_private/cf_track_state.json` (events byte offset + per session counts, v=2; slug totals are built at write time). Run by hand: `python3 _src/auto/cf_track.py`.
 Test from the PC only with Playwright + `--host-resolver-rules=MAP macbook-air-von-thomas.tail94ea31.ts.net 185.40.234.37` and webdriver=false,
 otherwise the tailnet block eats the beacons. New decks get the tracker from the template automatically.
 
