@@ -1,0 +1,59 @@
+{
+ "slug": "atoms",
+ "company": "Atoms",
+ "full_name": "SQ (sidra qasim)",
+ "logo": "atoms.png",
+ "shot": "atoms.jpg",
+ "shot_caption": "atoms.com",
+ "saw_lines": [
+  "Buyers pick everyday sneakers on how they look with jeans, then judge them by how they feel after hours on feet.",
+  "So the sale is won in line one, as buyers decide if this shoe suits them or is just another sneaker.",
+  "Your site says 250,000+ customers love their Atoms, yet 0 of 30 ads use that number. Put 250,000+ on the creative and open two ads with review quotes."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 14 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "22",
+    "open on one hook"
+   ],
+   [
+    "0",
+    "mention your offer"
+   ],
+   [
+    "0",
+    "carry your proof number"
+   ]
+  ],
+  "points": [
+   [
+    "Review numbers stay off ads",
+    "Your site says 250,000+ customers love their Atoms, yet 0 of 30 ads use that number, so ad buyers never see it. Put 250,000+ on the creative and in line one of three new ads, and open two with review quotes."
+   ],
+   [
+    "Subscribe and save is missing",
+    "Your site offers subscribe and save at 10% off, yet 0 of 30 ads mention it, so a first-time buyer has no reason to act. Put that offer in line one of three new ads and on the creative."
+   ],
+   [
+    "One hook carries the account",
+    "22 of your 30 ads open on the same line, &ldquo;One pair. Every outfit. Zero compromise.&rdquo; so most buyers see one pitch. Test three new angles from your own product, copper lining, stretch laces and foam midsole, each against it."
+   ],
+   [
+    "Shipping stays unanswered in ads",
+    "Your site answers how orders ship, yet 0 of 30 ads mention shipping or delivery, so new buyers have no answer before they click. Lead three new ads with the shipping answer in line one, written for a first-time buyer."
+   ]
+  ],
+  "images": [
+   "atoms_1.jpg",
+   "atoms_2.jpg",
+   "atoms_3.jpg"
+  ]
+ },
+ "ads_1": "Product-led ads on copper lining and stretch laces, with 250,000+ on the creative",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter, X and YouTube"
+}
