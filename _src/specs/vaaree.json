@@ -1,0 +1,59 @@
+{
+ "slug": "vaaree",
+ "company": "Vaaree",
+ "full_name": "Varun Vohra",
+ "logo": "vaaree.png",
+ "shot": "vaaree.jpg",
+ "shot_caption": "vaaree.com",
+ "saw_lines": [
+  "Home decor is bought one corner at a time, and shoppers return for the next corner.",
+  "So the sale is won or lost in the first line, where a shopper decides if the piece fits their room.",
+  "Your 13 copy ads carry 0 proof numbers, so add one review count or orders shipped and lead the next three ads with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 14 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "offers in copy ads"
+   ],
+   [
+    "13",
+    "Shop now to homepage"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "0 of 13 copy ads carry a proof number, so a stranger has nothing to check before they click. Pick one number, like a review count or orders shipped, and open three of the next ads with it."
+   ],
+   [
+    "Most ads lack a story",
+    "17 of 30 ads are catalog feed ads with no story, so the feed shows products without a reason to stop. Add three story ads, each opening on a real room problem like a hard chair or bare wall."
+   ],
+   [
+    "Shop now lands on homepage",
+    "13 Shop now ads send buyers to the homepage instead of the item shown. A click on a specific product expects that product, so each detour costs a sale. Point every ad at the exact product or collection it shows."
+   ],
+   [
+    "No offer in the ads",
+    "0 of 13 copy ads carry an offer, so a new buyer has no reason to act today. Put one offer in line one of three new ads, such as a first order discount or a bundle of two pieces."
+   ]
+  ],
+  "images": [
+   "vaaree_1.jpg",
+   "vaaree_2.jpg",
+   "vaaree_3.jpg"
+  ]
+ },
+ "ads_1": "Chair pad story ads opening on room problems, with a first order offer",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
