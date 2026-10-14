@@ -1,0 +1,59 @@
+{
+ "slug": "robomate",
+ "company": "Robomate",
+ "full_name": "Lachlan Murray",
+ "logo": "robomate.svg",
+ "shot": "robomate.jpg",
+ "shot_caption": "robomate.co.nz",
+ "saw_lines": [
+  "Robot mower buyers ask what it costs and how it arrives before trusting a machine they cannot test in a shop.",
+  "So the sale is lost in the ad, when a buyer cannot see the price or delivery before they click.",
+  "Your site offers subscribe and save, yet 0 of 21 ads mention it. Put the offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 14 Oct 2026",
+  "stats": [
+   [
+    "28",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads mention subscribe"
+   ],
+   [
+    "0",
+    "ads mention price"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from ads",
+    "Your site offers subscribe and save, yet 0 of 21 ads mention it. A first buyer has no reason to act today. Open three new ads with subscribe and save in the first line and print it on the creative."
+   ],
+   [
+    "Shipping goes unanswered",
+    "Your site explains shipping, yet 0 of 28 ads mention shipping or delivery. A buyer weighing a robot mower leaves when delivery stays unclear. Put the delivery answer in the first line of three new ads for first time buyers."
+   ],
+   [
+    "Subscription never advertised",
+    "Your site has subscribe and save, yet 0 of 28 ads mention a subscription. Each sale ends at checkout, so repeat buyers never hear the saving. Run two ads for Luba 3 AWD owners with subscribe and save as the headline."
+   ],
+   [
+    "Price never in your ads",
+    "Your site shows prices, yet 0 of 28 ads mention price or cost. A buyer comparing a robot mower needs a figure before clicking. Lead one ad with the LUBA 3 AWD price beside the 10,000 square metres it covers."
+   ]
+  ],
+  "images": [
+   "robomate_1.jpg",
+   "robomate_2.jpg",
+   "robomate_3.jpg"
+  ]
+ },
+ "ads_1": "Offer, delivery and price open each new LUBA 3 AWD ad",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
