@@ -107,6 +107,11 @@ Events per visit (one random session id each):
 - Any other device of ours / the senders: open any deck once with `?cfint=1` (e.g. https://crazeandfriends-cases.com/kiabi/?cfint=1). That browser
   is flagged in localStorage and never counted again on any deck. Undo with `?cfint=0`. A sender who opens a deck without this counts as a lead open.
 - Bots and Playwright (`navigator.webdriver`).
+- Link scanners (since 2026-10-14, `is_bot()` in cf_track.py). LinkedIn/Microsoft scans every link in a message within a minute of sending: a headless
+  Chrome from Azure (Boydton, Dulles, Des Moines) with webdriver=false that loads slide 1 for ~2 s on a fast-forwarded clock (reports ~25 s and 13+
+  pings) plus a second zero-width fetch. Every "open" in the log up to 2026-10-14 was one. Dropped when any of: ipinfo org is a data center /
+  scanner company (Microsoft, Google, Amazon, LinkedIn, Cloudflare, mail security), pings > secs/30 + 1, window width 0, HeadlessChrome UA.
+  Flag `bot` per session in the state file; such sessions never reach the Presentation Log or the open rate.
 - Anything opened from Slovenia (we sit in Celje): cf_track.py drops every session whose IP country is SI (or, without IP location, timezone
   Europe/Ljubljana) from Presentation Log AL:AU and the open rate (NOT_COUNTED_CC, Thomas 2026-10-13). This catches every device of ours, cfint or not.
 

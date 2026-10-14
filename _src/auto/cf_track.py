@@ -174,22 +174,39 @@ def loc_cc(location):
 
 # ---------- deck events ----------
 def geo(ip, cache):
-    """'City, CC' for a public IP via ipinfo.io (free, no token), cached forever in the state file."""
+    """'City, CC' for a public IP via ipinfo.io (free, no token), cached forever in the state file. The owner (ipinfo 'org') lands in
+    cache['org:' + ip], so data center visitors (Microsoft, Google, Amazon: LinkedIn's link scanner, mail scanners) can be dropped by is_bot()."""
     if not ip or ip.startswith(('10.', '100.', '127.', '192.168.')): return ''
-    if ip in cache: return cache[ip]
+    if ip in cache and ('org:' + ip) in cache: return cache[ip]
     try:
         d = json.loads(urllib.request.urlopen(urllib.request.Request('https://ipinfo.io/%s/json' % ip, headers={'User-Agent': 'Mozilla/5.0'}), timeout=15).read().decode())
         cache[ip] = ', '.join(x for x in (d.get('city'), d.get('country')) if x) or '?'
+        cache['org:' + ip] = d.get('org') or ''
     except Exception as e:
-        P.say('geo lookup failed', ip, e); return ''
+        P.say('geo lookup failed', ip, e); return cache.get(ip, '')
     return cache[ip]
+
+
+DC_ORG = re.compile(r'microsoft|azure|google|amazon|aws|linkedin|cloudflare|akamai|digitalocean|hetzner|ovh|oracle|facebook|meta platforms|proofpoint|mimecast|barracuda', re.I)
+
+
+def is_bot(s):
+    """Link scanners (LinkedIn/Microsoft Safe Links, mail security) load the deck in a headless Chrome that passes navigator.webdriver, so they are
+    caught here instead (Thomas 2026-10-14, every 'open' in the log until then was one). Any hit = the session never counts:
+    1. the IP belongs to a data center / scanner company (ipinfo org),
+    2. impossible clock: the deck pings every 30 s, more pings than secs/30 + 1 means the page ran on a fast-forwarded timer,
+    3. zero-width window (the scanner's second fetch of the same URL), or a HeadlessChrome user agent."""
+    if DC_ORG.search(s.get('org') or ''): return True
+    if s.get('pings', 0) > s.get('secs', 0) // 30 + 1: return True
+    if s.get('w') == 0 or 'headless' in (s.get('ua') or '').lower(): return True
+    return False
 
 
 def read_events(st):
     """New cf-deck-track beacons since the stored offset -> st['slugs'][slug]['sids'][sid] (opens, first, last, secs, max, videos, book, ip, loc, tz, phone, open_t, book_t).
     Slug totals are built at write time by counted(), so sessions from NOT_COUNTED_CC can be left out."""
     size = os.path.getsize(EVENTS)
-    if st.get('v') != 2: st.update(v=2, offset=0, slugs={})   # 2026-10-13: per session counts, replay the log once (tracking started 2026-10-12)
+    if st.get('v') != 3: st.update(v=3, offset=0, slugs={})   # 2026-10-14: pings/w/ua per session for is_bot(), replay the log once (tracking started 2026-10-12)
     off = st.get('offset')
     if off is None or off > size: off = max(0, size - 2_000_000) if off is None else 0   # first run: only the tail (tracking started 2026-10-12)
     agg = st.setdefault('slugs', {})
@@ -206,28 +223,32 @@ def read_events(st):
             slug, sid, ev, t = (p.get('slug') or '').lower(), p.get('sid') or '', p.get('ev') or '', e.get('ts') or time.time()
             if not slug or slug.startswith('_'): continue
             a = agg.setdefault(slug, {'sids': {}})
-            s = a['sids'].setdefault(sid, {'opens': 0, 'first': t, 'last': t, 'secs': 0, 'max': 1, 'videos': [], 'book': 0, 'open_t': t})
+            s = a['sids'].setdefault(sid, {'opens': 0, 'first': t, 'last': t, 'secs': 0, 'max': 1, 'videos': [], 'book': 0, 'open_t': t, 'pings': 0})
             s['first'], s['last'] = min(s['first'], t), max(s['last'], t)
             if e.get('ip') and not s.get('ip'): s['ip'] = e['ip']
             if ev == 'open':
                 s['opens'] += 1
                 s['open_t'] = min(s.get('open_t', t), t); s['tz'] = p.get('tz') or ''; s['phone'] = bool(p.get('phone'))
+                s['w'] = p.get('w'); s['ua'] = (p.get('ua') or '')[:160]
             elif ev in ('slide', 'leave', 'ping', 'book'):
                 s['max'] = max(s['max'], int(p.get('max') or 0))
                 if ev in ('leave', 'ping'): s['secs'] = max(s['secs'], int(p.get('secs') or 0))
+                if ev == 'ping': s['pings'] = s.get('pings', 0) + 1
                 if ev == 'book': s['book'] += 1; s['book_t'] = t
             elif ev == 'video' and p.get('v') and p['v'] not in s['videos']: s['videos'].append(p['v'])
     st['offset'] = off
     cache = st.setdefault('geo', {})
     for a in agg.values():
         for s in a['sids'].values():
-            if s.get('ip') and 'loc' not in s: s['loc'] = geo(s['ip'], cache)
+            if s.get('ip') and ('loc' not in s or 'org' not in s):
+                s['loc'] = geo(s['ip'], cache); s['org'] = cache.get('org:' + s['ip'], '')
+            s['bot'] = is_bot(s)
 
 
 def counted(a):
-    """Slug totals over the sessions that count, None if none is left. Not counted: NOT_COUNTED_CC, and sessions without IP
-    (only our own launch tests of 2026-10-12, before the hub logged IPs; every real visitor since has one)."""
-    ss = [s for s in a['sids'].values() if s.get('ip') and sess_cc(s) not in NOT_COUNTED_CC] if a else []
+    """Slug totals over the sessions that count, None if none is left. Not counted: bots/link scanners (is_bot), NOT_COUNTED_CC, and sessions
+    without IP (only our own launch tests of 2026-10-12, before the hub logged IPs; every real visitor since has one)."""
+    ss = [s for s in a['sids'].values() if s.get('ip') and not s.get('bot') and sess_cc(s) not in NOT_COUNTED_CC] if a else []
     if not ss: return None
     videos = list(dict.fromkeys(v for s in ss for v in s['videos']))
     return {'opens': sum(s['opens'] for s in ss), 'sessions': len(ss), 'first': min(s['first'] for s in ss), 'last': max(s['last'] for s in ss),
