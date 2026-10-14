@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """craze&friends Performance tab, all-time totals straight from HeyReach. Runs on the Mac (mac-hub job cf_perf, daily 04:00).
-Writes ONLY columns B:E of the tab "Performance" (one total, rewritten each run, no per-day rows):
+Writes ONLY columns B and D:F of the tab "Performance" (C = presentation open rate, manual; one total, rewritten each run, no per-day rows):
   B Connection back rate            = connectionsAccepted / connectionsSent
   C Reply rate per messaged lead    = totalMessageReplies / totalMessageStarted
   D Interested rate per messaged    = autoTaggedInterested / totalMessageStarted
@@ -97,7 +97,9 @@ def main():
         else:
             continue
         name = '%s [%s]' % (name, scope)
-        data.append({'range': '%s!B%d:E%d' % (TAB, r, r), 'values': [v]})
+        # Column C is the manual "Presentation open rate", never touched: B = connection back, D:F = reply, interested, meeting
+        data.append({'range': '%s!B%d' % (TAB, r), 'values': [[v[0]]]})
+        data.append({'range': '%s!D%d:F%d' % (TAB, r, r), 'values': [v[1:]]})
         log.append((name, v, s and {k: s[k] for k in ('connectionsSent', 'connectionsAccepted', 'totalMessageStarted', 'totalMessageReplies', 'autoTaggedInterested')}))
     # Copy tab: one row per copy, C:F = the same 4 rates over the campaigns that send that copy (COPIES maps a phrase in column A to campaigns)
     copies = {'ecom + presentation': ('ecom', ecom_camps)}

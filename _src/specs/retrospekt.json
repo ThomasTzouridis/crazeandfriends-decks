@@ -1,0 +1,59 @@
+{
+ "slug": "retrospekt",
+ "company": "Retrospekt",
+ "full_name": "Kori Fuerst",
+ "logo": "retrospekt.png",
+ "shot": "retrospekt.jpg",
+ "shot_caption": "retrospekt.com",
+ "saw_lines": [
+  "Retro buyers don&rsquo;t shop by spec. They buy the one thing they remember, then need proof it works.",
+  "So the sale is won in the first line: condition, warranty and reviews, before the vintage look.",
+  "Your site shows 12,015 reviews at 4.9 stars. None of your 18 live ads use them. <b>Lead every ad with the number.</b>"
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active US ads, 10 Oct 2026",
+  "stats": [
+   [
+    "18",
+    "live Meta ads"
+   ],
+   [
+    "8",
+    "lead on Polaroid"
+   ],
+   [
+    "0",
+    "mention your offer"
+   ],
+   [
+    "11",
+    "are videos"
+   ]
+  ],
+  "points": [
+   [
+    "One story carries the account",
+    "8 of 18 live ads are about Polaroid or instant film. <b>Test three new hooks against it.</b>"
+   ],
+   [
+    "The offer is missing",
+    "0 of 18 ads mention the free shipping over $150. <b>Put it in the first two lines.</b>"
+   ],
+   [
+    "The reviews stay hidden",
+    "12,015 reviews at 4.9 stars on your site. 0 of 18 ads use them. <b>Put them in every ad.</b>"
+   ],
+   [
+    "Copy runs long",
+    "Median ad copy runs 38 words, the longest 232. <b>Cut it to two lines.</b>"
+   ]
+  ],
+  "images": [
+   "retrospekt_1.jpg",
+   "retrospekt_2.jpg",
+   "retrospekt_3.jpg"
+  ]
+ },
+ "ads_1": "Product-first creative led by the Polaroid and GRAFX drops, with the reviews as proof",
+ "soc_1": "Brand social strategy across Instagram, TikTok and YouTube"
+}

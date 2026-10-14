@@ -61,6 +61,8 @@ img.wm{display:block;height:1.62em;width:auto;max-width:none}
 .saw .lines{display:flex;flex-direction:column;gap:1.6cqw;font-size:1.7cqw;line-height:1.45}
 .saw .lines q,.saw .lines b{font-weight:700}
 .saw .lines .turn{border-left:.4cqw solid var(--hi);padding-left:1.4cqw}
+.saw.noshot{grid-template-columns:1fr;justify-items:start}
+.saw.noshot .lines{max-width:78cqw;margin-left:0;font-size:2.1cqw;gap:2.2cqw}
 .shot{margin:0;display:flex;flex-direction:column;gap:.8cqw;min-height:0}
 .shot img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border:.1cqw solid var(--line);box-shadow:0 1.6cqw 3.6cqw rgba(19,20,16,.16);display:block}
 .shot figcaption{font:400 1cqw var(--mono);color:var(--muted)}
@@ -296,6 +298,16 @@ html.cfphone .talk .r{min-height:230px;background-position:50% 28%}
 html.cfphone .talk .r figcaption{left:14px;bottom:14px;padding:8px 12px;gap:2px}
 html.cfphone .talk .r b{font-size:16px}
 html.cfphone .talk .r span{font-size:10px}
+
+/* Next pill: bottom center on every slide, names the next slide, hidden on the last one; phone: sits above the bar */
+#nxt{position:fixed;left:50%;bottom:calc(2.2vh + 6px);transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:.5em;padding:.55em 1.1em .55em 1.25em;border:2px solid var(--paper);border-radius:999px;background:var(--ink);color:var(--paper);font:700 clamp(14px,1.6vw,22px)/1 var(--body);letter-spacing:.01em;text-decoration:none;white-space:nowrap;box-shadow:0 8px 24px rgba(19,20,16,.28);cursor:pointer;transition:transform .15s,background .15s}
+#nxt:hover{transform:translateX(-50%) translateY(-2px);background:#000}
+#nxt b{font-weight:400;opacity:.55;margin:0 .1em}
+#nxt svg{width:1.05em;height:1.05em;flex:none;animation:nxtbob 1.4s ease-in-out infinite}
+#nxt.off{display:none}
+@keyframes nxtbob{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+html.cfphone #nxt{bottom:calc(56px + env(safe-area-inset-bottom,0) + 12px);font-size:14px;padding:.6em 1em .6em 1.15em;max-width:calc(100vw - 32px)}
+html.cfphone #nxt span:last-of-type{overflow:hidden;text-overflow:ellipsis}
 </style>
 </head>
 <body>
@@ -377,6 +389,19 @@ html.cfphone .talk .r span{font-size:10px}
 </section></div></div>
 <nav class="pnav" aria-label="Slides"><button class="pb" data-d="-1" aria-label="Previous slide">&#8249;</button><span class="pc"><b>1</b>/ <span class="pnt">8</span><span class="pd"></span></span><button class="pb" data-d="1" aria-label="Next slide">&#8250;</button></nav>
 <script src="../vendor/reveal.js"></script><script>if(!document.documentElement.classList.contains("cfphone"))Reveal.initialize({width:1280,height:720,margin:0,hash:true,controls:true,controlsTutorial:true,progress:true,transition:"slide",center:false,scrollActivationWidth:null});</script>
+<a id="nxt" class="off" href="#" aria-label="Next slide"><span>Next</span><b>&middot;</b><span id="nxtt"></span><svg viewBox="0 0 24 24" fill="none" stroke="var(--hi)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M5 13l7 7 7-7"/></svg></a>
+<script>
+/* Next pill: label = aria-label of the next slide; click = next slide (reveal on laptop, bar button on phone) */
+(()=>{
+const ph=document.documentElement.classList.contains("cfphone"),nb=document.getElementById('nxt'),nt=document.getElementById('nxtt');
+const names=[...document.querySelectorAll('.slides>section>section')].map(x=>x.getAttribute('aria-label')||'');
+const show=i=>{if(i+1<names.length){nt.textContent=names[i+1];nb.classList.remove('off');}else nb.classList.add('off');};
+nb.addEventListener('click',e=>{e.preventDefault();if(ph){const b=document.querySelector('.pb[data-d="1"]');b&&b.click();}else Reveal.next();});
+if(ph){const c=document.querySelector('.pc b');const upd=()=>show((parseInt(c.textContent,10)||1)-1);upd();new MutationObserver(upd).observe(c,{childList:true,characterData:true,subtree:true});}
+else{const upd=()=>{const x=Reveal.getIndices();show((x.h||0)+(x.v||0));};Reveal.on('ready',upd);Reveal.on('slidechanged',upd);if(Reveal.isReady&&Reveal.isReady())upd();}
+})();
+</script>
+
 <script>
 /* expanding video cards: the clicked card grows to 5 of 8 columns and plays its self-hosted mp4, the others slide aside; X / Esc / slide change closes */
 (()=>{
