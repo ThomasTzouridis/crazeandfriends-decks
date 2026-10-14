@@ -1,0 +1,59 @@
+{
+ "slug": "bonfire",
+ "company": "Bonfire",
+ "full_name": "Daniel Thresher",
+ "logo": "bonfire.png",
+ "shot": "bonfire.jpg",
+ "shot_caption": "bonfire.com",
+ "saw_lines": [
+  "Custom merch is bought for a team, event or cause, and buyers check price and delivery before they design.",
+  "So the answer belongs in line one, since a buyer who finds no price or delivery answer leaves.",
+  "Your site offers a first order discount that 0 of 25 ads mention, so put it in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 14 Oct 2026",
+  "stats": [
+   [
+    "28",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads name the offer"
+   ],
+   [
+    "0",
+    "ads answer shipping"
+   ],
+   [
+    "0",
+    "ads show a price"
+   ]
+  ],
+  "points": [
+   [
+    "First order offer missing",
+    "Your site offers a first order discount, yet 0 of 25 ads mention it. New buyers see no reason to act now, so the sale stalls. Put the discount in the first line of three new ads and on the creative."
+   ],
+   [
+    "Shipping question goes unanswered",
+    "Your site answers how fast a custom order arrives and whether it ships worldwide, yet 0 of 28 ads mention shipping or delivery. Unanswered delivery questions stop people before they design anything. Lead one ad per product with the delivery answer."
+   ],
+   [
+    "Price never appears in ads",
+    "Your homepage shows a $24 price, yet 0 of 28 ads mention price or cost. Shoppers scroll past without a cost to compare. Lead one ad with the $24 price beside what the same item costs elsewhere."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 28 ads shows a proof number, so a new buyer has nothing concrete to trust before the click. Collect one real figure, such as your review count or orders shipped, and lead one ad with it."
+   ]
+  ],
+  "images": [
+   "bonfire_1.jpg",
+   "bonfire_2.jpg",
+   "bonfire_3.jpg"
+  ]
+ },
+ "ads_1": "Paid creative opening on the first order discount, delivery answer and $24 price",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, Twitter, X and Youtube"
+}
