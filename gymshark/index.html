@@ -388,17 +388,36 @@ html.cfphone #nxt span:last-of-type{overflow:hidden;text-overflow:ellipsis}
 
 </section></div></div>
 <nav class="pnav" aria-label="Slides"><button class="pb" data-d="-1" aria-label="Previous slide">&#8249;</button><span class="pc"><b>1</b>/ <span class="pnt">8</span><span class="pd"></span></span><button class="pb" data-d="1" aria-label="Next slide">&#8250;</button></nav>
-<script src="../vendor/reveal.js"></script><script>if(!document.documentElement.classList.contains("cfphone"))Reveal.initialize({width:1280,height:720,margin:0,hash:true,controls:true,controlsTutorial:true,progress:true,transition:"slide",center:false,scrollActivationWidth:null});</script>
+<script src="../vendor/reveal.js"></script><script>if(!document.documentElement.classList.contains("cfphone"))Reveal.initialize({width:1280,height:720,margin:0,hash:true,controls:true,controlsTutorial:true,progress:true,transition:"slide",center:false,view:"scroll",scrollProgress:"auto",scrollActivationWidth:null});
+/* scroll view (same as ConvertPolo): mouse wheel or trackpad moves exactly one slide per gesture, eased */
+if(!document.documentElement.classList.contains("cfphone"))(function(){
+  var st=document.createElement('style');st.textContent='.scroll-snap-point{scroll-snap-stop:always}';document.head.appendChild(st);
+  var vp=document.querySelector('.reveal-viewport')||document.documentElement,busy=false,last=0,DUR=850;
+  function pages(){return Array.prototype.slice.call(document.querySelectorAll('.scroll-page'));}
+  function go(dir){
+    var ps=pages();if(!ps.length)return;var y=vp.scrollTop,cur=0,best=1e9;
+    ps.forEach(function(p,i){var d=Math.abs(p.offsetTop-y);if(d<best){best=d;cur=i;}});
+    var nx=Math.max(0,Math.min(ps.length-1,cur+dir));if(nx===cur)return;
+    var from=y,to=ps[nx].offsetTop,t0=performance.now();busy=true;vp.style.scrollSnapType='none';
+    (function step(now){var k=Math.min(1,(now-t0)/DUR),e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+      vp.scrollTop=from+(to-from)*e;if(k<1)requestAnimationFrame(step);else{vp.style.scrollSnapType='';setTimeout(function(){busy=false;},150);}})(t0);
+  }
+  vp.addEventListener('wheel',function(ev){
+    if(!document.querySelector('.reveal-scroll'))return;
+    ev.preventDefault();var now=performance.now(),gap=now-last;last=now;
+    if(busy||gap<220||Math.abs(ev.deltaY)<4)return;go(ev.deltaY>0?1:-1);
+  },{passive:false});
+})();</script>
 <a id="nxt" class="off" href="#" aria-label="Next slide"><span>Next</span><b>&middot;</b><span id="nxtt"></span><svg viewBox="0 0 24 24" fill="none" stroke="var(--hi)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M5 13l7 7 7-7"/></svg></a>
 <script>
 /* Next pill: label = aria-label of the next slide; click = next slide (reveal on laptop, bar button on phone) */
 (()=>{
 const ph=document.documentElement.classList.contains("cfphone"),nb=document.getElementById('nxt'),nt=document.getElementById('nxtt');
-const names=[...document.querySelectorAll('.slides>section>section')].map(x=>x.getAttribute('aria-label')||'');
+const secs=[...document.querySelectorAll('section[aria-label]')],names=secs.map(x=>x.getAttribute('aria-label')||'');
 const show=i=>{if(i+1<names.length){nt.textContent=names[i+1];nb.classList.remove('off');}else nb.classList.add('off');};
 nb.addEventListener('click',e=>{e.preventDefault();if(ph){const b=document.querySelector('.pb[data-d="1"]');b&&b.click();}else Reveal.next();});
 if(ph){const c=document.querySelector('.pc b');const upd=()=>show((parseInt(c.textContent,10)||1)-1);upd();new MutationObserver(upd).observe(c,{childList:true,characterData:true,subtree:true});}
-else{const upd=()=>{const x=Reveal.getIndices();show((x.h||0)+(x.v||0));};Reveal.on('ready',upd);Reveal.on('slidechanged',upd);if(Reveal.isReady&&Reveal.isReady())upd();}
+else{const upd=()=>show(Math.max(0,secs.indexOf(Reveal.getCurrentSlide())));Reveal.on('ready',upd);Reveal.on('slidechanged',upd);if(Reveal.isReady&&Reveal.isReady())upd();}
 })();
 </script>
 
@@ -448,7 +467,7 @@ document.querySelectorAll('a[href*="calendly.com"]').forEach(a=>{const u=new URL
 if(!slug||navigator.webdriver||int)return;
 const send=(ev,x)=>{const b=JSON.stringify(Object.assign({slug,sid,ev,t:Date.now()},x||{}));try{if(navigator.sendBeacon&&navigator.sendBeacon(H,new Blob([b],{type:'text/plain'})))return}catch(e){}try{fetch(H,{method:'POST',body:b,keepalive:true,mode:'no-cors'})}catch(e){}};
 const phone=document.documentElement.classList.contains('cfphone'),tot=document.querySelectorAll('.slides>section>section').length;
-const idx=()=>{try{if(phone)return(+document.querySelector('.pc b').textContent||1);const s=Reveal.getSlides();return s.indexOf(Reveal.getCurrentSlide())+1}catch(e){return 1}};
+const idx=()=>{try{if(phone)return(+document.querySelector('.pc b').textContent||1);return [...document.querySelectorAll('section[aria-label]')].indexOf(Reveal.getCurrentSlide())+1}catch(e){return 1}};
 let max=0,act=0,last=Date.now();
 send('open',{ref:document.referrer||'',ua:navigator.userAgent,w:innerWidth,tz:(Intl.DateTimeFormat().resolvedOptions().timeZone||''),lang:navigator.language||'',total:tot,phone});
 setInterval(()=>{const n=Date.now();if(document.visibilityState==='visible')act+=n-last;last=n;const i=idx();if(i>max){max=i;if(i>1)send('slide',{max,total:tot})}},1000);
