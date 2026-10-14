@@ -1,0 +1,59 @@
+{
+ "slug": "hubble-contacts",
+ "company": "Hubble Contacts",
+ "full_name": "Steve Druckman",
+ "logo": "hubble-contacts.png",
+ "shot": "hubble-contacts.jpg",
+ "shot_caption": "hubblecontacts.com",
+ "saw_lines": [
+  "Contact lens buyers reorder the same lens every month, so the first box decides whether they stay subscribed.",
+  "So the sale is won in the first line, when a shopper compares your price with the box they already buy.",
+  "Your site offers 35% off your first order, yet 0 of 28 ads mention it. Put that offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 14 Oct 2026",
+  "stats": [
+   [
+    "28",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention your offer"
+   ],
+   [
+    "0",
+    "video ads"
+   ],
+   [
+    "0",
+    "ads show proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "First order offer missing",
+    "Your site offers 35% off your first order, yet 0 of 28 ads mention it, so a new buyer has no reason to act. Put the offer in the first line of three new ads and print 35% on the creative."
+   ],
+   [
+    "No video in the account",
+    "0 of 28 ads are video, so no buyer sees the lens on the eye or the box arriving at the door. Shoot three short videos of the lens in use, one per step, then run them against the Classic ad."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 28 ads carry a proof number, while the copy leans on claims like thinner edges. Collect one number you can stand behind, such as a review count or orders shipped, and lead the next three ads with it."
+   ],
+   [
+    "Every ad is brand new",
+    "All 28 ads started in the last 14 days, so the account has no older ad to build from. Keep the Pay less for your contacts copy, running in six ads, and build three more as variations of it."
+   ]
+  ],
+  "images": [
+   "hubble-contacts_1.jpg",
+   "hubble-contacts_2.jpg",
+   "hubble-contacts_3.jpg"
+  ]
+ },
+ "ads_1": "First-order offer and video creative, built as variations of the Pay less hook",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Twitter and YouTube"
+}
