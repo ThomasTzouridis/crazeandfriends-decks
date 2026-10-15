@@ -1,0 +1,59 @@
+{
+ "slug": "loewe-technology",
+ "company": "Loewe Technology",
+ "full_name": "Giorgia Pivetti",
+ "logo": "loewe-technology.png",
+ "shot": "loewe-technology.jpg",
+ "shot_caption": "loewe.tv",
+ "saw_lines": [
+  "Premium TV buyers compare panels and sound for weeks, then pick one brand and rarely shop the category again.",
+  "So the sale is won in the first line, where a buyer decides whether a brand is worth a click.",
+  "Your 30 live ads carry no proof number, so collect one real figure, like a review count or units shipped, and put it on the next three ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 15 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "5",
+    "creator posts as ads"
+   ],
+   [
+    "8",
+    "open on one opener"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 30 live ads carries a proof number, so a buyer weighing a premium TV has nothing concrete to trust. Collect one real figure, like a review count or units shipped, and put it on the next three ads."
+   ],
+   [
+    "Creator posts run as ads",
+    "5 of your 30 ads are creator posts run from the brand page, so they read as a company selling, not a person recommending. Whitelist those 5 from the creator accounts, then cut 3 variations of each with different openers."
+   ],
+   [
+    "One opener leads",
+    "8 of your 30 copy ads open on one line, &ldquo;oplev det uopnåelige med alexander&rdquo;, and the rest are single use. Test two new angles against that opener, such as price and a customer quote, and keep whichever wins."
+   ],
+   [
+    "No offer in the ads",
+    "0 of your 30 ads carry an offer, so a first time buyer has no reason to act today. Give new buyers a reason to act now, such as a first order offer or bundle, and put it on the next three ads."
+   ]
+  ],
+  "images": [
+   "loewe-technology_1.jpg",
+   "loewe-technology_2.jpg",
+   "loewe-technology_3.jpg"
+  ]
+ },
+ "ads_1": "Price and customer quote angles to test against the Zverev opener",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
