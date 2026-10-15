@@ -1,0 +1,59 @@
+{
+ "slug": "telfar",
+ "company": "TELFAR",
+ "full_name": "Ladin Awad",
+ "logo": "telfar.svg",
+ "shot": "telfar.jpg",
+ "shot_caption": "telfar.net",
+ "saw_lines": [
+  "Bag buyers choose by how it carries, then come back for a second one in a new color.",
+  "So the sale is won in line one, where a buyer checks price and delivery before deciding.",
+  "Your site answers how orders ship, yet 0 of 30 ads mention shipping. Open three ads with the delivery window from your shipping policy, aimed at first-time buyers."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 15 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads show proof numbers"
+   ],
+   [
+    "10",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping question goes unanswered",
+    "Your site answers how orders ship, yet 0 of 30 ads mention shipping, so buyers have to guess when a bag arrives and scroll on. Open three ads with the delivery window from your shipping policy, aimed at first-time buyers."
+   ],
+   [
+    "Price never appears in ads",
+    "Your site shows prices from $65 to $198, yet 0 of 30 ads mention price, so buyers click just to learn the cost. Lead one ad with the $65 piece next to the $198 one, saying what each one is for."
+   ],
+   [
+    "Proof numbers are missing",
+    "None of your 30 ads shows a proof number, so a first-time buyer has no count to trust before the click. Take one real figure, a review count or orders shipped, and open two ads with it."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 17 copy ads open on 10 different stories, and the biggest, the bag charm line, leads only 3 of them. Pick the two strongest openers, bag charm and duffle in stock, and write the next batch only from them."
+   ]
+  ],
+  "images": [
+   "telfar_1.jpg",
+   "telfar_2.jpg",
+   "telfar_3.jpg"
+  ]
+ },
+ "ads_1": "Delivery and price led bag ads built on the duffle and bag charm openers",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter"
+}
