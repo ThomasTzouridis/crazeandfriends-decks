@@ -1,0 +1,59 @@
+{
+ "slug": "kochut",
+ "company": "Kochut",
+ "full_name": "Mykola Subota",
+ "logo": "kochut.png",
+ "shot": "kochut.jpg",
+ "shot_caption": "kochut.org",
+ "saw_lines": [
+  "Rings are bought once, often as a surprise, so buyers worry about size and trust more than style.",
+  "So the sale is won in the feed, where a stranger decides in seconds whether a ring is worth a click.",
+  "Your 30 ads show no proof number, so collect one figure, like review count or orders shipped, and lead the next story ads with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 15 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "ads with an offer"
+   ],
+   [
+    "12",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so buyers choosing a ring have nothing to trust before they click. Collect one number, like review count or orders shipped, and open the next story ads with it."
+   ],
+   [
+    "Mostly catalog ads, few stories",
+    "16 of your 30 ads are feed ads with no story, leaving a product with no reason to stop. Add three story ads that open on how one piece is made by hand, putting a maker behind the product."
+   ],
+   [
+    "No offer in the ads",
+    "0 of 14 ads carry an offer, so your ads give a first-time buyer no reason to act today. Put a first order offer in line one of three new ads, or a bundle, so the click has a reason."
+   ],
+   [
+    "Openers spread too thin",
+    "12 different openings run across 14 copy ads, and the biggest opens only 2, so no story has been built out. Pick the two stories that fit best and build the next batch from them, one variation each."
+   ]
+  ],
+  "images": [
+   "kochut_1.jpg",
+   "kochut_2.jpg",
+   "kochut_3.jpg"
+  ]
+ },
+ "ads_1": "Handmade ring stories with one proof number and a first order offer",
+ "soc_1": "Brand social strategy across Instagram, your only linked channel"
+}
