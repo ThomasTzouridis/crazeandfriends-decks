@@ -1,0 +1,59 @@
+{
+ "slug": "firebelly-tea",
+ "company": "Firebelly Tea",
+ "full_name": "David Segal",
+ "logo": "firebelly-tea.png",
+ "shot": "firebelly-tea.jpg",
+ "shot_caption": "firebellytea.com",
+ "saw_lines": [
+  "Tea buyers pick a blend once, then reorder it for months, so the first order is where the loyalty starts.",
+  "So the sale is won in the first line, where a stranger decides whether to trust the first order.",
+  "Your site shows 145 reviews and 40,000+ customers, yet none of your 30 live ads use either number. Lead your next batch with the 145 reviews on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 15 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ]
+  ],
+  "points": [
+   [
+    "Proof sits off the ads",
+    "The site shows 145 reviews and 40,000+ customers, yet none of your 30 live ads use either number. New buyers need that proof before they click. Put the 145 reviews on the creative and open two ads with a review quote."
+   ],
+   [
+    "Offer missing from ads",
+    "Your site offers subscribe and save, yet none of your 14 fixed copy ads mention it. A new buyer has no reason to act today. Put subscribe and save in the first line of three new ads, on the creative."
+   ],
+   [
+    "Shipping goes unanswered",
+    "Your site has a shipping page, but 0 of 30 live ads mention shipping or delivery. Buyers who cannot tell how their order arrives skip the click. Open new ads by answering that question, and show free shipping over $59."
+   ],
+   [
+    "Subscriptions never get advertised",
+    "Your site lists subscribe and save at 15%, yet 0 of 30 live ads mention a subscription. A monthly tea drinker never sees the saving. Run two retention ads with the subscription saving as the headline, aimed at past buyers."
+   ]
+  ],
+  "images": [
+   "firebelly-tea_1.jpg",
+   "firebelly-tea_2.jpg",
+   "firebelly-tea_3.jpg"
+  ]
+ },
+ "ads_1": "Review-led creative for tea buyers, with subscribe and save as the offer",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
