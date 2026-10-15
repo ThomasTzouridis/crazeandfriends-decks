@@ -1,0 +1,59 @@
+{
+ "slug": "boozt",
+ "company": "Boozt",
+ "full_name": "Jakob Kristoffersen",
+ "logo": "boozt.png",
+ "shot": "boozt.jpg",
+ "shot_caption": "boozt.com",
+ "saw_lines": [
+  "Shoppers in multi-brand fashion stores compare several brands in one visit, then decide on price and fit, not the brand story.",
+  "So the sale is lost in the ad, when a shopper finds no price or delivery answer and moves on.",
+  "Your site offers 10% off, yet 0 of 6 ads mention it, so new buyers have no reason to act. Put the 10% off in line one of three new ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 15 Oct 2026",
+  "stats": [
+   [
+    "25",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention the offer"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "3",
+    "ads share one copy"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from ads",
+    "Your site offers 10% off, yet 0 of 6 ads mention it or any offer, so new buyers have no reason to act. Put the 10% off in the first line of three new ads and on the creative itself."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site answers how delivery works, yet 0 of 25 ads mention shipping, so new buyers must leave to find the cost. Open ads for them with the shipping answer and the &euro;69 free shipping threshold in line one."
+   ],
+   [
+    "One copy, three ads",
+    "One exact copy runs in 3 of 6 ads, so the same message repeats across placements and buyers see one story twice. Keep the copy, but change the opening line and the creative in each of the three."
+   ],
+   [
+    "No proof number yet",
+    "0 of 6 ads with fixed copy carry a proof number, so buyers have no reason to trust you yet. Collect one number, such as a review count or orders shipped, and lead one ad with it on the creative."
+   ]
+  ],
+  "images": [
+   "boozt_1.jpg",
+   "boozt_2.jpg",
+   "boozt_3.jpg"
+  ]
+ },
+ "ads_1": "Open new ads with 10% off and the &euro;69 free shipping line.",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok and YouTube"
+}
