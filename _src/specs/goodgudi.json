@@ -1,0 +1,59 @@
+{
+ "slug": "goodgudi",
+ "company": "GoodGudi",
+ "full_name": "Anurag Gupta",
+ "logo": "goodgudi.png",
+ "shot": "goodgudi.jpg",
+ "shot_caption": "goodgudi.com",
+ "saw_lines": [
+  "Gift buyers pick a block kit fast, but they check delivery before they commit, because a late gift fails.",
+  "So the sale is lost in the first line, before a new buyer ever reaches the product.",
+  "Your site explains shipping, yet 0 of 30 ads mention it, so new buyers leave to check. Lead every new buyer ad with how and when the parcel arrives."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 15 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "mention shipping or delivery"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "7",
+    "open on one opener"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping question unanswered",
+    "Your site explains shipping, yet 0 of 30 ads mention shipping, so new buyers leave to check before they order. Lead every new buyer ad with how and when the parcel arrives, then move to the block set hook."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a buyer choosing between similar gifts has nothing concrete to trust. Collect one real figure, such as your review count or orders shipped, and lead the next batch with it."
+   ],
+   [
+    "One opener leads",
+    "Seven of 25 copy ads open on one anime line, so the account rides on one story. Test two new openers against it, one on price and one on how the set builds, and keep the anime line as the control."
+   ],
+   [
+    "Shop now lands on homepage",
+    "3 Shop now ads send buyers to the homepage instead of the product the ad shows, so a buyer who just saw a block set has to search. Point each of those three straight to the product page shown in its creative."
+   ]
+  ],
+  "images": [
+   "goodgudi_1.jpg",
+   "goodgudi_2.jpg",
+   "goodgudi_3.jpg"
+  ]
+ },
+ "ads_1": "Shipping-first and proof-led creative, with two new openers tested against the anime line",
+ "soc_1": "Brand social strategy across Facebook, Instagram and YouTube"
+}
