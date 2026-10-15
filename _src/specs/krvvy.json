@@ -1,0 +1,59 @@
+{
+ "slug": "krvvy",
+ "company": "Krvvy",
+ "full_name": "Yash Goyal",
+ "logo": "krvvy.png",
+ "shot": "krvvy.jpg",
+ "shot_caption": "krvvy.com",
+ "saw_lines": [
+  "Women buy bras by fit, then rebuy the same size for years, so one good fit decides the reorder.",
+  "So the sale is won in the first line, where a shopper decides whether their fit question gets answered at all.",
+  "Your site shows 500+ members already inside, yet 0 of 27 ads carry that number. Put it on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 15 Oct 2026",
+  "stats": [
+   [
+    "27",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry member count"
+   ],
+   [
+    "2",
+    "ads mention percent off"
+   ],
+   [
+    "8",
+    "creator posts"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays off your ads",
+    "Your site shows 500+ members already inside, yet 0 of 27 ads carry that number, so a new buyer gets no proof before the click. Put the count on every creative, then open two ads with a review quote."
+   ],
+   [
+    "Offer missing from ads",
+    "Your site offers 60% off on limited products, but only 2 of 26 ads mention percent off, so a first buyer sees no reason to act. Put the offer in the first line of three new ads and on the creative."
+   ],
+   [
+    "Delivery goes unanswered",
+    "Your site explains how orders arrive, yet 0 of 27 ads answer that, so a buyer unsure about delivery has no reason to click. Show the box arriving in one video ad, opening on the parcel at the door."
+   ],
+   [
+    "Creators run as brand ads",
+    "8 of 26 ads are creator posts with codes, #ad tags or @mentions, run from your brand page, so the recommendation reads as a brand ad. Whitelist those posts from the creator accounts and cut three variations of the best one."
+   ]
+  ],
+  "images": [
+   "krvvy_1.jpg",
+   "krvvy_2.jpg",
+   "krvvy_3.jpg"
+  ]
+ },
+ "ads_1": "Fit led video, with the member count and 60% offer in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram, X and Youtube"
+}
