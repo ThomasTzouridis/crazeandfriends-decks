@@ -1,0 +1,59 @@
+{
+ "slug": "belgacom-mobile",
+ "company": "Belgacom Mobile",
+ "full_name": "Mohamad Fayed",
+ "logo": "belgacom-mobile.png",
+ "shot": "belgacom-mobile.jpg",
+ "shot_caption": "proximus.be",
+ "saw_lines": [
+  "People switch mobile plans for a better data bundle, then stay for years unless the bill surprises them.",
+  "So the sale is won in the first line, where an offer either shows up or gets skipped.",
+  "Your site offers subscribe and save, yet 0 of 22 ads mention it, so put it in the first line of three new ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 15 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention a subscription"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "14",
+    "ads running 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers subscribe and save, yet 0 of 22 ads mention it, so new buyers have no reason to act today. Put that offer in the first line of three new ads and on the creative itself."
+   ],
+   [
+    "Subscription never advertised",
+    "Your 30 live ads never mention a subscription, though the site pushes subscribe and save. Buyers who reorder each month need that saving spelled out. Run two retention ads for past buyers with the monthly saving as the headline."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, such as a review count or orders shipped. A new buyer has nothing concrete to trust. Collect one real count, then lead the next three ads with it in the first line."
+   ],
+   [
+    "Winners not built on",
+    "14 of your ads have run 60+ days, yet 16 newer ads do not reuse those openings. Build the next three as variations of your longest running winner, keeping its opening line and swapping in the subscribe and save offer."
+   ]
+  ],
+  "images": [
+   "belgacom-mobile_1.jpg",
+   "belgacom-mobile_2.jpg",
+   "belgacom-mobile_3.jpg"
+  ]
+ },
+ "ads_1": "Variations of your longest running ad, with subscribe and save in the first line",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Twitter, X and Youtube"
+}
