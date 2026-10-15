@@ -1,0 +1,59 @@
+{
+ "slug": "ahead",
+ "company": "ahead",
+ "full_name": "Philip Brohlburg",
+ "logo": "ahead.png",
+ "shot": "ahead.jpg",
+ "shot_caption": "ahead-nutrition.com",
+ "saw_lines": [
+  "Snack buyers want the treat without the sugar guilt, and they pick a jar or bar in seconds.",
+  "So the sale is won or lost in the first line, where the buyer decides if the snack fits.",
+  "Your site lists 100+ team and 170+ products, yet only 5 of 30 ads use a proof number. Print 100+ on the creative and open two ads with a customer review."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 15 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "5",
+    "ads with proof numbers"
+   ],
+   [
+    "0",
+    "offers in 23 ads"
+   ],
+   [
+    "136",
+    "words per median ad"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays off creative",
+    "Your site lists 100+ team and 170+ products, yet only 5 of 30 ads use a proof number. New buyers need proof before they trust the first line. Put 100+ on the creative and open two ads with a customer review."
+   ],
+   [
+    "Copy runs too long",
+    "Your median ad runs 136 words and the longest 168, so the offer sits where most readers have left. Buyers who stop early never reach a reason to click. Cut each ad to two lines, then the offer, then the link."
+   ],
+   [
+    "Bundle missing from ads",
+    "Your homepage promotes a bundle, yet 0 of 23 ads mention it or any other offer. A first time buyer sees no reason to act today. Lead three new ads with the bundle in line one and link them to it."
+   ],
+   [
+    "Openers spread thin",
+    "13 different openings run across 23 copy ads, so no single hook gets built out. Start from the 11 ads running 60+ days, pick the two strongest openings and build the next batch from them."
+   ]
+  ],
+  "images": [
+   "ahead_1.jpg",
+   "ahead_2.jpg",
+   "ahead_3.jpg"
+  ]
+ },
+ "ads_1": "Proof led creative on the top opener, with the bundle in line two",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
