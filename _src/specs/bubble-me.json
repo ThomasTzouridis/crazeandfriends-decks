@@ -1,0 +1,59 @@
+{
+ "slug": "bubble-me",
+ "company": "Bubble Me",
+ "full_name": "Akshina Jindal",
+ "logo": "bubble-me.png",
+ "shot": "bubble-me.jpg",
+ "shot_caption": "bubbleme.in",
+ "saw_lines": [
+  "Magnesium buyers pick a product for one problem, like tight temples or sore legs, and reorder it once it works.",
+  "So the sale is won or lost in the first line, where the problem gets named and the offer should appear.",
+  "Your site offers Extra 10% OFF on Prepaid, yet 0 of 27 copy ads mention it. Put that offer in line one of three new ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 15 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention your offer"
+   ],
+   [
+    "0",
+    "ads carry proof numbers"
+   ],
+   [
+    "18",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers Extra 10% OFF on Prepaid, yet 0 of 27 copy ads mention it, so a first buyer has no reason to act. Put that offer in line one of three new ads and on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 27 copy ads carry a proof number, so a viewer has nothing to trust before the click. Collect one figure, a review count or orders shipped, and open three new ads with that number on the creative."
+   ],
+   [
+    "Creator posts run as ads",
+    "3 of your 27 copy ads are creator posts run from the brand page, so a customer&rsquo;s review reads as a company ad and loses its pull. Whitelist those three from the creator account, then cut three variations of each."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 27 copy ads use 18 openings, and the biggest, &ldquo;some reviews just feel real&rdquo;, leads 3. No single story gets repeated enough to build recognition. Build the next batch from the two strongest, the review and tightness openers."
+   ]
+  ],
+  "images": [
+   "bubble-me_1.jpg",
+   "bubble-me_2.jpg",
+   "bubble-me_3.jpg"
+  ]
+ },
+ "ads_1": "Review and tightness openers, with the prepaid 10% offer in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram and YouTube"
+}
