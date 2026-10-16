@@ -1,0 +1,59 @@
+{
+ "slug": "prehab",
+ "company": "Prehab",
+ "full_name": "Arash Maghsoodi",
+ "logo": "prehab.png",
+ "shot": "prehab.jpg",
+ "shot_caption": "theprehabguys.com",
+ "saw_lines": [
+  "People in pain do not browse rehab apps. They pick the one that fits their body part, then stick with it.",
+  "So the sale is won or lost on the body part named in line one, not on the app features.",
+  "Your site lists 12040 and 15680 members, yet 0 of 20 ads carry a proof number. Put 15680 members on every creative and open two ads with a customer quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 16 Oct 2026",
+  "stats": [
+   [
+    "20",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry proof"
+   ],
+   [
+    "8",
+    "ads use claim words"
+   ],
+   [
+    "6",
+    "ads share one copy"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers missing from ads",
+    "Your site lists 12040 and 15680 members, yet 0 of 20 ads carry a proof number, so buyers see no scale. Put 15680 members on every creative and in the first line, then open two ads with a customer quote."
+   ],
+   [
+    "Claim words limit reach",
+    "8 of 20 ads use claim words like clinically, cure and guaranteed results. Those words limit reach, so buyers scroll past. Swap each claim for what customers noticed in week one, like easier mornings, and test it."
+   ],
+   [
+    "Same copy reused across ads",
+    "One exact copy runs in 6 of 20 ads, so the same pitch reaches the same people again and again. Repeats tire an audience fast. Keep the body copy, but rewrite the opening line in each of the six."
+   ],
+   [
+    "One opener leads the ads",
+    "6 of 20 copy ads open on the Celebrate Physical Therapist Month line, and the other 14 each open with a single use line. Test two new openers against it: neck and midback pain, and the 2 minute setup."
+   ]
+  ],
+  "images": [
+   "prehab_1.jpg",
+   "prehab_2.jpg",
+   "prehab_3.jpg"
+  ]
+ },
+ "ads_1": "Claim free neck and midback creative, tested against the PT Month opener",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter, X and YouTube"
+}
