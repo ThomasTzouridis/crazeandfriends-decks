@@ -1,0 +1,59 @@
+{
+ "slug": "red-wing-shoe-co",
+ "company": "Red Wing Shoe Co.",
+ "full_name": "Miranda Johnson",
+ "logo": "red-wing-shoe-co.svg",
+ "shot": "red-wing-shoe-co.jpg",
+ "shot_caption": "redwingshoes.com",
+ "saw_lines": [
+  "Work boot buyers replace a pair only when the old one wears out, and they compare fit before they buy.",
+  "So the sale is won or lost early, when buyers check if the offer or price is worth a click.",
+  "Your site offers 40% off select styles, yet 0 of 9 ads mention percent off. Put the 40% off in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 16 Oct 2026",
+  "stats": [
+   [
+    "28",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention your offer"
+   ],
+   [
+    "0",
+    "ads show a price"
+   ],
+   [
+    "3",
+    "ads share one copy"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers 40% off select styles, yet 0 of 9 ads mention percent off. A first-time buyer sees no reason to act today. Put the 40% off in the first line of three new ads and on the creative."
+   ],
+   [
+    "Price never reaches the ads",
+    "Your site shows prices from $35.99 to $369.99, yet 0 of 28 ads mention price. Buyers want the cost before they click. Lead one new ad with the price per pair and what it replaces, and print it on the creative."
+   ],
+   [
+    "No video in the mix",
+    "None of your 28 ads is video, and 24 are still images or carousels. Boot buyers need to see fit in motion, which stills hide. Shoot three videos of boots on a job site and test them against your best image."
+   ],
+   [
+    "One copy, three ads",
+    "The same TruGuard Lite copy runs in 3 of 9 ads, so buyers meet one opening line three times and stop noticing it. Keep the product detail, rewrite the opening line and swap the creative in each ad."
+   ]
+  ],
+  "images": [
+   "red-wing-shoe-co_1.jpg",
+   "red-wing-shoe-co_2.jpg",
+   "red-wing-shoe-co_3.jpg"
+  ]
+ },
+ "ads_1": "Offer-led boot videos and 40% off creative, tested against the TruGuard voucher copy",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
