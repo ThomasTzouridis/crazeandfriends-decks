@@ -1,0 +1,59 @@
+{
+ "slug": "essnce",
+ "company": "ESSNCE",
+ "full_name": "Jonna Gustafsson",
+ "logo": "essnce.png",
+ "shot": "essnce.jpg",
+ "shot_caption": "essnce.se",
+ "saw_lines": [
+  "Fragrance buyers rarely test a bottle online. They pick a scent they already trust, then reorder or gift it.",
+  "So the sale is lost in the first line, where a scroller who sees no scent or offer keeps moving.",
+  "Your 17 ads with written copy carry no proof number, so new buyers have nothing to trust. Collect one review count and lead the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 16 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "6",
+    "Shop now to homepage"
+   ],
+   [
+    "24",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "0 of 17 ads with written copy carry a proof number, so buyers have nothing concrete to weigh. Collect one real figure, like a review count or orders shipped, and open three new ads with it on the creative."
+   ],
+   [
+    "Shop now lands on homepage",
+    "6 Shop now ads send buyers to the homepage, so a cold viewer has to search for the scent that caught their eye. Point each at the single fragrance it features, such as the Absolu Vanilla or Noble Eclat page."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 17 ads carry an offer or discount, so a first time buyer has no reason to act today. Add one first order offer or the Autumn Aura kit bundle to three new ads and write it on the creative."
+   ],
+   [
+    "Winners are not reused",
+    "24 ads have run 60 days or more, yet none of your 6 newer ads reuses a winner&rsquo;s opening line. Those winners already show the angle works. Build the next three ads as variations of the oldest one."
+   ]
+  ],
+  "images": [
+   "essnce_1.jpg",
+   "essnce_2.jpg",
+   "essnce_3.jpg"
+  ]
+ },
+ "ads_1": "Single fragrance video ads that reuse the oldest winner&rsquo;s opening line",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
