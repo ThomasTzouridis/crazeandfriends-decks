@@ -4,7 +4,7 @@ Writes ONLY columns B and D:F of the tab "Performance" (C = presentation open ra
   B Connection back rate            = connectionsAccepted / connectionsSent
   C Reply rate per messaged lead    = totalMessageReplies / totalMessageStarted
   D Interested rate per messaged    = autoTaggedInterested / totalMessageStarted
-  E Meeting booking rate per msged  = leads tagged "meeting..." in the HeyReach inbox / totalMessageStarted
+  E Meeting booking rate per msged  = leads tagged "meeting..." in the HeyReach inbox OR with a Calendly booking in the Presentation Log (AT) / totalMessageStarted
 Two sections, set by header cells in column A: "All Campaigns" (A1, every campaign of each sender) and the header containing
 "Ecom Leads" (A10, only the campaigns whose leads come from HeyReach list 1013263, matched by profile URL). Under each header:
 one row per sender full name (match on name, new sender: type the name in A) and "Total" (those senders added up, raw counts).
@@ -58,14 +58,25 @@ def main():
         ids = [x for x in ids if x]
         if ids and sum(x in ecom for x in ids) / len(ids) >= 0.9: ecom_camps.append(c['id'])
     # meetings = inbox conversations with a tag containing "meeting" (manual or auto tag), counted per sender account and ecom match
-    meet = {'all': {}, 'ecom': {}}   # scope -> account id -> meetings
+    # PLUS every Calendly booking cf_track matched to a lead (Presentation Log AT "Meeting booked (Calendly)", sender in C, lead id in E),
+    # so a booking counts the moment it lands, tag or no tag (Thomas 2026-10-16: the tab showed 0 meetings while Talha Mahmood had booked).
+    sv = P.sheets_svc()
+    ids = {'all': {}, 'ecom': {}}   # scope -> account id -> set of lead ids (dedupes a tagged AND booked lead)
+    def add(acc, lid):
+        if acc is None or not lid: return
+        ids['all'].setdefault(acc, set()).add(lid)
+        if lid in ecom: ids['ecom'].setdefault(acc, set()).add(lid)
     for cv in pages(key, '/inbox/GetConversationsV2', {'filters': {}}):
         pr = cv.get('correspondentProfile') or {}
         tags = [(t.get('name') if isinstance(t, dict) else str(t)) or '' for t in (pr.get('tags') or []) + (pr.get('autoTags') or [])]
         if not any('meeting' in t.lower() for t in tags): continue
-        acc = cv.get('linkedInAccountId') or (cv.get('linkedInAccount') or {}).get('id')
-        meet['all'][acc] = meet['all'].get(acc, 0) + 1
-        if pid(pr.get('profileUrl')) in ecom: meet['ecom'][acc] = meet['ecom'].get(acc, 0) + 1
+        add(cv.get('linkedInAccountId') or (cv.get('linkedInAccount') or {}).get('id'), pid(pr.get('profileUrl')) or pr.get('profileUrl'))
+    name2acc = {n: i for i, n in accts.items()}
+    pl = sv.values().get(spreadsheetId=P.SHEET, range="'%s'!A2:AT" % P.TAB).execute().get('values', [])
+    for r in pl:
+        r = r + [''] * (46 - len(r))
+        if r[45].strip() and 'cancel' not in r[45].lower(): add(name2acc.get(r[2].strip()), P.requote(r[4].strip()) if r[4].strip() else '')
+    meet = {sc: {a: len(v) for a, v in d.items()} for sc, d in ids.items()}   # scope -> account id -> meetings
 
     def vals(s, meetings):
         return [rate(s['connectionsAccepted'], s['connectionsSent']), rate(s['totalMessageReplies'], s['totalMessageStarted']),
@@ -73,7 +84,6 @@ def main():
 
     # The tab has sections. A section header in A ("All Campaigns" in A1, a cell containing "Ecom Leads" for the ecom list) sets the scope,
     # the sender names below it get that scope's numbers, "Total" = those senders added up (raw counts, then divided).
-    sv = P.sheets_svc()
     col_a = sv.values().get(spreadsheetId=P.SHEET, range='%s!A1:A80' % TAB).execute().get('values', [])
     by_name = {n: i for i, n in accts.items()}
     data, log, names_seen, scope = [], [], [], 'all'
@@ -113,7 +123,7 @@ def main():
         data.append({'range': '%s!C%d:F%d' % (COPY_TAB, r, r), 'values': [v]})
         log.append(('%s [copy]' % name, v, s and {k: s[k] for k in ('connectionsSent', 'connectionsAccepted', 'totalMessageStarted', 'totalMessageReplies', 'autoTaggedInterested')}))
     for x in log: P.say(*x)
-    P.say('ecom campaigns:', ecom_camps, 'meetings tagged:', sum(meet['all'].values()))
+    P.say('ecom campaigns:', ecom_camps, 'meetings (tagged or booked):', sum(meet['all'].values()))
     if dry or not data: return
     sv.values().batchUpdate(spreadsheetId=P.SHEET, body={'valueInputOption': 'RAW', 'data': data}).execute()
     P.say('performance written:', len(data), 'rows')

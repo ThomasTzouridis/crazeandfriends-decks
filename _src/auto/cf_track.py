@@ -591,6 +591,27 @@ def fill_contact(st, row):
     return changed
 
 
+# ---------- a booked lead leaves the sequence (Thomas 2026-10-16: Talha Mahmood booked and was still InSequence, the tab showed 0 meetings) ----------
+def on_booked(ctx, lid):
+    """Once per lead (state 'acted'): StopLeadInCampaign in every campaign that has the lead (HeyReach shows Paused, no follow-up goes out)
+    and tag the lead "Meeting booked" in the HeyReach inbox (POST /lead/AddTags, piloted 2026-10-16). Failures are logged and retried next run."""
+    acted = ctx.st.setdefault('acted', {})
+    if acted.get(lid, {}).get('done'): return
+    url = 'https://www.linkedin.com/in/%s' % lid
+    key, ok, notes = ctx.hr_key(), True, []
+    fact = ctx.hr().get(lid) or {}
+    for cid in ([fact['campaign']] if fact.get('campaign') else CAMPAIGNS_ALL):   # the lead's campaign when HeyReach knows it, else every one
+        try: P.hr('/campaign/StopLeadInCampaign', key, {'campaignId': cid, 'leadUrl': url}); notes.append('stopped in %s' % cid)
+        except Exception as e:
+            if 'HTTP Error 4' not in repr(e): ok = False   # a 4xx = the lead is not in that campaign, fine
+            notes.append('stop %s: %s' % (cid, repr(e)[:80]))
+    try: r = P.hr('/lead/AddTags', key, {'leadProfileUrl': url, 'tags': ['Meeting booked'], 'createTagIfNotExisting': True}); notes.append('tagged %s' % (r.get('newAssignedTags') or 'already'))
+    except Exception as e: ok = False; notes.append('tag: ' + repr(e)[:80])
+    acted[lid] = {'done': ok, 'at': time.time(), 'notes': notes}
+    P.say('booked lead', lid, '->', '; '.join(notes))
+    if not ok: P.alert('booked lead %s: sequence stop or tag failed: %s' % (lid, '; '.join(notes)))
+
+
 # ---------- Meetings tab ----------
 def chain_root(inv, by_uri):
     seen = set()
@@ -645,11 +666,13 @@ def sync_meetings(sv, st, leads, tok):
             if fill_contact(st, r): updates.append({'range': 'Meetings!B%d:F%d' % (rn, rn), 'values': [r[1:6]]})
             lid = name_of.get(norm(r[13])) if r[13] else next((k for k in leads if r[3].rstrip('/').lower().endswith('/in/' + k.lower())), None)
             if active and lid and leads[lid].get('slug'): booked[leads[lid]['slug']] = start
+            if active and lid: on_booked(ctx, lid)
             continue
         res = resolve(ctx, inv, ev)
         row = meet_row(ctx, res, inv, ev, cell, key)
         new.append(row); have[key] = (None, row)
         if active and res['lead'] and (leads.get(res['lead']) or {}).get('slug'): booked[leads[res['lead']]['slug']] = start
+        if active and res['lead']: on_booked(ctx, res['lead']); st['perf_refresh'] = True
         P.say('booking', inv.get('name'), inv.get('email'), start, '->', row[0], '|', res['how'])
     if updates: sv.values().batchUpdate(spreadsheetId=P.SHEET, body={'valueInputOption': 'RAW', 'data': updates}).execute()
     if new: sv.values().append(spreadsheetId=P.SHEET, range='Meetings!A1', valueInputOption='RAW', insertDataOption='INSERT_ROWS', body={'values': new}).execute()
@@ -700,6 +723,9 @@ def main():
         elif n and i > 1 and 'campaign' not in n.lower() and 'ecom leads' not in n.lower(): data.append({'range': 'Performance!C%d' % i, 'values': [[rate(*per.get(n, [0, 0]))]]})
     if data: sv.values().batchUpdate(spreadsheetId=P.SHEET, body={'valueInputOption': 'RAW', 'data': data}).execute()
     P.say('open rate per sender (messaged, opened):', per)
+    if st.pop('perf_refresh', False):   # a booking landed this run: the Performance tab's meeting rate must not wait for the 04:00 cf_perf job
+        try: import cf_perf; cf_perf.main(); P.say('performance tab refreshed after booking')
+        except Exception as e: P.say('cf_perf after booking failed:', repr(e))
     json.dump(st, open(STATE, 'w', encoding='utf-8'))
     P.say('tracked decks:', len(st['slugs']), 'rows:', len(rows))
     if failed: raise failed
