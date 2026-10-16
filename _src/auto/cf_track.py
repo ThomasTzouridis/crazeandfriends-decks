@@ -26,7 +26,7 @@
 3. Performance tab column C: presentation open rate per messaged lead, per sender and Total.
   python3 _src/auto/cf_track.py
 """
-import os, sys, re, json, time, datetime, difflib, unicodedata, urllib.request, urllib.parse, urllib.error
+import os, sys, re, json, time, datetime, difflib, unicodedata, traceback, urllib.request, urllib.parse, urllib.error
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import cf_poll as P
 
@@ -309,6 +309,7 @@ class Ctx:
         for k, v in leads.items(): self.by_slug.setdefault(v['slug'], []).append(k)
         self._hr = self._convs = self._sb = None
         self.key = None
+        self.errs = []   # (row name, error) of every enrich failure this run, reported by report()
 
     def hr_key(self):
         if not self.key: self.key = P.hr('/management/organizations/api-keys/workspaces/%d' % P.WS, P.env('HEYREACH_API_KEY'), method='GET')['publicApi']
@@ -709,8 +710,7 @@ def on_booked(ctx, lid, row):
         try: notes.append(ctx.sb_booked(lid, row, phone_is_mobile(ctx, row))); a['sb'] = True
         except Exception as e: notes.append('supabase: ' + repr(e)[:120])
     a['at'] = time.time(); a['notes'] = notes
-    P.say('booked lead', lid, '->', '; '.join(notes))
-    if not (a.get('stop') and a.get('tag') and a.get('sb')): P.alert('booked lead %s: a step failed, retried next run: %s' % (lid, '; '.join(notes)))
+    P.say('booked lead', lid, '->', '; '.join(notes))   # a step still open shows up in the run report (issues_of), retried next run
 
 
 def slack_booking(ctx, row, key):
@@ -729,6 +729,73 @@ def slack_booking(ctx, row, key):
         if out.get('ok'): done.append(key); P.say('slack: booking posted for', row[0])
         else: P.say('slack booking failed:', out.get('error'))
     except Exception as e: P.say('slack booking failed:', e)
+
+
+# ---------- self-check (Thomas 2026-10-16: every 4 h, every run complete, no calendar task to check on it) ----------
+ISSUE = {'steps': (24, 1), 'match': (168, 1), 'slack': (24, 2), 'enrich': (24, 2)}   # kind -> (hours between repeat alerts, runs seen before the first alert)
+
+
+def issues_of(ctx, seen):
+    """What is still undone after this run, {key: text}. A cell that stays empty because every source came back empty is NOT an issue
+    (Thomas: if it is there we put it in, if not then not); an undone step, an unmatched booking, a missing Slack post or a source that
+    threw is."""
+    out = {}
+    for key, r, lid, active in seen:
+        if not active or r[0].startswith('INTERNAL'): continue
+        if lid:
+            a = ctx.st.get('acted', {}).get(lid, {})
+            left = [x for x in ('stop', 'tag', 'sb') if not a.get(x)]
+            if left: out['steps ' + lid] = 'booked lead %s: %s still open after retry (%s)' % (r[0], ', '.join(left), '; '.join(a.get('notes') or [])[:200])
+        elif r[13]: out['match ' + key] = 'Lead override "%s" on booking %s matches no lead in the lead map, fix Meetings column N' % (r[13], r[0])
+        else: out['match ' + key] = 'booking %s (%s, %s) matched no lead, so no HeyReach stop / tag / Supabase: set the Lead override in Meetings column N' % (r[0], r[1], r[6])
+        if key not in ctx.st.get('slacked', []): out['slack ' + key] = 'Slack post missing for booking %s' % r[0]
+    for who, err in ctx.errs: out['enrich ' + who] = 'enrich %s failed: %s' % (who, err)
+    return out
+
+
+def report(st, issues):
+    """One DM to Thomas per run at most: NEW for an issue seen often enough (ISSUE), STILL OPEN again after its repeat window, resolved
+    when an alerted issue is gone. State 'issues' {key: {first, runs, alerted, text}}. A transient that heals before its first alert is silent."""
+    known, now, lines = st.setdefault('issues', {}), time.time(), []
+    for k, text in issues.items():
+        rep, minr = ISSUE.get(k.split(' ', 1)[0], (24, 1))
+        e = known.setdefault(k, {'first': now, 'runs': 0, 'alerted': 0, 'text': text}); e['runs'] += 1; e['text'] = text
+        if e['runs'] < minr: continue
+        if not e['alerted']: e['alerted'] = now; lines.append('NEW: ' + text)
+        elif now - e['alerted'] >= rep * 3600: e['alerted'] = now; lines.append('STILL OPEN since %s: %s' % (ts(e['first']), text))
+    for k in [k for k in known if k not in issues]:
+        e = known.pop(k)
+        if e.get('alerted'): lines.append('resolved: ' + e['text'])
+    if lines: P.alert('cf_track report, %d open\n' % len(issues) + '\n'.join(lines))
+
+
+def status_tab(sv, meta, st, failed):
+    """Status tab of the tracking sheet, four lines a human reads at a glance. The GitHub Actions watchdog reads the Mac's /jobok/cf_track instead."""
+    if not any(x['properties']['title'] == 'Status' for x in meta):
+        sv.batchUpdate(spreadsheetId=P.SHEET, body={'requests': [{'addSheet': {'properties': {'title': 'Status', 'gridProperties': {'rowCount': 10, 'columnCount': 2}}}}]}).execute()
+    now = time.time()
+    if not failed: st['last_ok'] = now
+    issues = st.get('issues', {})
+    rows = [['cf_track last successful run (Berlin)', ts(st['last_ok']) if st.get('last_ok') else ''],
+            ['Last run', ts(now) + ((' FAILED: ' + repr(failed)[:150]) if failed else ' OK')],
+            ['Open issues', ('%d: ' % len(issues) + '; '.join(e['text'] for e in issues.values()))[:500] if issues else 'none'],
+            ['Cadence', 'every 4 h on the MacBook (mac-hub job cf_track), watchdog: GitHub Actions aios / cf-track-watchdog every 6 h']]
+    sv.values().update(spreadsheetId=P.SHEET, range='Status!A1:B4', valueInputOption='RAW', body={'values': rows}).execute()
+
+
+CRASH = os.path.join(P.ROOT, '_private', 'cf_track_crash.json')
+
+
+def crashed(e):
+    """The run died (or the Meetings sync failed): traceback to the log, one DM to Thomas, again at most once every 20 h while it keeps failing.
+    The mac-hub scheduler's own failure alerts go to an archived channel, so this is the only bell."""
+    P.say(traceback.format_exc())
+    try: last = json.load(open(CRASH, encoding='utf-8')).get('at', 0)
+    except (OSError, ValueError): last = 0
+    if time.time() - last < 20 * 3600: return
+    tb = traceback.format_exc().strip().splitlines()
+    P.alert('cf_track FAILED on the Mac: %s\n%s\nRetried every 4 h, this alert at most once a day. Log: ~/Desktop/AIOS/automations/mac-hub/logs/jobs/cf_track.log' % (repr(e)[:200], (tb[-3] if len(tb) >= 3 else '')[:200]))
+    json.dump({'at': time.time(), 'err': repr(e)[:200]}, open(CRASH, 'w', encoding='utf-8'))
 
 
 # ---------- Meetings tab ----------
@@ -752,7 +819,7 @@ def meet_row(ctx, res, inv, ev, start, key):
     else:
         row = [name + ' (no lead match)', email, '', '', '', phone, start, '', '', '', key, '', res['how'] + ', CHECK', '']
     try: enrich_row(ctx, row, res['lead'])
-    except Exception as e: P.say('enrich failed for', row[0], repr(e)[:120])   # the row still lands, empty cells are retried next run
+    except Exception as e: P.say('enrich failed for', row[0], repr(e)[:120]); ctx.errs.append((row[0], repr(e)[:120]))   # the row still lands, retried next run
     return row
 
 
@@ -773,7 +840,7 @@ def sync_meetings(sv, st, leads, tok):
     all_inv = bookings(tok)
     by_uri = {i['uri']: i for ev, i in all_inv}
     ev_of = {i['uri']: ev for ev, i in all_inv}
-    new, updates = [], []
+    new, updates, seen = [], [], []   # seen: (key, row, lead id, active) of every booking, for the self-check
     for ev, inv in sorted(all_inv, key=lambda x: iso(x[1].get('created_at')) or datetime.datetime.now(UTC)):
         if inv.get('rescheduled') and inv.get('new_invitee') in by_uri: continue   # superseded by the rescheduled invitee
         key = chain_root(inv, by_uri)
@@ -786,10 +853,11 @@ def sync_meetings(sv, st, leads, tok):
             lid = name_of.get(norm(r[13])) if r[13] else next((k for k in ctx.all_ids() if r[3].rstrip('/').lower().endswith('/in/' + k.lower())), None)
             try:
                 if enrich_row(ctx, r, lid): updates.append({'range': 'Meetings!B%d:F%d' % (rn, rn), 'values': [r[1:6]]})
-            except Exception as e: P.say('enrich failed for', r[0], repr(e)[:120])   # Prospeo 429 etc: the row is retried next run
+            except Exception as e: P.say('enrich failed for', r[0], repr(e)[:120]); ctx.errs.append((r[0], repr(e)[:120]))   # Prospeo 429 etc: retried next run
             if active and lid and (leads.get(lid) or {}).get('slug'): booked[leads[lid]['slug']] = start
             if active and lid: on_booked(ctx, lid, r)
             if active: slack_booking(ctx, r, key)
+            seen.append((key, r, lid, active))
             continue
         res = resolve(ctx, inv, ev)
         row = meet_row(ctx, res, inv, ev, cell, key)
@@ -797,14 +865,16 @@ def sync_meetings(sv, st, leads, tok):
         if active and res['lead'] and (leads.get(res['lead']) or {}).get('slug'): booked[leads[res['lead']]['slug']] = start
         if active and res['lead']: on_booked(ctx, res['lead'], row); st['perf_refresh'] = True
         if active: slack_booking(ctx, row, key)
+        seen.append((key, row, res['lead'], active))
         P.say('booking', inv.get('name'), inv.get('email'), start, '->', row[0], '|', res['how'])
     if updates: sv.values().batchUpdate(spreadsheetId=P.SHEET, body={'valueInputOption': 'RAW', 'data': updates}).execute()
     if new: sv.values().append(spreadsheetId=P.SHEET, range='Meetings!A1', valueInputOption='RAW', insertDataOption='INSERT_ROWS', body={'values': new}).execute()
+    report(st, issues_of(ctx, seen))
     return booked
 
 
 # ---------- main ----------
-def main():
+def run():
     st = json.load(open(STATE, encoding='utf-8')) if os.path.exists(STATE) else {}
     leads = json.load(open(LEADS, encoding='utf-8'))
     read_events(st)
@@ -850,9 +920,17 @@ def main():
     if st.pop('perf_refresh', False):   # a booking landed this run: the Performance tab's meeting rate must not wait for the 04:00 cf_perf job
         try: import cf_perf; cf_perf.main(); P.say('performance tab refreshed after booking')
         except Exception as e: P.say('cf_perf after booking failed:', repr(e))
+    try: status_tab(sv, meta, st, failed)
+    except Exception as e: P.say('status tab failed:', repr(e))
     json.dump(st, open(STATE, 'w', encoding='utf-8'))
     P.say('tracked decks:', len(st['slugs']), 'rows:', len(rows))
     if failed: raise failed
+
+
+def main():
+    try: run()
+    except Exception as e:
+        crashed(e); raise
 
 
 if __name__ == '__main__':
