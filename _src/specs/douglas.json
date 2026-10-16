@@ -1,0 +1,59 @@
+{
+ "slug": "douglas",
+ "company": "Douglas",
+ "full_name": "Alex Steiner",
+ "logo": "douglas.png",
+ "shot": "",
+ "shot_caption": "douglas.de",
+ "saw_lines": [
+  "Fragrance is chosen by smell, and most buyers want a sample or a friend&rsquo;s nod before they commit to a bottle.",
+  "So the sale is won or lost in the first ad, with no proof or offer to tip the buyer.",
+  "Your 30 live ads show no proof number, so collect one real figure like orders shipped and put it on every ad as the opening line."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 16 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "9",
+    "open on one opener"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "0",
+    "carry an offer"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 30 live ads shows a proof number, so a new buyer has no reason to trust the scent. Collect one real figure, such as orders shipped, and put it on every ad as the opening line."
+   ],
+   [
+    "One opener leads the copy",
+    "9 of your 30 ads open on the same line, &ldquo;discover Vendetta, the new fragrance,&rdquo; so buyers see one story repeatedly. Test two new angles against it, a wear occasion and a customer quote, each in three video cuts."
+   ],
+   [
+    "No offer in the ads",
+    "None of your 30 ads carries an offer, so a first time buyer has no reason to act today. Put a first order offer or a bundle in the opening line of three new ads."
+   ],
+   [
+    "One call to action",
+    "Shop now and Learn more split 19 and 10 ads, with 11 landing pages behind them, so each click gets a mixed ask. Pick one button per page and match it to what the page sells."
+   ]
+  ],
+  "images": [
+   "douglas_1.jpg",
+   "douglas_2.jpg",
+   "douglas_3.jpg"
+  ]
+ },
+ "ads_1": "Scent led video cuts opening on a wear occasion, with proof in line one",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
