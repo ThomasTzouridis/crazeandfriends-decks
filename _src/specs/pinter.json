@@ -1,0 +1,59 @@
+{
+ "slug": "pinter",
+ "company": "Pinter",
+ "full_name": "Ralph Broadbent",
+ "logo": "pinter.png",
+ "shot": "pinter.jpg",
+ "shot_caption": "pinter.co.uk",
+ "saw_lines": [
+  "Buyers of home beer machines commit to one brand, then reorder the beers that taste right.",
+  "So the sale is won or lost in the first line, where the offer and delivery answer come before the click.",
+  "Your site claims over 180,000 customers, yet 0 of 17 ads use that number. Put it on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 16 Oct 2026",
+  "stats": [
+   [
+    "17",
+    "live Meta ads"
+   ],
+   [
+    "7",
+    "open the same way"
+   ],
+   [
+    "0",
+    "ads mention guarantee"
+   ],
+   [
+    "0",
+    "ads carry proof"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers missing from ads",
+    "Your site claims over 180,000 customers, yet 0 of 17 ads carry that number, so new buyers get no proof before the click. Put 180,000 on the creative and in the first line, and open two ads with a customer quote."
+   ],
+   [
+    "Site offer missing from ads",
+    "Your site offers a money-back guarantee, yet 0 of 9 copy ads mention it or any offer, so a first buyer has no reason to act. Put the guarantee in the first line of three new ads and on the creative."
+   ],
+   [
+    "One opener carries the account",
+    "7 of 9 copy ads open on the same line, ready to brew your own beer, so one hook carries the account. Build two or three new angles from the MAKE, CHILL and ENJOY steps and test them against the opener."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site explains shipping, yet 0 of 17 ads mention shipping or delivery, so a new buyer meets the question with no answer. Answer it in the first line of every new ad, using the words on your delivery page."
+   ]
+  ],
+  "images": [
+   "pinter_1.jpg",
+   "pinter_2.jpg",
+   "pinter_3.jpg"
+  ]
+ },
+ "ads_1": "Proof-led creative built around the 180,000 customers and the MAKE, CHILL, ENJOY steps",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
