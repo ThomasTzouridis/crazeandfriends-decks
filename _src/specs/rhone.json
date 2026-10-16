@@ -1,0 +1,59 @@
+{
+ "slug": "rhone",
+ "company": "Rhone",
+ "full_name": "Ben Checketts",
+ "logo": "rhone.png",
+ "shot": "rhone.jpg",
+ "shot_caption": "rhone.com",
+ "saw_lines": [
+  "Performance buyers rarely shop a whole wardrobe. They pick one piece for the workout or commute and replace it when it wears.",
+  "So the sale is won in the first line, where buyers decide if the price and offer are worth a click.",
+  "Your site offers 15% off, yet 0 of 23 ads mention it. Put the 15% off in the opening line of three new ads and on the creative itself."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 17 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention percent off"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "3",
+    "Shop now ads hit homepage"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from ads",
+    "Your site offers 15% off, yet 0 of 23 ads mention it, so new buyers see no reason to act today. Put the 15% off in the opening line of three new ads and on the creative itself."
+   ],
+   [
+    "Price never reaches the ads",
+    "Your homepage lists $125, yet 0 of 30 ads mention price, so a buyer cannot judge value before the click. Lead one ad with the $125 price and what it replaces, then test it against the Landmark 1/4 Zip."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 23 ads carry a proof number, so buyers have no sign that other people chose it. Collect one real figure, such as a review count or orders shipped, and lead three new ads with it."
+   ],
+   [
+    "Shop now lands on homepage",
+    "3 Shop now ads send buyers to the homepage, so a buyer who taps the piece they saw lands somewhere else and has to search again. Point each of those three ads to the exact product on screen."
+   ]
+  ],
+  "images": [
+   "rhone_1.jpg",
+   "rhone_2.jpg",
+   "rhone_3.jpg"
+  ]
+ },
+ "ads_1": "Offer first creative with 15% off up front, tested against the price angle",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
