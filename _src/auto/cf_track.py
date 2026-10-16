@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""craze&friends deck tracking + Calendly booking match. Runs on the Mac (mac-hub job cf_track, every 2 h), checkout ~/cf-decks.
+"""craze&friends deck tracking + Calendly booking match. Runs on the Mac (mac-hub job cf_track, every 15 min), checkout ~/cf-decks.
 1. Deck events: every deck posts open / slide / video / book / ping / leave beacons to mac-hub (/webhook/cf-deck-track), which appends them to
    ~/Desktop/AIOS/automations/mac-hub/logs/events.jsonl with the visitor IP. Read incrementally (byte offset in _private/cf_track_state.json),
    aggregated per slug and per session. -> Presentation Log columns AL:AU (after the manual block AD:AK, which is never touched).
@@ -16,6 +16,12 @@
      6 timing: a deck with a Book click / open shortly before the booking whose session timezone fits the booker
      else no match (row kept, marked), and bookings that look like us (Serbia / Slovenia) are marked INTERNAL.
    Rows are appended once per booking (key = root invitee URI in K, reschedules update the date on the same row, cancels mark it).
+   Every row then fills itself (enrich_row): B email, C website, D LinkedIn, E company LinkedIn, F phone from Calendly, the HeyReach lead
+   profile, the deck lead map, Supabase ocean_leads and finally Prospeo enrich-person (personal mobile first, company line as fallback,
+   cached so a miss is retried every PHONE_RETRY_DAYS days). Empty cells are retried on every run, filled cells are never overwritten.
+   A matched lead is acted on once (on_booked, each step retried until it worked): HeyReach StopLeadInCampaign + tag "Meeting booked",
+   Supabase crazeandfriends_status = 'meeting booked' (phone / email gap-filled, provenance in matched_sources), and every new booking
+   pings Slack #meeting-booked-notifier like the other clients' bookings do.
    H:J (Conversation, Outcome, $ Collected) and N (Lead override) stay manual; a filled N wins for the Presentation Log.
 3. Performance tab column C: presentation open rate per messaged lead, per sender and Total.
   python3 _src/auto/cf_track.py
@@ -313,7 +319,7 @@ class Ctx:
         if self._hr is not None: return self._hr
         try:
             c = json.load(open(HR_CACHE, encoding='utf-8'))
-            if time.time() - c.get('at', 0) < 6 * 3600: self._hr = c['leads']; return self._hr
+            if c.get('v') == 2 and time.time() - c.get('at', 0) < 6 * 3600: self._hr = c['leads']; return self._hr
         except (OSError, ValueError, KeyError): pass
         out = {}
         for cid in CAMPAIGNS_ALL:
@@ -329,11 +335,12 @@ class Ctx:
                     out[P.requote(m.group(1))] = {'name': ('%s %s' % (pr.get('firstName') or '', pr.get('lastName') or '')).strip(), 'company': pr.get('companyName') or '',
                                                    'emails': sorted(emails), 'location': pr.get('location') or '', 'cc': loc_cc(pr.get('location') or ''),
                                                    'sender': i.get('linkedInSenderFullName') or '', 'msg_sent': (i.get('leadMessageStatus') or 'None') != 'None',
-                                                   'campaign': cid, 'connected': bool(P.CONNECTED.search(i.get('leadConnectionStatus') or ''))}
+                                                   'campaign': cid, 'connected': bool(P.CONNECTED.search(i.get('leadConnectionStatus') or '')),
+                                                   'company_url': (pr.get('companyUrl') or '').strip(), 'position': pr.get('position') or ''}
                 if len(items) < 100: break
                 off += 100
         self._hr = out
-        json.dump({'at': time.time(), 'leads': out}, open(HR_CACHE, 'w', encoding='utf-8'))
+        json.dump({'v': 2, 'at': time.time(), 'leads': out}, open(HR_CACHE, 'w', encoding='utf-8'))
         return out
 
     def convs(self):
@@ -403,12 +410,64 @@ class Ctx:
         except Exception as e:
             P.say('supabase query failed:', e); return ''
 
+    def sb_lead(self, lid, email=''):
+        """what ocean_leads knows about one person (by LinkedIn handle, else by email): {email, website, company_linkedin, person_phone, company_phone, company}, {} if nothing."""
+        c = self.sb()
+        if not c or not (lid or email): return {}
+        cols = """coalesce(email, person_email, findymail_email, email_2, ''), coalesce(domain, companywebsite, sheet_company_website, company_email_domain, ''),
+                  coalesce(company_linkedin_url, linkedincompanypageurl, sheet_company_linkedin, ''), coalesce(person_phone, person_phone_sheet, ''),
+                  coalesce(company_phone, imprint_phone, generic_company_phones, ''), coalesce(company, companyname, '')"""
+        try:
+            cur = c.cursor()
+            rows = []
+            if lid:
+                cur.execute("select %s from ocean_leads where substring(lower(person_linkedin) from 'linkedin\\.com/in/([^/?#]+)') = %%s limit 5" % cols, (lid.lower(),))
+                rows = cur.fetchall()
+            if not rows and email:
+                cur.execute("select %s from ocean_leads where lower(email)=%%(e)s or lower(person_email)=%%(e)s or lower(findymail_email)=%%(e)s limit 5" % cols, {'e': email.lower()})
+                rows = cur.fetchall()
+            out = {}
+            for r in rows:   # several rows for one person: first non-empty value per column wins
+                for k, v in zip(('email', 'website', 'company_linkedin', 'person_phone', 'company_phone', 'company'), r):
+                    v = re.split(r'[,;|]', (v or '').strip())[0].strip() if k.endswith('phone') else (v or '').strip()
+                    if v and not out.get(k): out[k] = v
+            return out
+        except Exception as e:
+            P.say('supabase query failed:', e); return {}
+
+    def sb_booked(self, lid, row, phone_is_mobile):
+        """ocean_leads: crazeandfriends_status = 'meeting booked' for the lead (canonical state, lead-database README §0 rule 3), phone / email
+        gap-filled (rule 6, never overwrite), provenance appended to matched_sources (rule 8). A lead the DB does not have yet (the ecom
+        campaign lists were never saved) is inserted with what the row knows (append-only, rule 5). Returns a note, raises on failure."""
+        c = self.sb()
+        if not c: raise RuntimeError('supabase unavailable')
+        src = 'C&F Calendly booking ' + datetime.datetime.now(BERLIN).strftime('%Y-%m-%d')
+        li = 'https://www.linkedin.com/in/' + lid
+        name = re.sub(r'\s*\(no lead match\)$', '', row[0])
+        email, site, phone = row[1] if '@' in row[1] else None, dom(row[2]) or None, row[5] or None
+        comp = self.fact(lid).get('company') or None
+        cur = c.cursor()
+        cur.execute("""update ocean_leads set crazeandfriends_status = 'meeting booked',
+                          email = coalesce(nullif(email, ''), %(email)s), person_phone = coalesce(nullif(person_phone, ''), %(pp)s),
+                          company_phone = coalesce(nullif(company_phone, ''), %(cp)s), domain = coalesce(nullif(domain, ''), %(site)s),
+                          matched_sources = case when coalesce(matched_sources, '') like %(like)s then matched_sources else concat_ws(', ', nullif(matched_sources, ''), %(src)s) end
+                        where substring(lower(person_linkedin) from 'linkedin\\.com/in/([^/?#]+)') = %(lid)s returning id""",
+                    {'email': email, 'pp': phone if phone_is_mobile else None, 'cp': None if phone_is_mobile else phone, 'site': site,
+                     'like': '%' + src + '%', 'src': src, 'lid': lid.lower()})
+        ids = [r[0] for r in cur.fetchall()]
+        if ids: return 'supabase: meeting booked on id %s' % ids
+        cur.execute("""insert into ocean_leads (person_linkedin, person_name, company, domain, email, person_phone, company_phone, crazeandfriends_status, matched_sources)
+                       values (%s, %s, %s, %s, %s, %s, %s, 'meeting booked', %s) returning id""",
+                    (li, name, comp, site, email, phone if phone_is_mobile else None, None if phone_is_mobile else phone, src))
+        return 'supabase: inserted id %s, meeting booked' % cur.fetchone()[0]
+
     def fact(self, lid):
         """one merged view of a lead: cf_leads (deck) + HeyReach (email, location)."""
         a, b = self.leads.get(lid) or {}, self.hr().get(lid) or {}
         return {'id': lid, 'name': a.get('name') or b.get('name') or lid, 'company': a.get('company') or b.get('company') or '', 'website': a.get('website') or '',
                 'slug': a.get('slug') or '', 'emails': b.get('emails') or [], 'location': b.get('location') or '', 'cc': b.get('cc') or '',
-                'sender': a.get('sender') or b.get('sender') or '', 'msg_sent': b.get('msg_sent', False), 'connected': b.get('connected', False)}
+                'sender': a.get('sender') or b.get('sender') or '', 'msg_sent': b.get('msg_sent', False), 'connected': b.get('connected', False),
+                'company_url': b.get('company_url') or '', 'position': b.get('position') or ''}
 
     def all_ids(self): return list(dict.fromkeys(list(self.leads) + list(self.hr())))
 
@@ -552,12 +611,15 @@ def prospeo(data):
     mob, em = person.get('mobile') or {}, person.get('email') or {}
     return {'mobile': (mob.get('mobile_international') or '').strip() if mob.get('revealed') else '',
             'hq': ((comp.get('phone_hq') or {}).get('phone_hq_international') or '').strip(),
-            'email': (em.get('email') or '').strip() if em.get('revealed') and '@' in (em.get('email') or '') else '', 'raw': out.get('error') or ''}
+            'email': (em.get('email') or '').strip() if em.get('revealed') and '@' in (em.get('email') or '') else '', 'raw': out.get('error') or '',
+            'website': (comp.get('website') or '').strip(), 'company_linkedin': (comp.get('linkedin_url') or comp.get('linkedin') or '').strip(),
+            'linkedin': (person.get('linkedin_url') or person.get('linkedin') or '').strip()}
 
 
-def find_contact(st, linkedin, email, name, website, company):
-    """Waterfall for one Meetings row: LinkedIn URL -> work email -> name + company website. Personal mobile wins, company HQ line is the fallback.
-    Result cached in the state file per lead (LinkedIn URL, else email) so a miss costs at most one round every PHONE_RETRY_DAYS days."""
+def prospeo_lead(st, linkedin, email, name, website, company):
+    """Prospeo waterfall for one person: LinkedIn URL -> work email -> name + company website. Personal mobile wins, the company HQ line is the
+    fallback. Cached in the state file per lead (LinkedIn URL, else email, else name) so a miss costs one round every PHONE_RETRY_DAYS days;
+    a hit is final. Returns {phone, how, email, website, company_linkedin, linkedin}."""
     ck = (linkedin or email or name).lower().rstrip('/')
     cache = st.setdefault('phones', {})
     c = cache.get(ck)
@@ -568,48 +630,105 @@ def find_contact(st, linkedin, email, name, website, company):
     parts = (name or '').split()
     site = dom(website or '') or (email.split('@')[-1] if email and email.split('@')[-1].lower() not in FREEMAIL else '')
     if len(parts) >= 2 and site: attempts.append({'first_name': parts[0], 'last_name': parts[-1], 'company_website': 'https://' + site, **({'company_name': company} if company else {})})
-    res = {'at': time.time(), 'phone': '', 'how': 'none', 'email': '', 'tried': len(attempts)}
+    res = {'at': time.time(), 'phone': '', 'how': 'none', 'email': '', 'website': '', 'company_linkedin': '', 'linkedin': '', 'tried': len(attempts)}
     hq = ''
     for data in attempts:
         o = prospeo(data)
-        hq = hq or o['hq']; res['email'] = res['email'] or o['email']
+        hq = hq or o['hq']
+        for k in ('email', 'website', 'company_linkedin', 'linkedin'): res[k] = res[k] or o.get(k, '')
         if o['mobile']: res.update(phone=o['mobile'], how='mobile via ' + list(data)[0]); break
     if not res['phone'] and hq: res.update(phone=hq, how='company HQ line')
     cache[ck] = res
-    P.say('prospeo contact for', name, '->', res['phone'] or 'no phone', '(%s)' % res['how'], ('email ' + res['email']) if res['email'] else '')
+    P.say('prospeo for', name, '->', res['phone'] or 'no phone', '(%s)' % res['how'], ('email ' + res['email']) if res['email'] else '')
     return res
 
 
-def fill_contact(st, row):
-    """Meetings row (A:N list) -> adds phone (F) and, when B is empty, the email Prospeo returned. Internal rows and rows that already have a phone are left alone."""
-    if row[5] or row[0].startswith('INTERNAL') or not (row[3] or row[1] or row[0]): return False
+def enrich_row(ctx, row, lid=None):
+    """Fills every empty cell of a Meetings row (A:N) from what we already know, then Prospeo. B email, C website, D LinkedIn, E company LinkedIn,
+    F phone. Sources in order: what Calendly put in the row, the HeyReach lead profile, the deck lead map, Supabase ocean_leads, Prospeo.
+    Phone: personal mobile (Supabase person_phone, Prospeo mobile) > company line (Prospeo HQ, Supabase company / imprint phone). Prospeo is only
+    asked when the phone is still missing. Filled cells are never overwritten. Returns True when a cell changed."""
+    if row[0].startswith('INTERNAL') or not (row[3] or row[1] or row[0]): return False
+    if not lid and row[3]:
+        m = re.search(r'linkedin\.com/in/([^/?#]+)', row[3], re.I); lid = P.requote(m.group(1)) if m else None
+    before = list(row)
+    hr = (ctx.hr().get(lid) or {}) if lid else {}
+    cf = (ctx.leads.get(lid) or {}) if lid else {}
+    sb = ctx.sb_lead(lid, row[1] if '@' in row[1] else '')
     name = re.sub(r'\s*\(no lead match\)$', '', row[0])
-    r = find_contact(st, row[3], row[1], name, row[2], '')
-    changed = False
-    if r['phone']: row[5] = r['phone']; changed = True
-    if not row[1] and r['email']: row[1] = r['email']; changed = True
-    return changed
+
+    def put(i, *vals):
+        if not row[i]: row[i] = next((str(v).strip() for v in vals if v and str(v).strip()), '')
+    put(1, *(hr.get('emails') or []), sb.get('email'))
+    site = cf.get('website') or sb.get('website') or (row[1] if row[1] and '@' in row[1] and not is_free(row[1]) else '')
+    put(2, ('https://' + dom(site)) if dom(site) else '')
+    put(3, ('https://www.linkedin.com/in/%s/' % lid) if lid else '')
+    put(4, hr.get('company_url'), sb.get('company_linkedin'))
+    put(5, sb.get('person_phone'))
+    if not row[5]:
+        pr = prospeo_lead(ctx.st, row[3], row[1], name, row[2], hr.get('company') or cf.get('company') or sb.get('company') or '')
+        put(5, pr.get('phone')); put(1, pr.get('email')); put(2, pr.get('website')); put(3, pr.get('linkedin')); put(4, pr.get('company_linkedin'))
+    put(5, sb.get('company_phone'))
+    if not row[4] and not lid and row[3]:   # Prospeo found the LinkedIn profile of a no-match booker: the company page may be in Supabase after all
+        m = re.search(r'linkedin\.com/in/([^/?#]+)', row[3], re.I)
+        if m: put(4, ctx.sb_lead(P.requote(m.group(1))).get('company_linkedin'))
+    return row != before
+
+
+def phone_is_mobile(ctx, row):
+    """True when F holds a personal number (Calendly / Supabase person_phone / Prospeo mobile), False when it is a company line."""
+    for ck in ((row[3] or '').lower().rstrip('/'), (row[1] or '').lower()):
+        c = ctx.st.get('phones', {}).get(ck)
+        if c and c.get('phone') == row[5]: return c.get('how', '').startswith('mobile')
+    return True
 
 
 # ---------- a booked lead leaves the sequence (Thomas 2026-10-16: Talha Mahmood booked and was still InSequence, the tab showed 0 meetings) ----------
-def on_booked(ctx, lid):
-    """Once per lead (state 'acted'): StopLeadInCampaign in every campaign that has the lead (HeyReach shows Paused, no follow-up goes out)
-    and tag the lead "Meeting booked" in the HeyReach inbox (POST /lead/AddTags, piloted 2026-10-16). Failures are logged and retried next run."""
-    acted = ctx.st.setdefault('acted', {})
-    if acted.get(lid, {}).get('done'): return
-    url = 'https://www.linkedin.com/in/%s' % lid
-    key, ok, notes = ctx.hr_key(), True, []
+def on_booked(ctx, lid, row):
+    """Every step once per lead, each retried on the next run until it worked (state 'acted'[lid][step]):
+    stop: StopLeadInCampaign in the lead's campaign (HeyReach shows Paused / Finished, no follow-up goes out)
+    tag: "Meeting booked" on the lead in the HeyReach inbox (POST /lead/AddTags, piloted 2026-10-16)
+    sb: Supabase ocean_leads crazeandfriends_status = 'meeting booked' + phone / email gap-fill (added 2026-10-16, end-to-end capture)"""
+    a = ctx.st.setdefault('acted', {}).setdefault(lid, {})
+    if a.pop('done', False): a['stop'] = a['tag'] = True   # pre-2026-10-16 format: stop + tag were done, Supabase still open
+    if a.get('stop') and a.get('tag') and a.get('sb'): return
+    url, key, notes = 'https://www.linkedin.com/in/%s' % lid, ctx.hr_key(), []
     fact = ctx.hr().get(lid) or {}
-    for cid in ([fact['campaign']] if fact.get('campaign') else CAMPAIGNS_ALL):   # the lead's campaign when HeyReach knows it, else every one
-        try: P.hr('/campaign/StopLeadInCampaign', key, {'campaignId': cid, 'leadUrl': url}); notes.append('stopped in %s' % cid)
-        except Exception as e:
-            if 'HTTP Error 4' not in repr(e): ok = False   # a 4xx = the lead is not in that campaign, fine
-            notes.append('stop %s: %s' % (cid, repr(e)[:80]))
-    try: r = P.hr('/lead/AddTags', key, {'leadProfileUrl': url, 'tags': ['Meeting booked'], 'createTagIfNotExisting': True}); notes.append('tagged %s' % (r.get('newAssignedTags') or 'already'))
-    except Exception as e: ok = False; notes.append('tag: ' + repr(e)[:80])
-    acted[lid] = {'done': ok, 'at': time.time(), 'notes': notes}
+    if not a.get('stop'):
+        ok = True
+        for cid in ([fact['campaign']] if fact.get('campaign') else CAMPAIGNS_ALL):   # the lead's campaign when HeyReach knows it, else every one
+            try: P.hr('/campaign/StopLeadInCampaign', key, {'campaignId': cid, 'leadUrl': url}); notes.append('stopped in %s' % cid)
+            except Exception as e:
+                if 'HTTP Error 4' not in repr(e): ok = False   # a 4xx = the lead is not in that campaign, fine
+                notes.append('stop %s: %s' % (cid, repr(e)[:80]))
+        a['stop'] = ok
+    if not a.get('tag'):
+        try: r = P.hr('/lead/AddTags', key, {'leadProfileUrl': url, 'tags': ['Meeting booked'], 'createTagIfNotExisting': True}); notes.append('tagged %s' % (r.get('newAssignedTags') or 'already')); a['tag'] = True
+        except Exception as e: notes.append('tag: ' + repr(e)[:80])
+    if not a.get('sb'):
+        try: notes.append(ctx.sb_booked(lid, row, phone_is_mobile(ctx, row))); a['sb'] = True
+        except Exception as e: notes.append('supabase: ' + repr(e)[:120])
+    a['at'] = time.time(); a['notes'] = notes
     P.say('booked lead', lid, '->', '; '.join(notes))
-    if not ok: P.alert('booked lead %s: sequence stop or tag failed: %s' % (lid, '; '.join(notes)))
+    if not (a.get('stop') and a.get('tag') and a.get('sb')): P.alert('booked lead %s: a step failed, retried next run: %s' % (lid, '; '.join(notes)))
+
+
+def slack_booking(ctx, row, key):
+    """One Slack line per new booking in #meeting-booked-notifier (Thomas 2026-09-25: every client booking pings there), same channel and
+    token as the booking-tracker uses for the other clients. Once per invitee key (state 'slacked')."""
+    done = ctx.st.setdefault('slacked', [])
+    if key in done or row[0].startswith('INTERNAL'): return
+    tok = P.env('SLACK_USER_TOKEN')
+    if not tok: P.say('slack booking: SLACK_USER_TOKEN missing'); return
+    bits = [row[0], row[1], row[2], row[5] or 'no phone yet', 'meeting ' + row[6], row[11], row[12]]
+    text = '📅 Craze & Friends: new booking ' + ', '.join(b for b in bits if b) + '\nhttps://docs.google.com/spreadsheets/d/%s' % P.SHEET
+    try:
+        r = urllib.request.Request('https://slack.com/api/chat.postMessage', json.dumps({'channel': P.env('SLACK_BOOKING_CHANNEL') or 'C0BQ7TM6QGL', 'text': text}).encode(),
+                                   {'Content-Type': 'application/json; charset=utf-8', 'Authorization': 'Bearer ' + tok})
+        out = json.loads(urllib.request.urlopen(r, timeout=20).read().decode())
+        if out.get('ok'): done.append(key); P.say('slack: booking posted for', row[0])
+        else: P.say('slack booking failed:', out.get('error'))
+    except Exception as e: P.say('slack booking failed:', e)
 
 
 # ---------- Meetings tab ----------
@@ -632,7 +751,8 @@ def meet_row(ctx, res, inv, ev, start, key):
                '' if res['booker_is_lead'] else 'Booked by %s, %s' % (name, email), res['how'] + (', CHECK' if res['check'] else ''), '']
     else:
         row = [name + ' (no lead match)', email, '', '', '', phone, start, '', '', '', key, '', res['how'] + ', CHECK', '']
-    fill_contact(ctx.st, row)
+    try: enrich_row(ctx, row, res['lead'])
+    except Exception as e: P.say('enrich failed for', row[0], repr(e)[:120])   # the row still lands, empty cells are retried next run
     return row
 
 
@@ -663,16 +783,20 @@ def sync_meetings(sv, st, leads, tok):
         if key in have:
             rn, r = have[key]
             if r[6] != cell: updates.append({'range': 'Meetings!G%d' % rn, 'values': [[cell]]}); r[6] = cell
-            if fill_contact(st, r): updates.append({'range': 'Meetings!B%d:F%d' % (rn, rn), 'values': [r[1:6]]})
-            lid = name_of.get(norm(r[13])) if r[13] else next((k for k in leads if r[3].rstrip('/').lower().endswith('/in/' + k.lower())), None)
-            if active and lid and leads[lid].get('slug'): booked[leads[lid]['slug']] = start
-            if active and lid: on_booked(ctx, lid)
+            lid = name_of.get(norm(r[13])) if r[13] else next((k for k in ctx.all_ids() if r[3].rstrip('/').lower().endswith('/in/' + k.lower())), None)
+            try:
+                if enrich_row(ctx, r, lid): updates.append({'range': 'Meetings!B%d:F%d' % (rn, rn), 'values': [r[1:6]]})
+            except Exception as e: P.say('enrich failed for', r[0], repr(e)[:120])   # Prospeo 429 etc: the row is retried next run
+            if active and lid and (leads.get(lid) or {}).get('slug'): booked[leads[lid]['slug']] = start
+            if active and lid: on_booked(ctx, lid, r)
+            if active: slack_booking(ctx, r, key)
             continue
         res = resolve(ctx, inv, ev)
         row = meet_row(ctx, res, inv, ev, cell, key)
         new.append(row); have[key] = (None, row)
         if active and res['lead'] and (leads.get(res['lead']) or {}).get('slug'): booked[leads[res['lead']]['slug']] = start
-        if active and res['lead']: on_booked(ctx, res['lead']); st['perf_refresh'] = True
+        if active and res['lead']: on_booked(ctx, res['lead'], row); st['perf_refresh'] = True
+        if active: slack_booking(ctx, row, key)
         P.say('booking', inv.get('name'), inv.get('email'), start, '->', row[0], '|', res['how'])
     if updates: sv.values().batchUpdate(spreadsheetId=P.SHEET, body={'valueInputOption': 'RAW', 'data': updates}).execute()
     if new: sv.values().append(spreadsheetId=P.SHEET, range='Meetings!A1', valueInputOption='RAW', insertDataOption='INSERT_ROWS', body={'values': new}).execute()
