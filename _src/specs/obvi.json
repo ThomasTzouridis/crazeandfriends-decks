@@ -1,0 +1,59 @@
+{
+ "slug": "obvi",
+ "company": "Obvi",
+ "full_name": "Ankit Patel",
+ "logo": "obvi.png",
+ "shot": "obvi.jpg",
+ "shot_caption": "myobvi.com",
+ "saw_lines": [
+  "Shoppers of a weight loss supplement compare cravings, energy and shipping before they add it to the cart.",
+  "So the sale is won or lost in the first line, where a new buyer checks the offer and shipping.",
+  "Your site shows 800,000 happy customers, yet 0 of 30 ads carry that number, so put it on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 17 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "15",
+    "open on units sold"
+   ],
+   [
+    "0",
+    "ads mention first order"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ]
+  ],
+  "points": [
+   [
+    "Site proof missing from ads",
+    "Your site shows 800,000 happy customers, yet 0 of 30 ads carry that number, so new buyers never see the scale. Put 800,000 on the creative and in line one, and open two ads with a review quote."
+   ],
+   [
+    "First order offer missing",
+    "Your site offers 20% off a first order, yet 0 of 30 ads mention it, so a first time buyer has no reason to act today. Put that offer in line one of three new ads and on the creative."
+   ],
+   [
+    "One opener carries the account",
+    "15 of 30 ads open on the units sold claim, so new buyers hear one pitch. Name 2 or 3 new angles, such as cravings, workout energy and beauty benefits, and run each against it."
+   ],
+   [
+    "Shipping missing from ads",
+    "Your site lists free shipping over $75, yet 0 of 30 ads mention shipping or delivery, so new buyers hesitate before clicking. Answer it in the first line of ads for new buyers, stating free shipping over $75 plainly."
+   ]
+  ],
+  "images": [
+   "obvi_1.jpg",
+   "obvi_2.jpg",
+   "obvi_3.jpg"
+  ]
+ },
+ "ads_1": "New angles for Collagenic Burn, with the first order offer in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok, Twitter and YouTube"
+}
