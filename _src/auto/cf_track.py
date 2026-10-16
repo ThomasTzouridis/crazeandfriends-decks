@@ -770,7 +770,7 @@ def report(st, issues):
 
 
 def status_tab(sv, meta, st, failed):
-    """Status tab of the tracking sheet, four lines a human reads at a glance. The GitHub Actions watchdog reads the Mac's /jobok/cf_track instead."""
+    """Status tab of the tracking sheet, four lines a human reads at a glance. The reply-01 watchdog cron reads the Mac's /jobok/cf_track instead."""
     if not any(x['properties']['title'] == 'Status' for x in meta):
         sv.batchUpdate(spreadsheetId=P.SHEET, body={'requests': [{'addSheet': {'properties': {'title': 'Status', 'gridProperties': {'rowCount': 10, 'columnCount': 2}}}}]}).execute()
     now = time.time()
@@ -779,7 +779,7 @@ def status_tab(sv, meta, st, failed):
     rows = [['cf_track last successful run (Berlin)', ts(st['last_ok']) if st.get('last_ok') else ''],
             ['Last run', ts(now) + ((' FAILED: ' + repr(failed)[:150]) if failed else ' OK')],
             ['Open issues', ('%d: ' % len(issues) + '; '.join(e['text'] for e in issues.values()))[:500] if issues else 'none'],
-            ['Cadence', 'every 4 h on the MacBook (mac-hub job cf_track), watchdog: GitHub Actions aios / cf-track-watchdog every 6 h']]
+            ['Cadence', 'every 4 h on the MacBook (mac-hub job cf_track), watchdog: cron on Hetzner reply-01 every 6 h']]
     sv.values().update(spreadsheetId=P.SHEET, range='Status!A1:B4', valueInputOption='RAW', body={'values': rows}).execute()
 
 
