@@ -20,7 +20,7 @@
 3. Performance tab column C: presentation open rate per messaged lead, per sender and Total.
   python3 _src/auto/cf_track.py
 """
-import os, sys, re, json, time, datetime, difflib, unicodedata, urllib.request, urllib.parse
+import os, sys, re, json, time, datetime, difflib, unicodedata, urllib.request, urllib.parse, urllib.error
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import cf_poll as P
 
@@ -530,6 +530,67 @@ def resolve(ctx, inv, ev):
     return {'lead': None, 'internal': False, 'how': 'no lead matches %s %s' % (name, email), 'check': True, 'booker_is_lead': False}
 
 
+# ---------- phone + email via Prospeo (Thomas 2026-10-16: every Meetings row carries the lead's number when Prospeo has one, fully automatic) ----------
+FREEMAIL = {'gmail.com', 'googlemail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'live.com', 'icloud.com', 'me.com', 'aol.com', 'proton.me', 'protonmail.com', 'gmx.de', 'gmx.net', 'web.de', 'yandex.com', 'mail.com'}
+PHONE_RETRY_DAYS = 30   # a miss is retried after this many days (Prospeo re-enrichment within 90 days is free, so a retry never double charges)
+
+
+def prospeo(data):
+    """POST /enrich-person with enrich_mobile (docs checked 2026-10-16: 10 credits per revealed mobile, email included free, 0 on a miss,
+    same record free again for 90 days). Returns {'mobile', 'hq', 'email', 'raw'}; mobile/email only when Prospeo revealed them."""
+    key = P.env('PROSPEO_API_KEY')
+    if not key: raise RuntimeError('PROSPEO_API_KEY missing in .env')
+    r = urllib.request.Request('https://api.prospeo.io/enrich-person', json.dumps({'enrich_mobile': True, 'data': data}).encode(),
+                               {'X-KEY': key, 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0'})
+    try:
+        out = json.loads(urllib.request.urlopen(r, timeout=60).read().decode())
+    except urllib.error.HTTPError as e:
+        body = e.read().decode(errors='replace')[:300]
+        if e.code == 429: raise   # rate or daily cap: stop this run, next run retries
+        P.say('prospeo %s %s -> HTTP %s %s' % (list(data), list(data.values()), e.code, body)); return {'mobile': '', 'hq': '', 'email': '', 'raw': body}
+    person, comp = out.get('person') or {}, out.get('company') or {}
+    mob, em = person.get('mobile') or {}, person.get('email') or {}
+    return {'mobile': (mob.get('mobile_international') or '').strip() if mob.get('revealed') else '',
+            'hq': ((comp.get('phone_hq') or {}).get('phone_hq_international') or '').strip(),
+            'email': (em.get('email') or '').strip() if em.get('revealed') and '@' in (em.get('email') or '') else '', 'raw': out.get('error') or ''}
+
+
+def find_contact(st, linkedin, email, name, website, company):
+    """Waterfall for one Meetings row: LinkedIn URL -> work email -> name + company website. Personal mobile wins, company HQ line is the fallback.
+    Result cached in the state file per lead (LinkedIn URL, else email) so a miss costs at most one round every PHONE_RETRY_DAYS days."""
+    ck = (linkedin or email or name).lower().rstrip('/')
+    cache = st.setdefault('phones', {})
+    c = cache.get(ck)
+    if c and (c.get('phone') or time.time() - c.get('at', 0) < PHONE_RETRY_DAYS * 86400): return c
+    attempts = []
+    if linkedin: attempts.append({'linkedin_url': linkedin})
+    if email and email.split('@')[-1].lower() not in FREEMAIL: attempts.append({'email': email})
+    parts = (name or '').split()
+    site = dom(website or '') or (email.split('@')[-1] if email and email.split('@')[-1].lower() not in FREEMAIL else '')
+    if len(parts) >= 2 and site: attempts.append({'first_name': parts[0], 'last_name': parts[-1], 'company_website': 'https://' + site, **({'company_name': company} if company else {})})
+    res = {'at': time.time(), 'phone': '', 'how': 'none', 'email': '', 'tried': len(attempts)}
+    hq = ''
+    for data in attempts:
+        o = prospeo(data)
+        hq = hq or o['hq']; res['email'] = res['email'] or o['email']
+        if o['mobile']: res.update(phone=o['mobile'], how='mobile via ' + list(data)[0]); break
+    if not res['phone'] and hq: res.update(phone=hq, how='company HQ line')
+    cache[ck] = res
+    P.say('prospeo contact for', name, '->', res['phone'] or 'no phone', '(%s)' % res['how'], ('email ' + res['email']) if res['email'] else '')
+    return res
+
+
+def fill_contact(st, row):
+    """Meetings row (A:N list) -> adds phone (F) and, when B is empty, the email Prospeo returned. Internal rows and rows that already have a phone are left alone."""
+    if row[5] or row[0].startswith('INTERNAL') or not (row[3] or row[1] or row[0]): return False
+    name = re.sub(r'\s*\(no lead match\)$', '', row[0])
+    r = find_contact(st, row[3], row[1], name, row[2], '')
+    changed = False
+    if r['phone']: row[5] = r['phone']; changed = True
+    if not row[1] and r['email']: row[1] = r['email']; changed = True
+    return changed
+
+
 # ---------- Meetings tab ----------
 def chain_root(inv, by_uri):
     seen = set()
@@ -550,6 +611,7 @@ def meet_row(ctx, res, inv, ev, start, key):
                '' if res['booker_is_lead'] else 'Booked by %s, %s' % (name, email), res['how'] + (', CHECK' if res['check'] else ''), '']
     else:
         row = [name + ' (no lead match)', email, '', '', '', phone, start, '', '', '', key, '', res['how'] + ', CHECK', '']
+    fill_contact(ctx.st, row)
     return row
 
 
@@ -580,6 +642,7 @@ def sync_meetings(sv, st, leads, tok):
         if key in have:
             rn, r = have[key]
             if r[6] != cell: updates.append({'range': 'Meetings!G%d' % rn, 'values': [[cell]]}); r[6] = cell
+            if fill_contact(st, r): updates.append({'range': 'Meetings!B%d:F%d' % (rn, rn), 'values': [r[1:6]]})
             lid = name_of.get(norm(r[13])) if r[13] else next((k for k in leads if r[3].rstrip('/').lower().endswith('/in/' + k.lower())), None)
             if active and lid and leads[lid].get('slug'): booked[leads[lid]['slug']] = start
             continue
