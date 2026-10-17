@@ -1,0 +1,59 @@
+{
+ "slug": "mugler",
+ "company": "MUGLER",
+ "full_name": "Olivier Nhari-Bonnemoy",
+ "logo": "mugler.png",
+ "shot": "",
+ "shot_caption": "mugler.com",
+ "saw_lines": [
+  "Fragrance is picked by smell and by a name people already trust, then rebought for years by the same buyer.",
+  "So the sale is won in the first line of the ad, where a buyer either recognizes the scent or keeps scrolling.",
+  "Your 25 live ads show no proof number at all. Collect one real figure, such as review count or orders shipped, and lead the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 17 Oct 2026",
+  "stats": [
+   [
+    "25",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof"
+   ],
+   [
+    "12",
+    "different openings"
+   ],
+   [
+    "4",
+    "creator posts as ads"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 25 live ads shows a proof number, so a new buyer has no reason to trust the claim. Collect one figure, such as review count or orders shipped, and open the next batch with it on every creative."
+   ],
+   [
+    "Creator posts run as ads",
+    "4 of your 16 copy ads are creator posts run from the brand page. Buyers read that as a paid push and scroll past, losing the trust the creator built. Whitelist those four posts from the creator account and cut three new variations."
+   ],
+   [
+    "No offer in the ads",
+    "0 of your 16 copy ads mention an offer or discount, so a new buyer sees no reason to act today. Put one first order offer or a bundle in the opening line of three new ads, not the closing line."
+   ],
+   [
+    "Openers spread thin",
+    "Your 16 copy ads open with 12 different stories, and the biggest opens 3 ads. Buyers never remember one pitch, so no story sticks. Pick the two best openings and build the next batch from them, three ads each."
+   ]
+  ],
+  "images": [
+   "mugler_1.jpg",
+   "mugler_2.jpg",
+   "mugler_3.jpg"
+  ]
+ },
+ "ads_1": "Rebuild your two best openers as creative, each with a proof number",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
