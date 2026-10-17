@@ -1,0 +1,59 @@
+{
+ "slug": "tradeday",
+ "company": "TradeDay",
+ "full_name": "James Thorpe",
+ "logo": "tradeday.svg",
+ "shot": "tradeday.jpg",
+ "shot_caption": "tradeday.com",
+ "saw_lines": [
+  "Traders compare prop firms on price and evaluation rules, then pay again for a new account when one breaks.",
+  "So the sale is won in the first line, with the price and the offer. A trader who must read down to find the discount has already left.",
+  "Your site offers 55% off and accounts from $45, yet 0 of 17 ads mention it. Put that offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 17 Oct 2026",
+  "stats": [
+   [
+    "26",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "mention percent off"
+   ],
+   [
+    "5",
+    "open on one hook"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers 55% off and accounts from $45, yet 0 of 17 copy ads mention any discount. A trader has no reason to act today. Put the 55% off in the first line of three new ads and on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 17 copy ads carries a proof number, so claims stand on words alone. Traders check whether a firm pays, and one figure answers that. Collect one count, like orders shipped, and lead every new ad with it."
+   ],
+   [
+    "One opener leads the copy",
+    "5 of your 17 copy ads open on &ldquo;I&rsquo;ve withdrawn over $12,000,&rdquo; and the rest are single use. Skipping that line means meeting no second angle. Test two openers, one on the price objection and one on a trader&rsquo;s first week."
+   ],
+   [
+    "All video, no stills",
+    "All 26 of your live ads are video, so a shopper who watched one has no still to see. Make three images of a payout screen and an account page, and run them to people who already clicked."
+   ]
+  ],
+  "images": [
+   "tradeday_1.jpg",
+   "tradeday_2.jpg",
+   "tradeday_3.jpg"
+  ]
+ },
+ "ads_1": "Offer-led video opening with 55% off, tested against the withdrawal opener",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Twitter"
+}
