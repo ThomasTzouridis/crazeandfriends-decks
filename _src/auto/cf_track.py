@@ -769,18 +769,12 @@ def report(st, issues):
     if lines: P.alert('cf_track report, %d open\n' % len(issues) + '\n'.join(lines))
 
 
-def status_tab(sv, meta, st, failed):
-    """Status tab of the tracking sheet, four lines a human reads at a glance. The reply-01 watchdog cron reads the Mac's /jobok/cf_track instead."""
-    if not any(x['properties']['title'] == 'Status' for x in meta):
-        sv.batchUpdate(spreadsheetId=P.SHEET, body={'requests': [{'addSheet': {'properties': {'title': 'Status', 'gridProperties': {'rowCount': 10, 'columnCount': 2}}}}]}).execute()
-    now = time.time()
-    if not failed: st['last_ok'] = now
+def status_line(st, failed):
+    """Run summary into the job log only (Thomas 2026-10-17: no Status tab in any tracking sheet). The reply-01 watchdog reads /jobok/cf_track."""
+    if not failed: st['last_ok'] = time.time()
     issues = st.get('issues', {})
-    rows = [['cf_track last successful run (Berlin)', ts(st['last_ok']) if st.get('last_ok') else ''],
-            ['Last run', ts(now) + ((' FAILED: ' + repr(failed)[:150]) if failed else ' OK')],
-            ['Open issues', ('%d: ' % len(issues) + '; '.join(e['text'] for e in issues.values()))[:500] if issues else 'none'],
-            ['Cadence', 'every 4 h on the MacBook (mac-hub job cf_track), watchdog: cron on Hetzner reply-01 every 6 h']]
-    sv.values().update(spreadsheetId=P.SHEET, range='Status!A1:B4', valueInputOption='RAW', body={'values': rows}).execute()
+    P.say('status: last ok', ts(st['last_ok']) if st.get('last_ok') else '', '| open issues', ('%d: ' % len(issues) + '; '.join(e['text'] for e in issues.values()))[:500] if issues else 'none',
+          '| this run', 'FAILED: ' + repr(failed)[:150] if failed else 'OK')
 
 
 CRASH = os.path.join(P.ROOT, '_private', 'cf_track_crash.json')
@@ -920,8 +914,7 @@ def run():
     if st.pop('perf_refresh', False):   # a booking landed this run: the Performance tab's meeting rate must not wait for the 04:00 cf_perf job
         try: import cf_perf; cf_perf.main(); P.say('performance tab refreshed after booking')
         except Exception as e: P.say('cf_perf after booking failed:', repr(e))
-    try: status_tab(sv, meta, st, failed)
-    except Exception as e: P.say('status tab failed:', repr(e))
+    status_line(st, failed)
     json.dump(st, open(STATE, 'w', encoding='utf-8'))
     P.say('tracked decks:', len(st['slugs']), 'rows:', len(rows))
     if failed: raise failed
