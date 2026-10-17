@@ -1,0 +1,59 @@
+{
+ "slug": "sportspar",
+ "company": "Sportspar",
+ "full_name": "Aleksandr Borisenko",
+ "logo": "sportspar.svg",
+ "shot": "sportspar.jpg",
+ "shot_caption": "sportspar.de",
+ "saw_lines": [
+  "Sportswear shoppers decide on fit and price in seconds, then buy only when one product looks right on them.",
+  "So the sale is won in the first second of the scroll, with the image and opening line doing the selling.",
+  "Your 30 ads have no video, so shoot three short clips of each product worn and then run them against the Converse opener."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 17 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "video ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "16",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "No video in your ads",
+    "0 of 30 ads are video, so nobody sees a Converse or hummel product move. A still gives a shopper no reason to stop. Shoot three short clips of each product worn, then run them against the Converse opener."
+   ],
+   [
+    "No proof in your ads",
+    "None of your 30 ads shows a number buyers can check, like reviews or orders shipped. Strangers need that to trust a new shop, so they leave. Lead the next batch with one real count in line one of each creative."
+   ],
+   [
+    "No new buyer offer",
+    "Your 27 copy ads push product markdowns, not a reason for a first time buyer to act now. Give new buyers one first order offer or a bundle, and put it in line one of the next three ads."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 27 copy ads use 16 openings, and the biggest opens only 3. Spread this thin, no hook gets repeated enough to learn from. Pick the two best, Converse and bench fleece, and build the next batch from them."
+   ]
+  ],
+  "images": [
+   "sportspar_1.jpg",
+   "sportspar_2.jpg",
+   "sportspar_3.jpg"
+  ]
+ },
+ "ads_1": "Short product video clips, tested against the Converse wow deal hook",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
