@@ -1,7 +1,5 @@
 # craze&friends deck automation, the SOP (v2.2, the only version)
 
-> **SOP:** `C:\Users\Thomas\Desktop\SOPs\deck-outreach-tracking-booking\SKILL.md` (since 2026-10-17; the generic deck outreach, tracking and booking SOP for any client, this README is Appendix D there verbatim; procedure changes go into the SOP first, C&F specifics stay here).
-
 One personalized deck per lead, built from data, with exactly ONE Haiku call. Everything else is script.
 Measured: Primal Pastures 21,597, Porter Road 19,379, The Stationery Studio 17,961 tokens. Average ~19.6k per deck.
 Every claim on those three decks was checked by hand against the site and every live ad: 0 false claims.
