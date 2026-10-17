@@ -1,0 +1,59 @@
+{
+ "slug": "rosendahl-design-us",
+ "company": "Rosendahl Design US",
+ "full_name": "Thomas Miang Perez",
+ "logo": "rosendahl-design-us.png",
+ "shot": "rosendahl-design-us.jpg",
+ "shot_caption": "rosendahl.com",
+ "saw_lines": [
+  "Design buyers replace a piece only for a gift or a move, so each new buyer is a rare first sale.",
+  "So the sale is won in the first line, where a new buyer checks shipping and price before clicking.",
+  "Your site offers 40% off Kähler Colore, but 0 of 8 ads mention it. Put that offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 17 Oct 2026",
+  "stats": [
+   [
+    "8",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads show proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from ads",
+    "Your site offers 40% off Kähler Colore, but 0 of 8 ads mention it or any offer, so new buyers have no reason to act. Put the 40% offer in the first line of three new ads."
+   ],
+   [
+    "Shipping question goes unanswered",
+    "Your site gives delivery in 2 to 5 business days and free shipping from € 89, yet 0 of 8 ads mention either. Buyers pause on wait times before clicking. Open new-buyer ads with both facts in line one."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 8 ads shows a proof number, so a new buyer has no count to trust before clicking. Collect one real figure, such as review count or orders shipped, and lead the next batch with it."
+   ],
+   [
+    "Every ad is brand new",
+    "All 8 ads started within the last 17 days, so none has been kept long enough to build from. Keep one as the base and build three variations of it, changing only the opening line and the offer."
+   ]
+  ],
+  "images": [
+   "rosendahl-design-us_1.jpg",
+   "rosendahl-design-us_2.jpg",
+   "rosendahl-design-us_3.jpg"
+  ]
+ },
+ "ads_1": "Offer-led creative for Kähler Colore, with delivery terms in the first line",
+ "soc_1": "Brand social strategy across Facebook and Instagram"
+}
