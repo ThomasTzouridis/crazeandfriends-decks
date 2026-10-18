@@ -1,0 +1,59 @@
+{
+ "slug": "frost-buddy",
+ "company": "Frost Buddy",
+ "full_name": "Brock Mammoser",
+ "logo": "frost-buddy.png",
+ "shot": "frost-buddy.jpg",
+ "shot_caption": "frostbuddy.com",
+ "saw_lines": [
+  "Drinkware buyers ask one thing first, will it keep ice cold all day, then they buy again for a new design.",
+  "So the sale is won in line one, where a buyer asking how it arrives either gets an answer or scrolls past.",
+  "Your site offers 15% off, yet 0 of 26 ads mention it, so put the offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 18 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ad bodies with proof"
+   ],
+   [
+    "4",
+    "Shop now ads hit homepage"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from ads",
+    "Your site offers 15% off, yet 0 of 26 ads mention percent off, so new buyers get no reason to act. Put the 15% off offer in the first line of three new ads and on the creative."
+   ],
+   [
+    "Shipping question goes unanswered",
+    "Your site answers shipping questions, yet 0 of 30 ads mention shipping or delivery, so a buyer asking about arrival gets no answer. Lead new buyer ads with the free shipping offer over $70 in line one."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 26 ad bodies carry a proof number, and the 30,000+ reviews sit only in description lines, so readers see no number. Collect a figure, such as orders shipped or a customer count, and open three new ads with it."
+   ],
+   [
+    "Shop now lands on homepage",
+    "Four Shop now ads send buyers to the homepage, not the product they show, so the click lands on a general page. Point each to the product or collection its creative shows, such as the Universal Buddy for can cooler ads."
+   ]
+  ],
+  "images": [
+   "frost-buddy_1.jpg",
+   "frost-buddy_2.jpg",
+   "frost-buddy_3.jpg"
+  ]
+ },
+ "ads_1": "Offer and shipping led creative for new buyers, tested against the can cooler hook",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok"
+}
