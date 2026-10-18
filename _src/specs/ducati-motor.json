@@ -1,0 +1,59 @@
+{
+ "slug": "ducati-motor",
+ "company": "Ducati Motor",
+ "full_name": "Alberto Strada",
+ "logo": "ducati-motor.png",
+ "shot": "",
+ "shot_caption": "ducati.com",
+ "saw_lines": [
+  "Motorcycle buyers pick a bike by how it rides, then check the payment plan and trade-in before visiting a dealer.",
+  "So the sale turns on the offer, and your ads leave it out, so a new rider has no reason to act.",
+  "Your site offers subscribe and save, yet 0 of 28 ads mention it. Put that offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 18 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention the offer"
+   ],
+   [
+    "0",
+    "ads with proof"
+   ],
+   [
+    "7",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers subscribe and save, yet 0 of 28 ads mention it or any offer. A new rider has no reason to act today. Open three new ads on subscribe and save, with the offer printed on the creative."
+   ],
+   [
+    "Subscription never advertised",
+    "The site runs subscribe and save, yet 0 of 30 ads mention a subscription, so repeat buyers get no prompt to save on refills. Run two retention ads aimed at past buyers, with subscription saving as the headline."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 28 ads carry a proof number, so a rider scanning a feed has nothing concrete to trust. Collect one real figure, such as a review count or orders shipped, and open the next batch with it on the creative."
+   ],
+   [
+    "Winners not built on",
+    "7 ads have run 60 days or more, yet none of the 23 newer ads reuses a winner&rsquo;s opening line. Build the next three ads as variations of the oldest winner, keeping its opening line and swapping in subscribe and save."
+   ]
+  ],
+  "images": [
+   "ducati-motor_1.jpg",
+   "ducati-motor_2.jpg",
+   "ducati-motor_3.jpg"
+  ]
+ },
+ "ads_1": "Subscribe and save openers for Desmo450 MX, built on its winning first line",
+ "soc_1": "Brand social strategy across Facebook, Instagram, X and Youtube"
+}
