@@ -1,0 +1,59 @@
+{
+ "slug": "akris",
+ "company": "Akris",
+ "full_name": "Koch Mario",
+ "logo": "akris.png",
+ "shot": "akris.jpg",
+ "shot_caption": "akris.com",
+ "saw_lines": [
+  "A luxury coat or handbag is a considered buy, so shoppers check fabric, fit and delivery before they commit.",
+  "So the delivery answer and the offer must sit in the first line, since most shoppers never scroll to the close.",
+  "Your site lists 60% off, yet 0 of 30 ads mention percent off or any offer. Put the offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 18 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention percent off"
+   ],
+   [
+    "10",
+    "ads share one copy"
+   ],
+   [
+    "0",
+    "ads carry a proof number"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site lists 60% off, yet 0 of 30 ads mention percent off or any offer, so a new buyer has no reason to act today. Put the offer in the first line of three new ads and on the creative."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your FAQ answers shipping cost, yet 0 of 30 ads mention shipping or delivery, so a first time buyer must leave the ad to learn the cost. Open three ads for new buyers with the shipping answer in line one."
+   ],
+   [
+    "Same copy reused",
+    "One exact copy runs in 10 of 30 ads, so the same opening message repeats across your account and gives buyers little new to see. Keep that copy, but change the opening line and the creative in each of those ads."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 30 ads carry a proof number, so a first time buyer has nothing concrete to trust when they see the ad. Collect one number you can stand behind, like a review count, and lead three ads with it."
+   ]
+  ],
+  "images": [
+   "akris_1.jpg",
+   "akris_2.jpg",
+   "akris_3.jpg"
+  ]
+ },
+ "ads_1": "New opening lines with the 60% off offer, tested against the repeated collection story",
+ "soc_1": "Brand social strategy across Facebook, Instagram and YouTube"
+}
