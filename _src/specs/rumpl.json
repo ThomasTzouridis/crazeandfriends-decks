@@ -1,0 +1,59 @@
+{
+ "slug": "rumpl",
+ "company": "Rumpl",
+ "full_name": "Wylie Robinson",
+ "logo": "rumpl.png",
+ "shot": "rumpl.jpg",
+ "shot_caption": "rumpl.com",
+ "saw_lines": [
+  "People buy an outdoor blanket for one trip, then reorder when the next trip or a gift comes up.",
+  "So a first-time buyer decides in the opening line whether the blanket fits the trip and whether to act now.",
+  "Your site offers 15% off a first order, yet only 2 of 20 copy ads mention it, so put it in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 18 Oct 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "2",
+    "ads with first order"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "12",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "First order offer missing",
+    "Your site offers 15% off a first order, but only 2 of 20 copy ads mention it. A first-time buyer has no reason to act. Put the offer in the opening line of three new ads and on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 20 copy ads carries a proof number, so new buyers have nothing concrete to weigh against the price. Pick one real figure, such as orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 20 copy ads open with 12 different stories, and the biggest opens 4 of them. Spread this thin, no single story builds recognition, so each ad starts cold. Pick the two strongest stories and build the next batch from them."
+   ],
+   [
+    "One call to action",
+    "All 29 ads use the same Shop now button, so every viewer gets one ask, whether they are camping or buying a gift. Match the button to each page. Shop the Puffy for Puffy ads, Shop kids for the kids collection."
+   ]
+  ],
+  "images": [
+   "rumpl_1.jpg",
+   "rumpl_2.jpg",
+   "rumpl_3.jpg"
+  ]
+ },
+ "ads_1": "Trip-led creative opening with the first order offer, testing the two strongest openers",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
