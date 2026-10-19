@@ -1,0 +1,59 @@
+{
+ "slug": "rcl",
+ "company": "RCL",
+ "full_name": "Haley Rudolph",
+ "logo": "rcl.svg",
+ "shot": "rcl.jpg",
+ "shot_caption": "reitmans.com",
+ "saw_lines": [
+  "Women replace knits and coats every season, and they buy when the look is right and the price feels fair.",
+  "So the sale is won in the first line, when the season and price must show before a shopper scrolls past.",
+  "Your site leads with Up To 70% Off, yet 0 of 8 ads mention it. Open three new ads with that offer on the creative and in the first line."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 19 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention percent off"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "video ads"
+   ]
+  ],
+  "points": [
+   [
+    "Percent off missing from ads",
+    "Your site leads with Up To 70% Off, yet 0 of 8 ads mention it, so a new buyer has no reason to act. Open three new ads with 70% off on the creative and in the first line of copy."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site shows free shipping over $69, yet 0 of 30 ads mention shipping or delivery, so a new buyer cannot tell what it costs to get the order. Open three ads with free shipping over $69 in the first line."
+   ],
+   [
+    "Price never appears in ads",
+    "Your site shows prices from $15.12 to $43.92, yet 0 of 30 ads mention price, so shoppers have no cost to compare before they click. Lead one ad with styles starting at $19 and the $49 sweater dress."
+   ],
+   [
+    "Video is missing",
+    "None of your 30 ads is video, and 22 are catalog tiles, so buyers never see the knits or coats move. Shoot three short videos of the knits and coats being worn, and test each against a still ad."
+   ]
+  ],
+  "images": [
+   "rcl_1.jpg",
+   "rcl_2.jpg",
+   "rcl_3.jpg"
+  ]
+ },
+ "ads_1": "Knit and coat creative opening on 70% off, then free shipping over $69",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, X and YouTube"
+}
