@@ -1,0 +1,59 @@
+{
+ "slug": "zabka-polska",
+ "company": "Żabka Polska",
+ "full_name": "Adam PhD",
+ "logo": "zabka-polska.png",
+ "shot": "zabka-polska.jpg",
+ "shot_caption": "zabka.pl",
+ "saw_lines": [
+  "Nobody plans a cold drink at the till. They grab a familiar can on impulse, and the fridge decides it.",
+  "So the sale is won or lost in the first line of the ad, before the buyer scrolls past.",
+  "Your 30 ads carry no proof number. Collect one real figure, such as your review count, and lead three new ads with it on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 19 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "4",
+    "open on one opener"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "22",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a first time buyer has nothing to weigh before tapping. Collect one real figure, such as your review count, and lead three new ads with it on the creative."
+   ],
+   [
+    "One opener leads the copy",
+    "4 of your 16 copy ads open on &ldquo;goditi la serata senza pensieri&rdquo;, so most buyers see one angle only. Test two fresh openers against it, one on price and one on taste, and keep the one that runs longest."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 16 copy ads mention any offer or discount, so a buyer who is not sure yet has no reason to act today. Open three new ads with a first order offer or a bundle on the creative."
+   ],
+   [
+    "Winners not built on yet",
+    "22 ads have run 60 days or more, so you have proven winners. None of the 8 newer ads reuses a winner&rsquo;s opening line. Build three ads as variations of the oldest winner, changing only the price line."
+   ]
+  ],
+  "images": [
+   "zabka-polska_1.jpg",
+   "zabka-polska_2.jpg",
+   "zabka-polska_3.jpg"
+  ]
+ },
+ "ads_1": "Cold drink moments with a first order offer, tested against the evening opener",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
