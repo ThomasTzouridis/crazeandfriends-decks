@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """craze&friends deck poller. Runs on the Mac (mac-hub job cf_decks, every 6 h), checkout ~/cf-decks.
-HeyReach campaigns 649994-649998 -> leads who connected -> one deck per company slug (deck_auto.py, ONE Haiku call)
+HeyReach campaigns in CAMPAIGNS (5 original + 5 copy A + 5 copy B, 2026-10-20) -> leads who connected -> one deck per company slug (deck_auto.py, ONE Haiku call)
 -> git push (GitHub Pages). Every slug already resolves to the generic 404.html fallback, so a lead is never sent a dead link.
 Rules: a slug is built once; a hard copy failure is never retried (no second model call), it is alerted and the fallback stays;
 an infrastructure failure before the model call is retried on later runs, max 3 attempts.
@@ -12,7 +12,9 @@ import os, sys, re, json, time, shutil, subprocess, urllib.request, urllib.error
 HERE = os.path.dirname(os.path.abspath(__file__)); SRC = os.path.dirname(HERE); ROOT = os.path.dirname(SRC)
 HOME = os.path.expanduser('~')
 ADS = os.path.join(HOME, 'ads_ecom')
-CAMPAIGNS = [649994, 649995, 649996, 649997, 649998]
+CAMPAIGNS = [649994, 649995, 649996, 649997, 649998,                      # original ecom campaigns (Ognjen, Veljko, Jovana, Djordje, Iva), keep running for already contacted leads
+             668531, 668533, 668534, 668535, 668536,                      # IMPACT copy A (5k refund), same sender order, since 2026-10-20
+             668537, 668538, 668539, 668540, 668541]                      # IMPACT copy B (no 5k), same sender order; later campaign wins for a lead in two
 WS = 165608
 B = 'https://api.heyreach.io/api/public'
 STATE = os.path.join(ROOT, '_private', 'cf_poll_state.json')
@@ -21,7 +23,7 @@ CONNECTED = re.compile(r'(?i)accept|^connected|already')
 NOT_CONNECTED = {'None', 'ConnectionSent', 'ConnectionRequested', 'Pending'}
 MAX_ATTEMPTS = 3
 PER_RUN = 40            # decks per run (runs every 6h, message 1 is 24h after the accept), the rest waits for the next run
-LISTS = dict(zip(CAMPAIGNS, [1013964, 1013965, 1013966, 1013967, 1013968]))  # campaign -> its lead list (carries the URL custom field)
+LISTS = dict(zip(CAMPAIGNS, [1013964, 1013965, 1013966, 1013967, 1013968, 1042168, 1042172, 1042175, 1042178, 1042183, 1042170, 1042173, 1042176, 1042179, 1042186]))  # campaign -> its lead list (carries the URL custom field)
 SHEET = '1ZJp5PxD40R43vZRSMHY7KCYsBsjU3l-V7-Ao8Qqxb2U'  # "Craze&Friends | Meetings & Tracking"
 TAB = 'Presentation Log'   # ONE tab, one row per lead who CONNECTED BACK (never the unconnected campaign leads). Auto columns A:AC are rewritten every run, manual columns AD:AK are never touched.
 AUTO_HDR = ['Lead', 'Company', 'Sender', 'Campaign', 'LinkedIn id', 'Connection status (HeyReach)', 'Connected', 'First seen connected', 'Message 1 due (about)',

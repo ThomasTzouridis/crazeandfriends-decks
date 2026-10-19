@@ -112,7 +112,9 @@ def main():
         data.append({'range': '%s!D%d:F%d' % (TAB, r, r), 'values': [v[1:]]})
         log.append((name, v, s and {k: s[k] for k in ('connectionsSent', 'connectionsAccepted', 'totalMessageStarted', 'totalMessageReplies', 'autoTaggedInterested')}))
     # Copy tab: one row per copy, C:F = the same 4 rates over the campaigns that send that copy (COPIES maps a phrase in column A to campaigns)
-    copies = {'ecom + presentation': ('ecom', ecom_camps)}
+    copies = {'ecom + presentation': ('ecom', [649994, 649995, 649996, 649997, 649998]),   # the 5 original ecom campaigns
+              'impact a': ('ecom', [668531, 668533, 668534, 668535, 668536]),            # IMPACT copy A, 5k refund (2026-10-20)
+              'impact b': ('ecom', [668537, 668538, 668539, 668540, 668541])}            # IMPACT copy B, no 5k (2026-10-20)
     ca = sv.values().get(spreadsheetId=P.SHEET, range='%s!A2:A80' % COPY_TAB).execute().get('values', [])
     allaids = list(accts)
     for r, cell in enumerate(ca, start=2):

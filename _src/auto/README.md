@@ -57,7 +57,7 @@ flush left with the title, 78cqw wide, 2.1cqw font, fewer lines (class `noshot`,
 placeholder image.
 
 ## Mac automation (live 2026-10-11)
-`cf_poll.py` on the Mac (`~/cf-decks`, mac-hub job `cf_decks`, every 6 h): HeyReach campaigns 649994 to 649998, leads with an accepted or
+`cf_poll.py` on the Mac (`~/cf-decks`, mac-hub job `cf_decks`, every 6 h): HeyReach campaigns in `CAMPAIGNS` (649994 to 649998 original, plus the IMPACT A 668531/668533 to 668536 and B 668537 to 668541 campaigns since 2026-10-20, lists in `LISTS`), leads with an accepted or
 existing connection -> `_private/cf_leads.json` (LinkedIn id -> slug, company, website; gitignored, copy it to the Mac after any lead change)
 -> `deck_auto.py` (runs fully local on the Mac: proxies, Playwright, Claude token from AIOS .env) -> commit + push. Message 1 goes out 1 day
 after the accept, the build takes about 3 minutes.
@@ -81,7 +81,7 @@ Google Sheet "Craze&Friends | Meetings & Tracking" (id 1ZJp5PxD40R43vZRSMHY7KCYs
   B connection back = connectionsAccepted / connectionsSent; C reply = totalMessageReplies / totalMessageStarted; D interested = autoTaggedInterested / totalMessageStarted;
   E meeting booking = (inbox conversations tagged "meeting..." OR Presentation Log AT Calendly booking, per lead) / totalMessageStarted. cf_track tags every booked lead "Meeting booked" itself; a manual tag in the inbox also counts.
 - Two sections, set by header cells in column A: "All Campaigns" (A1, rows 2 to 7, all campaigns of each sender) and the "Lists Ecom Leads ..." header (A10, rows 11 to 16, only the campaigns whose leads are 90%+ from HeyReach list 1013263, matched by profile URL). Under each header, rows match by the sender's full name (exactly as in HeyReach) plus "Total" (those senders added up as raw counts, then divided). Row 10 repeats the row 1 column headers.
-- Tab **Copy**: the same 4 rates in C:F per copy row, over the campaigns that send that copy. "Ecom + Presentation" = the 5 ecom campaigns. A new copy row needs one line in `copies` in `cf_perf.py` (phrase in column A -> campaigns). G onwards is manual. New sender: type the name in A.
+- Tab **Copy**: the same 4 rates in C:F per copy row, over the campaigns that send that copy. "Ecom + Presentation" = the 5 original ecom campaigns, "IMPACT A (5k refund)" and "IMPACT B (no 5k)" = the A/B campaigns of 2026-10-20. A new copy row needs one line in `copies` in `cf_perf.py` (phrase in column A -> campaigns). G onwards is manual. New sender: type the name in A.
 - F onwards (show up, closing, deal value, LTV) is manual, never touched. Empty cell = denominator 0 (nobody messaged yet).
 - Run by hand: `python3 _src/auto/cf_perf.py --dry` (print only) or without `--dry`.
 - Row order is stable (new connections are appended). Do not sort the tab, use a filter view.
