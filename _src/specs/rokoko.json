@@ -1,0 +1,59 @@
+{
+ "slug": "rokoko",
+ "company": "Rokoko",
+ "full_name": "Jakob Balslev",
+ "logo": "rokoko.png",
+ "shot": "rokoko.jpg",
+ "shot_caption": "rokoko.com",
+ "saw_lines": [
+  "Motion capture buyers compare suits, gloves and software for weeks, then stay with one kit because switching means relearning the pipeline.",
+  "So the sale is won in the first line of the ad, where a creator decides if the kit fits their pipeline.",
+  "Your site offers Save 30%, yet 0 of 9 ads mention it or any offer, so put the 30% offer in the first line of three new ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 19 Oct 2026",
+  "stats": [
+   [
+    "13",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention your offer"
+   ],
+   [
+    "5",
+    "ads share one opener"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from ads",
+    "Your site offers Save 30%, yet 0 of 9 ads mention it or any offer, so a new visitor has no reason to buy today. Put the 30% offer in the first line of three new ads, on the creative."
+   ],
+   [
+    "One opener carries the account",
+    "5 of 9 copy ads open on the same school line, so studios and indie creators scroll past. Name two or three new angles from your own product, like studio previews or robotics, and run each one against the school opener."
+   ],
+   [
+    "Same copy reused",
+    "The same copy runs in 5 of 9 ads, so buyers who see one ad see the same words again and tune out. Keep the copy, but change the opening line and the creative in each version."
+   ],
+   [
+    "No proof number in ads",
+    "None of the 13 ads shows a proof number, so a buyer has no reason to trust the claims. Collect one number, such as a review count or orders shipped, and lead the next batch with it on the creative."
+   ]
+  ],
+  "images": [
+   "rokoko_1.jpg",
+   "rokoko_2.jpg",
+   "rokoko_3.jpg"
+  ]
+ },
+ "ads_1": "Creative that opens on the 30% saving, tested against the educator hook",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter and YouTube"
+}
