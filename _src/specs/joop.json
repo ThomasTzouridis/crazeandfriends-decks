@@ -1,0 +1,59 @@
+{
+ "slug": "joop",
+ "company": "JOOP",
+ "full_name": "Jule Schwartz",
+ "logo": "joop.png",
+ "shot": "joop.jpg",
+ "shot_caption": "joop.com",
+ "saw_lines": [
+  "Fashion buyers check fit first, then ask how fast it arrives and whether a return is easy before they click.",
+  "So the sale is lost in the first line if delivery is not answered before the buyer clicks away.",
+  "Your site explains how orders ship, yet none of your 30 ads mention it. Put delivery in the first line of new ads for new buyers this week."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 19 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads with proof"
+   ],
+   [
+    "0",
+    "ads carry an offer"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping goes unanswered",
+    "Your site explains how orders ship, yet 0 of 30 ads mention shipping, so a new buyer must leave the ad to decide. Put delivery time and the country in the first line of new ads for new buyers."
+   ],
+   [
+    "No proof in the ads",
+    "None of your 30 ads shows a proof number, so a buyer sees a collection and no sign that others chose it. Collect a number, a review count or orders shipped, and open new ads with it on the image."
+   ],
+   [
+    "Creator posts run as brand",
+    "2 of 21 ads are creator posts run from the JOOP! brand page, so a shopper sees a brand ad where a personal recommendation should be. Whitelist them from the creator account and cut a few variations of each."
+   ],
+   [
+    "No offer in the ads",
+    "0 of 21 ads carry an offer or discount, so a new buyer has no reason to act today. Put a first order offer or a bundle on the creative of new ads and repeat it in the copy."
+   ]
+  ],
+  "images": [
+   "joop_1.jpg",
+   "joop_2.jpg",
+   "joop_3.jpg"
+  ]
+ },
+ "ads_1": "New season creative that answers delivery and opens with a first order offer",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
