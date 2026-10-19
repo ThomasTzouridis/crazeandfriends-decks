@@ -1,0 +1,59 @@
+{
+ "slug": "lapeyre",
+ "company": "Lapeyre",
+ "full_name": "David Omar",
+ "logo": "lapeyre.png",
+ "shot": "",
+ "shot_caption": "lapeyre.fr",
+ "saw_lines": [
+  "Nobody buys a kitchen or a door on impulse. People measure, compare quotes, then ask someone who fitted one before.",
+  "So the sale is won or lost early, where a buyer decides if your brand is worth a visit.",
+  "Your 30 ads carry no proof number, so buyers have no reason to trust you before clicking. Collect one real figure, like orders shipped, and open three new ads with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 19 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "16",
+    "catalog feed ads"
+   ],
+   [
+    "3",
+    "Shop now ads hit homepage"
+   ],
+   [
+    "0",
+    "ads with an offer"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 30 live ads carries a proof number, so new buyers have no reason to trust you before they click. Collect one real figure, like orders shipped, and open three new ads with it."
+   ],
+   [
+    "Catalog ads outnumber stories",
+    "16 of your 30 live ads are catalog feed ads with no story, so products appear with no reason to stop. Add three story ads on one project, such as a kitchen, to give the feed a reason to click."
+   ],
+   [
+    "Shop now lands on homepage",
+    "3 of your 9 Shop now ads send buyers to the homepage, so they must search for the item they clicked. Point each one to the page of the product it shows, such as the Pl&eacute;iade caisson or Opus WC."
+   ],
+   [
+    "No offer in ads",
+    "0 of your 14 written-copy ads mention an offer, so a new buyer has no reason to act today. Open three new ads with a first order offer or a bundle, so the reason to buy comes first."
+   ]
+  ],
+  "images": [
+   "lapeyre_1.jpg",
+   "lapeyre_2.jpg",
+   "lapeyre_3.jpg"
+  ]
+ },
+ "ads_1": "Kitchen and door story ads with a first order offer and one proof figure",
+ "soc_1": "Brand social strategy across Facebook and Instagram"
+}
