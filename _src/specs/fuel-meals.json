@@ -1,0 +1,59 @@
+{
+ "slug": "fuel-meals",
+ "company": "Fuel Meals",
+ "full_name": "Chris Thompson",
+ "logo": "fuel-meals.png",
+ "shot": "fuel-meals.jpg",
+ "shot_caption": "fuelmeals.com",
+ "saw_lines": [
+  "Meal delivery buyers want to know how the food arrives and stays safe before they risk a first order.",
+  "So the sale is lost in the ad, when a buyer hesitates on shipping and moves on before ordering.",
+  "Your site answers how it ships, yet 0 of 30 ads mention shipping. Open new buyer ads with the shipping answer and free shipping at 10+ meals."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 19 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "8",
+    "open on meal prep"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping goes unanswered",
+    "Your site answers how it ships, but 0 of 30 ads mention shipping or delivery, so a new buyer has no reason to order. Open new buyer ads with the shipping answer and free shipping at 10+ meals, in three variations."
+   ],
+   [
+    "Arrival goes unexplained",
+    "Your site explains how meals are packed, yet 0 of 30 ads show how the box arrives. Film a video of the box on a doorstep, with the meal ready in 3 minutes, so buyers picture delivery before they click."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a number that proves the meals work, so a buyer weighing a weekly plan has nothing to trust. Collect one figure, such as a review count or meals shipped, and open three ads with it."
+   ],
+   [
+    "One opener leads the account",
+    "8 of 21 copy ads open on one line, no time for meal prep, so the account leans heavily on one hook. Test two new openers, the 3 minute ready time and the 40 to 60g of protein, against it."
+   ]
+  ],
+  "images": [
+   "fuel-meals_1.jpg",
+   "fuel-meals_2.jpg",
+   "fuel-meals_3.jpg"
+  ]
+ },
+ "ads_1": "Shipping and box arrival up front, tested against the meal prep opener",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
