@@ -1,0 +1,59 @@
+{
+ "slug": "webbs",
+ "company": "Webb’s",
+ "full_name": "Paul Evans",
+ "logo": "webbs.png",
+ "shot": "webbs.jpg",
+ "shot_caption": "webbs.co.nz",
+ "saw_lines": [
+  "Collectors check provenance, condition and past sale prices before they trust a bid.",
+  "So trust is won in the first ad, with a proof number and an offer, before a collector enquires.",
+  "Your 30 ads carry no proof number, so collect one real figure, such as orders shipped, and put it in the first line of the next three ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 19 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "206",
+    "median words per ad"
+   ],
+   [
+    "0",
+    "ads mention an offer"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a new buyer has nothing to weigh the price against. Collect one real figure, such as orders shipped, and put it in the first line of the next three ads."
+   ],
+   [
+    "Creator posts run as ads",
+    "All 30 of your ads are creator posts run from the brand page. Viewers see a sponsored post, not your product. Whitelist them from the creator account and cut three variations with the brand on screen."
+   ],
+   [
+    "Copy runs too long",
+    "Your median ad runs 206 words and the longest runs 268, so the product sits below the fold for most viewers. Cut each new ad to two lines, the product and the offer, and drop everything after them."
+   ],
+   [
+    "No offer in ads",
+    "None of your 30 ads mention an offer or discount, so a first time buyer has no reason to act today. Put a first order offer or a bundle on line one of the next three ads."
+   ]
+  ],
+  "images": [
+   "webbs_1.jpg",
+   "webbs_2.jpg",
+   "webbs_3.jpg"
+  ]
+ },
+ "ads_1": "Creator video led by a first order offer and an orders shipped figure",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
