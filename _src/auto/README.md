@@ -80,7 +80,7 @@ Google Sheet "Craze&Friends | Meetings & Tracking" (id 1ZJp5PxD40R43vZRSMHY7KCYs
 - Automated columns are B:E ONLY, all-time totals straight from HeyReach `GetOverallStats`, overwritten every run (no per-day rows), real numbers in 0.0% format:
   B connection back = connectionsAccepted / connectionsSent; C reply = totalMessageReplies / totalMessageStarted; D interested = autoTaggedInterested / totalMessageStarted;
   E meeting booking = (inbox conversations tagged "meeting..." OR Presentation Log AT Calendly booking, per lead) / totalMessageStarted. cf_track tags every booked lead "Meeting booked" itself; a manual tag in the inbox also counts.
-- Two sections, set by header cells in column A: "All Campaigns" (A1, rows 2 to 7, all campaigns of each sender) and the "Lists Ecom Leads ..." header (A10, rows 11 to 16, only the campaigns whose leads are 90%+ from HeyReach list 1013263, matched by profile URL). Under each header, rows match by the sender's full name (exactly as in HeyReach) plus "Total" (those senders added up as raw counts, then divided). Row 10 repeats the row 1 column headers.
+- Four sections, set by header cells in column A: "All Campaigns" (A1, rows 2 to 7, all campaigns of each sender), the "Lists Ecom Leads ..." header (A11, rows 12 to 17, only the campaigns whose leads are 90%+ from HeyReach list 1013263, matched by profile URL), "IMPACT A (5k refund)" (A20, rows 21 to 26, campaigns 668531/668533 to 668536) and "IMPACT B (no 5k)" (A29, rows 30 to 35, campaigns 668537 to 668541), the last two since 2026-10-20; the A/B meeting count only includes leads of those campaigns. Under each header, rows match by the sender's full name (exactly as in HeyReach) plus "Total" (those senders added up as raw counts, then divided). Row 10 repeats the row 1 column headers.
 - Tab **Copy**: the same 4 rates in C:F per copy row, over the campaigns that send that copy. "Ecom + Presentation" = the 5 original ecom campaigns, "IMPACT A (5k refund)" and "IMPACT B (no 5k)" = the A/B campaigns of 2026-10-20. A new copy row needs one line in `copies` in `cf_perf.py` (phrase in column A -> campaigns). G onwards is manual. New sender: type the name in A.
 - F onwards (show up, closing, deal value, LTV) is manual, never touched. Empty cell = denominator 0 (nobody messaged yet).
 - Run by hand: `python3 _src/auto/cf_perf.py --dry` (print only) or without `--dry`.
@@ -153,7 +153,7 @@ else booked. Offline test harness with all rules: `%TEMP%\claude\...\scratchpad\
 - Meetings tab: one row per booking, A:G the lead (name, email, website, LinkedIn, company LinkedIn, phone, event date + "(canceled)"), K = root
   invitee URI (key), L = Booked by (if not the lead), M = Matched by (the rule sentence, "CHECK" when it is a best guess), N = Lead override (manual).
   H:J (Conversation, Outcome, $ Collected) stay manual. Header K1:N1 is kept current by the script.
-- Performance tab column C "Presentation open rate per messaged lead": per sender and Total, both sections. Messaged = Presentation Log J not empty/None;
+- Performance tab column C "Presentation open rate per messaged lead": per sender and Total, all four sections (IMPACT A/B count only the leads whose Presentation Log campaign D is an A/B campaign). Messaged = Presentation Log J not empty/None;
   opened = that lead's deck has at least 1 open. Blank until someone is messaged. cf_perf.py owns B and D:F, cf_track owns C only.
 
 **6. Moving parts.** Mac checkout ~/cf-decks, job wrapper `mac-hub/jobs/cf_track.py`, entry `cf_track` every 14400 s (timeout 1500) in
