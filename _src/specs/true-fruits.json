@@ -1,0 +1,59 @@
+{
+ "slug": "true-fruits",
+ "company": "true fruits",
+ "full_name": "Marco Knauf",
+ "logo": "true-fruits.svg",
+ "shot": "true-fruits.jpg",
+ "shot_caption": "true-fruits.com",
+ "saw_lines": [
+  "Juice buyers grab the bottle already in their fridge, then pick the same flavor again without reading the label.",
+  "So the sale is won or lost in the first line, where a buyer decides to try something new.",
+  "Your 18 ads carry no proof number, so collect one you can defend, like a review count or bottles shipped, and open three new ads with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 19 Oct 2026",
+  "stats": [
+   [
+    "18",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "12",
+    "different openings"
+   ],
+   [
+    "5",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 18 ads carries a proof number, so new buyers have no reason to trust an unfamiliar brand. Collect one number you can defend, like a review count or bottles shipped, and open three new ads with it."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 15 copy ads carry an offer, so a new buyer has no reason to act today. Put a first order offer in the opening line of three new ads, and keep it there in every variation."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 15 copy ads open with 12 different stories, and the biggest leads just 2 ads. Each new story starts cold, so none gets enough repeats to learn from. Build the next batch from the butter yellow and banana openings."
+   ],
+   [
+    "Winners need more variations",
+    "5 of your ads have run 60 days or longer, yet every new variation starts from zero. Build three more variations of the oldest winner, the butter yellow ad, with a new product shot."
+   ]
+  ],
+  "images": [
+   "true-fruits_1.jpg",
+   "true-fruits_2.jpg",
+   "true-fruits_3.jpg"
+  ]
+ },
+ "ads_1": "Butter yellow and banana hooks with one proof number and a first order offer",
+ "soc_1": "Brand social strategy across Instagram, Pinterest and TikTok"
+}
