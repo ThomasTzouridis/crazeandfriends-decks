@@ -1,0 +1,59 @@
+{
+ "slug": "aldous-bio",
+ "company": "Aldous Bio",
+ "full_name": "Antonio Pellón Huélamo",
+ "logo": "aldous-bio.png",
+ "shot": "aldous-bio.jpg",
+ "shot_caption": "aldousbio.com",
+ "saw_lines": [
+  "Supplement buyers choose by one goal, like sleep or skin, then reorder the same bottle every month without comparing again.",
+  "So the sale is won or lost in the first line, where buyers decide if the goal fits.",
+  "Your site shows review counts, yet 0 of 30 ads carry any of them. Put one review count on each creative and open two ads with a customer quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 19 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "4",
+    "ads share one opener"
+   ],
+   [
+    "0",
+    "ads with review numbers"
+   ],
+   [
+    "21",
+    "catalog feed ads"
+   ]
+  ],
+  "points": [
+   [
+    "Review numbers missing from ads",
+    "Your site shows reviews, yet 0 of 30 ads carry any review number, so a buyer weighing a supplement sees no review number before the click. Put a review count on each creative and open two ads with a customer quote."
+   ],
+   [
+    "One opener carries the account",
+    "Four of your nine copy ads open on &ldquo;los complementos alimenticios que necesitas&rdquo;, so buyers with any other goal scroll past. Write two openers on sleep, collagen or sports performance and test each against it."
+   ],
+   [
+    "The same copy repeats",
+    "One exact copy runs in 4 of 9 ads, so the same text repeats and buyers hear one pitch again and again. Keep that copy, change the opening line and creative in each, and test the four versions separately."
+   ],
+   [
+    "Mostly catalog ads, no story",
+    "21 of your 30 ads are catalog feed ads with no story, so the feed gives buyers no reason to stop. Add three story videos, one each on sleep, collagen and sports performance, that open with a customer question."
+   ]
+  ],
+  "images": [
+   "aldous-bio_1.jpg",
+   "aldous-bio_2.jpg",
+   "aldous-bio_3.jpg"
+  ]
+ },
+ "ads_1": "Review quotes and sleep, collagen and sports openers, replacing the shared line",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter and YouTube"
+}
