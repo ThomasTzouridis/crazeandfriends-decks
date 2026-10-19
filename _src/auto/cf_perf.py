@@ -5,8 +5,9 @@ Writes ONLY columns B and D:F of the tab "Performance" (C = presentation open ra
   C Reply rate per messaged lead    = totalMessageReplies / totalMessageStarted
   D Interested rate per messaged    = autoTaggedInterested / totalMessageStarted
   E Meeting booking rate per msged  = leads tagged "meeting..." in the HeyReach inbox OR with a Calendly booking in the Presentation Log (AT) / totalMessageStarted
-Two sections, set by header cells in column A: "All Campaigns" (A1, every campaign of each sender) and the header containing
-"Ecom Leads" (A10, only the campaigns whose leads come from HeyReach list 1013263, matched by profile URL). Under each header:
+Four sections, set by header cells in column A: "All Campaigns" (A1, every campaign of each sender), the header containing
+"Ecom Leads" (A11, only the campaigns whose leads come from HeyReach list 1013263, matched by profile URL), "IMPACT A" (A20, the five copy A
+campaigns, 5k refund) and "IMPACT B" (A29, the five copy B campaigns, no 5k; both added 2026-10-20). Under each header:
 one row per sender full name (match on name, new sender: type the name in A) and "Total" (those senders added up, raw counts).
 Tab "Copy": columns C:F (same 4 rates) for each copy row, over the campaigns that send it ("Ecom + Presentation" = the ecom campaigns;
 a new copy needs a line in `copies` in main()). F onwards is never touched.
@@ -20,6 +21,8 @@ import cf_poll as P
 ECOM_LIST = 1013263
 TAB = 'Performance'
 COPY_TAB = 'Copy'
+COPY_A = [668531, 668533, 668534, 668535, 668536]   # IMPACT copy A, 5k refund (2026-10-20), one campaign per sender
+COPY_B = [668537, 668538, 668539, 668540, 668541]   # IMPACT copy B, no 5k
 START = '2026-01-01T00:00:00Z'
 
 
@@ -52,20 +55,25 @@ def main():
     # campaigns of the ecom list: match each campaign's leads against list 1013263 by profile id
     ecom = {pid(i.get('profileUrl')) for i in pages(key, '/list/GetLeadsFromList', {'listId': ECOM_LIST})} - {None}
     camps = [c for c in pages(key, '/campaign/GetAll', {}) if c.get('status') not in ('DRAFT',)]
-    ecom_camps = []
+    ecom_camps, camp_leads = [], {}   # camp_leads: campaign id -> set of lead ids (scopes the meeting count of the A/B sections)
     for c in camps:
         ids = [pid((i.get('linkedInUserProfile') or {}).get('profileUrl')) for i in pages(key, '/campaign/GetLeadsFromCampaign', {'campaignId': c['id']})]
         ids = [x for x in ids if x]
+        camp_leads[c['id']] = set(ids)
         if ids and sum(x in ecom for x in ids) / len(ids) >= 0.9: ecom_camps.append(c['id'])
+    in_a = set().union(*(camp_leads.get(c, set()) for c in COPY_A))
+    in_b = set().union(*(camp_leads.get(c, set()) for c in COPY_B))
     # meetings = inbox conversations with a tag containing "meeting" (manual or auto tag), counted per sender account and ecom match
     # PLUS every Calendly booking cf_track matched to a lead (Presentation Log AT "Meeting booked (Calendly)", sender in C, lead id in E),
     # so a booking counts the moment it lands, tag or no tag (Thomas 2026-10-16: the tab showed 0 meetings while Talha Mahmood had booked).
     sv = P.sheets_svc()
-    ids = {'all': {}, 'ecom': {}}   # scope -> account id -> set of lead ids (dedupes a tagged AND booked lead)
+    ids = {'all': {}, 'ecom': {}, 'a': {}, 'b': {}}   # scope -> account id -> set of lead ids (dedupes a tagged AND booked lead)
     def add(acc, lid):
         if acc is None or not lid: return
         ids['all'].setdefault(acc, set()).add(lid)
         if lid in ecom: ids['ecom'].setdefault(acc, set()).add(lid)
+        if lid in in_a: ids['a'].setdefault(acc, set()).add(lid)
+        if lid in in_b: ids['b'].setdefault(acc, set()).add(lid)
     for cv in pages(key, '/inbox/GetConversationsV2', {'filters': {}}):
         pr = cv.get('correspondentProfile') or {}
         tags = [(t.get('name') if isinstance(t, dict) else str(t)) or '' for t in (pr.get('tags') or []) + (pr.get('autoTags') or [])]
@@ -82,7 +90,8 @@ def main():
         return [rate(s['connectionsAccepted'], s['connectionsSent']), rate(s['totalMessageReplies'], s['totalMessageStarted']),
                 rate(s['autoTaggedInterested'], s['totalMessageStarted']), rate(meetings, s['totalMessageStarted'])]
 
-    # The tab has sections. A section header in A ("All Campaigns" in A1, a cell containing "Ecom Leads" for the ecom list) sets the scope,
+    # The tab has sections. A section header in A ("All Campaigns" in A1, a cell containing "Ecom Leads" for the ecom list, "IMPACT A" / "IMPACT B"
+    # for the copy A / copy B campaigns) sets the scope,
     # the sender names below it get that scope's numbers, "Total" = those senders added up (raw counts, then divided).
     col_a = sv.values().get(spreadsheetId=P.SHEET, range='%s!A1:A80' % TAB).execute().get('values', [])
     by_name = {n: i for i, n in accts.items()}
@@ -91,11 +100,15 @@ def main():
         name = (cell[0] if cell else '').strip()
         if not name: continue
         low = name.lower()
-        camps_sc = ecom_camps if scope == 'ecom' else []
+        camps_sc = {'ecom': ecom_camps, 'a': COPY_A, 'b': COPY_B}.get(scope, [])
         if 'ecom leads' in low:
             scope, names_seen = 'ecom', []; continue
         if 'all campaigns' in low:
             scope, names_seen = 'all', []; continue
+        if 'impact a' in low:
+            scope, names_seen = 'a', []; continue
+        if 'impact b' in low:
+            scope, names_seen = 'b', []; continue
         if scope == 'ecom' and not ecom_camps and (name in by_name or low == 'total'):
             s, v = None, ['', '', '', '']
         elif name in by_name:
@@ -113,8 +126,8 @@ def main():
         log.append((name, v, s and {k: s[k] for k in ('connectionsSent', 'connectionsAccepted', 'totalMessageStarted', 'totalMessageReplies', 'autoTaggedInterested')}))
     # Copy tab: one row per copy, C:F = the same 4 rates over the campaigns that send that copy (COPIES maps a phrase in column A to campaigns)
     copies = {'ecom + presentation': ('ecom', [649994, 649995, 649996, 649997, 649998]),   # the 5 original ecom campaigns
-              'impact a': ('ecom', [668531, 668533, 668534, 668535, 668536]),            # IMPACT copy A, 5k refund (2026-10-20)
-              'impact b': ('ecom', [668537, 668538, 668539, 668540, 668541])}            # IMPACT copy B, no 5k (2026-10-20)
+              'impact a': ('a', COPY_A),                                                   # IMPACT copy A, 5k refund (2026-10-20)
+              'impact b': ('b', COPY_B)}                                                   # IMPACT copy B, no 5k (2026-10-20)
     ca = sv.values().get(spreadsheetId=P.SHEET, range='%s!A2:A80' % COPY_TAB).execute().get('values', [])
     allaids = list(accts)
     for r, cell in enumerate(ca, start=2):

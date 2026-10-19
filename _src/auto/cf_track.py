@@ -896,23 +896,34 @@ def run():
     sv.values().update(spreadsheetId=P.SHEET, range="'%s'!%s1" % (P.TAB, TRACK_COL), valueInputOption='RAW', body={'values': [TRACK_HDR] + rows}).execute()
     # Performance tab column C "Presentation open rate per messaged lead": leads whose message 1 (with the deck link) went out (Presentation Log J
     # not None) and whose deck has at least one open, per sender (column A name = Presentation Log sender) and Total. Decks exist only in the
-    # ecom campaigns, so both sections get the same numbers. Blank = nobody messaged yet.
+    # ecom campaigns, so "All Campaigns" and "Ecom Leads" get the same numbers; the "IMPACT A" / "IMPACT B" sections (2026-10-20) count only
+    # the leads whose Presentation Log campaign (D) is a copy A / copy B campaign. Blank = nobody messaged yet.
+    import cf_perf
     pl_rows = sv.values().get(spreadsheetId=P.SHEET, range="'%s'!C2:O" % P.TAB).execute().get('values', [])
-    per = {}
+    per = {}   # (scope, sender) -> [messaged, opened]
     for r in pl_rows:
         r = r + [''] * (13 - len(r))
         if r[7] in ('', 'None'): continue
-        a = counted(st['slugs'].get(r[12])); c = per.setdefault(r[0], [0, 0]); c[0] += 1; c[1] += 1 if a and a['opens'] else 0
+        a = counted(st['slugs'].get(r[12])); opened = 1 if a and a['opens'] else 0
+        cid = int(r[1]) if r[1].strip().isdigit() else 0
+        for sc in ['all'] + (['a'] if cid in cf_perf.COPY_A else []) + (['b'] if cid in cf_perf.COPY_B else []):
+            c = per.setdefault((sc, r[0]), [0, 0]); c[0] += 1; c[1] += opened
     rate = lambda m, o: ('%.1f%%' % (100.0 * o / m)) if m else ''
-    data = []
+    data, scope = [], 'all'
     for i, cell in enumerate(sv.values().get(spreadsheetId=P.SHEET, range='Performance!A1:A80').execute().get('values', []), start=1):
-        n = (cell[0] if cell else '').strip()
-        if n == 'Total': data.append({'range': 'Performance!C%d' % i, 'values': [[rate(sum(v[0] for v in per.values()), sum(v[1] for v in per.values()))]]})
-        elif n and i > 1 and 'campaign' not in n.lower() and 'ecom leads' not in n.lower(): data.append({'range': 'Performance!C%d' % i, 'values': [[rate(*per.get(n, [0, 0]))]]})
+        n = (cell[0] if cell else '').strip(); low = n.lower()
+        if not n: continue
+        if 'impact a' in low: scope = 'a'; continue
+        if 'impact b' in low: scope = 'b'; continue
+        if 'campaign' in low or 'ecom leads' in low: scope = 'all'; continue
+        if n == 'Total':
+            vs = [v for (sc, _), v in per.items() if sc == scope]
+            data.append({'range': 'Performance!C%d' % i, 'values': [[rate(sum(v[0] for v in vs), sum(v[1] for v in vs))]]})
+        else: data.append({'range': 'Performance!C%d' % i, 'values': [[rate(*per.get((scope, n), [0, 0]))]]})
     if data: sv.values().batchUpdate(spreadsheetId=P.SHEET, body={'valueInputOption': 'RAW', 'data': data}).execute()
     P.say('open rate per sender (messaged, opened):', per)
     if st.pop('perf_refresh', False):   # a booking landed this run: the Performance tab's meeting rate must not wait for the 04:00 cf_perf job
-        try: import cf_perf; cf_perf.main(); P.say('performance tab refreshed after booking')
+        try: cf_perf.main(); P.say('performance tab refreshed after booking')
         except Exception as e: P.say('cf_perf after booking failed:', repr(e))
     status_line(st, failed)
     json.dump(st, open(STATE, 'w', encoding='utf-8'))
