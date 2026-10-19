@@ -1,0 +1,59 @@
+{
+ "slug": "peg-paste",
+ "company": "PEG PASTE",
+ "full_name": "Luke Williams",
+ "logo": "peg-paste.png",
+ "shot": "peg-paste.jpg",
+ "shot_caption": "pegpaste.com.au",
+ "saw_lines": [
+  "Buyers rarely switch toothpaste for an ingredient name. They switch when the reason is clear, then reorder without thinking.",
+  "So the sale is won in the first line, where a shopper decides whether the mineral claim earns a second look.",
+  "Your site lists 678 reviews, yet 0 of 30 ads use that number. Put it on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 19 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "678",
+    "site reviews"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads mention subscriptions"
+   ]
+  ],
+  "points": [
+   [
+    "Reviews missing from ads",
+    "Your site shows 678 reviews, yet 0 of 30 ads carry that number, so skimmers get no proof to trust. Put the 678 figure on the creative and open two ads with a review quote in the first line."
+   ],
+   [
+    "Subscribe and save is missing",
+    "Your site offers subscribe and save, yet 0 of 21 ads mention it, so a new buyer has no reason to commit to a repeat order. Open three new ads with subscribe and save in line one and on the creative."
+   ],
+   [
+    "Shipping question goes unanswered",
+    "Your site answers how orders ship, yet 0 of 30 ads mention shipping or delivery. New buyers who wonder about arrival scroll on. Answer it in line one of ads for new buyers, naming free shipping over $70."
+   ],
+   [
+    "Subscription never advertised",
+    "Your site runs a subscribe and save offer, yet 0 of 30 ads mention a subscription. Repeat buyers never hear the saving that would keep them. Run two retention ads for past buyers with subscribe and save as the headline."
+   ]
+  ],
+  "images": [
+   "peg-paste_1.jpg",
+   "peg-paste_2.jpg",
+   "peg-paste_3.jpg"
+  ]
+ },
+ "ads_1": "Review-led creative with subscribe and save as the offer in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
