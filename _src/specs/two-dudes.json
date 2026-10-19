@@ -1,0 +1,59 @@
+{
+ "slug": "two-dudes",
+ "company": "Two Dudes",
+ "full_name": "Michael McRae",
+ "logo": "two-dudes.png",
+ "shot": "two-dudes.jpg",
+ "shot_caption": "twodudesproject.com",
+ "saw_lines": [
+  "Men switch deodorant only after a friend vouches for it, so a stranger needs a reason to trust the first stick.",
+  "So the sale is won or lost at the proof, where a stranger decides whether a review count is worth a click.",
+  "Your site shows 851 reviews, yet only 2 of 30 ads carry that number. Put the 851 count in the first line and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 19 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "2",
+    "ads with review count"
+   ],
+   [
+    "17",
+    "different opening stories"
+   ],
+   [
+    "12",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site shows 851 reviews, yet only 2 of 30 ads carry it, buried in link text. Cold viewers have no reason to trust it. Put the 851 count in the first line and open two ads with a review quote."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 24 copy ads open 17 different ways, and the sweat line leads 4 of them. Scrolling viewers meet the same pitch twice, so the hook blurs. Pick the two best stories and build the next batch from them."
+   ],
+   [
+    "Winners need more variations",
+    "12 ads have run 60+ days, and your oldest winner, live since 2026-06-18, opens on the ingredients story. Winners prove the format, so build new cuts of that opener for the deodorant, swapping in the 851 count and a review quote."
+   ],
+   [
+    "Calls to action split",
+    "Shop now runs on 22 ads, See details on 8, and 7 of those land on the store locator. Match each CTA to its page: Shop now for kitset and product ads, See details only for the Woolies and Coles stockist posts."
+   ]
+  ],
+  "images": [
+   "two-dudes_1.jpg",
+   "two-dudes_2.jpg",
+   "two-dudes_3.jpg"
+  ]
+ },
+ "ads_1": "Ingredients opener cuts with the 851 review count in line one",
+ "soc_1": "Brand social strategy across Facebook and Instagram"
+}
