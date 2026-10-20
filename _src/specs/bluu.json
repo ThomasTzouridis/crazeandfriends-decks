@@ -1,0 +1,59 @@
+{
+ "slug": "bluu",
+ "company": "bluu",
+ "full_name": "Roman Staempfli",
+ "logo": "bluu.png",
+ "shot": "bluu.jpg",
+ "shot_caption": "bluuwash.com",
+ "saw_lines": [
+  "People rarely switch laundry detergent once a box is working, so the first pick sticks until something goes wrong.",
+  "So the sale is won in the first line, where a buyer decides if strips fit their wash.",
+  "Your site says 200'000 customers wash with bluu, yet 0 of 29 ads carry that number. Put 200'000 on the creative and in line one of three ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 20 Oct 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry proof numbers"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "7",
+    "ads share one copy"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays off your ads",
+    "Your site says 200'000 customers wash with bluu, yet 0 of 29 ads carry that number, so cold buyers get no proof. Put 200'000 on the creative and in line one of three ads, and open two with a customer quote."
+   ],
+   [
+    "Site offer missing from ads",
+    "Your site offers at least 20% off, yet 0 of 18 ads mention percent off or any offer. A first buyer has no reason to act today. Put the 20% off in line one of three ads and on the creative."
+   ],
+   [
+    "The same copy repeats",
+    "One exact copy runs in 7 of 18 ads, so the same people see the same pitch again and tune out. Keep the body text, but give each of those 7 ads a new opening line and a new product shot."
+   ],
+   [
+    "Winners need fresh variations",
+    "12 ads have run 60+ days, so you have proven winners. Yet one winner shows the same audience one message. Build three variations of the oldest winner, each with a new hook, a different product shot and the offer up front."
+   ]
+  ],
+  "images": [
+   "bluu_1.jpg",
+   "bluu_2.jpg",
+   "bluu_3.jpg"
+  ]
+ },
+ "ads_1": "Laundry strip creative opening on the 20% off and 200'000 customers",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
