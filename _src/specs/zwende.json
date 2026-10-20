@@ -1,0 +1,59 @@
+{
+ "slug": "zwende",
+ "company": "Zwende",
+ "full_name": "Sujay S",
+ "logo": "zwende.png",
+ "shot": "zwende.jpg",
+ "shot_caption": "zwende.com",
+ "saw_lines": [
+  "Festive decor is bought for one season, then stored until next year, so buyers pick by occasion first.",
+  "So the sale is won in the first line, where the occasion is named, or lost to the next ad.",
+  "Your site shows 161 reviews, yet none of your 30 live ads carry that number. Open two ads with a review quote and put 161 on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 20 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry proof"
+   ],
+   [
+    "13",
+    "open on one hook"
+   ],
+   [
+    "67%",
+    "copy before the offer"
+   ]
+  ],
+  "points": [
+   [
+    "Reviews missing from ads",
+    "Your site shows 161 reviews, but 0 of 29 ads carry a proof number, so a first time buyer has no reason to trust the product. Open two ads with a review quote and put 161 on the creative."
+   ],
+   [
+    "One opener carries the account",
+    "13 of 29 copy ads open on &ldquo;this festive season, make your&rdquo;, so buyers see one pitch on repeat. Test two or three new angles from your range, like the personalised Wire Koodai and the diyas, each against it."
+   ],
+   [
+    "Offer buried in long copy",
+    "The offer appears after 67% of the copy on a median ad of 75 words, so people scroll past the offer before they see it. Move it into the first two lines of every ad, and test a first order offer."
+   ],
+   [
+    "Same copy reused across ads",
+    "One exact copy runs in 13 of 29 ads, so buyers who see one get the same pitch. Keep the copy, but change the opening line and the creative in each ad, so every version looks new to the viewer."
+   ]
+  ],
+  "images": [
+   "zwende_1.jpg",
+   "zwende_2.jpg",
+   "zwende_3.jpg"
+  ]
+ },
+ "ads_1": "Festive angles built on the personalised Koodai and diyas, tested against the opener",
+ "soc_1": "Brand social strategy across Facebook, Instagram, X and Youtube"
+}
