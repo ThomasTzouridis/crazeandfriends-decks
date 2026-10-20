@@ -1,0 +1,59 @@
+{
+ "slug": "glimja",
+ "company": "Glimja",
+ "full_name": "Mikael Boström",
+ "logo": "glimja.svg",
+ "shot": "glimja.jpg",
+ "shot_caption": "glimja.com",
+ "saw_lines": [
+  "Supplement buyers check who vouches for a product before the price, then reorder the same bottle for months.",
+  "So the sale is won or lost in the first line, where a new buyer decides whether to trust the brand.",
+  "Your site shows 2013 and over 87,000 satisfied customers, yet 0 of 30 ads carry a proof number. Put 87,000 on every creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 20 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "7",
+    "open on quiz line"
+   ],
+   [
+    "9",
+    "Shop now to homepage"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site shows 2013 and over 87,000 satisfied customers, yet 0 of 30 ads carry a proof number, so cold buyers have no reason to trust you. Put 87,000 on every creative and open two ads with a review quote."
+   ],
+   [
+    "Shipping goes unanswered in ads",
+    "Your site offers free shipping, yet 0 of 30 ads mention shipping or delivery, so new buyers must click to learn the cost. Open ads aimed at new buyers with the free shipping offer and answer delivery in line one."
+   ],
+   [
+    "One opener leads the copy",
+    "7 of 23 copy ads open on the same quiz line, so the other angles never get tested. Test two new angles against that opener, one on price and one on how each product is checked, three ads apiece."
+   ],
+   [
+    "Shop now ads miss products",
+    "9 Shop now ads send buyers to the homepage, so a buyer who clicked for one supplement has to search again for it. Point each ad to the product it features, and send brand story ads to the collection page."
+   ]
+  ],
+  "images": [
+   "glimja_1.jpg",
+   "glimja_2.jpg",
+   "glimja_3.jpg"
+  ]
+ },
+ "ads_1": "Quiz opener tested against price and sourcing angles, with proof and shipping up front",
+ "soc_1": "Brand social strategy across Facebook and Instagram, your only linked channels"
+}
