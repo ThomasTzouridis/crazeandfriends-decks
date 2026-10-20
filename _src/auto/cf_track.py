@@ -28,6 +28,8 @@
 """
 import os, sys, re, json, time, datetime, difflib, unicodedata, traceback, urllib.request, urllib.parse, urllib.error
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
+HUB = os.path.expanduser('~/Desktop/AIOS/automations/mac-hub')   # shared chat_doc.py (Meetings column H chat docs)
+if HUB not in sys.path: sys.path.insert(0, HUB)
 import cf_poll as P
 
 EVENTS = os.path.expanduser('~/Desktop/AIOS/automations/mac-hub/logs/events.jsonl')
@@ -356,7 +358,8 @@ class Ctx:
                 m = re.search(r'linkedin\.com/in/([^/?#]+)', cp.get('profileUrl') or '', re.I)
                 if not m: continue
                 lid = P.requote(m.group(1))
-                v = out.setdefault(lid, {'link_sent': [], 'deck_sent': [], 'text': '', 'emails': set(), 'last_lead_at': None})
+                v = out.setdefault(lid, {'link_sent': [], 'deck_sent': [], 'text': '', 'emails': set(), 'last_lead_at': None, 'messages': []})
+                v['messages'] += c.get('messages') or []   # raw thread for the chat doc (chat_doc.py, Meetings column H)
                 for msg in c.get('messages') or []:
                     body, t = msg.get('body') or '', iso(msg.get('createdAt'))
                     ours = (msg.get('sender') or '').upper() == 'ME'
@@ -732,7 +735,7 @@ def slack_booking(ctx, row, key):
 
 
 # ---------- self-check (Thomas 2026-10-16: every 4 h, every run complete, no calendar task to check on it) ----------
-ISSUE = {'steps': (24, 1), 'match': (168, 1), 'slack': (24, 2), 'enrich': (24, 2)}   # kind -> (hours between repeat alerts, runs seen before the first alert)
+ISSUE = {'steps': (24, 1), 'match': (168, 1), 'slack': (24, 2), 'enrich': (24, 2), 'chat': (24, 1)}   # kind -> (hours between repeat alerts, runs seen before the first alert)
 
 
 def issues_of(ctx, seen):
@@ -749,6 +752,7 @@ def issues_of(ctx, seen):
         elif r[13]: out['match ' + key] = 'Lead override "%s" on booking %s matches no lead in the lead map, fix Meetings column N' % (r[13], r[0])
         else: out['match ' + key] = 'booking %s (%s, %s) matched no lead, so no HeyReach stop / tag / Supabase: set the Lead override in Meetings column N' % (r[0], r[1], r[6])
         if key not in ctx.st.get('slacked', []): out['slack ' + key] = 'Slack post missing for booking %s' % r[0]
+    for k, (who, err) in ctx.st.get('chat_fail', {}).items(): out['chat ' + k] = 'chat doc of %s failed, Meetings column H stays empty: %s' % (who, err)
     for who, err in ctx.errs: out['enrich ' + who] = 'enrich %s failed: %s' % (who, err)
     return out
 
@@ -863,8 +867,31 @@ def sync_meetings(sv, st, leads, tok):
         P.say('booking', inv.get('name'), inv.get('email'), start, '->', row[0], '|', res['how'])
     if updates: sv.values().batchUpdate(spreadsheetId=P.SHEET, body={'valueInputOption': 'RAW', 'data': updates}).execute()
     if new: sv.values().append(spreadsheetId=P.SHEET, range='Meetings!A1', valueInputOption='RAW', insertDataOption='INSERT_ROWS', body={'values': new}).execute()
+    try: chat_docs(sv, st, ctx, seen)
+    except Exception as e: P.say('chat docs failed:', repr(e)[:200]); ctx.errs.append(('chat docs', repr(e)[:120]))
     report(st, issues_of(ctx, seen))
     return booked
+
+
+def chat_docs(sv, st, ctx, seen):
+    """Meetings column H "Conversation": one Google Doc "Chat Craze & Friends <lead>" per meeting lead with the whole LinkedIn thread,
+    rendered as a messenger thread by the shared module mac-hub/chat_doc.py (SOP "Meeting Chat Doc"), filed in Drive /Other/Chats, rewritten
+    when the thread grew. A booking without a HeyReach thread gets "no LinkedIn thread", so an empty H always means a bug."""
+    import chat_doc
+    reg, fails = st.setdefault('chats', {}), {}
+    cvs, hr = ctx.convs(), ctx.hr()
+    items = []
+    for key, r, lid, active in seen:
+        name = r[0]
+        if not name or name.startswith('INTERNAL'): continue
+        cv = cvs.get(lid) if lid else None
+        msgs = chat_doc.from_heyreach(cv.get('messages'), name, (hr.get(lid) or {}).get('sender') or 'Craze & Friends') if cv else []
+        try: url = chat_doc.ensure(reg, 'Craze & Friends', name, msgs, key=lid or str(key))
+        except Exception as ex: P.say('chat doc %s failed: %r' % (name, ex)); fails[str(key)] = (name, repr(ex)[:120]); continue
+        items.append((str(key), url or chat_doc.NO_THREAD))
+    st['chat_fail'] = fails   # issues_of turns these into the Slack issue DM
+    n = chat_doc.link_rows(sv, P.SHEET, 'Meetings', 'K', 'H', items) if items else 0
+    if n: P.say('chat docs linked in Meetings H:', n)
 
 
 # ---------- main ----------
