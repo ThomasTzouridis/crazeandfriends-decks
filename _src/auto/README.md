@@ -152,7 +152,7 @@ else booked. Offline test harness with all rules: `%TEMP%\claude\...\scratchpad\
   cached in the state file). Opens from Serbia (RS) are flagged "C&F?" because the client sits there and leads do not.
 - Meetings tab: one row per booking, A:G the lead (name, email, website, LinkedIn, company LinkedIn, phone, event date + "(canceled)"), K = root
   invitee URI (key), L = Booked by (if not the lead), M = Matched by (the rule sentence, "CHECK" when it is a best guess), N = Lead override (manual).
-  H:J (Conversation, Outcome, $ Collected) stay manual. Header K1:N1 is kept current by the script.
+  H Conversation = link to the chat doc `Chat Craze & Friends <lead>` in Drive "/Other/Chats" (messenger layout, `mac-hub/chat_doc.py` via `chat_docs`, SOP Meeting Chat Doc, `Desktop\SOPs\KPIs\Meeting Chat Doc.md`; `no thread found` when the inbox has no thread; a blank H is a bug), I:J (Outcome, $ Collected) stay manual. No tracker change ships without the chat doc. Header K1:N1 is kept current by the script.
 - Performance tab column C "Presentation open rate per messaged lead": per sender and Total, all four sections (IMPACT A/B count only the leads whose Presentation Log campaign D is an A/B campaign). Messaged = Presentation Log J not empty/None;
   opened = that lead's deck has at least 1 open. Blank until someone is messaged. cf_perf.py owns B and D:F, cf_track owns C only.
 
