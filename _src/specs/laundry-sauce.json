@@ -1,0 +1,59 @@
+{
+ "slug": "laundry-sauce",
+ "company": "Laundry Sauce",
+ "full_name": "Robert Cardiff",
+ "logo": "laundry-sauce.svg",
+ "shot": "laundry-sauce.jpg",
+ "shot_caption": "laundrysauce.com",
+ "saw_lines": [
+  "Shoppers repeat detergent from habit, then switch fast when scent or price looks off.",
+  "So the sale is won in line one, where the scent is proven or the buyer scrolls past.",
+  "Your site shows 9,000+ reviews, yet 0 of 30 ads carry a proof number, so put 9,000+ on the creative in line one and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 20 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "2",
+    "creator posts run as ads"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers never reach ads",
+    "Your site shows 9,000+ reviews, yet 0 of 30 ads carry a proof number, so buyers get claims with no evidence. Put 9,000+ on the creative in line one of three new ads, and open two more with a scent review."
+   ],
+   [
+    "Site offer missing from ads",
+    "Your site offers subscribe and save, yet 1 of 27 ads mention it and 0 of 27 mention any offer, so new buyers have no reason to act. Put subscribe and save with 15% off in line one of three new ads."
+   ],
+   [
+    "Price never appears in ads",
+    "Your site shows prices from $19.98 to $81.60, yet 0 of 30 ads mention price, so buyers cannot judge value. Lead one new ad with the price per load next to the lowest site price, $19.98, in the first line."
+   ],
+   [
+    "Creator posts run as brand ads",
+    "2 of 27 ads are creator posts run from your brand page, so the strongest customer voice gets little use. Whitelist both from the creator account and cut three variations, each opening on the creator&rsquo;s scent reaction."
+   ]
+  ],
+  "images": [
+   "laundry-sauce_1.jpg",
+   "laundry-sauce_2.jpg",
+   "laundry-sauce_3.jpg"
+  ]
+ },
+ "ads_1": "Scent led creative with 9,000+ reviews in line one and subscribe and save",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
