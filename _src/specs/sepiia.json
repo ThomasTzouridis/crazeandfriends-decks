@@ -1,0 +1,59 @@
+{
+ "slug": "sepiia",
+ "company": "sepiia",
+ "full_name": "Federico Sainz de Robles",
+ "logo": "sepiia.svg",
+ "shot": "sepiia.jpg",
+ "shot_caption": "sepiia.com",
+ "saw_lines": [
+  "Men rarely browse for shirts. They replace one after a wrinkle or stain shows at work, then reorder the same cut.",
+  "So the sale happens when the ad names that wrinkle or stain in its first line, before the buyer scrolls past.",
+  "Your site shows 4333 reviews, yet 0 of 29 ads carry a proof number. Put the 4333 count on the creative and open two ads with a customer quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 21 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "4333",
+    "reviews on your site"
+   ],
+   [
+    "8",
+    "ads open on one opener"
+   ],
+   [
+    "0",
+    "ads mention free shipping"
+   ]
+  ],
+  "points": [
+   [
+    "Reviews never reach ads",
+    "Your site shows 4333 reviews, yet 0 of 29 ads carry a proof number, so new buyers have nothing to trust. Put the 4333 count on the creative and open two ads with a customer quote about pill free clothes."
+   ],
+   [
+    "One opener carries the ads",
+    "8 of 29 copy ads open on one antiarrugas line, and the rest use a line once, so no story gets tested. Test two angles against it, one on stain and odor free clothes, one on a traveler&rsquo;s busy week."
+   ],
+   [
+    "Shipping missing from ads",
+    "Your site promotes free shipping, yet 0 of 29 ads mention it, so new buyers get no reason to act. Open new ads by answering shipping: free shipping over 100&euro;, delivered in 3 to 5 business days."
+   ],
+   [
+    "Winners not built on",
+    "2 ads have run 60+ days, yet none of the 28 newer ads reuses a winner&rsquo;s opening line. Build the next three ads as variations of the oldest winner, and add the 4333 review count to each one."
+   ]
+  ],
+  "images": [
+   "sepiia_1.jpg",
+   "sepiia_2.jpg",
+   "sepiia_3.jpg"
+  ]
+ },
+ "ads_1": "Two new hooks against the antiarrugas opener, with the review count on the creative",
+ "soc_1": "Brand social strategy across Instagram, today your only linked channel"
+}
