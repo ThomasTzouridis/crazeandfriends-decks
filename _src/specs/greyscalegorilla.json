@@ -1,0 +1,59 @@
+{
+ "slug": "greyscalegorilla",
+ "company": "Greyscalegorilla",
+ "full_name": "Maxx Burman",
+ "logo": "greyscalegorilla.svg",
+ "shot": "greyscalegorilla.jpg",
+ "shot_caption": "greyscalegorilla.com",
+ "saw_lines": [
+  "Motion designers buy asset libraries when a deadline is close, then judge the subscription on whether the next project starts faster.",
+  "So the sale is won in the first line, which must show time saved, or busy artists keep scrolling.",
+  "Your 20 ads carry no proof number. Collect one, a review count or orders shipped, and lead the next batch with it on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 21 Oct 2026",
+  "stats": [
+   [
+    "20",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "0",
+    "mention the bundle"
+   ],
+   [
+    "10",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 20 ads carries a proof number, so a new buyer has nothing concrete to trust before clicking. Collect one real figure, a review count or orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "The bundle is missing",
+    "Your homepage shows the School of Motion x Greyscalegorilla Bundle, yet 0 of 20 ads mention it, so a first visitor has no reason to act today. Put the bundle in the first line of new ads."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 20 ads open on 10 different stories, so the message resets with every ad. Build the next batch from two stories, the Cargo idea to final render story and the free starter scenes story, with fresh variations each."
+   ],
+   [
+    "Four ads are winners",
+    "4 ads have run 60+ days, and the oldest is the KitBash3D mech story, which has kept running longer than anything else you run. Build more variations of that winner, changing the first line and keeping the mech as the visual."
+   ]
+  ],
+  "images": [
+   "greyscalegorilla_1.jpg",
+   "greyscalegorilla_2.jpg",
+   "greyscalegorilla_3.jpg"
+  ]
+ },
+ "ads_1": "Cargo idea to final render and starter scenes, with new openers each",
+ "soc_1": "Brand social strategy across Instagram, X and YouTube"
+}
