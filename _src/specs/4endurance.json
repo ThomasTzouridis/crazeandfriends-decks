@@ -1,0 +1,59 @@
+{
+ "slug": "4endurance",
+ "company": "4ENDURANCE",
+ "full_name": "Valentin Gorsek",
+ "logo": "4endurance.png",
+ "shot": "4endurance.jpg",
+ "shot_caption": "4endurance.com",
+ "saw_lines": [
+  "Endurance buyers pick fuel by what their stomach tolerates on a long ride, then reorder the same flavor for every session.",
+  "So the sale is won or lost in line one, where a rider checking delivery either stays or scrolls past.",
+  "Your site explains where you ship, yet 0 of 30 ads mention shipping or delivery. Open three ads with ship-to countries in line one."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 21 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads carry proof numbers"
+   ],
+   [
+    "2",
+    "creator posts as ads"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping missing from ads",
+    "Your site explains where you ship, yet 0 of 30 ads mention shipping or delivery, so an unsure buyer has no reason to click. Open three ads with ship-to countries in line one, then test them against your Shop now ads."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 24 fixed-copy ads carries a proof number, so a cold buyer has nothing to check the claim against. Collect one real count, such as reviews or orders shipped, and open two new ads with it."
+   ],
+   [
+    "Creator posts run as brand",
+    "2 of 24 fixed-copy ads are creator posts, one a cyclist describing a 2:1 fueling routine, and they run from your brand page. Buyers trust riders, so whitelist both from the creator account and cut three variations of that routine."
+   ],
+   [
+    "Free shipping never in ads",
+    "Your site promotes free shipping above &euro;100 for Eurozone, yet 0 of 24 ads mention it, so new buyers get no reason to order. Put free shipping in line one of three ads, then test them against your Shop now ads."
+   ]
+  ],
+  "images": [
+   "4endurance_1.jpg",
+   "4endurance_2.jpg",
+   "4endurance_3.jpg"
+  ]
+ },
+ "ads_1": "Shipping-first creative for new buyers, with the 2:1 fueling routine as the creator angle",
+ "soc_1": "Brand social strategy across Facebook and Instagram"
+}
