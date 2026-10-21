@@ -1,0 +1,59 @@
+{
+ "slug": "jaques",
+ "company": "Jaques",
+ "full_name": "Joe Jaques",
+ "logo": "jaques.png",
+ "shot": "jaques.jpg",
+ "shot_caption": "jaqueslondon.co.uk",
+ "saw_lines": [
+  "Parents buy wooden toys for one age and one occasion, so they filter by age and date, not by brand name.",
+  "So the sale is won in the first line, where the age and gift get named before the scroll moves on.",
+  "Your site shows 175,346 reviews, yet only 2 of 30 ads carry a proof number. Put 175,346 reviews on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 21 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "2",
+    "ads carry site proof"
+   ],
+   [
+    "0",
+    "ads mention subscription"
+   ],
+   [
+    "18",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays off the ads",
+    "Your site shows 175,346 reviews, yet only 2 of 30 ads carry a proof number, and both repeat 231 years. Gift buyers skip brands they cannot check. Put 175,346 reviews on the creative and open two ads with a review quote."
+   ],
+   [
+    "Subscription never advertised",
+    "Your site offers subscribe and save, yet 0 of 30 ads mention a subscription, so a repeat buyer has no reason to lock in. Run two retention ads with subscribe and save as the headline, aimed at families restocking games."
+   ],
+   [
+    "Creator posts run as brand ads",
+    "13 of 27 ads are creator posts with a code, #ad or @mention, run from your brand page. That borrowed trust fades on a brand account. Whitelist the rocket and doctor set posts from the creator account, then cut three variations."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 27 copy ads open with 18 different stories, so no single opener builds recognition. The biggest, get ahead this Christmas, leads only 3 ads. Pick the two best stories and build the next batch from them."
+   ]
+  ],
+  "images": [
+   "jaques_1.jpg",
+   "jaques_2.jpg",
+   "jaques_3.jpg"
+  ]
+ },
+ "ads_1": "Two gift openers rebuilt around the Rapid Rocket and the wooden doctor set",
+ "soc_1": "Brand social strategy across Instagram, TikTok, Twitter and YouTube"
+}
