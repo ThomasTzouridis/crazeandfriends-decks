@@ -1,0 +1,59 @@
+{
+ "slug": "nivada",
+ "company": "Nivada",
+ "full_name": "Guillaume Laidet",
+ "logo": "nivada.png",
+ "shot": "nivada.jpg",
+ "shot_caption": "nivadagrenchenofficial.com",
+ "saw_lines": [
+  "Watch buyers check movement, case size and price before they trust a brand, so a first ad must answer all three.",
+  "So the sale is won in the first ad, where buyers decide if the price and story are worth a click.",
+  "Your site shows 100 years of history, yet only 14 of 30 ads use that figure. Put one customer quote on the 16 ads without it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 21 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "14",
+    "ads cite 100 years"
+   ],
+   [
+    "0",
+    "ads mention price"
+   ],
+   [
+    "8",
+    "open on one story"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site shows 100 years of history, yet only 14 of 30 ads use that figure. Cold viewers have no reason to trust an unknown watch, so they scroll past. Put one customer quote on the 16 ads without it."
+   ],
+   [
+    "Price never appears in ads",
+    "None of your 30 ads mention price, so buyers leave before learning the cost. Lead one ad with the real price next to the circa $1,000 price point reviewers mention, then test that line against the stone dial opener."
+   ],
+   [
+    "No video in 30 ads",
+    "Your 30 ads are all image or carousel, so the dial never moves on screen. Shoot three short videos of the Meteorite and Aventurine watches on the wrist, turning under light, and run each against the top opener."
+   ],
+   [
+    "One opener leads the account",
+    "8 of your 30 copy ads open on the same stone-dial story, and the rest each open with a different line. Test two new angles against that opener: the lapis dial, unique to each stone, and the 1950s Antarctic look."
+   ]
+  ],
+  "images": [
+   "nivada_1.jpg",
+   "nivada_2.jpg",
+   "nivada_3.jpg"
+  ]
+ },
+ "ads_1": "Stone-dial close-ups with real price and a customer quote, tested against the opener",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
