@@ -1,0 +1,59 @@
+{
+ "slug": "dm-drogerie-markt-deutschland",
+ "company": "dm-drogerie markt Deutschland",
+ "full_name": "Benjamin Menges",
+ "logo": "dm-drogerie-markt-deutschland.png",
+ "shot": "dm-drogerie-markt-deutschland.jpg",
+ "shot_caption": "dm.de",
+ "saw_lines": [
+  "Drugstore shoppers restock the same few products and compare prices before they add anything new to the cart.",
+  "So the sale is decided by a reason to try something new, and none of your ads offers one.",
+  "Your 30 live ads show no proof number. Collect one real figure, like a review count, and lead the next batch with it on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 21 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "offers in copy ads"
+   ],
+   [
+    "11",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "No proof in your ads",
+    "None of your 30 live ads shows a proof number, so a buyer scrolling past has no reason to trust you yet. Collect one real figure, like a review count, and open the next batch with it on the creative."
+   ],
+   [
+    "No offer in your ads",
+    "None of your 19 copy ads carries an offer, so a first time buyer has no reason to act today. Give new buyers one reason to act now, like a first order offer, in the first line of three new ads."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 19 copy ads open with 11 different stories, and the biggest, the couch tip, leads 3. So no single story gets tested hard enough to show what works. Pick the two strongest openings and build the next batch from them."
+   ],
+   [
+    "Winners need more variations",
+    "17 of your ads have run 60 days or more, and the oldest started in September 2025. That is evidence the approach works. Build three new variations of the oldest winner and test them against it."
+   ]
+  ],
+  "images": [
+   "dm-drogerie-markt-deutschland_1.jpg",
+   "dm-drogerie-markt-deutschland_2.jpg",
+   "dm-drogerie-markt-deutschland_3.jpg"
+  ]
+ },
+ "ads_1": "Fresh openings tested against the couch tip, each led by a first order offer",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
