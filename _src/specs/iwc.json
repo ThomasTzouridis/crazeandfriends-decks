@@ -1,0 +1,59 @@
+{
+ "slug": "iwc",
+ "company": "IWC",
+ "full_name": "Arnaud Miara",
+ "logo": "iwc.png",
+ "shot": "iwc.jpg",
+ "shot_caption": "iwc.com",
+ "saw_lines": [
+  "Watch buyers rarely buy on impulse. They compare models for weeks and want proof the maker stands behind it for decades.",
+  "So the sale is won in the first line, where a buyer decides if this model deserves a closer look.",
+  "Your site shows 150 years and 0 of 30 ads carry a proof number. Put the 150 year figure on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 21 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof"
+   ],
+   [
+    "0",
+    "ads mention free shipping"
+   ],
+   [
+    "9",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site leads with 150 years, yet 0 of 30 ads carry a proof number, so new buyers have no reason to trust the claim. Open two ads with the 150 year figure and a review quote."
+   ],
+   [
+    "No video in the mix",
+    "0 of 30 ads are video, so a buyer sees the watch only as a still frame and never sees the dial catch light. Shoot three videos of the Ingenieur SL on a wrist, then test them against the oldest winner."
+   ],
+   [
+    "Free shipping never appears",
+    "Your site promotes free shipping, yet 0 of 21 ads mention it, so a new buyer has no reason to act today. Answer the shipping question in the first line of ads aimed at new buyers."
+   ],
+   [
+    "Winners are not reused",
+    "9 ads have run 60+ days, yet none of the other 21 ads reuses a winner&rsquo;s opening line, so good copy stays trapped in one ad. Build the next three ads as variations of the oldest winner, started in April 2026."
+   ]
+  ],
+  "images": [
+   "iwc_1.jpg",
+   "iwc_2.jpg",
+   "iwc_3.jpg"
+  ]
+ },
+ "ads_1": "Ingenieur SL video and proof-led creative, built on the oldest winner&rsquo;s opening line",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, Tiktok, X, Youtube"
+}
