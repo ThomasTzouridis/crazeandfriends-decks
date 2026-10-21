@@ -1,0 +1,59 @@
+{
+ "slug": "naoko-store",
+ "company": "NAOKO-STORE",
+ "full_name": "Jacek Szyndler",
+ "logo": "naoko-store.png",
+ "shot": "naoko-store.jpg",
+ "shot_caption": "naoko-store.pl",
+ "saw_lines": [
+  "Buyers of a winter jacket compare fit, warmth and how it looks on a body before they trust a brand&rsquo;s photo.",
+  "So the sale is won or lost in the first picture, before a buyer reads a word.",
+  "Your site explains how the jacket arrives, yet 0 of 30 ads show it, so shoot one video of the box landing on a doorstep and lead your next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 21 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "23",
+    "catalog ads, no story"
+   ],
+   [
+    "0",
+    "ads explain arrival"
+   ],
+   [
+    "0",
+    "ads with proof number"
+   ]
+  ],
+  "points": [
+   [
+    "How it arrives is unanswered",
+    "Your site explains how the jacket arrives, yet 0 of 30 ads show it, so a buyer scrolling past never sees the parcel. Shoot one video of the box landing on a doorstep and lead the next batch with it."
+   ],
+   [
+    "No proof number shown",
+    "None of your 30 ads carries a proof number, so a buyer choosing between two winter jackets has nothing to trust beyond the photo. Pick one real number, a review count or orders shipped, and open two ads with it."
+   ],
+   [
+    "Most ads have no story",
+    "23 of your 30 ads are catalog ads with no story, so buyers scrolling past have nothing to remember you by. Add three story ads showing who wears the jacket and why it was made, and run them beside the feed."
+   ],
+   [
+    "No offer in the ads",
+    "0 of 7 ads carry an offer, so a new buyer has no reason to act today. Put a first order offer or a bundle in line one of three new ads, and print the deadline on the creative."
+   ]
+  ],
+  "images": [
+   "naoko-store_1.jpg",
+   "naoko-store_2.jpg",
+   "naoko-store_3.jpg"
+  ]
+ },
+ "ads_1": "Story ads showing the jacket worn, plus one doorstep delivery video",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
