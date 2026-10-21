@@ -1,0 +1,59 @@
+{
+ "slug": "duer",
+ "company": "DUER",
+ "full_name": "Bryan Anderson",
+ "logo": "duer.png",
+ "shot": "duer.jpg",
+ "shot_caption": "shopduer.com",
+ "saw_lines": [
+  "Shoppers buying comfort pants judge stretch, fabric and fit in seconds, then decide whether the pair deserves a second look.",
+  "So the sale is won or lost in the first line, where stretch and fit must land before the scroll.",
+  "Your site shows 45,000+ 5 Star Reviews, yet 0 of 30 ads carry a proof number. Put 45,000+ on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 21 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "6",
+    "open on one opener"
+   ],
+   [
+    "0",
+    "ads lead with shipping"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers missing from ads",
+    "The site shows 45,000+ 5 Star Reviews, yet 0 of 30 ads carry a proof number, so new buyers get claims with nothing behind them. Put 45,000+ on the creative and in line one. Open two ads with a review quote."
+   ],
+   [
+    "One opener carries the account",
+    "6 of 15 copy ads open on &ldquo;with natural fibers for breathability&rdquo;, so one pitch repeats across the account. Name two or three new angles from your product, such as the no track pants swap, and run each against it."
+   ],
+   [
+    "Same copy reused across ads",
+    "One exact copy runs in 6 of 15 ads, so a shopper who sees one sees it again and tunes out. Keep the body copy, change the opening line and the creative in each. Shoot a fresh photo for each version."
+   ],
+   [
+    "The shipping offer goes unused",
+    "The site promotes free shipping on orders $99+, yet 0 of 15 ads lead with it, so a first time buyer has no reason to order today. Lead three new ads with free shipping over $99 and 30 day returns."
+   ]
+  ],
+  "images": [
+   "duer_1.jpg",
+   "duer_2.jpg",
+   "duer_3.jpg"
+  ]
+ },
+ "ads_1": "Review and shipping openers for the No Sweat Pant, tested against breathability",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Twitter and Youtube"
+}
