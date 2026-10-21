@@ -1,0 +1,59 @@
+{
+ "slug": "wis-watch-straps",
+ "company": "WIS Watch Straps",
+ "full_name": "Brandon Rose",
+ "logo": "wis-watch-straps.png",
+ "shot": "wis-watch-straps.jpg",
+ "shot_caption": "wisstraps.com",
+ "saw_lines": [
+  "Watch people buy straps to match a mood or an event, then judge fit and whether it changes in seconds.",
+  "So the sale is won in line one, where the buyer decides if the fit and price are worth a click.",
+  "Your site offers 25% off, yet 0 of 17 ads mention it, so put the 25% off in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 21 Oct 2026",
+  "stats": [
+   [
+    "20",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "0",
+    "ads mention price"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from ads",
+    "Your site offers 25% off, yet 0 of 17 ads mention it or any offer, so a new buyer has no reason to act. Put the 25% off in the first line of three new ads and on the creative image."
+   ],
+   [
+    "Shipping question goes unanswered",
+    "Your site answers how fast orders ship, yet 0 of 20 ads mention shipping or delivery, so a buyer unsure about timing has no reason to buy. Open three new ads with your fulfillment time in the first line."
+   ],
+   [
+    "Price never appears",
+    "Your homepage shows a $150 price, yet 0 of 20 ads mention price, so a buyer comparing straps cannot judge value from the ad. Lead one new ad with that price beside what a comparable strap costs elsewhere."
+   ],
+   [
+    "No proof number",
+    "None of your 20 live ads carries a proof number, so a first time buyer has nothing concrete to trust. Collect one real figure, such as a review count or orders shipped, and lead with it in new ads."
+   ]
+  ],
+  "images": [
+   "wis-watch-straps_1.jpg",
+   "wis-watch-straps_2.jpg",
+   "wis-watch-straps_3.jpg"
+  ]
+ },
+ "ads_1": "Lead new ads with the 25% off offer, tested against your current openers",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok, X and YouTube"
+}
