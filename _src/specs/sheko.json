@@ -1,0 +1,59 @@
+{
+ "slug": "sheko",
+ "company": "SHEKO",
+ "full_name": "Dustin Fleck",
+ "logo": "sheko.png",
+ "shot": "sheko.jpg",
+ "shot_caption": "sheko.com",
+ "saw_lines": [
+  "Diet shake buyers judge the first sip, then keep reordering only if it tastes like a treat, not a chore.",
+  "So the sale is won or lost in the first line, where a buyer decides whether to try the shake.",
+  "Your 24 of 30 live ads open on the same SHEKO opener, so one hook carries the account. Run two or three new angles from your taste, satiety and protein against it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "24",
+    "open on one hook"
+   ],
+   [
+    "68%",
+    "copy before the offer"
+   ],
+   [
+    "16",
+    "run one exact copy"
+   ]
+  ],
+  "points": [
+   [
+    "One opener carries the account",
+    "24 of your 30 live ads open on one line, so the whole account rides on a single hook. Buyers scroll past repeated openers. Run two or three new angles on taste, satiety and protein, each in its own ad."
+   ],
+   [
+    "Offer buried in long copy",
+    "The offer appears after 68% of the copy on a median ad of 150 words, so most readers never reach it. Move it into the first two lines of every ad, and pair it with a delivery or returns line."
+   ],
+   [
+    "Same copy reused",
+    "One exact copy runs in 16 of your 30 ads, so the same story reaches the same people again and again. Keep the body text, but change the opening line and the creative in each ad, and retire the copy after its run."
+   ],
+   [
+    "Copy runs long",
+    "Your median ad runs 150 words and the longest 211 words, so most buyers stop reading before the reason to buy. Cut every ad to two lines and the offer, then test the short version against the current long one."
+   ]
+  ],
+  "images": [
+   "sheko_1.jpg",
+   "sheko_2.jpg",
+   "sheko_3.jpg"
+  ]
+ },
+ "ads_1": "New hooks on taste, satiety and protein, with delivery terms in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
