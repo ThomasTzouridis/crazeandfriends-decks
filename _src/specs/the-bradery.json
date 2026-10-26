@@ -1,0 +1,59 @@
+{
+ "slug": "the-bradery",
+ "company": "The Bradery",
+ "full_name": "Edouard Caraco",
+ "logo": "the-bradery.svg",
+ "shot": "the-bradery.jpg",
+ "shot_caption": "thebradery.com",
+ "saw_lines": [
+  "Private sale shoppers hunt for a named brand at a discount, and the price decides the click.",
+  "So a buyer who has seen one private sale deal has no reason to pick you over the next one.",
+  "Your 7 of 19 copy ads run one exact text, so buyers see the same pitch twice. Keep the copy, but change the opening line and creative in those 7 ads first."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "27",
+    "live Meta ads"
+   ],
+   [
+    "7",
+    "ads share one copy"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "6",
+    "Shop now to homepage"
+   ]
+  ],
+  "points": [
+   [
+    "One copy repeats",
+    "One exact copy runs in 7 of 19 ads, so buyers see the same pitch twice and tune it out. Keep the copy, change the opening line and creative in those 7 ads, then test each against the current one."
+   ],
+   [
+    "No proof in the ads",
+    "None of your 27 ads shows a proof number, so a new buyer has no reason to trust you over the next brand. Add one real figure, like a review count, and lead the next batch of ads with it."
+   ],
+   [
+    "One opener leads",
+    "7 of 19 copy ads open on the same cashmere price line, so one hook carries most of your message. Write new openers on other angles, like the brand range or the sale, and test each against it."
+   ],
+   [
+    "Shop now goes home",
+    "6 Shop now ads send buyers to the homepage instead of the product on screen, so a new visitor has to search for the item they clicked. Point each of those ads to the exact product its image shows."
+   ]
+  ],
+  "images": [
+   "the-bradery_1.jpg",
+   "the-bradery_2.jpg",
+   "the-bradery_3.jpg"
+  ]
+ },
+ "ads_1": "New cashmere openers tested against the current line, one product per ad",
+ "soc_1": "Brand social strategy across Instagram, TikTok and X"
+}
