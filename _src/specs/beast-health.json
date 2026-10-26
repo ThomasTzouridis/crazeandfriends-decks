@@ -1,0 +1,59 @@
+{
+ "slug": "beast-health",
+ "company": "Beast Health",
+ "full_name": "Colin Sapire",
+ "logo": "beast-health.png",
+ "shot": "beast-health.jpg",
+ "shot_caption": "thebeast.com",
+ "saw_lines": [
+  "Blender buyers compare motor power and vessel size first, then pick the one that matches their morning smoothie habit.",
+  "So the sale is won or lost in the first line, where a buyer decides if this blender deserves a look.",
+  "Your site lists prices from $27 to $229, yet 0 of 30 live ads show one. Open one ad with the price per box and what it compares to."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads show a price"
+   ],
+   [
+    "5",
+    "open the same line"
+   ],
+   [
+    "0",
+    "ads show proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Price never appears in ads",
+    "Your site shows prices from $27 to $229, but 0 of 30 live ads mention a price, so buyers cannot judge value before clicking. Lead one ad with the price per box and what it compares to, then test two versions."
+   ],
+   [
+    "Same copy reused across ads",
+    "One exact copy runs in 5 of your 16 copy ads, so the same words repeat across the account. Keep the copy but swap the opening line and the creative in each of those five, so every ad reads new."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 live ads shows a proof number, so a new buyer has no count to trust. Collect one figure, such as your review count or orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "One opener leads the account",
+    "5 of 16 copy ads open on the same line, &ldquo;the award-winning Beast blender is&rdquo;, and other ads open once each, so the account leans on one message. Test two new angles against it: a motor story and a morning routine."
+   ]
+  ],
+  "images": [
+   "beast-health_1.jpg",
+   "beast-health_2.jpg",
+   "beast-health_3.jpg"
+  ]
+ },
+ "ads_1": "Price-per-box creative, with two new openers tested against the award-winning line",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok, Twitter and YouTube"
+}
