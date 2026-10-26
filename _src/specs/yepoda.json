@@ -1,0 +1,59 @@
+{
+ "slug": "yepoda",
+ "company": "Yepoda",
+ "full_name": "Mina Hamm",
+ "logo": "yepoda.png",
+ "shot": "yepoda.jpg",
+ "shot_caption": "yepoda.com",
+ "saw_lines": [
+  "Skincare buyers compare steps and textures before they commit, then buy a set and reorder the one step that worked.",
+  "So the sale is decided in the first line, where a shopper decides whether the routine fits them or scrolls on.",
+  "Your 29 ads never mention shipping or delivery, yet your site explains how orders ship. Lead the next new buyer ads with free shipping at $49 and name UPS Express."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "5",
+    "ads share one copy"
+   ],
+   [
+    "3",
+    "creator ads from brand"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping goes unanswered",
+    "Your 29 ads never mention shipping or delivery, though your site explains it. A new buyer wondering when the order arrives has no reason to click. Lead the next new buyer ads with free shipping at $49 and name UPS Express."
+   ],
+   [
+    "One copy in five ads",
+    "5 of your 14 ads run one copy word for word, so buyers keep seeing the same line. Keep that copy, but rewrite the opening line and swap the creative in each. Test a fresh angle in each, like scent."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 14 ads with fixed copy carry a proof number, so a first buyer has nothing concrete to trust. Pick a count you can stand behind, such as reviews or orders shipped, and open the next batch with it."
+   ],
+   [
+    "Creator posts run as ads",
+    "3 of your 14 ads are creator posts run from the brand page, so the account reads as a brand pitching itself. Whitelist those posts from the creator accounts, then cut three variations of each, changing only the opening line."
+   ]
+  ],
+  "images": [
+   "yepoda_1.jpg",
+   "yepoda_2.jpg",
+   "yepoda_3.jpg"
+  ]
+ },
+ "ads_1": "New buyer ads opening on free shipping at $49, one new copy each",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
