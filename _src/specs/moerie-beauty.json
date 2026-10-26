@@ -1,0 +1,59 @@
+{
+ "slug": "moerie-beauty",
+ "company": "Moérie Beauty",
+ "full_name": "Matas Griaznovas",
+ "logo": "moerie-beauty.png",
+ "shot": "moerie-beauty.jpg",
+ "shot_caption": "moerie.com",
+ "saw_lines": [
+  "Hair growth buyers compare a few products, then pick the one whose promise feels believable and visible within weeks.",
+  "So the sale is won in the first two lines, where a doubtful buyer decides whether the claim earns a click.",
+  "Your ads use three proof numbers, 500000+ women, 250000 women and 80000+ five-star, so buyers doubt them. Pick one figure and put it on every creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "56%",
+    "copy before the offer"
+   ],
+   [
+    "16",
+    "different opening stories"
+   ],
+   [
+    "7",
+    "ads with proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Three proof numbers conflict",
+    "7 of 30 ads carry a proof number, and they disagree: 500000+ women, 250000 women and 80000+ five-star. Conflicting customer counts make buyers doubt the whole brand. Pick one figure, put it on every creative, and drop the other two."
+   ],
+   [
+    "The offer sits too low",
+    "The offer appears after 56% of the copy on a median ad of 66 words, so most viewers stop before the deal. Move the offer line into the first two lines of every ad, not after the story."
+   ],
+   [
+    "Creator posts run as brand",
+    "3 of 30 ads are creator posts, with codes, #ad tags or @mentions, yet they run from the brand page, which hides the creator voice. Whitelist those three from the creator account, then cut three variations of each."
+   ],
+   [
+    "Openers spread too thin",
+    "16 different opening stories run across 30 ads, and the biggest opens just 6. Too many openers means no story gets built out. Pick the two best from your 21 ads running 60+ days and build the next batch from them."
+   ]
+  ],
+  "images": [
+   "moerie-beauty_1.jpg",
+   "moerie-beauty_2.jpg",
+   "moerie-beauty_3.jpg"
+  ]
+ },
+ "ads_1": "Two strongest openers, creator posts and one proof number in new paid creative",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest and Tiktok"
+}
