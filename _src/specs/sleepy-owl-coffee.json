@@ -1,0 +1,59 @@
+{
+ "slug": "sleepy-owl-coffee",
+ "company": "Sleepy Owl Coffee",
+ "full_name": "Arman Sood",
+ "logo": "sleepy-owl-coffee.png",
+ "shot": "sleepy-owl-coffee.jpg",
+ "shot_caption": "sleepyowl.co",
+ "saw_lines": [
+  "Instant coffee buyers pick one jar, test it on a weekday, then reorder the same flavour without comparing again.",
+  "So the sale is decided in the first line, since a shopper who scrolls past it never reaches the price.",
+  "Your site shows 20,000 reviews yet 0 of 30 ads carry that number. Print the count on the creative and open the next ads with a customer quote about taste."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads show reviews"
+   ],
+   [
+    "2",
+    "creator posts as ads"
+   ],
+   [
+    "19",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site shows 20,000 reviews, yet 0 of 30 ads carry that number, so a new buyer has no proof to act on. Print the review count on the creative and open the next ads with a customer quote about taste."
+   ],
+   [
+    "Creator posts run as ads",
+    "2 of 21 ads are creator posts run from the brand page, so the trust a creator builds with their audience is lost behind a logo. Whitelist them from the creator account and cut three variations in the same creator voice."
+   ],
+   [
+    "Openers spread thin",
+    "19 different openings run across 21 ads, and the biggest opens only 2. Most stories appear in one ad, so no hook builds recognition. Pick the two strongest openings, then build three new variations from each for the next batch."
+   ],
+   [
+    "Winners need more variations",
+    "30 ads have run 60 days or more, so your oldest hot brew ad is proven, yet little else is built around it. Build three variations of it, each with a new image and opening line, to reach more buyers."
+   ]
+  ],
+  "images": [
+   "sleepy-owl-coffee_1.jpg",
+   "sleepy-owl-coffee_2.jpg",
+   "sleepy-owl-coffee_3.jpg"
+  ]
+ },
+ "ads_1": "Instant coffee ads opening on the 20,000 count and buyer taste quotes",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Twitter and YouTube"
+}
