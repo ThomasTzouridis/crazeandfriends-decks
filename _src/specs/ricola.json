@@ -1,0 +1,59 @@
+{
+ "slug": "ricola",
+ "company": "Ricola",
+ "full_name": "Gabriel Hugenschmidt",
+ "logo": "ricola.png",
+ "shot": "ricola.jpg",
+ "shot_caption": "ricola.com",
+ "saw_lines": [
+  "People grab a throat lozenge when a cough starts, then rebuy the same pack for the whole season.",
+  "So the sale is won or lost in the first line, when a buyer decides if this pack is for them.",
+  "Your 25 live Meta ads carry no proof number, so collect one real figure like a review count or orders shipped and lead the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "25",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "ads mention an offer"
+   ],
+   [
+    "20",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number shown",
+    "0 of 25 ads carry a proof number, so new buyers have nothing concrete to trust before they click. Collect one real figure, a review count or orders shipped, and print it on the next batch of ads."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 25 ads carry an offer, so a first time buyer has no reason to act. Open the next ads with a first order offer or a bundle, stated in the opening line before anyone scrolls past."
+   ],
+   [
+    "Openers spread thin",
+    "20 different openings across 25 ads, and the biggest, &ldquo;good vibes echo in harmony&rdquo;, leads 5 of them. Spread that thin, nothing builds recognition. Pick the best two openings and build the next batch from them, one new ad per angle."
+   ],
+   [
+    "One call to action",
+    "Your 12 Watch more ads send people to YouTube and 8 others to your Instagram profile. Point the Watch more ads at the Produkte page on ricola.com and add a button to the 5 ads with no call to action."
+   ]
+  ],
+  "images": [
+   "ricola_1.jpg",
+   "ricola_2.jpg",
+   "ricola_3.jpg"
+  ]
+ },
+ "ads_1": "Cough moment openers with a first order offer and a review figure",
+ "soc_1": "Brand social strategy across Instagram and TikTok"
+}
