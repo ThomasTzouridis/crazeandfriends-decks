@@ -1,0 +1,59 @@
+{
+ "slug": "edelvetica",
+ "company": "Edelvetica",
+ "full_name": "Lukas Steinauer",
+ "logo": "edelvetica.png",
+ "shot": "edelvetica.jpg",
+ "shot_caption": "edelvetica.ch",
+ "saw_lines": [
+  "Fashion shoppers pick a shirt by fit and feel, then come back for a second color or a matching piece.",
+  "So the sale is won in line one, where a shopper gets no number and no reason to buy.",
+  "Your 21 copy ads show no proof number, so collect one, such as a review count or orders shipped, and open the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "18",
+    "openings across 21 ads"
+   ],
+   [
+    "5",
+    "creator posts as ads"
+   ],
+   [
+    "0",
+    "ads with an offer"
+   ]
+  ],
+  "points": [
+   [
+    "No proof in your ads",
+    "0 of 21 copy ads carry a proof number, so a new shopper has nothing to weigh the brand against. Collect one figure, such as a review count or orders shipped, and put it on the creative of three ads."
+   ],
+   [
+    "Creator posts run as ads",
+    "5 of 21 copy ads read as creator posts, with a code, #ad or @mention, run from your brand page. Whitelist those five from the creator account and cut three variations of each, with new first lines."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 21 copy ads mention an offer, so a first buyer has no reason to act. Give new buyers one reason, a first order offer or a bundle, and print it in line one of three ads."
+   ],
+   [
+    "Openers spread thin",
+    "18 different openings run across 21 copy ads, and the biggest opens only 2 ads. Shoppers meet a new story every time, so none sticks. Pick your two best stories and build the next batch from them, three ads each."
+   ]
+  ],
+  "images": [
+   "edelvetica_1.jpg",
+   "edelvetica_2.jpg",
+   "edelvetica_3.jpg"
+  ]
+ },
+ "ads_1": "Two best openers rebuilt with a first order offer and a review count",
+ "soc_1": "Brand social strategy across Instagram, Tiktok, Youtube"
+}
