@@ -12,7 +12,8 @@ sys.stdout.reconfigure(encoding='utf-8')
 HERE = os.path.dirname(os.path.abspath(__file__)); SRC = os.path.dirname(HERE); ROOT = os.path.dirname(SRC)
 SHOT = r"C:\Users\Thomas\Desktop\Presentations\3DforScience\_src\tools\shot.py"
 WIN = os.name == 'nt'  # PC: PC Playwright first, Mac over ssh as fallback. Mac (the poll job): everything runs locally
-MAC_VENV = os.path.expanduser('~/ads_ecom/.venv/bin/python3')  # has curl_cffi
+MAC_VENV = os.path.expanduser('~/ads_ecom/.venv/bin/python3')  # has curl_cffi (Mac); on the hub server the venv does not exist, system python3 has curl_cffi
+if not os.path.exists(MAC_VENV): MAC_VENV = sys.executable
 MAC_CLAY = os.path.expanduser('~/Desktop/AIOS/Internal Clay')  # proxy_fetch.load_pool()
 MODEL = os.environ.get('CF_MODEL', 'claude-haiku-5-5')
 UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36'
