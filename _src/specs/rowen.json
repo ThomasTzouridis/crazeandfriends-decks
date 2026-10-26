@@ -1,0 +1,59 @@
+{
+ "slug": "rowen",
+ "company": "Rowen",
+ "full_name": "Andrew Hall",
+ "logo": "rowen.svg",
+ "shot": "rowen.jpg",
+ "shot_caption": "rowenhomes.com",
+ "saw_lines": [
+  "Nobody buys a sofa on impulse. Buyers compare delivery times, fabric and returns across tabs before they pay.",
+  "So the sale is won or lost in the first line, where the buyer decides whether the ad answers their question.",
+  "Your site offers 10% off, but only 1 of 18 ads mention it. Open three new ads with that offer on the Lighting range."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "1",
+    "ads mention percent off"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "2",
+    "creator posts as ads"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers 10% off, yet only 1 of 18 ads mention it, so new buyers see no reason to act today. Open three new ads with 10% off on the Lighting range, and print the offer on the creative itself."
+   ],
+   [
+    "Shipping question unanswered",
+    "None of your 29 ads mention shipping or delivery, though your site has a shipping policy page. Buyers of furniture need to know how it arrives before they click. Open new buyer ads with the delivery answer, not another style line."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 29 ads carries a proof number, so a new buyer has nothing concrete to trust before clicking. Pick one number you can stand behind, such as a review count, and open three new ads with it."
+   ],
+   [
+    "Creator posts run as ads",
+    "2 of 18 ads are creator posts run from the brand page, so the most personal format you run reads like a brand ad. Whitelist those two posts from the creator account and cut three room variations."
+   ]
+  ],
+  "images": [
+   "rowen_1.jpg",
+   "rowen_2.jpg",
+   "rowen_3.jpg"
+  ]
+ },
+ "ads_1": "Offer-led creative for Lighting, with the 10% off in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
