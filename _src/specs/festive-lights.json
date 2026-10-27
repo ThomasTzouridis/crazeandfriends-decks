@@ -1,0 +1,59 @@
+{
+ "slug": "festive-lights",
+ "company": "Festive Lights",
+ "full_name": "Shane Mead",
+ "logo": "festive-lights.png",
+ "shot": "festive-lights.jpg",
+ "shot_caption": "festive-lights.com",
+ "saw_lines": [
+  "Outdoor light buyers choose by how a set looks on their own house, then rebuy the same product each year.",
+  "So the sale is won or lost in the first line, before a buyer sees a reason to click.",
+  "Your site offers up to 50% off, yet 0 of 28 copy ads mention it, so put the offer in the first line of three new ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads name the offer"
+   ],
+   [
+    "0",
+    "ads lead with proof"
+   ],
+   [
+    "8",
+    "open on one line"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers up to 50% off, yet 0 of 28 copy ads mention it. A buyer scrolling past has no reason to click today. Put the offer in the first line of three new ads and on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 28 copy ads lead with a proof number, so a buyer comparing outdoor lights has nothing to trust. Collect one real figure, such as your review count or orders shipped, and open the next batch with it."
+   ],
+   [
+    "One opener repeats",
+    "8 of 28 copy ads open on &ldquo;this is your sign to&rdquo;, so most of your set repeats one story. A shopper sees the same hook again. Test two new angles against it, price and quick installation, in three ads each."
+   ],
+   [
+    "Shop now lands on homepage",
+    "5 Shop now ads send buyers to the homepage, not the product in the ad. Buyers then hunt for the light, and some leave. Point each of the 5 to its own product page, the way your ConnectGo icicle ads do."
+   ]
+  ],
+  "images": [
+   "festive-lights_1.jpg",
+   "festive-lights_2.jpg",
+   "festive-lights_3.jpg"
+  ]
+ },
+ "ads_1": "Price and quick install openers replacing the repeated sign line on fairy lights",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter and YouTube"
+}
