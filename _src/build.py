@@ -10,8 +10,13 @@ def logo_tag(f, company):
     p = os.path.join(ROOT, 'assets', 'clients', f)
     if f.endswith('.svg'):
         import re
-        vb = re.search(r'viewBox="([^"]+)"', open(p, encoding='utf-8').read()).group(1).replace(',', ' ').split()
-        w, h = float(vb[2]), float(vb[3])
+        svg = open(p, encoding='utf-8').read()
+        m = re.search(r'viewBox="([^"]+)"', svg)
+        if m:
+            vb = m.group(1).replace(',', ' ').split(); w, h = float(vb[2]), float(vb[3])
+        else:   # no viewBox (some brand SVGs only carry width/height): use those, else assume square
+            mw = re.search(r'<svg[^>]*\swidth="([\d.]+)', svg); mh = re.search(r'<svg[^>]*\sheight="([\d.]+)', svg)
+            w, h = (float(mw.group(1)), float(mh.group(1))) if mw and mh else (1.0, 1.0)
     else:
         from PIL import Image, ImageChops
         im = Image.open(p).convert('RGBA')

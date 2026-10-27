@@ -134,7 +134,8 @@ if live:
     if catalog: F.append(f"catalog ads (product feed, no fixed copy, never quote them): {len(catalog)} of {len(live)}; the hook, offer and proof counts below are over the other {len(live_copy)} ads")
     fam = Counter(' '.join((b or '').split()[:5]).lower().strip(' ,.!') for b in bodies if b)
     top = fam.most_common(3)
-    F.append(f"hooks: {len(fam)} different opening stories across {len(bodies)} ads with fixed copy; biggest: \"{top[0][0]}...\" opens {top[0][1]} ads" + (f"; second: \"{top[1][0]}...\" opens {top[1][1]}" if len(top) > 1 else ''))
+    if top: F.append(f"hooks: {len(fam)} different opening stories across {len(bodies)} ads with fixed copy; biggest: \"{top[0][0]}...\" opens {top[0][1]} ads" + (f"; second: \"{top[1][0]}...\" opens {top[1][1]}" if len(top) > 1 else ''))
+    else: F.append(f"hooks: none of the {len(live)} live ads carries fixed copy (all catalog or empty bodies)")
     # site offers vs ads
     offers = {'free shipping': r'(?i)free shipping', 'first order discount': r'(?i)first order|welcome|new customer', 'subscribe and save': r'(?i)subscri', 'percent off': r'(?i)\d+% off|save \d+%', 'guarantee': r'(?i)guarantee', 'bundle': r'(?i)bundle|box'}
     on_site = [k for k, rx in offers.items() if re.search(rx, ' '.join(site_offer) + ' ' + ' '.join(heads))]
