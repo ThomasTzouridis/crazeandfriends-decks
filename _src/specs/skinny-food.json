@@ -1,0 +1,59 @@
+{
+ "slug": "skinny-food",
+ "company": "Skinny Food",
+ "full_name": "Wayne Starkey",
+ "logo": "skinny-food.png",
+ "shot": "skinny-food.jpg",
+ "shot_caption": "skinnyfoodco.com",
+ "saw_lines": [
+  "Buyers of zero calorie syrups stick with one flavour they already trust, then reorder it on a routine instead of browsing.",
+  "So the sale is won or lost in the first line, where a repeat buyer needs a reason to act now.",
+  "Your site offers percent off, yet only 4 of 25 ads mention it, so new buyers get no reason to act. Put that offer in the first line of three new ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "4",
+    "ads mention percent off"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "18",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers percent off, yet only 4 of 25 ads mention it, so cold buyers never see the deal. Put that offer in the first line of three new ads and print it on the creative itself."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 25 copy ads carries a proof number, so a new buyer has nothing concrete to trust before the click. Collect one real figure, like a review count or orders shipped, and open three new ads with it."
+   ],
+   [
+    "Creator content run as brand ads",
+    "Two of your 25 copy ads are creator posts run from the brand page, so the trust in the creator&rsquo;s voice gets diluted. Whitelist both from the creator account, then cut three variations of each so the voice does the selling."
+   ],
+   [
+    "Openers spread thin",
+    "Your 25 copy ads open with 18 different stories, and the biggest opener leads only 2. Pick the Tesco launch and the four syrup bundle as the two stories to keep, then build the next batch from them."
+   ]
+  ],
+  "images": [
+   "skinny-food_1.jpg",
+   "skinny-food_2.jpg",
+   "skinny-food_3.jpg"
+  ]
+ },
+ "ads_1": "Tesco launch and four-bundle stories with the percent off in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and Twitter"
+}
