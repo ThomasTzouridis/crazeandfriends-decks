@@ -1,0 +1,59 @@
+{
+ "slug": "kneipp",
+ "company": "Kneipp",
+ "full_name": "Sven-Olaf Hansen",
+ "logo": "kneipp.png",
+ "shot": "kneipp.jpg",
+ "shot_caption": "kneipp.com",
+ "saw_lines": [
+  "Men buy shower gel on habit at the drugstore, and switch only when something feels like a clear upgrade.",
+  "So the switch is won in the first seconds of the video, before a viewer files it as another shower gel.",
+  "Your 10 of 30 ads run one identical copy, so each viewer sees the same pitch again. Keep the copy, change the opening line and creative in each, then test two openers."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "10",
+    "ads run one copy"
+   ],
+   [
+    "11",
+    "creator posts as ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "One copy repeats",
+    "Ten of your 30 ads run one identical copy, so a buyer who scrolled past it sees the same pitch again. Keep the copy, but give each of the ten a new opening line and creative, and test two more openers."
+   ],
+   [
+    "No proof number yet",
+    "None of your 30 ads shows a proof number, so a new buyer has no reason to trust the claim. Collect one real figure, like a review count or orders shipped, and open the next batch with it."
+   ],
+   [
+    "Creator posts run as ads",
+    "11 of your 30 ads are creator posts run from the brand page, so viewers scroll past a paid pitch with a disclosure tag. Whitelist those posts from the creator accounts and cut three variations of the best one."
+   ],
+   [
+    "One opener leads",
+    "10 of your 30 copy ads open on the same line, spür deine natur mit den, so the feed shows one pitch. Test two angles against it, such as price and the first week of use, and keep the stronger one."
+   ]
+  ],
+  "images": [
+   "kneipp_1.jpg",
+   "kneipp_2.jpg",
+   "kneipp_3.jpg"
+  ]
+ },
+ "ads_1": "New openers for Kneipp Men shower gel, tested against the current copy",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
