@@ -1,0 +1,59 @@
+{
+ "slug": "justyol",
+ "company": "Justyol",
+ "full_name": "Ahmed Rashed",
+ "logo": "justyol.png",
+ "shot": "justyol.jpg",
+ "shot_caption": "justyol.com",
+ "saw_lines": [
+  "Shoppers buy storage jars in sets during a kitchen cleanup, and they check arrival before they order.",
+  "So the sale is lost in the first line, when no delivery answer tells the buyer the box will arrive.",
+  "Your site answers how shipping works, yet 0 of 23 ads mention delivery, so open ads for new buyers with arrival time and door delivery."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "23",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "4",
+    "open on one hook"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping goes unanswered",
+    "Your site answers how shipping works, yet 0 of 23 ads mention delivery, so new buyers have no reason to order. Open ads for new buyers with arrival time and door delivery, then test that opener against your current copy."
+   ],
+   [
+    "No proof number in your ads",
+    "0 of 15 copy ads carry a proof number, so a first time buyer has no count to trust before clicking. Pick one real figure, like a review count or orders shipped, and lead the next batch with it."
+   ],
+   [
+    "One opener leads the copy",
+    "4 of 15 copy ads open on one olive oil jar story. Test two new angles against it: price, since no ad mentions cost, and the kitchen clutter the 12 jar set clears, then run the winner in every ad."
+   ],
+   [
+    "Shop now ads land on homepage",
+    "7 Shop now ads send buyers to your homepage, not the product, so a buyer clicks an ad and lands on a general store. Point each one to the product its creative shows, such as the 12 jar set."
+   ]
+  ],
+  "images": [
+   "justyol_1.jpg",
+   "justyol_2.jpg",
+   "justyol_3.jpg"
+  ]
+ },
+ "ads_1": "Price and cleanup angles for the jar sets, arrival time in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
