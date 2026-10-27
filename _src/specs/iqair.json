@@ -1,0 +1,59 @@
+{
+ "slug": "iqair",
+ "company": "IQAir",
+ "full_name": "Lynn Shang",
+ "logo": "iqair.png",
+ "shot": "iqair.jpg",
+ "shot_caption": "iqair.com",
+ "saw_lines": [
+  "Air purifier buyers shop one worry, like smoke or mold, and want proof the unit works before they click.",
+  "So the sale is won in the first line, where an ad either names the worry or gets scrolled past.",
+  "Your 28 copy ads carry no proof number, so collect one real figure, like a review count, and lead the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "17",
+    "different openers"
+   ],
+   [
+    "12",
+    "See details CTAs"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 28 copy ads carries a proof number, so a first-time buyer has nothing concrete to trust before clicking. Pick one real figure, such as a review count, and lead the next batch with it on the creative."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 28 copy ads use 17 different openers, and the biggest leads 5 of them. Each new story makes a buyer start over, so no point lands. Keep the ultrafine and ordinary purifier openers and build the batch from those two."
+   ],
+   [
+    "One call to action",
+    "Your ads split between See details on 12 ads and Learn more on 9, two soft asks that leave buyers unsure. Move the 12 See details ads to Shop now and keep one call to action per product page."
+   ],
+   [
+    "Same ad, three feeds",
+    "Your ads run on Instagram, Facebook and Threads, and 16 of 30 are video, a format that behaves differently in each feed. Keep only the placements that suit each format, and test the 16 video ads on Instagram first."
+   ]
+  ],
+  "images": [
+   "iqair_1.jpg",
+   "iqair_2.jpg",
+   "iqair_3.jpg"
+  ]
+ },
+ "ads_1": "Two best openers rebuilt around one review count and a Shop now button",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, Twitter, X and Youtube"
+}
