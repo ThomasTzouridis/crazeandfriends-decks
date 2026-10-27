@@ -1,0 +1,59 @@
+{
+ "slug": "pebblebee",
+ "company": "Pebblebee",
+ "full_name": "Daniel Daoura",
+ "logo": "pebblebee.png",
+ "shot": "pebblebee.jpg",
+ "shot_caption": "pebblebee.com",
+ "saw_lines": [
+  "Tracker buyers buy for one thing they keep losing, then add more when a family member or second device asks.",
+  "So the sale is won in line one, where the lost item and the device question get answered before the scroll.",
+  "Your site shows 2,000 five-star reviews, yet 0 of 29 ads carry that number. Print 2,000 on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "27",
+    "open on one opener"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "93%",
+    "copy before the offer"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers missing from ads",
+    "Your site shows 2,000 five-star reviews, yet 0 of 29 ads carry that number. Buyers comparing a tracker to an AirTag need proof before they click. Print 2,000 on the creative and open two ads with a review quote."
+   ],
+   [
+    "One opener carries the account",
+    "27 of 29 ads open on &ldquo;no matter if you&rsquo;re team Apple or Android,&rdquo; so new buyers get no second reason to click. Name two or three new angles from your product (keys, bags, passports) and test each against it."
+   ],
+   [
+    "Shipping question goes unanswered",
+    "Your site answers how fast orders arrive, yet 0 of 29 ads mention shipping or delivery. A buyer who must leave the ad for that answer may not return. Open three new ads with the delivery answer in line one."
+   ],
+   [
+    "Offer buried in long copy",
+    "The 20% multi-pack offer appears after 93% of the copy on a median ad of 124 words. Viewers who stop reading early never reach it. Move it into the first two lines of every ad, beside the 15-day trial."
+   ]
+  ],
+  "images": [
+   "pebblebee_1.jpg",
+   "pebblebee_2.jpg",
+   "pebblebee_3.jpg"
+  ]
+ },
+ "ads_1": "Review quote openers plus keys, bags and passports angles, tested against the team opener",
+ "soc_1": "Brand social strategy across Facebook, Instagram and YouTube"
+}
