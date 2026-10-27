@@ -1,0 +1,59 @@
+{
+ "slug": "stripe-and-stare",
+ "company": "Stripe & Stare",
+ "full_name": "Nicola Piercy",
+ "logo": "stripe-and-stare.png",
+ "shot": "stripe-and-stare.jpg",
+ "shot_caption": "stripeandstare.com",
+ "saw_lines": [
+  "Women replace knickers by fit and feel, then restock the same cut, so the first pair decides whether they come back.",
+  "So the sale is won or lost in the first line, where shoppers decide if the fit is worth a click.",
+  "Your site shows 65,000+ 5-star reviews, yet 0 of 23 copy ads carry a proof number. Open two ads with a named review quote in the first line."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "26",
+    "live Meta ads"
+   ],
+   [
+    "12",
+    "open on one opener"
+   ],
+   [
+    "0",
+    "ads with proof number"
+   ],
+   [
+    "0",
+    "ads with subscribe offer"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "Your site shows 65,000+ 5-star reviews, yet 0 of 23 copy ads carry a proof number, so a new buyer has no reason to trust the claim. Open two ads with a named review quote in the first line."
+   ],
+   [
+    "The subscribe offer is missing",
+    "Your site offers subscribe and save plus 30% off three pairs, yet 0 of 23 ads mention either, so a first time buyer has no price reason to act. Lead three new ads with that offer in the first line."
+   ],
+   [
+    "One opener carries the account",
+    "12 of 23 copy ads open on the same line, your first layer should be, so they compete with each other for the same shoppers. Write two openers around the Boden print and high rise cut, and run them against it."
+   ],
+   [
+    "Shipping question goes unanswered",
+    "Your site answers the shipping question in its FAQ, yet 0 of 26 ads mention shipping or delivery, so a buyer has no answer before they click. Add one delivery line to new ads, using the answer your FAQ already gives."
+   ]
+  ],
+  "images": [
+   "stripe-and-stare_1.jpg",
+   "stripe-and-stare_2.jpg",
+   "stripe-and-stare_3.jpg"
+  ]
+ },
+ "ads_1": "Layering and Boden print creative to replace the first layer opener",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
