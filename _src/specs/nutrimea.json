@@ -1,0 +1,59 @@
+{
+ "slug": "nutrimea",
+ "company": "Nutrimea",
+ "full_name": "laurent jacob",
+ "logo": "nutrimea.png",
+ "shot": "nutrimea.jpg",
+ "shot_caption": "nutrimea.com",
+ "saw_lines": [
+  "Supplement buyers want to know how an order arrives before they commit, and they often reorder the same tub without thinking.",
+  "So the delivery answer has to sit in the first line of the ad, before a buyer decides to scroll past.",
+  "Your shipping policy page answers delivery, yet 0 of 30 ads mention it, so open three new video ads with one delivery line taken from that policy."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads carry a proof number"
+   ],
+   [
+    "12",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping question goes unanswered",
+    "Your shipping policy page answers how orders arrive, yet 0 of 30 ads mention shipping or delivery. A first buyer gets no answer in the ad itself. Open three new video ads with one line on delivery, taken from that policy."
+   ],
+   [
+    "No proof number shown",
+    "None of your 30 ads carries a proof number, so a buyer has no reason to trust the claims yet. Collect one figure, such as your review count or orders shipped, and open three ads with it on the creative."
+   ],
+   [
+    "No offer in the ads",
+    "0 of 20 ads carry an offer, so a new buyer gets no reason to act today. Give new buyers one reason to act today, a first order offer or a bundle, and put it in line one of three ads."
+   ],
+   [
+    "Openers spread thin",
+    "Your 20 copy ads open 12 different ways, and the biggest opener leads 3 ads, so buyers see scattered messages. Pick the two strongest openings and build your next batch from them, three variations each, naming the product in line one."
+   ]
+  ],
+  "images": [
+   "nutrimea_1.jpg",
+   "nutrimea_2.jpg",
+   "nutrimea_3.jpg"
+  ]
+ },
+ "ads_1": "Delivery and first order offer in line one, tested against your prep story openers",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
