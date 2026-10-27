@@ -1,0 +1,59 @@
+{
+ "slug": "jd-sports-france",
+ "company": "JD Sports France",
+ "full_name": "Nouha Flih",
+ "logo": "jd-sports-france.png",
+ "shot": "",
+ "shot_caption": "jdsports.fr",
+ "saw_lines": [
+  "Sneaker buyers pick a model they already know, then come back for the next colourway the week it drops.",
+  "So the sale is won in the first line where a shopper decides if this drop is for them.",
+  "Your 20 ads with written copy carry no proof number, so buyers have nothing to trust. Collect a real figure like orders shipped, and open the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "offers in ads"
+   ],
+   [
+    "6",
+    "Shop now to homepage"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "0 of 20 ads with written copy carry a proof number, so a new buyer has nothing to trust before the click. Collect a real figure like orders shipped, and open the next batch with it on the creative."
+   ],
+   [
+    "Creator posts run as ads",
+    "2 of 20 ads are creator posts, and they run from your brand page, so the trust a creator builds reads as a brand pitch. Whitelist them from the creator accounts, then cut three variations with new opening lines."
+   ],
+   [
+    "Shop now lands on homepage",
+    "6 Shop now ads send buyers to the homepage instead of the product the ad shows, so a buyer who clicks has to search again. Point each of those six ads to the product page for the model it shows."
+   ],
+   [
+    "No offer in the ads",
+    "0 of 20 ads carry an offer, so a first-time buyer has no reason to act today. Put a first order offer or a bundle into three new ads, and name the saving in the first line."
+   ]
+  ],
+  "images": [
+   "jd-sports-france_1.jpg",
+   "jd-sports-france_2.jpg",
+   "jd-sports-france_3.jpg"
+  ]
+ },
+ "ads_1": "Model-led creative with a first order offer and a proof figure up front",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
