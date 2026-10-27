@@ -1,0 +1,59 @@
+{
+ "slug": "remolonas",
+ "company": "Remolonas",
+ "full_name": "Carlos  Pérez",
+ "logo": "remolonas.svg",
+ "shot": "remolonas.jpg",
+ "shot_caption": "remolonas.com",
+ "saw_lines": [
+  "Shoppers try a surplus produce box once for the discount, then keep it only if the mix feels worth the week.",
+  "So the sale is won in the first line, where a shopper decides if the discount is worth a weekly box.",
+  "Your 11 of 29 ads share one exact copy, so keep that copy, change the opening line and creative in each, and test three new openers on price and variety."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "11",
+    "share one exact copy"
+   ],
+   [
+    "13",
+    "creator posts as ads"
+   ],
+   [
+    "30%",
+    "first order discount"
+   ]
+  ],
+  "points": [
+   [
+    "One copy runs in 11 ads",
+    "11 of 29 ads run one identical copy, so buyers keep seeing the same pitch. Keep that copy, but change the opening line and creative in each. Then build three new openers on price, variety and the weekly routine."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a new buyer has nothing concrete to trust. Collect one real figure, such as orders shipped, and lead with it. Put that number on the creative of three ads."
+   ],
+   [
+    "Creator posts run as ads",
+    "13 of 29 ads are creator posts run from your brand page, so the pitch depends on voices you do not control. Whitelist those posts from the creator accounts, then cut three variations of the best post."
+   ],
+   [
+    "Offer buried in video copy",
+    "Your 30% first order discount leads 11 image ads but sits at the end of the video copy, where buyers may never reach it. Add a fixed price bundle for a first box and open three videos with it."
+   ]
+  ],
+  "images": [
+   "remolonas_1.jpg",
+   "remolonas_2.jpg",
+   "remolonas_3.jpg"
+  ]
+ },
+ "ads_1": "New openers on price and variety, tested against the repeated copy",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
