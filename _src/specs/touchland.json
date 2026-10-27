@@ -1,0 +1,59 @@
+{
+ "slug": "touchland",
+ "company": "touchland",
+ "full_name": "Andrea Lisbona",
+ "logo": "touchland.png",
+ "shot": "touchland.jpg",
+ "shot_caption": "touchland.com",
+ "saw_lines": [
+  "Hand sanitizer is bought on impulse, then reordered when the bottle runs low, so the second purchase is a habit.",
+  "So the sale is won or lost in line one, where a buyer sees no saving and no reason to act.",
+  "Your site offers subscribe and save, yet 0 of 28 ads mention it. Open three ads with that offer in the first line and print the 10% saving on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "0",
+    "ads mention price"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers subscribe and save, yet 0 of 28 ads mention it, so a new buyer has no reason to act. Open three new ads with that offer in the first line and print the 10% saving on the creative."
+   ],
+   [
+    "Subscription never advertised",
+    "0 of 30 ads mention a subscription, though the site offers subscribe and save. Hand sanitizer runs out, and buyers who never hear of the saving rebuy only when they remember. Run two retention ads with subscription saving as the headline."
+   ],
+   [
+    "Price never in ads",
+    "Your site shows prices from $10 to $108, yet 0 of 30 ads mention price or cost. Shoppers want the number before they click. Lead one ad with the price per unit and what it compares to, in the first line."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads carries a proof number, so a first click has nothing to trust. Collect one real figure, such as a review count or orders shipped, and lead one ad with it."
+   ]
+  ],
+  "images": [
+   "touchland_1.jpg",
+   "touchland_2.jpg",
+   "touchland_3.jpg"
+  ]
+ },
+ "ads_1": "Subscribe and save creative led by the 10% saving and price per unit",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
