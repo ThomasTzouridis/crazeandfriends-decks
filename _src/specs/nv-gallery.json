@@ -1,0 +1,59 @@
+{
+ "slug": "nv-gallery",
+ "company": "NV GALLERY",
+ "full_name": "Natalie Hanczewski",
+ "logo": "nv-gallery.svg",
+ "shot": "nv-gallery.jpg",
+ "shot_caption": "nvgallery.com",
+ "saw_lines": [
+  "Furniture buyers choose by how a piece looks in their room and how it feels to sit in.",
+  "So the sale is won or lost in the first line, since no buyer can judge comfort from a thumbnail.",
+  "Your 30 ads carry no proof number, so new buyers have nothing to trust at the click. Collect one proof number and put it on two ads in the next batch."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof number"
+   ],
+   [
+    "0",
+    "ads mention an offer"
+   ],
+   [
+    "23",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 30 live ads carries a proof number, so new buyers have nothing to trust at the click. Collect one number, like a review count, and put it on the creative of two ads in the next batch."
+   ],
+   [
+    "No offer in your ads",
+    "Not one of your 30 ads mentions an offer or discount, so a new buyer has no reason to act today. Put a first order offer or a bundle in line one of three new ads for the WAFFLE sofa."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 30 ads open with 23 different stories, so a viewer who sees two ads gets two new pitches and no story sticks. Build the next batch only from the two openers you repeat, the WAFFLE sofa and the MINDY lamp."
+   ],
+   [
+    "One call to action",
+    "All 30 ads use one Shop now button, yet they point to 22 different landing pages, so an ad can land on the search page. Match each button to its page, such as See the sofa for product pages."
+   ]
+  ],
+  "images": [
+   "nv-gallery_1.jpg",
+   "nv-gallery_2.jpg",
+   "nv-gallery_3.jpg"
+  ]
+ },
+ "ads_1": "Fresh openers on the WAFFLE sofa and MINDY lamp, each with one proof number",
+ "soc_1": "Brand social strategy across Facebook, Instagram and YouTube"
+}
