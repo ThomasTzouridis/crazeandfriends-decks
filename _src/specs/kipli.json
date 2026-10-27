@@ -1,0 +1,59 @@
+{
+ "slug": "kipli",
+ "company": "KIPLI",
+ "full_name": "Fiona Rouyer",
+ "logo": "kipli.svg",
+ "shot": "kipli.jpg",
+ "shot_caption": "kipli.com",
+ "saw_lines": [
+  "People buy a mattress after years of bad sleep, then ask someone who already switched before they trust any brand.",
+  "So the sale is won or lost in the first line, where a buyer decides if this brand is for them.",
+  "Your 16 copy ads carry no proof number, so take a count of orders shipped and lead every new ad with that one figure."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof number"
+   ],
+   [
+    "0",
+    "ads mention an offer"
+   ],
+   [
+    "11",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "No proof in the ads",
+    "None of your 16 copy ads carries a proof number, so a new buyer has no figure to trust before the click. Take a count of orders shipped and open the next batch with that one number on the creative."
+   ],
+   [
+    "No offer in the ads",
+    "None of your 16 copy ads mentions an offer or discount, so a buyer ready today has no reason to act. Give new buyers one reason to act, a first order offer or a bundle, and put it on the creative."
+   ],
+   [
+    "Openers spread thin",
+    "Your 16 copy ads use 11 different openings, and the biggest, the &ldquo;se reposer&rdquo; line, leads only 3, so no story builds recall. Pick the two strongest openings and build the next batch from those two."
+   ],
+   [
+    "Winners need variations",
+    "All 30 live ads have run 60 days or more, so they are proven, and the oldest include the Catherine return story video from December 2025. Build three more variations of that video with new openings and test them against it."
+   ]
+  ],
+  "images": [
+   "kipli_1.jpg",
+   "kipli_2.jpg",
+   "kipli_3.jpg"
+  ]
+ },
+ "ads_1": "Fresh sleep hooks with a first order offer, tested against the Catherine return story",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
