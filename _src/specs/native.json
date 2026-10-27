@@ -1,0 +1,59 @@
+{
+ "slug": "native",
+ "company": "Native",
+ "full_name": "Darren King",
+ "logo": "native.png",
+ "shot": "native.jpg",
+ "shot_caption": "nativecos.com",
+ "saw_lines": [
+  "People don&rsquo;t pick deodorant once. They replace it when the old stick runs out, and they stay with what works.",
+  "So the sale is won at refill time, when the buyer compares options and the offer tips the order.",
+  "Your site shows 350,000+ five star reviews, yet 0 of 27 ads carry that number. Put 350,000+ on every creative and open two ads with a review quote about odor protection."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "27",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry proof"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "0",
+    "ads mention subscription"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays off your ads",
+    "Your site shows 350,000+ five star reviews, yet 0 of 27 ads carry that number, so new buyers have no reason to trust the claim. Put 350,000+ on every creative and open two ads with a review quote about odor protection."
+   ],
+   [
+    "Offer missing from ads",
+    "Your site runs a first order discount, yet 0 of 26 ads mention any offer. A new buyer has no reason to click today. Put the first order discount in line one of three new ads and on the creative."
+   ],
+   [
+    "Subscription never gets airtime",
+    "Your site offers Subscribe and Save 25%, yet 0 of 27 ads mention a subscription. Deodorant runs out on a schedule, and no ad asks for the refill. Run two ads for past buyers with Subscribe and Save 25% as headline."
+   ],
+   [
+    "Price stays out of ads",
+    "Your site shows prices from $4.00 to $55, yet 0 of 27 ads mention price. Buyers want the cost before they click, and without it the ad is a guess. Lead one ad with the price per stick, then test it."
+   ]
+  ],
+  "images": [
+   "native_1.jpg",
+   "native_2.jpg",
+   "native_3.jpg"
+  ]
+ },
+ "ads_1": "Fresh deodorant creative led by the review count and the first order offer",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
