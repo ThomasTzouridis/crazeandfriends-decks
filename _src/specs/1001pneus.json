@@ -1,0 +1,59 @@
+{
+ "slug": "1001pneus",
+ "company": "1001Pneus",
+ "full_name": "Thomas Beaupertuis",
+ "logo": "1001pneus.png",
+ "shot": "1001pneus.jpg",
+ "shot_caption": "1001pneus.fr",
+ "saw_lines": [
+  "Nobody browses for tires. They buy when the tread is worn, then match the size code before comparing prices.",
+  "So the sale is won in the first line, where the ad names the size and season the buyer already needs.",
+  "Your 30 live ads carry no proof number, so buyers have no reason to trust your price, and one real figure like your review count should open every creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "7",
+    "open on one opener"
+   ],
+   [
+    "14",
+    "Shop now to homepage"
+   ]
+  ],
+  "points": [
+   [
+    "No proof in your ads",
+    "None of your 30 live ads shows a proof number, so buyers have no reason to trust your price over another shop. Collect one real figure, like your review count or orders shipped, and open the next batch with it."
+   ],
+   [
+    "One opener leads",
+    "7 of your 24 copy ads open on &ldquo;c&rsquo;est le moment de vous...&rdquo;, so one line keeps competing with itself for the same buyers. Test two new openers against it: winter versus all season tires, and fitting near home."
+   ],
+   [
+    "Shop now lands on home",
+    "14 Shop now ads send buyers to the homepage, not to the tire in the picture, so the click loses its reason. Point each ad to the exact tire it shows, or to the 16 and 17 inch section."
+   ],
+   [
+    "No first order offer",
+    "0 of 24 ads carry a first order offer, so a first time buyer has no reason to act today. Open two new ads with a first order offer, and test it against the 100 euro discount your brand ads already run."
+   ]
+  ],
+  "images": [
+   "1001pneus_1.jpg",
+   "1001pneus_2.jpg",
+   "1001pneus_3.jpg"
+  ]
+ },
+ "ads_1": "Winter versus all season tire ads, tested against the current opener",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Twitter and Youtube"
+}
