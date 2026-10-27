@@ -1,0 +1,59 @@
+{
+ "slug": "emello",
+ "company": "Emello",
+ "full_name": "Victoria Price",
+ "logo": "emello.png",
+ "shot": "emello.jpg",
+ "shot_caption": "emello.com",
+ "saw_lines": [
+  "Womenswear buyers judge a piece by how it layers and styles, then return for the same cut in another colour.",
+  "So the sale is won in the first line, where a buyer decides whether the piece suits her before she clicks.",
+  "Your site offers 10% off the first order, yet 0 of 28 ads mention it. Open three new ads with that offer in line one and print 10% off on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "19",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers 10% off the first order, yet 0 of 28 ads mention it, so a new buyer has no reason to act. Open three new ads with that offer in line one and print 10% off on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a buyer has nothing concrete to trust before clicking. Collect one real figure, like your review count or orders shipped, and lead three new ads with it on the creative."
+   ],
+   [
+    "Creator posts run as brand",
+    "4 of 28 ads are creator posts run from your brand page, so the creator&rsquo;s voice gets lost among your other ads. Whitelist those four from the creator account, then cut three variations of the best one."
+   ],
+   [
+    "Openers spread thin",
+    "Your 28 copy ads open with 19 different stories, and the biggest opens only 3 ads. Pick the two strongest openers and build the next batch from them, three ads each, so the account repeats one clear idea."
+   ]
+  ],
+  "images": [
+   "emello_1.jpg",
+   "emello_2.jpg",
+   "emello_3.jpg"
+  ]
+ },
+ "ads_1": "Creator cuts pairing the first order offer with the scarf top and knit set",
+ "soc_1": "Brand social strategy across Instagram, TikTok and YouTube"
+}
