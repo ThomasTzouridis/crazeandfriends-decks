@@ -1,0 +1,59 @@
+{
+ "slug": "luvansh",
+ "company": "Luvansh",
+ "full_name": "Aakash Jobanputra",
+ "logo": "luvansh.png",
+ "shot": "luvansh.jpg",
+ "shot_caption": "luvansh.com",
+ "saw_lines": [
+  "Diamond buyers compare stones for weeks, and a stranger&rsquo;s happy review often settles it faster than a lower price.",
+  "So the sale is decided in the first line of the ad, where a new buyer who sees no proof and no shipping answer scrolls past.",
+  "Your site shows 50,000+ happy customers, yet 0 of 30 ads carry that number. Put the figure on the creative and open new ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "19",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers missing from ads",
+    "Your site shows 50,000+ happy customers, yet 0 of 30 ads carry that number, so new buyers have no reason to trust the price. Put the figure on the creative and open ads with quotes from your reviews page."
+   ],
+   [
+    "Shipping question stays unanswered",
+    "Your site offers free insured FedEx shipping, yet 0 of 30 ads mention shipping or delivery, so first-time buyers wondering how a stone arrives have no answer. Open new ads with free insured FedEx shipping in the first line."
+   ],
+   [
+    "Creator posts run as brand ads",
+    "11 of 26 copy ads are creator posts run from your brand page, so they read as paid endorsements rather than your offer. Whitelist the best ones from each creator account and cut new variations around the same story."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 26 copy ads open with 19 different stories, and the top one, the lab-grown question, leads only 4, so nothing repeats enough to learn from. Keep that question and the gatekeep story, and make the next batch from both."
+   ]
+  ],
+  "images": [
+   "luvansh_1.jpg",
+   "luvansh_2.jpg",
+   "luvansh_3.jpg"
+  ]
+ },
+ "ads_1": "Lab-grown question hook with review proof and free shipping, tested against creator posts",
+ "soc_1": "Brand social strategy across Facebook and Instagram"
+}
