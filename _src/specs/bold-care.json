@@ -1,0 +1,59 @@
+{
+ "slug": "bold-care",
+ "company": "Bold Care",
+ "full_name": "Rajat Jadhav",
+ "logo": "bold-care.png",
+ "shot": "bold-care.jpg",
+ "shot_caption": "boldcare.in",
+ "saw_lines": [
+  "Men buying intimate care ask whether delivery is discreet before they click, then they reorder the same pack without thinking.",
+  "So a buyer who cannot see shipping or a discount in your ads has no reason to click the first time.",
+  "Your site offers percent off, yet 0 of 26 copy ads mention it. Put the offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention percent off"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "11",
+    "ads share one opener"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers percent off, yet 0 of 26 copy ads mention it, so a first buyer sees no reason to act today. Put the offer in the first line of three new ads and on the creative."
+   ],
+   [
+    "One opener carries the account",
+    "11 of 26 copy ads open on the same sale line, so one message leads most of your account and other products get no opener. Write three new openers from your stroker and bundles, and test each against the sale line."
+   ],
+   [
+    "Shipping question unanswered",
+    "The site answers shipping, yet 0 of 30 live ads mention shipping or delivery, so a new buyer must leave the ad to find out. Open the first line of three new ads with your delivery answer and free shipping."
+   ],
+   [
+    "Same copy reused",
+    "One exact copy runs in 11 of 26 ads, so buyers keep seeing the same words. Keep the body, change the opening line and creative in each of those 11 ads, and test each against the original."
+   ]
+  ],
+  "images": [
+   "bold-care_1.jpg",
+   "bold-care_2.jpg",
+   "bold-care_3.jpg"
+  ]
+ },
+ "ads_1": "Stroker and bundle openers with percent off, tested against the sale line",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
