@@ -1,0 +1,59 @@
+{
+ "slug": "bs-akademie",
+ "company": "BS Akademie",
+ "full_name": "Nermin Fajic",
+ "logo": "bs-akademie.png",
+ "shot": "bs-akademie.jpg",
+ "shot_caption": "bodoschaefer-akademie.de",
+ "saw_lines": [
+  "Money course buyers have been promised wealth before, so they decide in the first two lines whether this is another pitch.",
+  "So the sale is won or lost in the first lines, before readers reach the long copy that names no deal.",
+  "Your median ad runs 321 words and the longest 668, so cut every ad to two lines and put the offer in them."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "321",
+    "median words per ad"
+   ],
+   [
+    "0",
+    "ads with an offer"
+   ],
+   [
+    "19",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "Copy runs too long",
+    "Your median ad runs 321 words and the longest 668, so most readers stop before the hook is finished. Cut each ad to two lines of copy and test the same story at that length against your current long versions."
+   ],
+   [
+    "No offer in the ads",
+    "0 of 28 ads carry an offer, so a first time buyer sees no reason to act today. Put one first order offer or a bundle in line one of three new ads, and say it in plain words."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 28 copy ads open with 19 different stories, so none gets tested enough. Keep the savings question that opens 4 ads and the 26 year old story that opens 3, drop the rest, and build three new variations of each."
+   ],
+   [
+    "Build on the winners",
+    "19 of your ads have run 60 days or more, which is evidence they work. Build three variations of your oldest winner, the 26 year old story, changing the opening line and the offer while keeping its proven body copy."
+   ]
+  ],
+  "images": [
+   "bs-akademie_1.jpg",
+   "bs-akademie_2.jpg",
+   "bs-akademie_3.jpg"
+  ]
+ },
+ "ads_1": "Two proven stories, rebuilt as two line ads with a first order offer",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter, YouTube"
+}
