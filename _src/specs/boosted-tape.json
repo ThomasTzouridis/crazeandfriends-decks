@@ -1,0 +1,59 @@
+{
+ "slug": "boosted-tape",
+ "company": "Boosted Tape",
+ "full_name": "Bethany Wainwright",
+ "logo": "boosted-tape.png",
+ "shot": "boosted-tape.jpg",
+ "shot_caption": "boostedtape.com",
+ "saw_lines": [
+  "Buyers choose body tape by shade and by which outfit it has to hold, then reorder the shade that worked.",
+  "So the sale is won in the first line, where the ad names the outfit and the shade.",
+  "Your site offers 10% off the first order, yet 0 of 30 ads mention it. Lead three new ads with that offer in line one."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "4",
+    "ads use claim words"
+   ],
+   [
+    "0",
+    "ads carry proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Your ads skip the offer",
+    "Your site offers 10% off the first order, yet 0 of 30 ads mention it or any offer. New buyers see no reason to act. Lead three new ads with the 10% first order offer in line one."
+   ],
+   [
+    "Shipping goes unanswered",
+    "Your site answers shipping on its own page, yet 0 of 30 ads mention shipping or delivery. A buyer unsure how the tape arrives stops before clicking. Open three new ads for first time buyers with that answer in line one."
+   ],
+   [
+    "Claim words limit reach",
+    "4 of your 30 ads use claim words, and claims like that limit reach. Rewrite those ads around what wearers notice, like the strong hold and easy removal with Boosted Oil, and keep claim words out of every new ad."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 30 ads carry a proof number so a first time viewer has no reason to trust the tape. Collect a real figure, your review count or orders shipped, and open three new ads with it on the creative."
+   ]
+  ],
+  "images": [
+   "boosted-tape_1.jpg",
+   "boosted-tape_2.jpg",
+   "boosted-tape_3.jpg"
+  ]
+ },
+ "ads_1": "Outfit hooks with the 10% first order offer, tested against the POV opener",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
