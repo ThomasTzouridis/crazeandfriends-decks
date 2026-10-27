@@ -1,0 +1,59 @@
+{
+ "slug": "techpunt",
+ "company": "TechPunt",
+ "full_name": "Rico van den Brink",
+ "logo": "techpunt.png",
+ "shot": "techpunt.jpg",
+ "shot_caption": "techpunt.nl",
+ "saw_lines": [
+  "Home battery buyers compare capacity and price, then check reviews before they commit to a purchase that costs real money.",
+  "So the sale is won or lost in the first line, where buyers decide if the battery deserves a second look.",
+  "Your site shows 300+ reviews, yet 0 of 10 ads carry that number. Put it on the creative and in the first line, and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "10",
+    "live Meta ads"
+   ],
+   [
+    "7",
+    "open on one opener"
+   ],
+   [
+    "0",
+    "video ads"
+   ],
+   [
+    "300+",
+    "reviews, none in ads"
+   ]
+  ],
+  "points": [
+   [
+    "Proof sits outside the ads",
+    "Your site shows 300+ reviews, yet 0 of 10 ads carry that proof, so new buyers see none. Put 300+ reviews on the creative and in line one, and open two ads with a direct customer quote."
+   ],
+   [
+    "One opener carries the account",
+    "7 of 9 copy ads open on the same best home battery line, so the account rests on one story. Test three new angles from your product: 89% efficiency, 2400 W output and 16,8 kWh expansion, each tested against it."
+   ],
+   [
+    "No video in the mix",
+    "0 of 10 ads are video, so buyers never see the battery working. Shoot three short videos of the battery and the dash cam in real use, then run them ahead of any new still image."
+   ],
+   [
+    "One copy runs too often",
+    "One exact copy runs in 7 of 9 ads, so the message goes stale for anyone who has already seen it. Keep the copy, but change the opening line and the creative in each ad so every version reads as new."
+   ]
+  ],
+  "images": [
+   "techpunt_1.jpg",
+   "techpunt_2.jpg",
+   "techpunt_3.jpg"
+  ]
+ },
+ "ads_1": "Battery and dash cam creative led by review proof, with new opening angles",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
