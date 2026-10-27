@@ -1,0 +1,59 @@
+{
+ "slug": "lashile-beauty",
+ "company": "Lashilé Beauty",
+ "full_name": "Yoann Assouline",
+ "logo": "lashile-beauty.png",
+ "shot": "lashile-beauty.jpg",
+ "shot_caption": "lashilebeauty.com",
+ "saw_lines": [
+  "Hair gummy buyers try one, reorder it for months, and judge it by taste and whether it fits a daily routine.",
+  "So the sale is won in the first line, where a buyer decides whether this gummy is worth a try.",
+  "Your site shows 15,000 reviews and a 4.8 rating, yet 0 of 30 ads carry them. Put the review count on the creative and open two ads with a customer quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry your reviews"
+   ],
+   [
+    "10",
+    "ads use claim words"
+   ],
+   [
+    "11",
+    "creator posts as ads"
+   ]
+  ],
+  "points": [
+   [
+    "Reviews stay off your ads",
+    "Your site shows 15,000 reviews and a 4.8 rating, yet 0 of 30 ads carry either number. Buyers comparing supplements look for proof before they click. Put 15,000 reviews on the creative and open two new ads with a customer quote."
+   ],
+   [
+    "First order offer missing",
+    "Your site offers 10% off your first order, yet 0 of 26 ads mention it. A new buyer has no reason to act today. Put the first order discount in the first line of three new ads."
+   ],
+   [
+    "Claim words limit your reach",
+    "10 of 26 ads lean on claim words like clinically, cure and guaranteed results. Those words cost reach, and buyers tune out promises they cannot check. Swap each claim for what customers noticed, like shine or volume, and test three versions."
+   ],
+   [
+    "Creator posts run as ads",
+    "11 of 26 ads are creator posts run from your brand page, so the voice belongs to someone else. Whitelist them from each creator account, so the ad runs under their name, then cut three variations of the best one."
+   ]
+  ],
+  "images": [
+   "lashile-beauty_1.jpg",
+   "lashile-beauty_2.jpg",
+   "lashile-beauty_3.jpg"
+  ]
+ },
+ "ads_1": "Customer review creative leading with the 15,000 reviews and a hair result",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
