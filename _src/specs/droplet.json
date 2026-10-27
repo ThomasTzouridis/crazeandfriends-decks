@@ -1,0 +1,59 @@
+{
+ "slug": "droplet",
+ "company": "droplet",
+ "full_name": "Sam Beecham",
+ "logo": "droplet.png",
+ "shot": "droplet.jpg",
+ "shot_caption": "therippleco.com",
+ "saw_lines": [
+  "Switchers try a few flavors, keep the one that fits the habit, then reorder it when the box runs out.",
+  "So the sale is won in the first line, and an ad that never mentions a subscription loses the reorder.",
+  "Your site shows 21,000+ 5-star reviews, yet 0 of 24 ads carry a proof number. Put the reviews on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "24",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "ads mention subscription"
+   ],
+   [
+    "0",
+    "ads mention price"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site shows 21,000+ 5-star reviews, yet no ad carries a proof number, so a new buyer has no reason to trust the product. Put 21,000+ 5-star reviews on the creative and open two ads with a review quote."
+   ],
+   [
+    "The site offer goes unused",
+    "Your site offers subscribe and save, yet 0 of 17 ads mention it, so new buyers have no reason to act. Put that offer, up to 30% off, in the first line of three new ads and on the creative."
+   ],
+   [
+    "Subscription never advertised",
+    "Your site sells a subscription, yet 0 of 24 ads mention one, so past buyers never hear about staying. Run two retention ads for past buyers with the savings from subscribe and save as the headline, and show the plan arriving."
+   ],
+   [
+    "Price never appears in ads",
+    "Your site shows prices from $6 to $42.00, yet no ad names a price, so buyers cannot compare cost before they click. Lead one ad with the lowest $6 price and show what a week of daily use costs."
+   ]
+  ],
+  "images": [
+   "droplet_1.jpg",
+   "droplet_2.jpg",
+   "droplet_3.jpg"
+  ]
+ },
+ "ads_1": "Review-led flavor creative with subscribe and save in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Tiktok and Twitter"
+}
