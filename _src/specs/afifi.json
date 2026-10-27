@@ -1,0 +1,59 @@
+{
+ "slug": "afifi",
+ "company": "WayUp Sports",
+ "full_name": "Omar Afifi",
+ "logo": "afifi.png",
+ "shot": "afifi.jpg",
+ "shot_caption": "wayupsports.com",
+ "saw_lines": [
+  "Athletes buy shoes and racquets by fit and feel, then wait for the box before they trust the store.",
+  "So the sale is lost in the first line, where a new buyer still wants to know when the order lands.",
+  "Your site lists 50% off shipping with prepaid checkout, yet 0 of 30 ads mention shipping or delivery. Open new buyer ads with the delivery window and that discount."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "5",
+    "ads share one copy"
+   ],
+   [
+    "0",
+    "ads show proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping goes unanswered",
+    "Your site explains delivery and lists 50% off shipping with prepaid checkout, yet 0 of 30 ads mention shipping or delivery. A new buyer leaves unsure. Open three ads with the delivery window and the prepaid discount in line one."
+   ],
+   [
+    "Arrival is never shown",
+    "Your site explains how orders arrive, yet 0 of 30 ads show the delivery at all. Unknown arrival is a reason to wait. Film one video of the box arriving and run it in place of one Shop now ad."
+   ],
+   [
+    "Same copy runs five times",
+    "The same On Cloud copy runs in 5 of 16 written ads, so buyers see one opening line. Keep the body, but give each of the five a new first line and a new image of the shoe on a trail."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a buyer has nothing concrete to weigh against the price. Collect one real figure, such as your review count or orders shipped, and lead the next batch of ads with it."
+   ]
+  ],
+  "images": [
+   "afifi_1.jpg",
+   "afifi_2.jpg",
+   "afifi_3.jpg"
+  ]
+ },
+ "ads_1": "Delivery answers up front, On Cloud shoes shot on trails, new opening line each",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
