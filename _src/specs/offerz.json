@@ -1,0 +1,59 @@
+{
+ "slug": "offerz",
+ "company": "offerz",
+ "full_name": "Alex Zecca",
+ "logo": "offerz.png",
+ "shot": "",
+ "shot_caption": "offerz.ch",
+ "saw_lines": [
+  "Sports fans choose a subscription around one match, then cancel when the season ends.",
+  "So the sale is won in the first line, where a fan decides whether this match is worth paying for.",
+  "Your 13 ads carry 0 proof numbers, so collect one, like a subscriber count, and put it on every creative in the next batch."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "13",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "0",
+    "ads with an offer"
+   ],
+   [
+    "21",
+    "days since oldest ad"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 13 ads shows a proof number, so a viewer has no reason to trust a sports subscription. Collect one number, such as a subscriber count or a review count, and put it on every creative."
+   ],
+   [
+    "Every ad is brand new",
+    "All 13 ads started within the last 21 days, so none has run long enough to teach you anything. Keep one ad as the base and build three variations of it, changing the first line, so each test answers one question."
+   ],
+   [
+    "No offer in the ads",
+    "0 of your 13 ads carry an offer, so a viewer has no reason to sign up today. Put one reason to act in the first line of three new ads, such as a first month price or a bundle."
+   ],
+   [
+    "Mixed calls to action",
+    "12 of your 13 ads say Sign up, but the one Subscribe ad lands on sky.ch/de, a different page from the sport subscription. Send it to user.sky.ch/de/subscription/sport so every click lands on the same sport offer."
+   ]
+  ],
+  "images": [
+   "offerz_1.jpg",
+   "offerz_2.jpg",
+   "offerz_3.jpg"
+  ]
+ },
+ "ads_1": "Match-day ads opening on your clubs, with a first month offer",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
