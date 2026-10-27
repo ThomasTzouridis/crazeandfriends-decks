@@ -1,0 +1,59 @@
+{
+ "slug": "lyma",
+ "company": "LYMA",
+ "full_name": "Lucy Goff",
+ "logo": "lyma.png",
+ "shot": "lyma.jpg",
+ "shot_caption": "lyma.life",
+ "saw_lines": [
+  "Nobody buys a home skin laser on a hunch. They check the price, the delivery and the results first.",
+  "So the sale is decided in the first line, where shipping, proof and price either get answered or the buyer leaves.",
+  "Your site answers how it ships, yet 0 of 30 ads mention shipping or delivery. Put the delivery answer in the first line of every new buyer ad."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "9",
+    "open on Helena line"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "offers in ads"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping question goes unanswered",
+    "Your site answers how it ships, but 0 of 30 ads mention shipping or delivery, so a new buyer weighing a costly device has no reason to act. Open new buyer ads with one plain line on delivery and returns."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads carries a proof number, so claims about results read as promises. Pick one number you can defend, like a review count or units shipped, and lead the next batch with it."
+   ],
+   [
+    "One opener leads the account",
+    "9 of your 30 copy ads open on the same Helena line, so a buyer who scrolls past it sees nothing new. Test two new openers against it, one on the daily routine and one on the price of a home device."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 30 ads carry an offer, so a new buyer has no reason to buy today. Put one reason to act in the first line of new buyer ads, such as a first order offer or a laser and skincare bundle."
+   ]
+  ],
+  "images": [
+   "lyma_1.jpg",
+   "lyma_2.jpg",
+   "lyma_3.jpg"
+  ]
+ },
+ "ads_1": "Delivery answer, proof number and first order offer lead new creative",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and X"
+}
