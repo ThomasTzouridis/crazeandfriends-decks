@@ -1,0 +1,59 @@
+{
+ "slug": "paris-baguette-north-america",
+ "company": "Paris Baguette North America",
+ "full_name": "Darren Tipton",
+ "logo": "paris-baguette-north-america.svg",
+ "shot": "paris-baguette-north-america.jpg",
+ "shot_caption": "parisbaguette.com",
+ "saw_lines": [
+  "Bakery buyers pick by craving on the spot, then return for the same pastry week after week.",
+  "So the sale is won in the first line, where a craving gets named before the scroll moves on.",
+  "Your site offers a first order discount, yet 0 of 30 ads mention it, so new buyers see no reason to order. Put it in the opening line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention your offer"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "15",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "First order offer missing",
+    "Your site offers a first order discount, yet 0 of 30 ads mention it. New buyers have no reason to order today. Put the discount in the opening line of three new ads and on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 live ads shows a proof number, like a review count. A new buyer has no number to weigh before clicking. Collect one real figure and open the next three ads with it, printed on the creative."
+   ],
+   [
+    "Winners not built on",
+    "Two ads have run 60+ days, proof they work, yet none of the 28 newer ads reuses a winner&rsquo;s opening line. Build the next three as variations of the oldest winner, keeping its opening line and adding the first order discount."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 30 ads open with 15 different stories, and the biggest opener leads 6 ads. Spreading copy this thin means no story is tested enough to show what works. Keep the two cozy openers and build the next batch from them."
+   ]
+  ],
+  "images": [
+   "paris-baguette-north-america_1.jpg",
+   "paris-baguette-north-america_2.jpg",
+   "paris-baguette-north-america_3.jpg"
+  ]
+ },
+ "ads_1": "Fall cozy creative built on two openers, with the first order discount up front",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Tiktok and Twitter"
+}
