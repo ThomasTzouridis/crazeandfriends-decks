@@ -1,0 +1,59 @@
+{
+ "slug": "minga-london",
+ "company": "Minga London",
+ "full_name": "Luísa Vilaça",
+ "logo": "minga-london.png",
+ "shot": "minga-london.jpg",
+ "shot_caption": "mingalondon.com",
+ "saw_lines": [
+  "Fashion buyers pick a piece for how it looks on them, then wait for the next drop before they buy again.",
+  "So the sale is won or lost in line one, before a stranger has a reason to buy from an unknown label.",
+  "Your site offers 10% off your first order, yet 0 of 21 ads mention it, so new buyers have no reason to act. Lead three new ads with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "copy ads with offers"
+   ],
+   [
+    "0",
+    "ads mentioning shipping"
+   ],
+   [
+    "10",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "First order offer missing",
+    "Your site offers 10% off your first order, yet 0 of 21 copy ads mention any offer, so new buyers have no reason to click. Put that offer in the first line of three new ads and on the creative."
+   ],
+   [
+    "Shipping never answered",
+    "Your site shows 48h UK delivery, yet 0 of 30 live ads mention shipping or delivery. Online buyers want to know when a piece arrives before they pay, so the question stalls the sale. Open new buyer ads with it."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 21 copy ads shows a proof number, so a stranger has nothing concrete to trust. Pull one real figure, such as your review count or orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "Openers spread thin",
+    "Your 21 copy ads open with 10 different stories, and the biggest opener leads just 4 of them. Each new story splits the same buyers. Pick your two best openings and build the next batch from those two only."
+   ]
+  ],
+  "images": [
+   "minga-london_1.jpg",
+   "minga-london_2.jpg",
+   "minga-london_3.jpg"
+  ]
+ },
+ "ads_1": "First order offer creative for denim and bags, with the 10% in line one",
+ "soc_1": "Brand social strategy across Instagram, Pinterest, TikTok and YouTube"
+}
