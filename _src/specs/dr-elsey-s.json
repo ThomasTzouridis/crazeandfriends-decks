@@ -1,0 +1,59 @@
+{
+ "slug": "dr-elsey-s",
+ "company": "Dr. Elsey's",
+ "full_name": "Bruce Elsey",
+ "logo": "dr-elsey-s.png",
+ "shot": "dr-elsey-s.jpg",
+ "shot_caption": "drelseys.com",
+ "saw_lines": [
+  "Cat owners stick with one litter until the cat refuses it, then switch fast and buy whatever shows up next.",
+  "So the sale is won in line one, where a switching owner decides whether to keep reading or scroll on.",
+  "Your site lists a money back guarantee, yet 0 of 9 ads mention it. Put it in line one of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "11",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention the guarantee"
+   ],
+   [
+    "4",
+    "ads share one copy"
+   ],
+   [
+    "3",
+    "open on one question"
+   ]
+  ],
+  "points": [
+   [
+    "Guarantee missing from ads",
+    "Your site lists a money back guarantee, yet 0 of 9 ads mention it or any offer, so new buyers have no reason to act. Open three new ads with the guarantee in line one and print it on the creative."
+   ],
+   [
+    "One copy in four ads",
+    "One exact copy runs in 4 of 9 ads, so the same cat owners see the same message again and again. Keep the body, rewrite the opening line and swap the creative in each of the four to read as new."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 11 ads shows a proof number, so a cat owner has nothing concrete to trust before clicking. Collect one figure, such as your review count or orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "One opener carries the account",
+    "3 of 9 copy ads open on &ldquo;is your cat suffering in...&rdquo; and the rest are single use, so one question carries the account. Test two new openers against it: litter cost, and a customer quote about the first week."
+   ]
+  ],
+  "images": [
+   "dr-elsey-s_1.jpg",
+   "dr-elsey-s_2.jpg",
+   "dr-elsey-s_3.jpg"
+  ]
+ },
+ "ads_1": "Guarantee-led litter and food videos, new openers tested against the suffering question",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest and Tiktok"
+}
