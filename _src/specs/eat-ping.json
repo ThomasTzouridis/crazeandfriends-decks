@@ -1,0 +1,59 @@
+{
+ "slug": "eat-ping",
+ "company": "Eat Ping",
+ "full_name": "Nick Singh",
+ "logo": "eat-ping.svg",
+ "shot": "eat-ping.jpg",
+ "shot_caption": "eatping.com",
+ "saw_lines": [
+  "Most people trying prepared meal delivery compare it with their nightly takeaway, and they stay only if the first box wins.",
+  "So the sale is won or lost in the first line, before the offer or the meal comes into view.",
+  "Your 30 ads show no proof number, so buyers have nothing to weigh. Choose one figure you can stand behind, such as orders shipped, and open the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof"
+   ],
+   [
+    "3",
+    "Shop ads to homepage"
+   ],
+   [
+    "19",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "No proof in your ads",
+    "None of your 30 ads shows a proof number, so a new buyer has nothing to weigh against the price. Choose one figure you can stand behind, such as orders shipped, and open the next batch with it."
+   ],
+   [
+    "Shop ads land on homepage",
+    "3 of your 30 ads say Shop now but land on the homepage, not a product, so shoppers must hunt for the meal in the creative. Point each one to its exact product page, such as the Chicken Tikka Masala."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 30 ads use 19 different opening stories, and the biggest one leads only 3, so no single pitch becomes familiar enough to remember. Pick two stories, such as the supermarket comparison, and build the next batch from them."
+   ],
+   [
+    "One call to action",
+    "Your 30 ads use Order now on 21, Learn more on 4 and Shop now on 3, so the next step shifts with each ad. Send each button to the page it names: subscription for Order now, FAQ for Learn more."
+   ]
+  ],
+  "images": [
+   "eat-ping_1.jpg",
+   "eat-ping_2.jpg",
+   "eat-ping_3.jpg"
+  ]
+ },
+ "ads_1": "Two hooks, supermarket comparison and Indian menu, each with a proof number",
+ "soc_1": "Brand social strategy across Instagram, TikTok and YouTube"
+}
