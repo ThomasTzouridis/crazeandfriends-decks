@@ -1,0 +1,59 @@
+{
+ "slug": "aretto",
+ "company": "Aretto",
+ "full_name": "Satyajit Mittal",
+ "logo": "aretto.png",
+ "shot": "aretto.jpg",
+ "shot_caption": "wearetto.com",
+ "saw_lines": [
+  "Parents replace kids shoes every few months as feet grow, and they check fit before they check looks.",
+  "So a parent who is unsure about fit scrolls past, since the ads offer no number to settle the doubt.",
+  "Your 20 ads with fixed copy carry no proof number, so pick one real figure, such as a review count, and open the next three ads with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "25",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry proof"
+   ],
+   [
+    "19",
+    "different openings"
+   ],
+   [
+    "1",
+    "proven winner"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 20 ads with fixed copy carries a proof number, so a buyer on the fence has nothing to trust. Pick one real figure, such as a review count, and open the next three ads with it."
+   ],
+   [
+    "Creator posts run as ads",
+    "5 of your 20 ads are creator posts run from your brand page, so the post reads as opinion, not an offer. Whitelist those posts from the creator accounts, then cut three variations of the best one."
+   ],
+   [
+    "Winner is not built on",
+    "Your winner has run 60+ days, and none of 24 other ads reuses its opening line, so the winning hook is not repeated. Build three new ads as variations of it, keeping its first line and changing just the product detail."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 20 copy ads open with 19 different stories, and the biggest is used by only 1 ad, so no hook gets repeated enough to be remembered. Pick your two best stories and make the next batch from them."
+   ]
+  ],
+  "images": [
+   "aretto_1.jpg",
+   "aretto_2.jpg",
+   "aretto_3.jpg"
+  ]
+ },
+ "ads_1": "Two hook stories built around fit, with one proof number on every creative",
+ "soc_1": "Brand social strategy across Instagram, your only linked channel"
+}
