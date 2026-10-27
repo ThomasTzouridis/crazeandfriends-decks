@@ -1,0 +1,59 @@
+{
+ "slug": "reishunger",
+ "company": "Reishunger",
+ "full_name": "Steffi Nienhusmeier",
+ "logo": "reishunger.png",
+ "shot": "reishunger.jpg",
+ "shot_caption": "reishunger.de",
+ "saw_lines": [
+  "Nobody buys a rice cooker on impulse. Buyers compare how it cooks and how it ships, then buy once.",
+  "So the shipping answer and a proof number have to sit in the first line, before the buyer weighs the click.",
+  "Your site explains shipping, yet 0 of 20 ads mention shipping or delivery, so open new buyer ads with free shipping from 49 € in line one."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "20",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "first order offers"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping goes unanswered",
+    "Your site explains shipping, yet 0 of 20 ads mention shipping or delivery, so a new buyer hesitates before the first click. Open the next new buyer ads with the answer, free shipping from 49 €, in line one."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 20 ads shows a proof number, so a buyer comparing you with other cookers has only the copy to go on. Collect one real number, like a review count, and lead the next batch with it."
+   ],
+   [
+    "One opener leads the copy",
+    "4 of 16 copy ads open on the same rice cooker novelty line, so one story leads. Test two new openers against it, one on rice that needs no stirring and one on delivery, and keep the rest as control."
+   ],
+   [
+    "No first order offer",
+    "0 of 16 copy ads carry a first order offer, so a buyer who has never ordered sees no reason to act today. Build three new ads for new buyers, each leading with a first order offer in line one."
+   ]
+  ],
+  "images": [
+   "reishunger_1.jpg",
+   "reishunger_2.jpg",
+   "reishunger_3.jpg"
+  ]
+ },
+ "ads_1": "New openers on rice without stirring, with the delivery answer in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
