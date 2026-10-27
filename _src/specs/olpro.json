@@ -1,0 +1,59 @@
+{
+ "slug": "olpro",
+ "company": "OLPRO",
+ "full_name": "Daniel Walton",
+ "logo": "olpro.png",
+ "shot": "olpro.jpg",
+ "shot_caption": "olproshop.com",
+ "saw_lines": [
+  "Campers buy awnings and tents once, then check the delivery date and whether it fits their van before paying.",
+  "So a camper who scrolls past without a delivery answer or an offer moves on, and the sale is lost there.",
+  "Your site offers 10% off, yet 0 of 13 ads mention percent off, so put the offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention the offer"
+   ],
+   [
+    "0",
+    "ads explain arrival"
+   ],
+   [
+    "17",
+    "catalog ads"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers 10% off, yet 0 of 13 ads mention percent off, so a new buyer has no reason to act today. Put that offer in the first line of three new ads and on the creative."
+   ],
+   [
+    "Delivery goes unanswered in ads",
+    "Your site explains how orders arrive, but 0 of 30 ads say so, leaving a buyer unsure of the wait before clicking. Film the box arriving in one video ad and name the delivery answer in the first line."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a buyer has nothing to trust before clicking. Pick one number you can stand behind, such as a review count, and lead the next batch with it on every creative."
+   ],
+   [
+    "Most ads lack a story",
+    "17 of your 30 ads are catalog ads with no fixed copy, so the feed gives a buyer no reason to stop. Add three story ads that open on a rainy pitch saved by a canopy, each linked to one product."
+   ]
+  ],
+  "images": [
+   "olpro_1.jpg",
+   "olpro_2.jpg",
+   "olpro_3.jpg"
+  ]
+ },
+ "ads_1": "Story video ads on the rainy pitch, with 10% off in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Twitter and Youtube"
+}
