@@ -1,0 +1,59 @@
+{
+ "slug": "grip6",
+ "company": "Grip6",
+ "full_name": "Winslow Burton",
+ "logo": "grip6.png",
+ "shot": "grip6.jpg",
+ "shot_caption": "grip6.com",
+ "saw_lines": [
+  "Men replace belts and socks only when the old pair fails, then reorder the one that fit.",
+  "So the sale is won on proof in the first line, since new buyers will not gamble on an unknown brand.",
+  "Your site shows 1,000,000+ happy customers, yet 0 of 30 ads carry that number. Put it in the first line of three new ads and open two with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "0",
+    "ads mention percent off"
+   ],
+   [
+    "3",
+    "Shop now homepage ads"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers stay on site",
+    "Your site shows 1,000,000+ happy customers, yet 0 of 30 ads carry a proof number, so the click has nothing to trust. Put 1,000,000+ in the first line of three new ads and open two more with a review quote."
+   ],
+   [
+    "Site offer missing from ads",
+    "Your site offers 25% off when you build your own set, yet 0 of 20 ads mention percent off, so a first visit gives no reason to act. Put 25% off the bundle in the first line of three new ads."
+   ],
+   [
+    "Shipping left out of ads",
+    "Your site lists free shipping over $99 US, yet 0 of 30 ads mention shipping or delivery, so a buyer weighing the cost has no reason to order. Name the $99 threshold in the first line of ads aimed at new buyers."
+   ],
+   [
+    "Shop now ads hit homepage",
+    "Three Shop now ads go to the homepage, so a buyer who clicked for one product lands on a general page. Point each to the product it shows, such as the G-Flex belt or merino socks, so the click matches the ad."
+   ]
+  ],
+  "images": [
+   "grip6_1.jpg",
+   "grip6_2.jpg",
+   "grip6_3.jpg"
+  ]
+ },
+ "ads_1": "Belt and sock creative opening on 1,000,000+ customers and 25% off",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter and YouTube"
+}
