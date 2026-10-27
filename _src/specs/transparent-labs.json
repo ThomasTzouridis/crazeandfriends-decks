@@ -1,0 +1,59 @@
+{
+ "slug": "transparent-labs",
+ "company": "Transparent Labs",
+ "full_name": "John Williams",
+ "logo": "transparent-labs.png",
+ "shot": "transparent-labs.jpg",
+ "shot_caption": "transparentlabs.com",
+ "saw_lines": [
+  "Supplement buyers reorder the same tub for months, and they check the label and review count before the price.",
+  "So the sale is won or lost early, when a buyer sees no review count in your ads and scrolls past.",
+  "Your site shows 5071 reviews on Bulk Pre-Workout and 0 of 30 ads use that number, so open the next batch with it on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "5071",
+    "reviews, none in ads"
+   ],
+   [
+    "8",
+    "ads use claim words"
+   ],
+   [
+    "3",
+    "ads sent to homepage"
+   ]
+  ],
+  "points": [
+   [
+    "Reviews never reach your ads",
+    "Your site shows 5071 reviews on Bulk Pre-Workout, yet 0 of 30 ads carry it, so new buyers get no proof before the click. Put 5071 on the Bulk creative and open two ads with a review quote."
+   ],
+   [
+    "Arrival method goes unanswered",
+    "Your site explains how orders arrive, yet 0 of 30 ads show it, so a first-time buyer must leave the ad to learn it. Shoot one video of the box arriving and answer delivery in the first three seconds."
+   ],
+   [
+    "Claim words limit reach",
+    "8 of 22 ads use claim words like clinically and guaranteed results, which makes buyers doubt the copy. Swap them for the label point customers repeat, that every ingredient is easy to pronounce, and test it against your claim ads."
+   ],
+   [
+    "Three ads land on homepage",
+    "3 Shop now ads send buyers to the homepage, not the product they show, so each click has to search again. Point each to the product page for the product in its creative, such as Protein Coffee for the coffee ad."
+   ]
+  ],
+  "images": [
+   "transparent-labs_1.jpg",
+   "transparent-labs_2.jpg",
+   "transparent-labs_3.jpg"
+  ]
+ },
+ "ads_1": "Review-count openers for Bulk Pre-Workout, plus one video showing delivery.",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
