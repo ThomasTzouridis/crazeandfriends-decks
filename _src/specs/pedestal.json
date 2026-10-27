@@ -1,0 +1,59 @@
+{
+ "slug": "pedestal",
+ "company": "Pedestal",
+ "full_name": "Rasmus Jepsen",
+ "logo": "pedestal.png",
+ "shot": "pedestal.jpg",
+ "shot_caption": "pedestal.com",
+ "saw_lines": [
+  "People buying a TV stand picture the cables and game consoles first, then pick the one that hides them.",
+  "So the sale is won or lost in the first line, when a shopper sees whether the stand fits their setup.",
+  "Your site shows 152 reviews, yet 0 of 30 ads carry a proof number. Buyers check reviews before paying, so put 152 reviews on every creative and open two ads with a review quote about setup."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "10",
+    "creator posts as ads"
+   ],
+   [
+    "20",
+    "catalog feed ads"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers stay off ads",
+    "Your site shows 152 reviews, yet 0 of 30 ads carry a proof number. Buyers check reviews before paying. Put 152 reviews on every creative, in the first line, and open two ads with a review quote about setup."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site offers free shipping, yet 0 of 30 ads mention shipping or delivery. A new buyer wondering about delivery has no reason to click. Answer the shipping question in the first line of ads for new buyers, naming free shipping."
+   ],
+   [
+    "Creator posts run as brand ads",
+    "All 10 of your ads are creator posts with a code or @mention, run from your brand page. That makes the brand look like a reseller, not the maker. Whitelist the best posts from the creator account and cut three variations."
+   ],
+   [
+    "Feed ads without a story",
+    "20 of your 30 ads are catalog feed ads with no story, so buyers scroll past without a reason to stop. Add three story ads, each showing one stand in a real room with one line about the problem it solves."
+   ]
+  ],
+  "images": [
+   "pedestal_1.jpg",
+   "pedestal_2.jpg",
+   "pedestal_3.jpg"
+  ]
+ },
+ "ads_1": "Real room story ads opening on reviews and free shipping, not creator posts",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok, Youtube"
+}
