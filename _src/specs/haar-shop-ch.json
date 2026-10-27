@@ -1,0 +1,59 @@
+{
+ "slug": "haar-shop-ch",
+ "company": "haar-shop.ch",
+ "full_name": "Leandra Saxer",
+ "logo": "haar-shop-ch.svg",
+ "shot": "haar-shop-ch.jpg",
+ "shot_caption": "haar-shop.ch",
+ "saw_lines": [
+  "Beauty shoppers often reorder a brand they know, but a new buyer first checks the price and whether it arrives.",
+  "So the sale is won or lost in the first line, where a new buyer weighs price and delivery.",
+  "Your site shows 168 and 180 reviews, yet 0 of 30 ads carry a proof number. Put one review count on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "0",
+    "ads mention percent off"
+   ],
+   [
+    "18",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays off the ads",
+    "Your site shows 168 and 180 reviews, yet 0 of 30 ads carry a proof number, so new buyers get no reason to trust it. Put one review count on the creative and open two ads with a review quote."
+   ],
+   [
+    "Site offer missing from ads",
+    "Your site offers 10% off orders from CHF 99, yet 0 of 27 ads mention percent off, so first buyers get no reason to act. Put that offer in line one of three new ads and on the creative."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site states free shipping from CHF 150, yet 0 of 30 ads mention shipping or delivery, so new buyers hesitate before clicking. Open new ads with the shipping answer and the CHF 150 threshold on the creative."
+   ],
+   [
+    "Openers spread thin",
+    "Your 27 copy ads open 18 different ways, the biggest only 3 times, so no story gets tested enough to show what works. Pick the two best stories and build the next batch from them, three ads each."
+   ]
+  ],
+  "images": [
+   "haar-shop-ch_1.jpg",
+   "haar-shop-ch_2.jpg",
+   "haar-shop-ch_3.jpg"
+  ]
+ },
+ "ads_1": "Offer-led creative opening with free shipping from CHF 150 and the 10% order offer",
+ "soc_1": "Brand social strategy across Facebook and Instagram"
+}
