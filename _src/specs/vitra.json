@@ -1,0 +1,59 @@
+{
+ "slug": "vitra",
+ "company": "Vitra",
+ "full_name": "Jirka Zavadil",
+ "logo": "vitra.png",
+ "shot": "vitra.jpg",
+ "shot_caption": "vitra.com",
+ "saw_lines": [
+  "Nobody buys a lounge chair off one ad. They compare the recline, the price and the delivery, then come back later.",
+  "So the sale is won or lost on the first screen, and no ad answers price, delivery or returns early.",
+  "Your 21 ads show no proof number, so collect one real figure, like reviews received or chairs shipped, and open new ads with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "21",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "0",
+    "ads mention an offer"
+   ],
+   [
+    "10",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number yet",
+    "None of your 21 ads shows a proof number, so a buyer scrolling past has no count to trust. Collect one real figure, like reviews received or chairs shipped, and open new ads with it on the creative itself."
+   ],
+   [
+    "Creator posts run as ads",
+    "Two of your 21 ads are creator posts with a code, #ad or @mention, run from the brand page. Buyers trust real owners over brand copy. Whitelist both from the creator accounts then cut new versions with the creator on camera."
+   ],
+   [
+    "No offer in the ads",
+    "None of your 21 ads mentions an offer or discount, so a first time buyer has no reason to act today. Add a first order offer or a bundle to the opening line of each new ad."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 21 ads open with 10 different stories, and one story leads 4 of them, so no angle gets a fair test. Pick two stories, comfort and movement, and build the next batch from them, changing only the first line."
+   ]
+  ],
+  "images": [
+   "vitra_1.jpg",
+   "vitra_2.jpg",
+   "vitra_3.jpg"
+  ]
+ },
+ "ads_1": "Comfort and movement hooks for the lounge chair, each with a first order offer",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
