@@ -1,0 +1,59 @@
+{
+ "slug": "innersense-organic-beauty",
+ "company": "Innersense Organic Beauty",
+ "full_name": "Natalie Capili",
+ "logo": "innersense-organic-beauty.png",
+ "shot": "innersense-organic-beauty.jpg",
+ "shot_caption": "innersensebeauty.com",
+ "saw_lines": [
+  "Hair buyers choose by curl pattern and hair type, then reorder the same conditioner for months.",
+  "So the sale is won or lost in the first line, where buyers check whether the ad fits their hair.",
+  "Your 0 of 30 ads carry a proof number, so new buyers have nothing to check. Collect a review count or orders shipped and lead the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "7",
+    "creator style ads"
+   ],
+   [
+    "0",
+    "ads mention free shipping"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a new buyer has no reason to trust the claim. Collect one real figure, like a review count or orders shipped, and open the next batch with it."
+   ],
+   [
+    "Creator posts run as ads",
+    "7 of 30 ads are creator posts run from your brand page, which makes a new buyer see an ad, not a recommendation. Whitelist those posts from the creator account and cut three variations of the best one."
+   ],
+   [
+    "Shop now ads hit homepage",
+    "5 Shop now ads send buyers to the homepage, not the product shown. Buyers who clicked for one item must search again before they can buy. Point each of the 5 to the product it shows, such as the sculpting pomade."
+   ],
+   [
+    "Free shipping never in ads",
+    "Your site promotes free shipping on orders $30+, yet 0 of 30 ads mention it, so new buyers get no reason to act. Open new buyer ads with the free shipping line and the $30 threshold printed on the creative."
+   ]
+  ],
+  "images": [
+   "innersense-organic-beauty_1.jpg",
+   "innersense-organic-beauty_2.jpg",
+   "innersense-organic-beauty_3.jpg"
+  ]
+ },
+ "ads_1": "Free shipping and a review count lead, tested against the curl refresh story",
+ "soc_1": "Brand social strategy across Facebook, Instagram and YouTube"
+}
