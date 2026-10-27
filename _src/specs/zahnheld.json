@@ -1,0 +1,59 @@
+{
+ "slug": "zahnheld",
+ "company": "Zahnheld",
+ "full_name": "Johannes Hutner",
+ "logo": "zahnheld.svg",
+ "shot": "zahnheld.jpg",
+ "shot_caption": "zahnheld.de",
+ "saw_lines": [
+  "Buyers of electric brushes compare the routine first, then reorder heads and tips on a schedule they barely think about.",
+  "So the sale is won in line one, before the buyer scrolls past, and your ads give no reason to stop.",
+  "Your site explains free shipping from 49,90 €, yet 0 of your 30 ads mention shipping or delivery, so buyers hesitate. Lead the next batch with free shipping in line one."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "7",
+    "ads share one copy"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping goes unanswered",
+    "Your site explains free shipping from 49,90 €, yet 0 of your 30 ads mention shipping or delivery. Buyers hesitate on arrival before they tap. Lead the next batch with free shipping in line one, then repeat it in each headline."
+   ],
+   [
+    "One copy repeats across ads",
+    "The same copy runs in 7 of your 23 copy ads, so a buyer who saw one skips the next. Keep the body, but change the opening line and creative in each of the 7 so each reads as new."
+   ],
+   [
+    "No proof number in ads",
+    "0 of your 23 copy ads carry a proof number. Buyers trust a count before a claim, so the ad gives them nothing to check. Collect one real figure, like review count or orders shipped, and lead with it."
+   ],
+   [
+    "One opener carries the account",
+    "7 of your 23 copy ads open on one question, &ldquo;du hasst zahnseide? du bist...&rdquo; so a buyer who never flosses gets one entry point. Test two new openers against it: the 60 second clean and the 2 minute whitening."
+   ]
+  ],
+  "images": [
+   "zahnheld_1.jpg",
+   "zahnheld_2.jpg",
+   "zahnheld_3.jpg"
+  ]
+ },
+ "ads_1": "Free shipping leads each creative, with two new openers tested against the Zahnseide hook",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
