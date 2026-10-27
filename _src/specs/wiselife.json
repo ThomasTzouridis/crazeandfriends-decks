@@ -1,0 +1,59 @@
+{
+ "slug": "wiselife",
+ "company": "Wiselife",
+ "full_name": "Prateek Kedia",
+ "logo": "wiselife.png",
+ "shot": "wiselife.jpg",
+ "shot_caption": "wiselife.in",
+ "saw_lines": [
+  "Yoga mat buyers check grip, thickness and delivery before they pay, and they bounce from any ad that skips those.",
+  "So the sale is lost in the first line, where a buyer wondering about delivery scrolls past the mat.",
+  "Your site answers shipping, yet 0 of 30 ads mention it. Open new ads with a plain sentence on how orders ship, and print that line on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "5",
+    "ads land on homepage"
+   ],
+   [
+    "1",
+    "ad running 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping question goes unanswered",
+    "Your site answers how orders ship, yet 0 of 30 ads mention shipping or delivery. A buyer who wonders when the mat arrives scrolls on. Open new ads with a plain sentence on delivery, and print that answer on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so buyers have no sign others trust the mat. Collect a real count, like reviews or orders shipped, and open the next ads with that figure in the first line."
+   ],
+   [
+    "Shop now ads hit homepage",
+    "5 of your Shop now ads send buyers to the homepage, not the product shown. A buyer searching for a mat has to hunt, and many leave. Point each ad to the mat it shows, as your Classic 8mm ads do."
+   ],
+   [
+    "Winning ad has no variations",
+    "1 ad has run 60+ days, yet none of the 29 newer ads reuses its opening line. Fresh openers have not earned trust. Build the next ads as variations of that oldest winner, keeping its opening line and swapping the product."
+   ]
+  ],
+  "images": [
+   "wiselife_1.jpg",
+   "wiselife_2.jpg",
+   "wiselife_3.jpg"
+  ]
+ },
+ "ads_1": "Delivery answers up front for new buyers, with the mat offer kept below",
+ "soc_1": "Brand social strategy across Facebook and Instagram, your linked channels"
+}
