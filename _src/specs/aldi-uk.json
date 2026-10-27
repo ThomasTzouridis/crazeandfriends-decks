@@ -1,0 +1,59 @@
+{
+ "slug": "aldi-uk",
+ "company": "Aldi UK",
+ "full_name": "Jonathan Neale",
+ "logo": "aldi-uk.svg",
+ "shot": "aldi-uk.jpg",
+ "shot_caption": "aldi.co.uk",
+ "saw_lines": [
+  "Shoppers trying a new supermarket want one clear reason to switch, then judge the price and the first basket before they commit.",
+  "So the first order offer has to sit in the opening line, because that is where a trial is won or lost.",
+  "Your site offers a first order discount, yet 0 of 30 ads mention it, so put it in the opening line of three new ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads use the offer"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "8",
+    "landing pages, one CTA"
+   ]
+  ],
+  "points": [
+   [
+    "First order offer missing",
+    "Your site offers a first order discount, yet 0 of 30 ads mention it, so a new buyer has no reason to act. Put the discount in the opening line of three new ads, so every viewer sees it first."
+   ],
+   [
+    "Delivery goes unanswered",
+    "Your ads never say how it arrives, and 0 of 30 cover delivery, so buyers who cannot picture the box scroll past. Shoot one video of it arriving at the door, and open with that answer in the first three seconds."
+   ],
+   [
+    "No proof number shown",
+    "None of your 30 ads carries a proof number, so a first time buyer has nothing concrete to trust before clicking. Collect one real figure, like your review count or orders shipped, and lead the next three ads with it."
+   ],
+   [
+    "One call to action",
+    "All 30 ads use one Learn more button, yet they send buyers to 8 different landing pages, so clicks land unexpectedly. Match each label to its page, Shop now for Halloween and Find a store for the new store opening."
+   ]
+  ],
+  "images": [
+   "aldi-uk_1.jpg",
+   "aldi-uk_2.jpg",
+   "aldi-uk_3.jpg"
+  ]
+ },
+ "ads_1": "Three new video ads opening with the first order discount and a delivery answer",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and X"
+}
