@@ -1,0 +1,59 @@
+{
+ "slug": "barner-brand",
+ "company": "Barner Brand",
+ "full_name": "Ramón Pérez Coronado",
+ "logo": "barner-brand.svg",
+ "shot": "barner-brand.jpg",
+ "shot_caption": "barnerbrand.com",
+ "saw_lines": [
+  "Buyers pick glasses on fit and face first, then add a second pair for a different look or long screen days.",
+  "So the sale is won on the first look at the frame, before anyone reads a claim or a price.",
+  "Your site shows 500+ reviews, yet 0 of 30 ads carry the number. Put it on the creative and open two ads with a customer quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "22",
+    "open on shop here"
+   ],
+   [
+    "0",
+    "ads mention percent off"
+   ],
+   [
+    "500",
+    "reviews, zero in ads"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site shows 500+ reviews, yet 0 of 30 ads carry that number, so buyers see no proof before clicking. Put the count on the creative and in the first line, then open two ads with a customer review quote."
+   ],
+   [
+    "Site offer missing from ads",
+    "Your site offers 20% off, yet 0 of 27 ads mention percent off or any offer, so a new buyer sees no reason to act. Put 20% off in the first line of three new ads and on the creative."
+   ],
+   [
+    "One opener carries the account",
+    "22 of your 27 copy ads open on the same shop here line, so one opener is doing almost all of the work. Write two or three new openers from the polarised sun and screen story, and test each against it."
+   ],
+   [
+    "Same copy reused across ads",
+    "One exact copy runs in 22 of 27 ads, so buyers who see one ad keep seeing the same words. Keep the core copy, but change the opening line and the creative in each variation, so the message feels new."
+   ]
+  ],
+  "images": [
+   "barner-brand_1.jpg",
+   "barner-brand_2.jpg",
+   "barner-brand_3.jpg"
+  ]
+ },
+ "ads_1": "Face led creative with the review count and 20% off in the first line",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Tiktok and Youtube"
+}
