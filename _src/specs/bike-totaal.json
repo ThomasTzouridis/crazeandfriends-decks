@@ -1,0 +1,59 @@
+{
+ "slug": "bike-totaal",
+ "company": "Bike Totaal",
+ "full_name": "Pieter Boel",
+ "logo": "bike-totaal.png",
+ "shot": "bike-totaal.jpg",
+ "shot_caption": "biketotaal.nl",
+ "saw_lines": [
+  "Bike buyers compare several models for weeks, then want to know the price, delivery and service before they commit.",
+  "So the sale is won or lost on price, delivery or a first offer, not on another question.",
+  "Your 9 catalog ads carry no proof number, so collect one, like a review count or orders shipped, and open the next three ads with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "11",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof"
+   ],
+   [
+    "18",
+    "days since oldest ad"
+   ],
+   [
+    "8",
+    "Shop now ads on homepage"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 9 ads shows a proof number, so a new buyer has nothing concrete to trust before clicking. Collect one figure, like a review count or orders shipped, and open the next three ads with it."
+   ],
+   [
+    "Every ad is brand new",
+    "All 9 ads started within the last 18 days, so none has run long enough to show which message holds up. Keep one ad as the base and build three variations of it, changing the opening line and the product shown."
+   ],
+   [
+    "Shop now ads hit homepage",
+    "8 of your 9 Shop now ads send buyers to the homepage, so the buyer has to search for the bike again. Point each one to the exact model it shows, and use a collection page for ads showing a range."
+   ],
+   [
+    "No offer in the ads",
+    "None of your 9 ads carries an offer, so a buyer still comparing has no reason to act yet. Put one reason to buy today, such as a first order discount, in the opening line of three new ads."
+   ]
+  ],
+  "images": [
+   "bike-totaal_1.jpg",
+   "bike-totaal_2.jpg",
+   "bike-totaal_3.jpg"
+  ]
+ },
+ "ads_1": "Paid creative: one bike, a first order offer and a proof number up front",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
