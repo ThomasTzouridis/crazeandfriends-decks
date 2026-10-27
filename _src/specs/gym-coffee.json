@@ -1,0 +1,59 @@
+{
+ "slug": "gym-coffee",
+ "company": "Gym+Coffee",
+ "full_name": "Karl Swaine",
+ "logo": "gym-coffee.svg",
+ "shot": "gym-coffee.jpg",
+ "shot_caption": "gympluscoffee.com",
+ "saw_lines": [
+  "Activewear buyers judge a fleece by fit and layering, then return for the same cut in a new colour.",
+  "So the delivery question gets answered in the first line of the ad, or the buyer leaves to find it elsewhere.",
+  "Your 30 ads never mention shipping, while the site explains it, so new buyers hit a question with no answer. Put delivery timing in the first line of the next batch."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "2",
+    "creator ads from brand"
+   ],
+   [
+    "20",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping question unanswered",
+    "Your site explains shipping, yet 0 of 30 ads mention shipping or delivery, so a new buyer has no reason to act. Put delivery timing in the first line of the next batch, and test two openers built on it."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 30 ads carry a proof number, so a buyer weighing a fleece against other brands has nothing concrete to trust. Collect one real figure, such as a review count, and open the next batch with it on every creative."
+   ],
+   [
+    "Creator posts run as ads",
+    "2 of 30 ads are creator posts run from the brand page, so the face that should stop the scroll reads as a company ad. Whitelist both from the creator accounts and make three new variations of each."
+   ],
+   [
+    "Openers spread thin",
+    "Your 30 copy ads open with 20 different stories, and the biggest leads only 3. Pick the two best openers and build the next batch from them, not from new stories each week."
+   ]
+  ],
+  "images": [
+   "gym-coffee_1.jpg",
+   "gym-coffee_2.jpg",
+   "gym-coffee_3.jpg"
+  ]
+ },
+ "ads_1": "Shipping answered first in fleece creative, with creator posts as opening lines",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
