@@ -1,0 +1,59 @@
+{
+ "slug": "metallbude-sk",
+ "company": "Metallbude SK",
+ "full_name": "Dennis Siemens",
+ "logo": "metallbude-sk.png",
+ "shot": "metallbude-sk.jpg",
+ "shot_caption": "metallbude.com",
+ "saw_lines": [
+  "Furniture is bought once for one wall or corner, so buyers ask whether it fits and how it arrives first.",
+  "So the sale is won or lost in the first line of the ad, where fit and delivery must already be answered.",
+  "Your site offers up to 50% off, yet 0 of 15 ads mention it. Lead three new ads with that offer on the creative, paired with the product shown."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 27 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention the offer"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "4",
+    "Shop now to homepage"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers up to 50% off, yet 0 of 15 ads mention it or any offer, so new buyers see no reason to act. Lead three new ads with that offer on the creative, paired with the product shown."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site answers shipping questions, yet 0 of 30 ads mention shipping or delivery, so a buyer weighing a wall shelf has to leave the ad to find out. Answer how it arrives in line one of new ads."
+   ],
+   [
+    "Proof number missing from ads",
+    "None of your 30 ads carry a proof number, so a new buyer has nothing to trust beyond the photo. Pick one real figure, such as a review count or orders shipped, and open three new ads with it."
+   ],
+   [
+    "Shop now lands on homepage",
+    "Four of your Shop now ads send buyers to the homepage, not the product on screen, so the click loses its reason. Point each of those four to its own product page, matching the piece the creative shows."
+   ]
+  ],
+  "images": [
+   "metallbude-sk_1.jpg",
+   "metallbude-sk_2.jpg",
+   "metallbude-sk_3.jpg"
+  ]
+ },
+ "ads_1": "Offer-led product creative with up to 50% off, one piece per ad",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
