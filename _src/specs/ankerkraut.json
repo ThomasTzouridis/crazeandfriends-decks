@@ -1,0 +1,59 @@
+{
+ "slug": "ankerkraut",
+ "company": "Ankerkraut",
+ "full_name": "Maik Ehmcke",
+ "logo": "ankerkraut.svg",
+ "shot": "ankerkraut.jpg",
+ "shot_caption": "ankerkraut.de",
+ "saw_lines": [
+  "Spice buyers rarely browse. They buy one blend for one dish or a gift set, and they check delivery first.",
+  "So the sale is won or lost in line one, when a buyer decides whether the order feels safe to start.",
+  "Your site answers how it ships, yet 0 of 30 ads mention shipping or delivery. Open the next batch with the shipping answer, cost and delivery time, in line one."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 28 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "8",
+    "ads on one copy"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping question goes unanswered",
+    "Your site answers how it ships, yet 0 of 30 ads mention shipping or delivery, so a new buyer has no reason to click. Open the next batch with the shipping answer, cost and delivery time, in line one."
+   ],
+   [
+    "Same copy reused across ads",
+    "One exact copy runs in 8 of 25 ads, so the same message reaches the same buyers again. Keep that copy, but rewrite the opening line and swap the creative in each ad so every one looks new."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a buyer comparing spice brands has nothing to trust. Collect one real figure, a review count or orders shipped, and lead the next batch with it."
+   ],
+   [
+    "One opener leads the account",
+    "8 of 25 copy ads open on Jeden Tag eine neue Gewürzüberraschung, and the rest are single use, so the whole account speaks with one voice. Test two new angles against that opener, one on gifting and one on cooking."
+   ]
+  ],
+  "images": [
+   "ankerkraut_1.jpg",
+   "ankerkraut_2.jpg",
+   "ankerkraut_3.jpg"
+  ]
+ },
+ "ads_1": "Gift and advent creative that answers delivery in line one, tested against new openers",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
