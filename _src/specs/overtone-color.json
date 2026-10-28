@@ -1,0 +1,59 @@
+{
+ "slug": "overtone-color",
+ "company": "Overtone Color",
+ "full_name": "Ezra Firestone",
+ "logo": "overtone-color.png",
+ "shot": "overtone-color.jpg",
+ "shot_caption": "overtone.co",
+ "saw_lines": [
+  "Color-treated hair buyers pick a shade, then reorder when the tone fades, so they trust what they can see working.",
+  "So the sale is won in the first line, where a shopper decides whether the shade fits their hair.",
+  "Your offer appears after 85% of the copy in a median ad of 69 words. Put the bundle in the first two lines of every ad."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 28 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "85%",
+    "copy before the offer"
+   ],
+   [
+    "6",
+    "open on one story"
+   ],
+   [
+    "0",
+    "ads mention free shipping"
+   ]
+  ],
+  "points": [
+   [
+    "Offer buried in long copy",
+    "Your offer appears after 85% of the copy in a median ad of 69 words, so most people never reach it. Put the bundle in the first two lines of every ad, with the offer above the See more cut."
+   ],
+   [
+    "No proof numbers in ads",
+    "None of your 30 ads shows a proof number, so a new buyer gets no reason to trust you before spending. Pick one figure, like a review count or orders shipped, and open the next batch with it on the creative."
+   ],
+   [
+    "One opener leads the copy",
+    "Six of your 21 copy ads open on the same &ldquo;somewhere between 35 and 39&rdquo; story, so one hook carries the most copy. Test two new openers against it: one on price, one on a customer quote from week one."
+   ],
+   [
+    "Free shipping missing from ads",
+    "Your site promotes free shipping on $55+ orders, but 0 of 21 copy ads mention it, so new buyers see no reason to act. Name the threshold in the first line of new ads, above the See more cut."
+   ]
+  ],
+  "images": [
+   "overtone-color_1.jpg",
+   "overtone-color_2.jpg",
+   "overtone-color_3.jpg"
+  ]
+ },
+ "ads_1": "Bundle-first creative, tested against two new openers on price and results",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
