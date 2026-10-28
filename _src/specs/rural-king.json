@@ -1,0 +1,59 @@
+{
+ "slug": "rural-king",
+ "company": "Rural King",
+ "full_name": "Alex Melvin",
+ "logo": "rural-king.png",
+ "shot": "rural-king.jpg",
+ "shot_caption": "ruralking.com",
+ "saw_lines": [
+  "Farm and home buyers come in for one specific part or tool, then check the price before anything else.",
+  "So the sale is won or lost in the opening line, where a new buyer needs a reason to act now.",
+  "Your site offers a first order discount, yet 0 of 30 ads mention it. Put that discount in the first line of three new ads and on the creative itself."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 29 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "27",
+    "open on one story"
+   ],
+   [
+    "6",
+    "ads running 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "The site offer is missing",
+    "Your site offers a first order discount, yet 0 of 30 ads mention it. A first time buyer sees no reason to act today. Put that discount in the first line of three new ads and on the creative itself."
+   ],
+   [
+    "One opener carries the account",
+    "27 of 30 ads open on the same now open story, so repeat viewers get the same pitch twice. Name two or three new angles, such as Prepare for the unexpected, and run each one against the opener."
+   ],
+   [
+    "Proof numbers are missing",
+    "None of your 30 ads carries a proof number, so new buyers have no count to trust before clicking. Collect one real figure, such as your review count or orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "Build on the winners",
+    "6 ads have run 60+ days, which is evidence they work. Build three more variations of the oldest winner, running since May 2026, by changing the opening line and the visual while keeping the structure that already holds attention."
+   ]
+  ],
+  "images": [
+   "rural-king_1.jpg",
+   "rural-king_2.jpg",
+   "rural-king_3.jpg"
+  ]
+ },
+ "ads_1": "Offer-led creative for farm and home buyers, opening on the first order discount",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest and Twitter"
+}
