@@ -1,0 +1,59 @@
+{
+ "slug": "instamotion",
+ "company": "instamotion",
+ "full_name": "Korbinian Raufer",
+ "logo": "instamotion.svg",
+ "shot": "instamotion.jpg",
+ "shot_caption": "instamotion.com",
+ "saw_lines": [
+  "Used car buyers online need the warranty, delivery and return right away before they trust a listing.",
+  "So the guarantee has to sit in the first line of the ad, not buried lower on the page.",
+  "Your 27 live ads carry no proof number, so cold buyers have no reason to trust you yet. Lead the next batch with one proof number, like a review count."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 28 Oct 2026",
+  "stats": [
+   [
+    "27",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "4",
+    "Shop now to homepage"
+   ],
+   [
+    "10",
+    "different copy openings"
+   ]
+  ],
+  "points": [
+   [
+    "No proof in your ads",
+    "None of your 27 live ads shows a proof number, so a cold buyer has nothing to trust before the click. Pick one you can stand behind, like a review count or orders shipped, and open the next batch with it."
+   ],
+   [
+    "Shop now lands on homepage",
+    "Your 4 Shop now ads send buyers to the homepage instead of the car they just saw, so the click has to search again. Point each one to the model its creative shows, the way your two Corolla ads already do."
+   ],
+   [
+    "No offer in your ads",
+    "None of your 19 copy ads carries an offer, so a first-time buyer has no reason to act today. Put one offer in line one, such as the bundle already on your site, and test it against the current copy."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 19 copy ads open with 10 different stories, and the biggest leads only 3. Scattered openers mean no message gets repeated enough to stick. Keep the 30.000 cars line, then build the next batch from it."
+   ]
+  ],
+  "images": [
+   "instamotion_1.jpg",
+   "instamotion_2.jpg",
+   "instamotion_3.jpg"
+  ]
+ },
+ "ads_1": "Fresh openers built on the 30.000 cars line, with one proof number",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
