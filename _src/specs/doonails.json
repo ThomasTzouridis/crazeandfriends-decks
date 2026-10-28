@@ -1,0 +1,59 @@
+{
+ "slug": "doonails",
+ "company": "DOONAILS",
+ "full_name": "David Windegger",
+ "logo": "doonails.svg",
+ "shot": "doonails.jpg",
+ "shot_caption": "doonails.com",
+ "saw_lines": [
+  "Press-on buyers pick a look for one occasion, then come back for the next design when the last set lifts.",
+  "So the sale is won on the design and wear time in the first line, not three clicks deep.",
+  "Your site shows 12051 reviews, yet 0 of 27 live ads carry that number, so put it on every creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 29 Oct 2026",
+  "stats": [
+   [
+    "27",
+    "live Meta ads"
+   ],
+   [
+    "12051",
+    "reviews unused in ads"
+   ],
+   [
+    "11",
+    "open on one opener"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ]
+  ],
+  "points": [
+   [
+    "Reviews missing from ads",
+    "Your site shows 12051 reviews, yet 0 of 27 live ads carry that number. A new buyer sees no proof before the click, so the sale stalls. Put 12051 on every creative, and open two ads with a review quote."
+   ],
+   [
+    "One opener carries the account",
+    "11 of your 20 fixed-copy ads open on the same &ldquo;bye bye press ons&rdquo; story, so most of the account repeats one pitch. Test two or three new angles from your product, like Patterns or Ultra Short Square, against it."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site answers how it ships, yet 0 of 27 live ads mention shipping. A new buyer must click to learn when the set arrives, and many will not. Put the shipping answer in line one of ads for new buyers."
+   ],
+   [
+    "Same copy reused across ads",
+    "One exact copy runs in 11 of your 20 ads, so the same message reaches the same buyers. Keep the body copy, change the opening line and creative in each, and shoot a different product photo per ad."
+   ]
+  ],
+  "images": [
+   "doonails_1.jpg",
+   "doonails_2.jpg",
+   "doonails_3.jpg"
+  ]
+ },
+ "ads_1": "Review-led press-on creative opening on wear time, away from the bye bye hook",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok and YouTube"
+}
