@@ -1,0 +1,59 @@
+{
+ "slug": "eberlestock",
+ "company": "EBERLESTOCK",
+ "full_name": "Brian Schwind",
+ "logo": "eberlestock.png",
+ "shot": "eberlestock.jpg",
+ "shot_caption": "eberlestock.com",
+ "saw_lines": [
+  "Serious hunters buy a pack rarely, then compare load, fit and warranty before they trust a brand for a season.",
+  "So the offer is won or lost in the first line, where a hunter decides whether the pack earns a click.",
+  "Your site shows up to 60% off, yet 0 of 29 ads mention it, so put the sale in line one of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 28 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention percent off"
+   ],
+   [
+    "2",
+    "ads use claim words"
+   ],
+   [
+    "9",
+    "ads share one copy"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site shows up to 60% off, yet 0 of 29 ads mention percent off, so cold buyers get no reason to act. Open three Mainframe II ads with the sale in line one and print it on the creative."
+   ],
+   [
+    "Price never reaches the ads",
+    "Your site shows $100 and $200 prices, yet 0 of 30 ads mention price, so hunters compare you blind. Lead one ad with the $100 price, name the pack, and show what it replaces. Run the $200 price the same way."
+   ],
+   [
+    "Claim words limit reach",
+    "2 of 29 ads use claim words like cure and guaranteed results, which can slow review and limit reach. Swap those lines for facts your copy already lists, like the Brute 4500 hybrid internal frame and adjustable load shelf."
+   ],
+   [
+    "One copy repeats across ads",
+    "One exact copy runs in 9 of 29 ads, so one pitch repeats to the same buyers without a test. Keep the copy, but change the first line and creative in each, opening with load lifters, backcountry trips or EMOD compatibility."
+   ]
+  ],
+  "images": [
+   "eberlestock_1.jpg",
+   "eberlestock_2.jpg",
+   "eberlestock_3.jpg"
+  ]
+ },
+ "ads_1": "Offer-led Mainframe II creative, sale in line one, tested against the current hook",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
