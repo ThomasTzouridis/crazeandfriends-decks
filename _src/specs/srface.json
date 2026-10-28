@@ -1,0 +1,59 @@
+{
+ "slug": "srface",
+ "company": "SRFACE",
+ "full_name": "Augustus Schraven",
+ "logo": "srface.png",
+ "shot": "srface.jpg",
+ "shot_caption": "srface.com",
+ "saw_lines": [
+  "Wetsuit buyers check fit first, then ask how it feels in cold water, and they buy only when the old one fails.",
+  "So the sale is won or lost in the first line, where a buyer decides whether an unknown brand is believable.",
+  "Your site shows 2,138 reviews, yet none of your 20 ads carry a proof number. Put 2,138 on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 28 Oct 2026",
+  "stats": [
+   [
+    "20",
+    "live Meta ads"
+   ],
+   [
+    "10",
+    "open on one line"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "0",
+    "mention shipping"
+   ]
+  ],
+  "points": [
+   [
+    "Proof gap in your ads",
+    "Your site shows 2,138 reviews, yet 0 of 20 ads carry a proof number, so a new buyer has no reason to trust the sale price. Put 2,138 on the creative and open two ads with a review quote."
+   ],
+   [
+    "One opener carries the account",
+    "10 of 20 copy ads open on one line, so they all speak to the same buyer. Name two or three new angles from your own product, like the Lite Shorty&rsquo;s 30 day trial, and run each against it."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site answers how it ships, yet 0 of 20 ads mention shipping or delivery, so a new buyer sees a discount with no answer to the next question. Put free shipping over €150 in line one of ads for new buyers."
+   ],
+   [
+    "Winners need variations",
+    "3 ads have run 60 days or more, evidence they work, but newer ads do not build on them. Make three variations of the oldest, The Lite, with the 30 day water test up front, and run them beside it."
+   ]
+  ],
+  "images": [
+   "srface_1.jpg",
+   "srface_2.jpg",
+   "srface_3.jpg"
+  ]
+ },
+ "ads_1": "Lite Shorty angles that replace the 50% off opener in new ads",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
