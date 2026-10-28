@@ -147,7 +147,7 @@ def sync_sheet(state):
         for r, lid in zip(out, order):
             c = r[27]
             if not c or c == 'OK' or c.startswith('OK ') or c in ('BUILDING', 'BUILT BUT NOT LIVE YET', 'not connected yet'): continue
-            kf = lid + '|' + c[:20]
+            kf = lid + '|' + re.sub(r'\d+', 'N', c)[:24]   # minutes stripped, else 'NO DECK n min' re-alerts every run (2026-10-28 flood)
             if kf not in state.setdefault('_flagged', []):
                 state['_flagged'].append(kf); alert('control check: %s (%s, %s): %s' % (r[0], r[1], r[13], c))
         state['_sheet_alerted'] = False
