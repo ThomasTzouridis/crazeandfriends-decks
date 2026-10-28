@@ -1,0 +1,59 @@
+{
+ "slug": "pied-de-biche",
+ "company": "Pied de Biche",
+ "full_name": "Matthieu Neirinck",
+ "logo": "pied-de-biche.svg",
+ "shot": "pied-de-biche.jpg",
+ "shot_caption": "pieddebiche-paris.com",
+ "saw_lines": [
+  "Nobody buys a shoe on looks alone. Shoppers want to know when it arrives and whether it can come back.",
+  "So the sale is won or lost in the ad itself, when a shopper decides whether to trust the delivery.",
+  "Your site explains how orders ship, yet 0 of 30 ads mention shipping or delivery. Open ads for new buyers with a plain delivery answer in line one."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 29 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "5",
+    "copy ads open one line"
+   ],
+   [
+    "0",
+    "ads carry an offer"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping missing from ads",
+    "Your site explains how orders ship, yet 0 of 30 ads mention shipping or delivery, so new buyers get no answer to their first worry. Open ads for new buyers with a plain delivery answer in line one."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a buyer comparing you with other leather brands has nothing firm to hold onto. Collect a real figure, like orders shipped, and lead the next batch of ads with it."
+   ],
+   [
+    "One opener carries the copy",
+    "5 of your 18 copy ads open on la rentrée se dessine chez, and the rest each use a single opener, so a season line carries the account. Test a boot story and a sandal story against it."
+   ],
+   [
+    "No offer in ads",
+    "0 of 18 copy ads carry an offer or discount, so a shopper who is not sold yet has no reason to act today. Give new buyers a first order offer in the first line of your next ads."
+   ]
+  ],
+  "images": [
+   "pied-de-biche_1.jpg",
+   "pied-de-biche_2.jpg",
+   "pied-de-biche_3.jpg"
+  ]
+ },
+ "ads_1": "Delivery answered first in boot ads, tested against a new season opener",
+ "soc_1": "Brand social strategy across Facebook and Instagram"
+}
