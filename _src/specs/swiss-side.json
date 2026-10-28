@@ -1,0 +1,59 @@
+{
+ "slug": "swiss-side",
+ "company": "Swiss Side",
+ "full_name": "Daniele Cerafogli",
+ "logo": "swiss-side.svg",
+ "shot": "swiss-side.jpg",
+ "shot_caption": "swissside.com",
+ "saw_lines": [
+  "Serious cyclists buy aero wheels after comparing rim depth and weight, then keep them for years unless a crash forces a swap.",
+  "So the sale is won in the first line, where a rider decides to read on or scroll past.",
+  "Your site offers free shipping to the EU and USA, yet 0 of 30 ads mention shipping. Open ads with free shipping in line one and print it on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 28 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "3",
+    "open on one hook"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping question unanswered in ads",
+    "Your site offers free shipping to the EU and USA, yet 0 of 30 ads mention shipping or delivery. New buyers have no reason to act. Open ads with free shipping in line one and print it on the creative."
+   ],
+   [
+    "Same copy reused across ads",
+    "The same copy runs in 3 of your 10 copy ads, so the message repeats with no fresh reason to look. Keep the body copy, but rewrite the opening line and swap the creative in each of the three ads."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a buyer comparing aero wheels has nothing concrete to weigh. Collect one hard figure, such as your review count or wheels shipped, and lead three new ads with it."
+   ],
+   [
+    "One opener leads the copy",
+    "Three of your 10 copy ads open on &ldquo;every hadron³ now ships with&rdquo;, and the other seven open with single-use lines. Buyers meet one angle. Test two new openers against it, one on free shipping, one on a first ride."
+   ]
+  ],
+  "images": [
+   "swiss-side_1.jpg",
+   "swiss-side_2.jpg",
+   "swiss-side_3.jpg"
+  ]
+ },
+ "ads_1": "Free shipping openers on HADRON³ video, replacing the repeated line with two new angles",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
