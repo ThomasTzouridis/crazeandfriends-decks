@@ -1,0 +1,59 @@
+{
+ "slug": "form",
+ "company": "FORM",
+ "full_name": "Scott OLY",
+ "logo": "form.svg",
+ "shot": "form.jpg",
+ "shot_caption": "formswim.com",
+ "saw_lines": [
+  "Swimmers buy goggles to fix one problem, like fogging or leaking, then replace them only when they fail.",
+  "So the sale is won in the first line, where the swimmer sees the fix and why to trust it.",
+  "Your site shows 1284 reviews, yet 0 of 30 ads carry a proof number, leaving buyers no reason to trust. Print 1284 on the creative and open two ads with the quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 30 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "9",
+    "creator posts as ads"
+   ],
+   [
+    "14",
+    "Shop now to homepage"
+   ]
+  ],
+  "points": [
+   [
+    "Reviews stay off the ads",
+    "Your site shows 1284 reviews yet 0 of 30 ads carry a proof number, leaving buyers no reason to trust. Print 1284 on the creative and open two ads with the quote, &ldquo;the goggles tell me what to do next.&rdquo;"
+   ],
+   [
+    "Creators run as brand ads",
+    "9 of 30 ads are creator posts with codes or @mentions, run from your brand page. Brand praise gets discounted, so the trust is lost. Whitelist them from the creator accounts and cut three variations of the best."
+   ],
+   [
+    "Shop now lands on homepage",
+    "14 Shop now ads send buyers to the homepage, not the product on screen. Buyers must search again, which costs the sale. Point each to the product it shows, such as Smart Swim 2, and match the headline to it."
+   ],
+   [
+    "Winners need fresh variations",
+    "5 ads have run 60+ days, so they work and deserve more of the same. Build three more variations of the oldest video, running since August 26, each opening on a different swim goal. Keep the line &ldquo;No more counting laps.&rdquo;"
+   ]
+  ],
+  "images": [
+   "form_1.jpg",
+   "form_2.jpg",
+   "form_3.jpg"
+  ]
+ },
+ "ads_1": "Swim-led creative opening on review quotes, with whitelisted creator posts",
+ "soc_1": "Brand social strategy across Facebook, Instagram and YouTube"
+}
