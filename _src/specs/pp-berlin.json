@@ -1,0 +1,59 @@
+{
+ "slug": "pp-berlin",
+ "company": "PP-Berlin",
+ "full_name": "Melchior Moss",
+ "logo": "pp-berlin.svg",
+ "shot": "pp-berlin.jpg",
+ "shot_caption": "shopp.berlin",
+ "saw_lines": [
+  "Belt bag buyers pick by how it sits and how much fits, then check reviews from people already wearing one.",
+  "So the sale is won in the first line, where proof and fit have to show before the buyer scrolls past.",
+  "Your site shows 4666 reviews, yet 0 of 22 ads carry that number. Put it on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 30 Oct 2026",
+  "stats": [
+   [
+    "22",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry proof"
+   ],
+   [
+    "14",
+    "different openings"
+   ],
+   [
+    "21",
+    "Shop now buttons"
+   ]
+  ],
+  "points": [
+   [
+    "Proof never reaches the ads",
+    "Your site shows 4666 reviews, yet 0 of 22 ads carry that number, so cold buyers get no proof before the click. Put 4666 reviews on the creative and open two ads with a review quote about fit."
+   ],
+   [
+    "Openers spread too thin",
+    "14 openings run across 16 copy ads and the biggest leads only 2, so no story repeats enough to read. Pick the two strongest, the handmade in Berlin story and the size question, and build the next batch from them alone."
+   ],
+   [
+    "One call to action",
+    "21 of 22 ads say Shop now across nine pages, so story seekers get pushed into a product. Use Shop now for product and bundle pages, Learn more for the story page, and keep that pairing in new ads."
+   ],
+   [
+    "Placements need pruning",
+    "Your ads run on Facebook, Instagram, Audience Network, Threads and Messenger, so every feed gets the same pitch. Check Meta&rsquo;s placement breakdown, cut the placements that do not convert, and launch the new batch on the rest."
+   ]
+  ],
+  "images": [
+   "pp-berlin_1.jpg",
+   "pp-berlin_2.jpg",
+   "pp-berlin_3.jpg"
+  ]
+ },
+ "ads_1": "Fit-led creative opening on review quotes and the Medium and Groß sizing question",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
