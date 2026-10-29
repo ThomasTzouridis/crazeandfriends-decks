@@ -1,0 +1,59 @@
+{
+ "slug": "ironside-computers",
+ "company": "Ironside Computers",
+ "full_name": "Robert Apice",
+ "logo": "ironside-computers.png",
+ "shot": "ironside-computers.jpg",
+ "shot_caption": "ironsidecomputers.com",
+ "saw_lines": [
+  "Gamers compare parts and specs before buying, and a cute case still gets judged on cooling, fit and price.",
+  "So the price and proof must sit in the first line, or buyers scroll past before the build gets a look.",
+  "Your site shows a $25 price, yet 0 of 15 ads mention price, so new buyers miss it. Lead one ad with that price on screen in the first two seconds."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 29 Oct 2026",
+  "stats": [
+   [
+    "15",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention price"
+   ],
+   [
+    "0",
+    "proof numbers shown"
+   ],
+   [
+    "0",
+    "ads carry an offer"
+   ]
+  ],
+  "points": [
+   [
+    "Price never appears in ads",
+    "Your site shows a $25 price, but 0 of 15 ads mention price or cost, so buyers have nothing to anchor the build against. Lead one ad with the $25 price on screen in the first two seconds."
+   ],
+   [
+    "No proof number shown",
+    "0 of 14 ads with fixed copy carry a proof number, so a buyer weighing a custom build has nothing concrete to trust. Collect one number you can stand behind, such as orders shipped, and open three new ads with it."
+   ],
+   [
+    "Creator posts run as ads",
+    "2 of 14 ads are creator posts run from your brand page, so a buyer cannot tell the creator is paid. Whitelist both from the creator account and cut three variations of each with a new opening line."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 14 ads carry an offer, so a first time buyer has no reason to act today and the ads only describe the build. Put a first order offer or a bundle in the first line of three new ads."
+   ]
+  ],
+  "images": [
+   "ironside-computers_1.jpg",
+   "ironside-computers_2.jpg",
+   "ironside-computers_3.jpg"
+  ]
+ },
+ "ads_1": "Price and first order offer led creative for the Juicebox builds",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter and YouTube"
+}
