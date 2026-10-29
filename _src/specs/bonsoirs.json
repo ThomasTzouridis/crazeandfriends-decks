@@ -1,0 +1,59 @@
+{
+ "slug": "bonsoirs",
+ "company": "Bonsoirs",
+ "full_name": "Margot Gouvernayre",
+ "logo": "bonsoirs.png",
+ "shot": "bonsoirs.jpg",
+ "shot_caption": "bonsoirs.com",
+ "saw_lines": [
+  "Bedding is bought on feel and trust, so shoppers decide in seconds whether the fabric is worth a click.",
+  "So the sale is won or lost in the first line of the ad, before a shopper reads any price.",
+  "Your same copy runs in 3 of 9 ads, so keep the body, rewrite the opening line and swap the creative in each of those three."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 30 Oct 2026",
+  "stats": [
+   [
+    "28",
+    "live Meta ads"
+   ],
+   [
+    "3",
+    "ads share one copy"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "19",
+    "catalog feed ads"
+   ]
+  ],
+  "points": [
+   [
+    "Same copy runs three times",
+    "One exact copy runs in 3 of 9 ads, so the same pitch reaches the same shoppers. Keep the body text, rewrite the opening line in each, and give those three ads new creative showing the fabric on a made bed."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 9 ads carry a proof number, so a new buyer has nothing concrete to trust. Pick one real figure you can stand behind, like a review count or orders shipped, and lead three ads with it."
+   ],
+   [
+    "One opener leads the copy",
+    "3 of 9 copy ads open on &ldquo;voilage aérien, rideau tamisant ou...&rdquo;, and the rest share no story. Test two new angles against that opener, one on washing and softness, one on how a curtain changes a room."
+   ],
+   [
+    "Catalog ads carry no story",
+    "19 of 28 ads are catalog feed ads with no story, so a scroller sees a product tile and no reason to stop. Add three story ads first: one bed being made, one curtain lit at dusk."
+   ]
+  ],
+  "images": [
+   "bonsoirs_1.jpg",
+   "bonsoirs_2.jpg",
+   "bonsoirs_3.jpg"
+  ]
+ },
+ "ads_1": "Video stories of made beds and lit curtains, each with its own opener",
+ "soc_1": "Brand social strategy across Facebook and Instagram"
+}
