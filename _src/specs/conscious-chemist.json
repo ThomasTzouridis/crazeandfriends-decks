@@ -1,0 +1,59 @@
+{
+ "slug": "conscious-chemist",
+ "company": "Conscious Chemist",
+ "full_name": "Prakher Mathur",
+ "logo": "conscious-chemist.png",
+ "shot": "conscious-chemist.jpg",
+ "shot_caption": "consciouschemist.com",
+ "saw_lines": [
+  "Skincare buyers pick one fix for one problem, like blackheads or acne, and reorder it without comparing the whole shelf.",
+  "So the sale is won in the first line, where a buyer sees the offer or scrolls past it.",
+  "Your site offers percent off, yet 0 of 26 ads mention it, so put that offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 30 Oct 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention percent off"
+   ],
+   [
+    "22",
+    "ads run 60+ days"
+   ],
+   [
+    "23",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers percent off, yet 0 of 26 ads mention it. A buyer with no reason to act today scrolls on. Put the percent off offer in line one of three new ads and print it on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 29 ads shows a proof number, so a new buyer has nothing concrete to trust before the click. Pick one real figure, like your review count, and lead the next batch with it."
+   ],
+   [
+    "Winners not built on",
+    "22 ads have run 60+ days, which is evidence they work, yet none of the 7 newer ads reuses an opening line from a winner. Build the next three ads as variations of the oldest winner."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 26 copy ads open with 23 different stories, and the biggest, the blackheads question, leads only 2. Nothing repeats enough to learn from. Pick the two best stories and build the next batch from them."
+   ]
+  ],
+  "images": [
+   "conscious-chemist_1.jpg",
+   "conscious-chemist_2.jpg",
+   "conscious-chemist_3.jpg"
+  ]
+ },
+ "ads_1": "Blackhead and acne openers rebuilt with a percent off line in the first sentence",
+ "soc_1": "Brand social strategy across Facebook, Instagram, X and Youtube"
+}
