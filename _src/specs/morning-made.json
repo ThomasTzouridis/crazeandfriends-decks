@@ -1,0 +1,59 @@
+{
+ "slug": "morning-made",
+ "company": "Morning Made",
+ "full_name": "Brad 🍵",
+ "logo": "morning-made.svg",
+ "shot": "morning-made.jpg",
+ "shot_caption": "morningmade.com",
+ "saw_lines": [
+  "Matcha buyers compare it with their daily cafe order, so they buy when the cost per cup is clear.",
+  "So the cost per cup has to be visible in the first line, before the buyer scrolls past.",
+  "Your site shows 2580 reviews, yet 0 of 30 ads carry a proof number. Put the review count on the creative and open two ads with a customer quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 29 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "4",
+    "ads with percent off"
+   ],
+   [
+    "8",
+    "ads reuse one copy"
+   ]
+  ],
+  "points": [
+   [
+    "Reviews missing from ads",
+    "Your site shows 2580 reviews, yet 0 of 30 ads carry a proof number, so new buyers have no reason to trust the brand. Put the review count on the creative and open two ads with a customer quote."
+   ],
+   [
+    "Site offer missing from ads",
+    "Your site leads with 50% off, yet only 4 of 24 ads mention percent off, so most of your ads never show the discount. Open three new ads with 50% off in the first line and print it on the creative."
+   ],
+   [
+    "One copy reused 8 times",
+    "One exact copy runs in 8 of 24 ads, so the same buyers see the same message again. Keep the copy, but give each of those 8 ads a new opening line and a new creative, so each ad feels new."
+   ],
+   [
+    "One opener leads the account",
+    "8 of 24 copy ads open on &ldquo;if you&rsquo;ve been thinking about&rdquo;, and the rest are single use. Test two new angles against that opener: a customer quote about the daily ritual, and the two-minute routine with no machine."
+   ]
+  ],
+  "images": [
+   "morning-made_1.jpg",
+   "morning-made_2.jpg",
+   "morning-made_3.jpg"
+  ]
+ },
+ "ads_1": "Matcha creative built on a customer quote and the two-minute routine",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
