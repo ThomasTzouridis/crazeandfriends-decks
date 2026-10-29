@@ -1,0 +1,59 @@
+{
+ "slug": "champo",
+ "company": "Chāmpo",
+ "full_name": "Kuldeep Knox",
+ "logo": "champo.png",
+ "shot": "champo.jpg",
+ "shot_caption": "champohaircare.com",
+ "saw_lines": [
+  "Hair buyers try one product, reorder it for months, and stay only if the first bottle works.",
+  "So the sale is won or lost in the first line, before the scroll stops and before any proof appears.",
+  "Your site cites over 400,000 customers, yet 0 of 30 ads carry that number. Put 400,000 on every creative and in the first line, and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 30 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "8",
+    "ads use claim words"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site cites over 400,000 customers, yet 0 of 30 ads carry that number, so cold buyers have no trust signal. Put 400,000 on every creative and in the first line, and open two ads with a review quote."
+   ],
+   [
+    "First order offer missing",
+    "Your site offers 10% off a first order, yet 0 of 14 ads mention it. A new buyer has no price reason to act, so they scroll past. Put the 10% offer in the first line of three new ads."
+   ],
+   [
+    "Shipping goes unanswered",
+    "Your site has a delivery page, yet 0 of 30 ads mention shipping or delivery. A new buyer who wonders how it arrives must leave the ad to check, and many won&rsquo;t. Answer it in the first line of your ads."
+   ],
+   [
+    "Claim words invite scrutiny",
+    "8 of 14 ads use claim words like clinically or guaranteed results. Those words invite review scrutiny and make a cold buyer doubt the product. Swap them for what customers noticed, like thicker hair after a few weeks."
+   ]
+  ],
+  "images": [
+   "champo_1.jpg",
+   "champo_2.jpg",
+   "champo_3.jpg"
+  ]
+ },
+ "ads_1": "Hooks led by the 10% first order offer and 400,000 customer proof",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Tiktok"
+}
