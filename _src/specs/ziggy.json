@@ -1,0 +1,59 @@
+{
+ "slug": "ziggy",
+ "company": "Ziggy",
+ "full_name": "Marie-Eva Ruton-Serres",
+ "logo": "ziggy.png",
+ "shot": "ziggy.jpg",
+ "shot_caption": "ziggyfamily.com",
+ "saw_lines": [
+  "Cat owners switch food only when the cat refuses it, so the first bowl decides whether they reorder.",
+  "So a new owner decides in the first line whether to try it, and 5 ads open on the same story.",
+  "Your 22 copy ads carry 0 proof numbers, so collect one review count or orders shipped figure and lead the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 30 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "ads mention an offer"
+   ],
+   [
+    "12",
+    "different openers"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 22 copy ads carries a proof number, so a first time buyer has nothing to weigh against the claims. Collect one number, like a review count or orders shipped, and open the next batch with it."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 22 copy ads mention an offer, so a new buyer has no price reason to order today. Open three new ads with a first order offer or a two pack bundle, and make it the first line of each."
+   ],
+   [
+    "Winners not reused yet",
+    "9 ads have run 60 days or more, yet none of the 21 newer ads reuses a winner&rsquo;s opening line. Build the next three ads as variations of the oldest winner, keeping its opening line and changing only the product angle."
+   ],
+   [
+    "Openers spread too thin",
+    "12 different openings across 22 copy ads, and the biggest opens 5, so no story gets enough repetition to build on. Pick the kitten story and the cat decides story, and build the next batch from them, three ads each."
+   ]
+  ],
+  "images": [
+   "ziggy_1.jpg",
+   "ziggy_2.jpg",
+   "ziggy_3.jpg"
+  ]
+ },
+ "ads_1": "Kitten and cat decides stories, three ads each, opening with a first order offer",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Tiktok"
+}
