@@ -1,0 +1,59 @@
+{
+ "slug": "banana-club",
+ "company": "Banana Club",
+ "full_name": "Neel Bafna",
+ "logo": "banana-club.png",
+ "shot": "banana-club.jpg",
+ "shot_caption": "bananaclub.co.in",
+ "saw_lines": [
+  "Men rarely browse menswear for fun. They buy the shirt that fits, then reorder the same cut in a new shade.",
+  "So the offer and the fit have to land in the first line, or the tap never comes.",
+  "Your site offers 200 OFF a first order, yet 0 of 18 ads mention it. Put that offer in line one of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 30 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention offers"
+   ],
+   [
+    "0",
+    "ads carry proof"
+   ],
+   [
+    "7",
+    "Shop now to homepage"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers 200 OFF on a first order, yet 0 of 18 ads mention it or any offer, so new buyers get no reason to act. Put that offer in line one of three new ads and on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 live ads carries a proof number. A new buyer has no figure to trust before paying, so the ad asks for faith. Collect one real number and open the next batch with it."
+   ],
+   [
+    "Creator content run as brand",
+    "5 of your 18 fixed copy ads are creator posts run from the brand page, which buyers read as an ad, not a person. Whitelist those posts from the creator&rsquo;s account and cut three variations of the best one."
+   ],
+   [
+    "Shop now lands on homepage",
+    "7 of your Shop now ads send buyers to the homepage, not the product shown. A buyer who taps Shop now expects the item in the ad, not a front page. Point each of those 7 ads to the product it shows."
+   ]
+  ],
+  "images": [
+   "banana-club_1.jpg",
+   "banana-club_2.jpg",
+   "banana-club_3.jpg"
+  ]
+ },
+ "ads_1": "Creator style video ads opening on the 200 OFF first order offer",
+ "soc_1": "Brand social strategy across Instagram and Youtube, your linked channels"
+}
