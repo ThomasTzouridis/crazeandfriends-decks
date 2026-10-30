@@ -1,0 +1,59 @@
+{
+ "slug": "my-club",
+ "company": "My Club",
+ "full_name": "Neil Riches",
+ "logo": "my-club.png",
+ "shot": "my-club.jpg",
+ "shot_caption": "myclubgroup.com",
+ "saw_lines": [
+  "Teams rarely buy kit on impulse. A club secretary compares prices, then waits for the whole squad to agree.",
+  "So the sale is won or lost in the first line, where a club sees a reason to act now.",
+  "Your site offers a first order discount, yet 0 of 20 ads mention it, so new clubs see no reason to act. Put the offer in line one of three new ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 30 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention the offer"
+   ],
+   [
+    "11",
+    "different openings"
+   ],
+   [
+    "7",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "First order offer missing",
+    "Your site offers a first order discount, yet 0 of 20 ads mention it. A new club has no reason to order today. Open three new ads with the discount in line one and repeat it on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 live ads carries a proof number, so a club weighing you against other suppliers has nothing concrete to trust. Pick one real figure, like orders shipped, and lead three ads with it on the creative."
+   ],
+   [
+    "Openers spread thin",
+    "Your 20 copy ads open with 11 different stories, and the biggest, &ldquo;look sharp. play sharper.&rdquo; leads only 4. Viewers rarely see one story enough to remember it. Choose your two strongest openings and build the next batch from them."
+   ],
+   [
+    "Proven winners lack variations",
+    "7 ads have run 60 days or more, so they are proven winners and the strongest base you have. Build three more versions of the oldest one, changing only the opening line and the first three seconds, then keep what holds."
+   ]
+  ],
+  "images": [
+   "my-club_1.jpg",
+   "my-club_2.jpg",
+   "my-club_3.jpg"
+  ]
+ },
+ "ads_1": "First order offer led creative, tested against the look sharp, play sharper hook",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Twitter, X and Youtube"
+}
