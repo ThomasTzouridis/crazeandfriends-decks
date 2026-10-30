@@ -1,0 +1,59 @@
+{
+ "slug": "legacybox",
+ "company": "Legacybox",
+ "full_name": "Adam Boeselager",
+ "logo": "legacybox.svg",
+ "shot": "legacybox.jpg",
+ "shot_caption": "legacybox.com",
+ "saw_lines": [
+  "Families buy a digitizing kit once, when one old tape or album suddenly feels urgent. They rarely buy it for themselves.",
+  "So the sale is won in the opening line where the old tape gets named before anything else.",
+  "Your ads show no proof number across all 29 live ads, so a first-time buyer has no reason to trust the box. Collect one review count and open with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 30 Oct 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "11",
+    "Shop now to homepage"
+   ],
+   [
+    "27",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 29 live ads shows a proof number, so a first-time buyer has nothing concrete to trust before clicking. Collect one figure, a review count or orders shipped, and open the next three ads with it on the creative."
+   ],
+   [
+    "Creator posts run as brand ads",
+    "3 of 21 ads are creator posts run from your brand page, so the audience reads a paid brand ad, not a customer story. Whitelist them from the creator accounts and cut three variations of the strongest one."
+   ],
+   [
+    "Shop now lands on homepage",
+    "11 Shop now ads send buyers to your homepage instead of the product on screen. Each extra step loses buyers who already chose a kit. Point each of those 11 to the matching product page so clicks land on the item."
+   ],
+   [
+    "Winners not built on",
+    "27 ads have run 60 or more days, yet none of your 2 newer ads reuses a winner&rsquo;s opening line. Build the next three ads as variations of the oldest winner, keeping its opening line and changing only the second sentence."
+   ]
+  ],
+  "images": [
+   "legacybox_1.jpg",
+   "legacybox_2.jpg",
+   "legacybox_3.jpg"
+  ]
+ },
+ "ads_1": "Creator video ads sent to product pages, with a review count added",
+ "soc_1": "Brand social strategy across Facebook, Instagram and YouTube"
+}
