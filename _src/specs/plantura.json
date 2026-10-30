@@ -1,0 +1,59 @@
+{
+ "slug": "plantura",
+ "company": "Plantura",
+ "full_name": "Lyudmyla Artyukhova",
+ "logo": "plantura.svg",
+ "shot": "plantura.jpg",
+ "shot_caption": "plantura.garden",
+ "saw_lines": [
+  "Gardeners plan bulbs a season ahead, pick them by flower and color, then reorder when the bed clears.",
+  "So a bulb sale is won or lost on trust, and a gardener who sees no proof will move on before the price matters.",
+  "Your 30 ads carry no proof number, so find one real figure, like review count or orders shipped, and lead three new ads with it on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 30 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "ads mention an offer"
+   ],
+   [
+    "4",
+    "different landing pages"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number shown",
+    "None of your 30 ads carries a proof number, so a first time buyer has nothing to trust before clicking. Find one real figure, like review count or orders shipped, and lead three new ads with it on the creative."
+   ],
+   [
+    "No offer in the ads",
+    "0 of your 30 ads mention an offer, so a new buyer has no reason to order today. Give first time buyers one reason to act now, like a first order discount, and open three new ads with it."
+   ],
+   [
+    "One call to action",
+    "All 30 ads say Shop now across 4 landing pages, so a buyer gets a generic prompt, not the item they saw. Match each CTA to its page, such as Get your bulb set for the 12 lasagne ads."
+   ],
+   [
+    "Spread across five placements",
+    "Your ads run on five placements, so one creative must work for very different audiences. Keep Facebook and Instagram as the core, then pause Audience Network, Threads and Messenger until your own account shows results on them."
+   ]
+  ],
+  "images": [
+   "plantura_1.jpg",
+   "plantura_2.jpg",
+   "plantura_3.jpg"
+  ]
+ },
+ "ads_1": "Bulb and wasp creative led by one real proof figure",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
