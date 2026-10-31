@@ -1,0 +1,59 @@
+{
+ "slug": "kineon",
+ "company": "KINEON",
+ "full_name": "Tom Sanderson",
+ "logo": "kineon.svg",
+ "shot": "kineon.jpg",
+ "shot_caption": "kineon.io",
+ "saw_lines": [
+  "Pain device buyers compare a few options, then want the price, the trial and a way out before they commit.",
+  "So the price and the repeat saving must sit in the first line, since most buyers decide before they tap through.",
+  "Your site offers subscribe and save, yet 0 of 25 copy ads mention it, so put that offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 31 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "8",
+    "open on one opener"
+   ],
+   [
+    "0",
+    "ads mention subscription"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers subscribe and save, yet 0 of 25 copy ads mention it. Buyers who never see the saving have no reason to commit today. Put that offer in the first line of three new ads and on the creative."
+   ],
+   [
+    "Subscription never gets pitched",
+    "Your site has subscribe and save, but 0 of 30 live ads mention a subscription. New buyers never learn the saving exists, and reorders depend on it. Run two retention ads with the subscription saving as the headline for past buyers."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 25 copy ads shows a proof number a buyer can check, such as orders shipped or average rating. Doubt stays open when a claim has no number behind it. Pull one real figure and lead with it."
+   ],
+   [
+    "One opener repeats",
+    "8 of 25 copy ads open on the same line, and the rest each use an opener once. A buyer who has seen that line may skip it. Test two new angles against that opener, price and customer results."
+   ]
+  ],
+  "images": [
+   "kineon_1.jpg",
+   "kineon_2.jpg",
+   "kineon_3.jpg"
+  ]
+ },
+ "ads_1": "Subscription and offer led creative, with new openers tested against the movement opener",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
