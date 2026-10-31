@@ -22,7 +22,7 @@ py deck_auto.py <slug> "<Full Name>" "<Company>" <website url> <datadir>
    (`mac_fetch.py`). Still nothing -> the fact sheet says "SITE: COULD NOT BE LOADED" and no sentence about the site is allowed.
 2. **Screenshot.** PC Playwright (`3DforScience/_src/tools/shot.py`), blocked -> Mac Playwright through a proxy (`mac_shot.py`,
    removes cookie, signup and chat overlays). No screenshot -> slide 2 uses the no picture layout (HARD RULE below).
-3. **Logo.** Header logo from the site (SVG or PNG, white logos rejected), fallback a dark text wordmark.
+3. **Logo.** `_src/tools/logo.py` (the shared tool, SOP Lead Logo): every header candidate rendered in a real browser, boxes stripped, ink-coloured for the white slide, guard refuses small, narrow or unreadable files, `build.py` refuses anything else. No usable logo means a dark text wordmark of the company name.
 4. **Ads.** From our own Meta data by page ID (never an Ad Library keyword search, so no third party ads). Catalog ads
    (`{{product.*}}` placeholders) are counted but never quoted and kept out of the hook counts. Counted by script over all live
    ads: openers, offers (site offer vs ads), proof numbers from the site found in the ads, objections (shipping, how it arrives,
