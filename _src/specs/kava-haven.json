@@ -1,0 +1,59 @@
+{
+ "slug": "kava-haven",
+ "company": "Kava Haven",
+ "full_name": "Billy Grady",
+ "logo": "kava-haven.png",
+ "shot": "kava-haven.jpg",
+ "shot_caption": "kavahaven.com",
+ "saw_lines": [
+  "Nobody buys kava on a whim. They want the buzz without the hangover, then they reorder the same bottle.",
+  "So the sale is won or lost in the first line, before a buyer reaches the price or the reorder option.",
+  "Your site shows 1236 reviews and 100,000+ customers, yet none of your 30 ads use either number. Put 1236 reviews on the creative and open two ads with a customer quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 31 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "ads mention subscription"
+   ],
+   [
+    "13",
+    "creator style ads"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays off the ads",
+    "Your site says Trusted by 100,000+ customers and shows 1236 reviews, yet 0 of 30 ads carry either number. Buyers need that proof before they click. Put 1236 reviews on the creative and open two ads with a customer quote."
+   ],
+   [
+    "Subscription never advertised",
+    "Your site advertises subscribe and save at 10% off, yet 0 of 30 ads mention a subscription. Regulars reorder a drink they like, and no ad asks them to. Run two retention ads with the 10% saving as the headline."
+   ],
+   [
+    "Price never in ads",
+    "Your site shows $47.70 and $53.00 on the homepage, yet 0 of 30 ads mention price. Buyers compare it with wine, and an unpriced ad makes them guess. Lead one ad with the price per bottle beside a glass of wine."
+   ],
+   [
+    "Creator posts run as brand ads",
+    "13 of 29 ads are creator posts run from your brand page, so the creators&rsquo; own accounts carry none of that paid reach. Whitelist the three strongest posts from each creator account and make three variations of each."
+   ]
+  ],
+  "images": [
+   "kava-haven_1.jpg",
+   "kava-haven_2.jpg",
+   "kava-haven_3.jpg"
+  ]
+ },
+ "ads_1": "Review quotes and the subscription saving lead the next batch of creative",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
