@@ -1,0 +1,59 @@
+{
+ "slug": "moment",
+ "company": "Moment",
+ "full_name": "Aisha Chottani",
+ "logo": "moment.png",
+ "shot": "moment.jpg",
+ "shot_caption": "drinkmoment.com",
+ "saw_lines": [
+  "People pick a functional drink by flavor, then reorder only when the calm shows up on a regular schedule.",
+  "So the sale is won on the first screen, where the offer either appears or gets scrolled past.",
+  "Your site offers a first order discount, but only 1 of 19 ads mention it. Put it in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 31 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "7",
+    "open on one opener"
+   ],
+   [
+    "0",
+    "mention a subscription"
+   ],
+   [
+    "1",
+    "mention first order discount"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers a first order discount, yet only 1 of 19 ads mention it. A new buyer sees no reason to act today. Put the first order offer in the first line of three new ads and on the creative."
+   ],
+   [
+    "Subscription never advertised",
+    "Your site runs a subscribe and save offer, yet 0 of 30 live ads mention a subscription. Repeat buyers never hear that it saves them money on every shipment. Run two retention ads with the subscription saving as the headline."
+   ],
+   [
+    "Offer buried in long copy",
+    "The offer appears after 95% of the copy on a median ad of 66 words, so most viewers stop before reaching it. Move the first order offer into the first two lines of every ad and keep the body short."
+   ],
+   [
+    "One opener dominates copy",
+    "7 of 19 copy ads open on the same &ldquo;drink that turned heads&rdquo; line, while the other 12 spread across seven other openings. Test two new angles against that opener, one on flavor and one on next-day headaches."
+   ]
+  ],
+  "images": [
+   "moment_1.jpg",
+   "moment_2.jpg",
+   "moment_3.jpg"
+  ]
+ },
+ "ads_1": "First order offer up front, tested against the flavor and next-day headache angles",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Tiktok, Twitter and Youtube"
+}
