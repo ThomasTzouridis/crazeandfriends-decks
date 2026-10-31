@@ -1,0 +1,59 @@
+{
+ "slug": "freebird",
+ "company": "Freebird",
+ "full_name": "Jonathan Czaja",
+ "logo": "freebird.png",
+ "shot": "freebird.jpg",
+ "shot_caption": "freebirdstores.com",
+ "saw_lines": [
+  "Boot buyers decide on fit and look, then wait for a pair that does not pinch before they pay.",
+  "So the sale is lost on the first screen, when the ad never says how the boot ships.",
+  "Your site promises free shipping, yet 0 of 29 ads mention shipping or delivery. Open three new ads with the free shipping line, then name the delivery window."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 31 Oct 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "18",
+    "catalog feed ads"
+   ],
+   [
+    "7",
+    "Shop now to homepage"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping goes unanswered",
+    "Your site promises free shipping on domestic orders, yet 0 of 29 ads mention shipping or delivery, so new buyers have no reason to act. Open three new ads with the free shipping line, then name the delivery window."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 29 ads carries a proof number, so a first-time buyer has nothing to trust beyond the boot itself. Collect one real figure, such as orders shipped or a review count, and lead your next batch with it."
+   ],
+   [
+    "Mostly catalog ads",
+    "18 of 29 ads are catalog feed ads with no story, so the feed gives a buyer nothing to stop for. Add three story ads, one each for Woodland, Coal and Randi, opening on a reason to wear the boot."
+   ],
+   [
+    "Shop now lands on homepage",
+    "7 of your Shop now ads send buyers to the homepage, so the buyer who clicked for one boot lands on the whole range. Point each to the boot shown in its creative, so the click and picture match."
+   ]
+  ],
+  "images": [
+   "freebird_1.jpg",
+   "freebird_2.jpg",
+   "freebird_3.jpg"
+  ]
+ },
+ "ads_1": "Shipping-first story ads for Woodland, Coal and Randi, delivery in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest and Twitter"
+}
