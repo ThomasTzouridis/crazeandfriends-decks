@@ -1,0 +1,59 @@
+{
+ "slug": "billy-footwear",
+ "company": "BILLY Footwear",
+ "full_name": "Billy Price",
+ "logo": "billy-footwear.png",
+ "shot": "billy-footwear.jpg",
+ "shot_caption": "billyfootwear.com",
+ "saw_lines": [
+  "Zip-up shoe buyers shop for a fit problem, like laces they can&rsquo;t manage, then reorder the same style once it works.",
+  "So the sale is won or lost in line one, where the ad either names the fit problem or stays silent.",
+  "Your site shows 150+ orders, yet 0 of 30 ads carry that number. Print 150+ orders on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 31 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads show 150 orders"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "6",
+    "ads reuse one copy"
+   ]
+  ],
+  "points": [
+   [
+    "Proof sits off the ads",
+    "The site shows 150+ orders, but 0 of 30 ads carry that number, so buyers see no sign others trust the shoes. Print 150+ orders on the creative, and open two ads with a review quote."
+   ],
+   [
+    "Shipping goes unanswered",
+    "The site explains how it ships, yet 0 of 30 ads mention shipping or delivery, so new buyers wonder when shoes arrive and skip the click. Open new ads with delivery timing in line one, plus the $150 free shipping threshold."
+   ],
+   [
+    "Arrival is never shown",
+    "The site explains how your shoes arrive, yet 0 of 30 ads show it, so first-time buyers have no picture of delivery. Film one short video of the box arriving at a door, and test it against your current ads."
+   ],
+   [
+    "One copy repeats",
+    "One exact copy runs in 6 of 10 ads with fixed text, so buyers see the same opening words again and again. Keep the copy, change the opening line and creative in each, and test three variations in your next batch."
+   ]
+  ],
+  "images": [
+   "billy-footwear_1.jpg",
+   "billy-footwear_2.jpg",
+   "billy-footwear_3.jpg"
+  ]
+ },
+ "ads_1": "Zip-shoe creative that opens on the fit problem, with 150+ orders in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok, Twitter, Youtube"
+}
