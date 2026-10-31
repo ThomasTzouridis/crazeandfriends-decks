@@ -1,0 +1,59 @@
+{
+ "slug": "ekster",
+ "company": "Ekster",
+ "full_name": "Jan Meijer",
+ "logo": "ekster.png",
+ "shot": "ekster.jpg",
+ "shot_caption": "ekster.com",
+ "saw_lines": [
+  "People buy one wallet, carry it daily, and switch only when a feature like tracking makes the old one feel outdated.",
+  "So the sale is won in the first line, where a buyer decides if a tracking feature is worth switching for.",
+  "Your site shows 50,000+ reviews, yet only 3 of 28 ads carry a proof number. Put 46567 reviews on every creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 31 Oct 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "3",
+    "carry a proof number"
+   ],
+   [
+    "78%",
+    "copy before the offer"
+   ],
+   [
+    "9",
+    "ads run one copy"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays off the ads",
+    "Your site shows 50,000+ reviews, yet only 3 of 28 ads carry a proof number. Buyers check reviews first, so the number must show early. Put 46567 reviews on every creative and open two ads with a review quote."
+   ],
+   [
+    "Offer buried in long copy",
+    "The offer lands after 78% of the copy, so most viewers miss it. Your site runs 33% off the Ekster Wallet Bundle, yet 0 of 28 ads mention a bundle. Open every ad with that bundle in its first two lines."
+   ],
+   [
+    "Same copy reused across ads",
+    "One exact copy runs in 9 of 28 ads, so the same message reaches the same viewers repeatedly. Keep the body copy, rewrite the first line and swap the creative in those 9 ads. Give each version its own visual."
+   ],
+   [
+    "One opener leads the account",
+    "9 of 28 copy ads open on the same Steven Bartlett line. Only 1 ad mentions price, so buyers rarely hear it. Test two new openers against it, one on price and one on the Tracker Card, never lose your gear."
+   ]
+  ],
+  "images": [
+   "ekster_1.jpg",
+   "ekster_2.jpg",
+   "ekster_3.jpg"
+  ]
+ },
+ "ads_1": "Price and tracker card openers, tested against the Steven Bartlett hook",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
