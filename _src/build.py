@@ -4,6 +4,9 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 PEOPLE = [("Ognjen Varađanin","CEO &amp; Marketing Strategist"),("Ryan Ball","Head of International Growth"),("Jovana Milojević","Head of Brand Strategy"),("Đorđe Radovanović","Head of Product &amp; Experience"),("Veljko Sprečaković","Head of Performance &amp; Growth"),("Ana Stanković","Head of Client Partnerships"),("Nemanja Stanojević","Head of Research &amp; Development"),("Jelena Novaković","Head of Video &amp; Motion"),("Aleksandar Ilić","Head of Content and SEO"),("Mateja Milošević","AI &amp; Automation Partner")]
 CELLS = ''.join(f'<figure class="p"><div class="ph" style="background-position:{(i%5)*25}% {(i//5)*100}%"></div><figcaption><b>{n}</b><span>{r}</span></figcaption></figure>' for i,(n,r) in enumerate(PEOPLE))
 LOGOS = ''.join(f'<img src="../assets/logos/l{i}.svg" alt="">' for i in [1,2,4,5,6,7,8,9,10])
+BG = '#ffffff'   # the slide paper, the logo tool checks against it
+
+
 def logo_tag(f, company):
     """Client logo next to our wordmark. Sized in em of the wordmark by equal visual area, width and height set from
     the file's own aspect ratio so it can never stretch."""
@@ -26,8 +29,9 @@ def logo_tag(f, company):
         bb = ink.getbbox() or a.getbbox()
         if bb and bb != (0, 0) + im.size: im = im.crop(bb); im.save(p); print('trimmed', f)
         # a white logo disappears on the white slide
-        px = [l for l, al in zip(im.convert('L').tobytes(), im.getchannel('A').tobytes()) if al > 128]
-        if px and sum(px) / len(px) > 200: sys.exit(f"{f}: logo is light/white, use the dark version")
+        sys.path.insert(0, os.path.join(ROOT, '_src', 'tools')); from logo import guard
+        bad = guard(p, BG)                           # logos come from tools/logo.py only: sharp, wide, dark on the white slide
+        if bad: sys.exit(f"{f}: logo is {bad}. Run: py tools/logo.py {f[:-4]} \"{company}\" <website> --bg {BG} --out assets/clients --on-none text --spec specs/{f[:-4]}.json")
         w, h = im.size
     r = w / h
     lh = min(.8, (1.5 / r) ** .5)

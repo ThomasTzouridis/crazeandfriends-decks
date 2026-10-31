@@ -310,47 +310,20 @@ elif not os.path.exists(os.path.join(ROOT, 'assets', 'shots', slug + '.jpg')):
                 _I.open(lp).convert('RGB').resize((1200, 750)).save(os.path.join(ROOT, 'assets', 'shots', slug + '.jpg'), quality=88); print('shot ok (Mac)')
             else: print('SHOT FAILED')
         except Exception as e: print('SHOT FAILED', e)
-# logo: shot.py info candidates, else header <img ...logo...>, else text wordmark
+# logo: ONE tool for every deck, _src/tools/logo.py (real browser, every header candidate rendered, boxes stripped, icons/photos/tiny
+# rasters dropped, painted ink for the white slide, wordmark of the name when nothing usable). An existing assets/clients/<slug>.* is
+# only one more candidate, never trusted as is. Never take a header image as found again.
 logo_file = None
-for ext in ('svg', 'png'):
-    if os.path.exists(os.path.join(ROOT, 'assets', 'clients', f'{slug}.{ext}')): logo_file = f'{slug}.{ext}'
+try:
+    rl = subprocess.run([sys.executable, os.path.join(SRC, 'tools', 'logo.py'), slug, company, url, '--bg', '#ffffff', '--out', os.path.join(ROOT, 'assets', 'clients'),
+                         '--on-none', 'text', '--json'], capture_output=True, text=True, timeout=400, encoding='utf-8', errors='replace')
+    print((rl.stdout or '')[-1500:])
+    jl = [l for l in (rl.stdout or '').splitlines() if l.startswith('JSON ')]
+    if jl: logo_file = json.loads(jl[-1][5:]).get('file')
+except Exception as e: print('logo tool failed', e)
 if not logo_file:
-    cands = []
-    info = os.path.join(shotdir, slug + '_info.json')
-    if os.path.exists(info):
-        try:
-            ji = json.load(open(info, encoding='utf-8'))
-            cands += [c for c in (ji.get('logos') or ji.get('logo') or []) if isinstance(c, str)]
-        except Exception: pass
-    cands += re.findall(r'<img[^>]+src="([^"]+)"[^>]*(?:logo|Logo|LOGO)', h) + re.findall(r'<img[^>]*(?:logo|Logo|LOGO)[^>]*src="([^"]+)"', h)
-    import requests
-    from PIL import Image
-    from io import BytesIO
-    for c in dict.fromkeys(cands):
-        if c.startswith('<svg'): continue
-        u = c if c.startswith('http') else ('https:' + c if c.startswith('//') else url.rstrip('/') + '/' + c.lstrip('/'))
-        u = u.split('?')[0]
-        try: r = requests.get(u, headers={'User-Agent': UA}, timeout=20)
-        except Exception: continue
-        if r.status_code != 200: continue
-        if u.endswith('.svg') or b'<svg' in r.content[:300]:
-            s = r.text
-            if re.search(r'fill\s*[:=]\s*"?#?(fff|ffffff|white)', s, re.I) and not re.search(r'fill\s*[:=]\s*"?#?(?!fff)[0-9a-f]{3,6}', s, re.I): continue
-            logo_file = slug + '.svg'; open(os.path.join(ROOT, 'assets', 'clients', logo_file), 'w', encoding='utf-8').write(s); break
-        try:
-            im = Image.open(BytesIO(r.content)).convert('RGBA')
-            if im.width < 80: continue
-            px = [l for l, a in zip(im.convert('L').tobytes(), im.getchannel('A').tobytes()) if a > 128]
-            if not px or sum(px) / len(px) > 200: continue
-            logo_file = slug + '.png'; im.save(os.path.join(ROOT, 'assets', 'clients', logo_file)); break
-        except Exception: continue
-    if not logo_file:
-        from PIL import ImageDraw, ImageFont
-        fnt = None
-        for fp in (r'C:\Windows\Fonts\arialbd.ttf', r'C:\Windows\Fonts\impact.ttf', '/System/Library/Fonts/Supplemental/Arial Bold.ttf', '/System/Library/Fonts/Supplemental/Impact.ttf'):
-            if os.path.exists(fp): fnt = ImageFont.truetype(fp, 120); break
-        im = Image.new('RGBA', (2400, 200), (0, 0, 0, 0)); ImageDraw.Draw(im).text((10, 20), company.upper(), font=fnt, fill=(19, 20, 16, 255))
-        im = im.crop(im.getbbox()); logo_file = slug + '.png'; im.save(os.path.join(ROOT, 'assets', 'clients', logo_file)); print('logo: text wordmark fallback')
+    sys.path.insert(0, os.path.join(SRC, 'tools')); import logo as _lg
+    logo_file = slug + '.png'; _lg.wordmark(company, _lg.INK).save(os.path.join(ROOT, 'assets', 'clients', logo_file)); print('logo: text wordmark fallback')
 print('logo', logo_file)
 # 3 ad images by rule: live IMAGE ads first (longest running), then video thumbs; distinct files; height 700
 from PIL import Image
