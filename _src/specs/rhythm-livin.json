@@ -1,0 +1,59 @@
+{
+ "slug": "rhythm-livin",
+ "company": "Rhythm Livin",
+ "full_name": "Mitch Randall",
+ "logo": "rhythm-livin.png",
+ "shot": "rhythm-livin.jpg",
+ "shot_caption": "rhythmlivin.com",
+ "saw_lines": [
+  "Buyers of relaxed everyday clothing pick a cut they already trust, then reorder the same one in a new color.",
+  "So the sale is won or lost in the first ad, on whether price and proof show before the click.",
+  "Your site shows $38.00 to $70.00 prices, yet 0 of 29 ads mention price. Lead three ads with a best seller&rsquo;s price and what it replaces, such as a denim jacket."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 31 Oct 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention price"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "5",
+    "ads land on homepage"
+   ]
+  ],
+  "points": [
+   [
+    "Price never appears in ads",
+    "Your site shows $38.00 to $70.00 prices, yet 0 of 29 ads mention price, so buyers never see the cost before the click. Lead three new ads with a best seller&rsquo;s price and what it replaces, such as a denim jacket."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 29 ads shows a proof number, so a first time buyer has nothing to weigh the price against. Open the next batch with one real count, such as reviews or orders shipped, printed on the creative itself."
+   ],
+   [
+    "Shop now lands on homepage",
+    "5 of your Shop now ads land on the homepage, so buyers must hunt for the piece. Point each one to the exact product its creative shows, not the homepage, and reserve home links for brand ads."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 15 ads carry an offer, so a first time buyer sees no reason to act today. Put a first order offer, such as a set discount or free delivery, in the opening line of three new ads."
+   ]
+  ],
+  "images": [
+   "rhythm-livin_1.jpg",
+   "rhythm-livin_2.jpg",
+   "rhythm-livin_3.jpg"
+  ]
+ },
+ "ads_1": "Price led creative for denim and knitwear, with a first order offer on top",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
