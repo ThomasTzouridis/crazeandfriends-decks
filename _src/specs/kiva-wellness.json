@@ -1,0 +1,59 @@
+{
+ "slug": "kiva-wellness",
+ "company": "Kiva Wellness",
+ "full_name": "Aidan Wilde",
+ "logo": "kiva-wellness.png",
+ "shot": "kiva-wellness.jpg",
+ "shot_caption": "kivawellness.com.au",
+ "saw_lines": [
+  "Nobody buys a sauna on impulse. They measure the space, check the setup time, then decide whether it fits their routine.",
+  "So the sale is won in the first line and lost when the click lands on a generic homepage.",
+  "Your 6 Shop now ads send buyers to the homepage, so a shopper who clicked for one product has to hunt for it. Point each to its product."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 1 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "6",
+    "sent to the homepage"
+   ],
+   [
+    "21",
+    "different openings"
+   ],
+   [
+    "15",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Shop now ads miss products",
+    "6 Shop now ads send buyers to the homepage, so a shopper who clicked for one product has to hunt for it. Point each of those ads to the product it shows and repeat the hook on that page."
+   ],
+   [
+    "Openers spread too thin",
+    "21 openings run across 23 ads with fixed copy, and the biggest one, 1 in 3 Australians, opens 2. Buyers see a new pitch each time, so nothing sticks. Pick the two best stories and build three ads from each."
+   ],
+   [
+    "Build on proven winners",
+    "15 ads have run 60 days or more, and the oldest is the ice bath ad opening on Looks simple, but built smart. Build three more variations of that winner, changing the first line and the product shot."
+   ],
+   [
+    "One button for everything",
+    "29 ads use Shop now and only 1 uses Learn more, so a sauna, a sleep pod and an ice bath all get the same button. Match each button to its landing page, so every click gets what the button promises."
+   ]
+  ],
+  "images": [
+   "kiva-wellness_1.jpg",
+   "kiva-wellness_2.jpg",
+   "kiva-wellness_3.jpg"
+  ]
+ },
+ "ads_1": "Fresh openers from the best two stories, each sent to its product page.",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
