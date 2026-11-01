@@ -1,0 +1,59 @@
+{
+ "slug": "freitag",
+ "company": "FREITAG",
+ "full_name": "Fiona Daleiden",
+ "logo": "freitag.png",
+ "shot": "freitag.jpg",
+ "shot_caption": "freitag.ch",
+ "saw_lines": [
+  "Bag buyers pick by daily fit and keep one for years, so the first order is often the only one.",
+  "So the sale is won or lost in the first line, before a buyer weighs whether the bag fits their day.",
+  "Your 30 ads carry no proof number at all, so collect one review count or orders shipped and open every next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 1 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof number"
+   ],
+   [
+    "5",
+    "Shop now to homepage"
+   ],
+   [
+    "19",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a first-time buyer has no reason to trust the claim before clicking. Collect one number, a review count or orders shipped, and open the next batch with it."
+   ],
+   [
+    "Shop now lands on homepage",
+    "5 of your 30 ads say Shop now but send buyers to the homepage, not the product. A buyer who clicks a bag and lands on a generic page has to search again. Point each one to the bag it shows."
+   ],
+   [
+    "No offer in your ads",
+    "None of your 30 ads mention an offer or discount, so new buyers have no reason to act today. Put one reason in front of them, a first order offer or a bundle, and test it on three new ads."
+   ],
+   [
+    "Openers spread thin",
+    "Your copy ads open with 19 different stories, and the biggest one leads 6 of them, so the account has no clear opener to build on. Pick the two strongest openings and build the next batch from those two only."
+   ]
+  ],
+  "images": [
+   "freitag_1.jpg",
+   "freitag_2.jpg",
+   "freitag_3.jpg"
+  ]
+ },
+ "ads_1": "Two best openers rebuilt as bag-fit video, each ending on a first order offer",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
