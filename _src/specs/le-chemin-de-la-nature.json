@@ -1,0 +1,59 @@
+{
+ "slug": "le-chemin-de-la-nature",
+ "company": "Le Chemin de la Nature",
+ "full_name": "yann sanchez",
+ "logo": "le-chemin-de-la-nature.png",
+ "shot": "le-chemin-de-la-nature.jpg",
+ "shot_caption": "lechemindelanature.com",
+ "saw_lines": [
+  "Foraging buyers commit slowly. They try a free mini course first, then decide whether a paid course is worth the money.",
+  "So the sale turns on line one, where a new buyer decides to act, and your ads give them no reason to.",
+  "Your site offers subscribe and save, yet 0 of 19 ads mention it. Put the offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 1 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "mention subscribe and save"
+   ],
+   [
+    "7",
+    "run one exact copy"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ]
+  ],
+  "points": [
+   [
+    "The site offer is missing",
+    "Your site offers subscribe and save, yet 0 of 19 ads mention it. A new buyer comparing courses has no reason to commit today. Put the offer in the first line of three new ads and on the creative."
+   ],
+   [
+    "Subscriptions are never advertised",
+    "None of your 30 ads mentions a subscription, so the saving that brings a buyer back never reaches anyone. Run two ads for past buyers with subscribe and save as the headline, aimed at people who already bought a course."
+   ],
+   [
+    "One copy in seven ads",
+    "The same course copy runs in 7 of 19 ads, so a buyer who sees one ad sees the same pitch again. Keep the copy, but change the opening line and the creative in each, so every version reads as new."
+   ],
+   [
+    "No proof number yet",
+    "None of your 30 ads shows a proof number, so a buyer weighing a paid course has nothing concrete to trust. Collect one real figure, such as a review count, then open two new ads with it on the creative."
+   ]
+  ],
+  "images": [
+   "le-chemin-de-la-nature_1.jpg",
+   "le-chemin-de-la-nature_2.jpg",
+   "le-chemin-de-la-nature_3.jpg"
+  ]
+ },
+ "ads_1": "Fresh opening lines with subscribe and save, tested against the current course copy",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
