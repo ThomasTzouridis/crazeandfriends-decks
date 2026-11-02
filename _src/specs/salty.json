@@ -1,0 +1,59 @@
+{
+ "slug": "salty",
+ "company": "Salty",
+ "full_name": "Kanishka Garg",
+ "logo": "salty.png",
+ "shot": "salty.jpg",
+ "shot_caption": "salty.co.in",
+ "saw_lines": [
+  "Accessories are picked from a single photo, bought as gifts, and rarely researched, so the first screen decides it.",
+  "So the sale is lost in the first line, before the buyer reaches any proof, offer or review count.",
+  "Your site shows 74448 reviews, yet none of your 30 ads carry a proof number. Open two ads with a review quote and print 74448 on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 2 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "5",
+    "homepage Shop now ads"
+   ],
+   [
+    "15",
+    "openers across 22 ads"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers missing from ads",
+    "Your site shows 74448 reviews and a 4.5 rating, yet none of your 30 ads carry a proof number. New buyers have no reason to trust. Open two ads with a review quote and print 74448 reviews on the creative."
+   ],
+   [
+    "Site offer missing from ads",
+    "Your site runs 24% and 50% off, but your ads push TRENDY10 and NEW150 codes. That buyer sees no matching reason in the ad. Put 50% off in line one of three new ads, linked to the discounted product."
+   ],
+   [
+    "Shop now lands on homepage",
+    "Five Shop now ads send buyers to the homepage, not to the product in the creative. Buyers must search the whole catalog again, and some give up. Point each of the five to the exact product its creative shows."
+   ],
+   [
+    "Openers spread thin",
+    "Your 22 copy ads open with 15 different stories, and the biggest, &ldquo;the perfect gift for every&rdquo;, leads 4 of them. Each new opener makes the buyer start over. Build the next batch from the two best stories."
+   ]
+  ],
+  "images": [
+   "salty_1.jpg",
+   "salty_2.jpg",
+   "salty_3.jpg"
+  ]
+ },
+ "ads_1": "Review quotes and 50% off on the creative, led by the two best stories",
+ "soc_1": "Brand social strategy across Facebook, Instagram, X and Youtube"
+}
