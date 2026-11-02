@@ -1,0 +1,59 @@
+{
+ "slug": "livom",
+ "company": "Livom",
+ "full_name": "Sandro Haag",
+ "logo": "livom.png",
+ "shot": "livom.jpg",
+ "shot_caption": "livom.ch",
+ "saw_lines": [
+  "Nobody buys a sofa without knowing when it arrives and whether it fits the stairs.",
+  "So the delivery answer belongs in the first line, since a shopper who sees no date clicks away and buys elsewhere.",
+  "Your ads say nothing on shipping, 0 of 30 ads, while your site answers it. Lead three new ads with the delivery window and the 30 day home test."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 2 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry an offer"
+   ],
+   [
+    "5",
+    "creator ads from brand"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping goes unanswered",
+    "0 of 30 ads mention shipping or delivery though your site answers it. A shopper who cannot see a delivery window scrolls past and buys elsewhere. Open three new ads with the delivery window and the 30 day home test."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 24 ads carry a proof number, so a buyer who cannot touch the sofa has nothing firm to trust. Collect one number you can back, such as orders shipped, and open three new ads with it."
+   ],
+   [
+    "Creator posts run as brand",
+    "5 of 24 ads are creator posts run from your brand page. Viewers read them as a brand ad, so the trust a creator earns gets lost. Whitelist those five and cut three variations of the best one."
+   ],
+   [
+    "No offer in the ads",
+    "0 of 24 ads carry an offer, so new buyers have no reason to act today. Add a first order offer or a spare cover bundle to line one of three new ads, so the decision happens now."
+   ]
+  ],
+  "images": [
+   "livom_1.jpg",
+   "livom_2.jpg",
+   "livom_3.jpg"
+  ]
+ },
+ "ads_1": "Delivery window first, then the 30 day test, on modular sofa clips",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter and YouTube"
+}
