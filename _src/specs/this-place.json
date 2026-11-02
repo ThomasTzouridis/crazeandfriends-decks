@@ -1,0 +1,59 @@
+{
+ "slug": "this-place",
+ "company": "This Place",
+ "full_name": "Amy DeTavis",
+ "logo": "this-place.png",
+ "shot": "this-place.jpg",
+ "shot_caption": "this.place",
+ "saw_lines": [
+  "Nobody buys a face cream because it is new. They buy the one that fixed their skin problem, then reorder it.",
+  "So the sale is won or lost in the first line, where a buyer decides if this cream fixes their problem.",
+  "Your 11 of 15 copy ads open on one line. Test three new openers, starting with the zinc and hyaluronic base of The Glow."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 2 Nov 2026",
+  "stats": [
+   [
+    "28",
+    "live Meta ads"
+   ],
+   [
+    "11",
+    "open on one opener"
+   ],
+   [
+    "0",
+    "mention shipping or delivery"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ]
+  ],
+  "points": [
+   [
+    "One opener carries the account",
+    "11 of 15 copy ads open on one line, so a repeat viewer gets no new reason to buy. Test three new openers: the zinc and hyaluronic base of The Glow, a calm evening routine, and a first week customer quote."
+   ],
+   [
+    "Shipping goes unanswered",
+    "Your site has a shipping page, yet 0 of 28 ads mention shipping or delivery, so new buyers must leave the ad to check. Open three new ads with one line on how and when orders ship."
+   ],
+   [
+    "One copy repeated",
+    "One exact copy runs in 11 of 15 ads, so a buyer who sees two of them reads the same words twice. Keep the body text, but give each ad its own opening line and a new frame or carousel."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 28 ads shows a proof number, so buyers have nothing concrete to trust before clicking. Collect one figure, such as a review count or orders shipped, and put it on the creative in your next batch."
+   ]
+  ],
+  "images": [
+   "this-place_1.jpg",
+   "this-place_2.jpg",
+   "this-place_3.jpg"
+  ]
+ },
+ "ads_1": "Barrier-repair creative for The Glow, tested against the evening routine",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
