@@ -1,0 +1,59 @@
+{
+ "slug": "edmunds-cocktails",
+ "company": "Edmunds Cocktails",
+ "full_name": "Tom Mayes",
+ "logo": "edmunds-cocktails.png",
+ "shot": "edmunds-cocktails.jpg",
+ "shot_caption": "edmundscocktails.co.uk",
+ "saw_lines": [
+  "People buy bottled cocktails for a hosting night, then reorder the one that tasted right, so taste decides the repeat.",
+  "So the sale is won in the ad, where a new buyer needs a reason to order now, not a homepage.",
+  "Your site offers 15% off your first order, yet 0 ads mention it. Put the 15% first order offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 2 Nov 2026",
+  "stats": [
+   [
+    "107",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention the offer"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "7",
+    "catalog feed ads"
+   ]
+  ],
+  "points": [
+   [
+    "First order offer missing",
+    "Your site offers 15% off the first order, yet 0 ads mention it, leaving a new buyer no reason to act. Put the 15% first order offer in the opening line of three new ads and repeat it on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 7 ads shows a proof number, so a first-time buyer has nothing concrete to trust before clicking. Collect one real figure, such as orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "Feed ads without a story",
+    "All 7 of your ads are catalog feed ads with no story, so the feed shows products but gives no reason to stop. Add three story ads, one about how the drink is made, one hosting scene, and one customer moment."
+   ],
+   [
+    "Shop now sends buyers home",
+    "5 of your Shop now ads send buyers to the homepage rather than the product on screen, so a buyer who clicks a specific cocktail has to search for it again. Point each of those 5 ads to the product it shows."
+   ]
+  ],
+  "images": [
+   "edmunds-cocktails_1.jpg",
+   "edmunds-cocktails_2.jpg",
+   "edmunds-cocktails_3.jpg"
+  ]
+ },
+ "ads_1": "Story video ads opening on the 15% first order offer and a real pour",
+ "soc_1": "Brand social strategy across Instagram, your only linked channel"
+}
