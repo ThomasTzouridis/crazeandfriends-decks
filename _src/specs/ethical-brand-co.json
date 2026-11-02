@@ -1,0 +1,59 @@
+{
+ "slug": "ethical-brand-co",
+ "company": "Ethical Brand Co",
+ "full_name": "Luke Youd",
+ "logo": "ethical-brand-co.png",
+ "shot": "ethical-brand-co.jpg",
+ "shot_caption": "ethicalbrandco.com.au",
+ "saw_lines": [
+  "Curly hair buyers judge a product on hold and frizz after one wash, then reorder the same gel without rereading anything.",
+  "So the sale is won in the ad, when the first line names the hold and the offer, before anyone clicks through.",
+  "Your site shows two proof numbers, yet 0 of 30 ads carry either one. Put one number on the creative and in line one, and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 2 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry site proof"
+   ],
+   [
+    "0",
+    "ads mention the offer"
+   ],
+   [
+    "0",
+    "ads mention subscriptions"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers missing from ads",
+    "Your site shows two proof numbers, yet 0 of 30 ads carry either one, so cold viewers get no scale signal. Put one number on the creative and in line one, and open two ads with a review quote."
+   ],
+   [
+    "First order offer missing",
+    "Your site offers 10% off the first order, yet 0 of 29 ads mention it. A first-time buyer has no reason to act today. Put that discount in line one of three new ads, and on the creative."
+   ],
+   [
+    "Subscription never advertised",
+    "Your site runs subscribe and save, yet 0 of 30 ads mention a subscription, so repeat buyers get no reason to set up a routine. Run two retention ads with the subscription saving as the headline, aimed at past buyers."
+   ],
+   [
+    "Price never appears in ads",
+    "Your site lists prices at $6, yet 0 of 30 ads mention price, so a shopper cannot judge the cost before the click. Lead one ad with the price per pack, and one with the starter pack price."
+   ]
+  ],
+  "images": [
+   "ethical-brand-co_1.jpg",
+   "ethical-brand-co_2.jpg",
+   "ethical-brand-co_3.jpg"
+  ]
+ },
+ "ads_1": "First order offer and review proof, led by the curl gel and Hydramist",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
