@@ -1,0 +1,59 @@
+{
+ "slug": "uni-seoul",
+ "company": "Uni Seoul",
+ "full_name": "Mohit Khurana",
+ "logo": "uni-seoul.png",
+ "shot": "uni-seoul.jpg",
+ "shot_caption": "uniseoul.in",
+ "saw_lines": [
+  "Nobody needs a plushie, so buyers pick one for the mood, then add a second for the collection.",
+  "So the sale is won or lost in the first line, before a buyer decides whether the mood fits.",
+  "Your site offers up to 20% off, yet 0 of 21 ads mention it. Open three new ads with the weekend sale in line one and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 2 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "mention any offer"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "8",
+    "ran 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from ads",
+    "Your site offers up to 20% off, yet 0 of 21 ads mention percent off or any discount, so new buyers have no reason to act. Open three new ads with the weekend sale in line one and on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads carries a proof number, so a doubtful buyer has nothing to weigh before paying. Lead the next batch with the 4.9 rating from your site, and add a review count or orders shipped as line two."
+   ],
+   [
+    "Openers spread thin",
+    "Your 21 copy ads open with 15 different stories, and the biggest, &ldquo;when everything looks this cute&rdquo;, leads only 3, so buyers hear the same pitch twice. Pick the two best openers and build the next batch from them, three variations each."
+   ],
+   [
+    "Build from proven winners",
+    "Eight ads have run 60+ days, so they are proven winners, yet the newest batch starts from scratch. Build three variations of your oldest winner, keep the product and the best line, and test the 20% off weekend sale against it."
+   ]
+  ],
+  "images": [
+   "uni-seoul_1.jpg",
+   "uni-seoul_2.jpg",
+   "uni-seoul_3.jpg"
+  ]
+ },
+ "ads_1": "Plush openers built from your two best stories, with the 20% off sale",
+ "soc_1": "Brand social strategy across Instagram, X and YouTube"
+}
