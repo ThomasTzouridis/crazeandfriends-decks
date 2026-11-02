@@ -1,0 +1,59 @@
+{
+ "slug": "ruhe",
+ "company": "Ruhe",
+ "full_name": "Kapil Gupta",
+ "logo": "ruhe.png",
+ "shot": "ruhe.jpg",
+ "shot_caption": "ruheindia.com",
+ "saw_lines": [
+  "Buyers pick a fitting once and live with it, so they check fit, finish and warranty before trusting any brand.",
+  "So the sale is won in the first ad line, where a buyer decides if the brand feels safe to click.",
+  "Your site shows 118 reviews, yet 0 of 30 ads carry a proof number. Put 118 on the creative and open two of your next ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 2 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "118",
+    "reviews on your site"
+   ],
+   [
+    "15",
+    "different opening stories"
+   ],
+   [
+    "19",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Proof missing from ads",
+    "Your site shows 118 reviews, but 0 of 30 ads carry a proof number, so new buyers get no proof at the click. Put 118 on the creative and open two of your next ads with a review quote."
+   ],
+   [
+    "Percent off missing from ads",
+    "Your site offers 3% off on ₹10,000 and above, yet only 1 of 24 ads mention percent off, so new buyers have no reason to act today. Put that 3% off in the first line of three new ads."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 24 copy ads open with 15 different stories, and the biggest opener leads 5 of them. Each new story starts from scratch, so none gets enough repeats. Pick the two most used openings and build the next batch from them."
+   ],
+   [
+    "Winners need more variations",
+    "19 ads have run 60+ days, and the oldest has been live since January 2026, so the message is holding up. Build three more variations of that ad with new opening lines, and keep the same product and return line."
+   ]
+  ],
+  "images": [
+   "ruhe_1.jpg",
+   "ruhe_2.jpg",
+   "ruhe_3.jpg"
+  ]
+ },
+ "ads_1": "Open on the 3% off and 118 reviews, testing against the oldest winning ad",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
