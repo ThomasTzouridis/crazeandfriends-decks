@@ -1,0 +1,59 @@
+{
+ "slug": "safestyle",
+ "company": "SafeStyle",
+ "full_name": "Tim Lewis",
+ "logo": "safestyle.png",
+ "shot": "safestyle.jpg",
+ "shot_caption": "safestyle.com.au",
+ "saw_lines": [
+  "Workers buy safety glasses by the pair, and the same person often buys a second pair for the weekend.",
+  "So the sale is won or lost in the opening line, where buyers decide if the pair suits work or weekend.",
+  "Your site offers $10 off a first order, yet 0 of 25 ads mention it. Put that offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 2 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention first order"
+   ],
+   [
+    "8",
+    "ads share one copy"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from ads",
+    "Your site offers $10 off a first order, yet 0 of 25 ads mention it, so a new buyer has no reason to act. Put that offer in the first line of three new ads and on the creative itself."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site answers how it ships, yet 0 of 30 ads mention shipping or delivery, so a buyer wondering about arrival clicks away. Answer the shipping question in the first line of ads for new buyers, with delivery time."
+   ],
+   [
+    "Same copy reused",
+    "One exact copy, the Honda CRF450 giveaway, runs in 8 of 25 ads, so the same people see the same opening repeatedly. Keep the copy but change the opening line and creative in each of the 8 ads."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a new buyer has nothing concrete to trust. Collect one real number, such as a review count or orders shipped, and lead the next batch with it on the creative."
+   ]
+  ],
+  "images": [
+   "safestyle_1.jpg",
+   "safestyle_2.jpg",
+   "safestyle_3.jpg"
+  ]
+ },
+ "ads_1": "First order offer and shipping openers for safety glasses, tested against the Honda copy",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
