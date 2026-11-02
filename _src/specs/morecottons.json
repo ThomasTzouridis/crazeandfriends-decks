@@ -1,0 +1,59 @@
+{
+ "slug": "morecottons",
+ "company": "MoreCottons",
+ "full_name": "Aly El-Monairy",
+ "logo": "morecottons.png",
+ "shot": "morecottons.jpg",
+ "shot_caption": "morecottons.com",
+ "saw_lines": [
+  "Bedding gets bought when the old set wears out, and buyers check price, delivery and returns before they pay.",
+  "So the offer and the delivery answer have to sit in the first line, or the buyer scrolls past before deciding.",
+  "Your site offers 10% off the first order, yet 0 of 23 ads mention it. Put that offer in the first line of three new ads and on the creative itself."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 2 Nov 2026",
+  "stats": [
+   [
+    "25",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads name the offer"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from ads",
+    "Your site offers 10% off the first order, yet 0 of 23 ads mention it, so a first time buyer has no reason to act. Put that offer in the first line of three new ads and on the creative itself."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site offers free shipping over EGP 5,000, but 0 of 25 ads mention shipping or delivery. A buyer who cannot tell how the order arrives hesitates. Put the EGP 5,000 threshold and delivery time in line one of new ads."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 25 ads shows a proof number, so a new buyer has no reason to trust you over other stores. Collect one real figure, a review count or orders shipped, and lead with it in the next batch."
+   ],
+   [
+    "Shop now lands on homepage",
+    "Seven Shop now ads send buyers to the homepage, not the product shown. A shopper who taps a pillow and lands on a general page must search again. Point each of the seven to the product or collection its creative shows."
+   ]
+  ],
+  "images": [
+   "morecottons_1.jpg",
+   "morecottons_2.jpg",
+   "morecottons_3.jpg"
+  ]
+ },
+ "ads_1": "First order 10% offer and free shipping line in new bedding and towel video ads",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Tiktok"
+}
