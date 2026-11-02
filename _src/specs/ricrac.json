@@ -1,0 +1,59 @@
+{
+ "slug": "ricrac",
+ "company": "RicRac",
+ "full_name": "Mohamed Eissa",
+ "logo": "ricrac.png",
+ "shot": "ricrac.jpg",
+ "shot_caption": "ricracshop.com",
+ "saw_lines": [
+  "Nobody wakes up wanting a sofa. They buy after a sore back, then compare delivery and price before paying.",
+  "So the sale is decided in the first line, where delivery and price either show up or get skipped.",
+  "Your site shows 7490 reviews and none of your 30 live ads use that number. Put 7490 on the creative and open two ads with a review quote, starting this week."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 2 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "7490",
+    "reviews on your site"
+   ],
+   [
+    "13",
+    "ads land on homepage"
+   ],
+   [
+    "14",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "Your reviews stay off ads",
+    "Your site shows 7490 reviews, yet none of your 30 live ads use that number, so a new buyer has no proof when they decide. Put 7490 reviews on the creative and open two ads with a review quote."
+   ],
+   [
+    "Shop now lands on homepage",
+    "13 of your Shop now ads send buyers to the homepage, so someone who just saw one product has to search for it again. Point each to the product or collection shown in the creative, as your Order now ads do."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 23 ads with fixed copy open 14 different ways, and the new branch story leads 5 of them. 14 openers means no single story gets tested in depth. Pick the two best and write the next batch from them."
+   ],
+   [
+    "Build on proven winners",
+    "30 of your live ads have run 60 days or more, and the oldest sofa video, the one that says some models turn into a bed in seconds, has run since January 26. Build three more variations of that video."
+   ]
+  ],
+  "images": [
+   "ricrac_1.jpg",
+   "ricrac_2.jpg",
+   "ricrac_3.jpg"
+  ]
+ },
+ "ads_1": "Sofa videos that turn into beds, opening on a 7490 review quote",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Tiktok and Youtube"
+}
