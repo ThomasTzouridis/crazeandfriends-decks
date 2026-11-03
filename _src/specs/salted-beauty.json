@@ -1,0 +1,59 @@
+{
+ "slug": "salted-beauty",
+ "company": "salted beauty",
+ "full_name": "Annika Heinze",
+ "logo": "salted-beauty.png",
+ "shot": "salted-beauty.jpg",
+ "shot_caption": "saltedbeauty.com",
+ "saw_lines": [
+  "Skincare buyers pick one product that fixed a specific problem, then reorder it without comparing shelves again.",
+  "So the sale is won or lost in line one, and an ad without proof or offer gives no reason to stop.",
+  "Your ads carry no proof number, so add one real count, such as reviews or orders shipped, to every creative and open the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "0",
+    "ads carry an offer"
+   ],
+   [
+    "28",
+    "Shop now buttons"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number",
+    "None of your 30 ads carries a proof number, so a buyer scrolling past has nothing that makes the product feel tested. Add one real count to every creative, such as reviews or orders shipped, and open the next batch with it."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 30 ads carry an offer, so a first buyer has no reason to act today. Put one first order offer or bundle in the first line of your next ads, so it shows before the reader scrolls past."
+   ],
+   [
+    "Almost all say Shop now",
+    "28 of 30 ads say Shop now and 2 say Learn more. Learn more asks buyers to browse before they buy. Send those two ads to the FAQ page, and keep Shop now only where the page sells that exact product."
+   ],
+   [
+    "Five placements, one message",
+    "Your ads run on five placements, including Audience Network and Messenger, where skincare is rarely why someone opened the app. Keep Facebook and Instagram for the main test, and cut Threads, Audience Network and Messenger until a new creative proves itself."
+   ]
+  ],
+  "images": [
+   "salted-beauty_1.jpg",
+   "salted-beauty_2.jpg",
+   "salted-beauty_3.jpg"
+  ]
+ },
+ "ads_1": "Magic Marker night creative opening with a first order offer and one proof count",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Tiktok"
+}
