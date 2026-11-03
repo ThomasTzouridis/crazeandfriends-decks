@@ -1,0 +1,59 @@
+{
+ "slug": "spacegoods",
+ "company": "Spacegoods",
+ "full_name": "Matthew Kelly",
+ "logo": "spacegoods.png",
+ "shot": "spacegoods.jpg",
+ "shot_caption": "spacegoods.com",
+ "saw_lines": [
+  "Coffee switchers buy a daily ritual, not a quick hit, and judge it by how the first week feels.",
+  "So the sale is decided in the first line, where a new buyer chooses whether the ad earns a click.",
+  "Your site shows 14343 reviews, yet 0 of 30 ads carry any number, so open two ads with a training day quote and print the review count on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "25",
+    "open on one opener"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "24",
+    "run one identical copy"
+   ]
+  ],
+  "points": [
+   [
+    "Reviews missing from ads",
+    "Your site shows 14343 reviews, yet 0 of 30 ads carry any number, so new buyers get no proof before the click. Open two ads with a training day quote, and print the review count on the creative."
+   ],
+   [
+    "First order offer missing",
+    "Your site offers a first order discount, yet 0 of 29 ads mention any offer, so a first time buyer has no reason to act today. Put the first order discount in the opening line of three new ads."
+   ],
+   [
+    "One opener carries the account",
+    "25 of 29 copy ads open on &ldquo;you&rsquo;ve tried everything,&rdquo; so every buyer sees the same promise. Build two new angles from your product, like training day focus and calm for founders, and test each against that opener."
+   ],
+   [
+    "Same copy reused across ads",
+    "One exact copy runs in 24 of 29 ads, so the same words reach the same audience again and again. Keep the body copy, but swap the opening line and the creative in each version so the feed shows something new."
+   ]
+  ],
+  "images": [
+   "spacegoods_1.jpg",
+   "spacegoods_2.jpg",
+   "spacegoods_3.jpg"
+  ]
+ },
+ "ads_1": "Training day focus creative, opened with a review quote and first order offer",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter and YouTube"
+}
