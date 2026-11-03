@@ -1,0 +1,59 @@
+{
+ "slug": "polyatrics",
+ "company": "Polyatrics",
+ "full_name": "Elspeth Briscoe",
+ "logo": "polyatrics.png",
+ "shot": "polyatrics.jpg",
+ "shot_caption": "learningwithexperts.com",
+ "saw_lines": [
+  "Nobody buys a learning membership for one course. They buy it for the next thing they feel like learning.",
+  "So the sale is won or lost in line one, before a curious reader knows the membership covers what they want.",
+  "Your site runs 25% off everything, yet 0 of 21 ads mention percent off, so put the offer in line one of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "25",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "use your percent off"
+   ],
+   [
+    "5",
+    "ads running 60+ days"
+   ],
+   [
+    "9",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "Your site offer is missing",
+    "Your site runs 25% off everything, yet 0 of 21 ads mention percent off, so new buyers get no reason to act. Open three new ads with the 25% off offer in line one and print it on the creative."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 21 copy ads carry a proof number, so a buyer has nothing to weigh before paying. Collect one real figure, like a review count or orders shipped, and open three new ads with it on the creative."
+   ],
+   [
+    "Winners not built on",
+    "5 ads have run 60+ days, but none of your 20 newer ads reuses their opening line, so winners never get built on. Build three ads as variations of the oldest winner, keeping its opening line and changing only the product."
+   ],
+   [
+    "Openers spread thin",
+    "Your 21 copy ads open 9 different ways, and the biggest opener leads 5, so no story gets tested enough. Choose the two strongest stories and build the next batch from them, three ads each."
+   ]
+  ],
+  "images": [
+   "polyatrics_1.jpg",
+   "polyatrics_2.jpg",
+   "polyatrics_3.jpg"
+  ]
+ },
+ "ads_1": "Fresh openers around the 25% off offer, tested against the membership story",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
