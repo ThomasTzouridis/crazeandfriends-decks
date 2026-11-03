@@ -1,0 +1,59 @@
+{
+ "slug": "toyota-austria",
+ "company": "Toyota Austria",
+ "full_name": "Holger Nelsbach",
+ "logo": "toyota-austria.png",
+ "shot": "toyota-austria.jpg",
+ "shot_caption": "toyota.at",
+ "saw_lines": [
+  "Business buyers compare monthly rates line by line, then ask a colleague before they book a test drive.",
+  "So the sale is won in the ad, where a proof number answers the colleague&rsquo;s question before the buyer clicks away.",
+  "Your 30 live ads carry no proof number, so the buyer sees a monthly rate with nothing to weigh it against. Put one real figure, like vehicles delivered, on every creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "250",
+    "word median ad"
+   ],
+   [
+    "24",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "No proof in your ads",
+    "None of your 30 live ads shows a proof number, so a fleet buyer sees a monthly rate and nothing to weigh it against. Put one real figure, like vehicles delivered, on every creative and open the next batch with it."
+   ],
+   [
+    "Copy runs too long",
+    "Your median ad runs 250 words and the longest runs 694, so the offer and the link sit below where people stop reading. Cut each ad to a few lines of copy, then the monthly rate and the test drive button."
+   ],
+   [
+    "No offer in your ads",
+    "None of your 30 live ads mentions any offer or discount, so a new buyer has no reason to act today. Lead the next ads with a fleet bundle price, stated in the opening line."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 24 openings across 30 copy ads repeat little, and the biggest story leads only 4, so no single idea gets enough runs to read. Pick the Hilux and Proace stories and build the next batch only from them."
+   ]
+  ],
+  "images": [
+   "toyota-austria_1.jpg",
+   "toyota-austria_2.jpg",
+   "toyota-austria_3.jpg"
+  ]
+ },
+ "ads_1": "Hilux and Proace ads with one story each and a fleet bundle in line one",
+ "soc_1": "Brand social strategy across Facebook and Instagram"
+}
