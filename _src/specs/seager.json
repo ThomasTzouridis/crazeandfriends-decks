@@ -1,0 +1,59 @@
+{
+ "slug": "seager",
+ "company": "Seager",
+ "full_name": "Case Anderson",
+ "logo": "seager.png",
+ "shot": "seager.jpg",
+ "shot_caption": "seagerco.com",
+ "saw_lines": [
+  "Flannel and outerwear buyers choose by fit and fabric, then come back to replace the one that wore out.",
+  "So the sale is won in the first line, where a buyer decides if this fabric is worth a click.",
+  "Your site shows 100,000+ online orders, yet 0 of 28 ads carry that number. Put 100,000+ orders on the creative and in the first line of three ads."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "28",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry a proof number"
+   ],
+   [
+    "0",
+    "ads mention percent off"
+   ],
+   [
+    "5",
+    "sent to the homepage"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays off the ads",
+    "Your site shows 100,000+ online orders, yet 0 of 28 ads carry that number. New buyers have no reason to trust a brand they just found. Put 100,000+ orders on the creative and in the first line of three ads."
+   ],
+   [
+    "Site offer missing from ads",
+    "Your site offers 20% off 3 tees, yet 0 of 14 ads mention percent off, so a first time buyer has no reason to act. Put Grab any 3 tees, save 20% in the first line of three new tee ads."
+   ],
+   [
+    "Price never appears in ads",
+    "Your site lists prices from $36.00 to $165.00, yet 0 of 28 ads mention price. A buyer comparing tee and jacket has nothing to weigh, so they scroll on. Lead one ad with the jacket price and what it replaces."
+   ],
+   [
+    "Shop now lands on homepage",
+    "Your 5 Shop now ads send buyers to the homepage, not the item in the picture. A buyer who taps a henley ad lands among every category. Point each one to the exact product it shows, like the Sawpit Henley."
+   ]
+  ],
+  "images": [
+   "seager_1.jpg",
+   "seager_2.jpg",
+   "seager_3.jpg"
+  ]
+ },
+ "ads_1": "Paid creative leads with 100,000+ orders and the 3 tees offer, product named first",
+ "soc_1": "Brand social strategy across Instagram and Youtube, your two linked channels"
+}
