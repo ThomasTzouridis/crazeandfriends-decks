@@ -1,0 +1,59 @@
+{
+ "slug": "dan-o-s-seasoning",
+ "company": "Dan-O's Seasoning",
+ "full_name": "Phillip Crosby",
+ "logo": "dan-o-s-seasoning.png",
+ "shot": "dan-o-s-seasoning.jpg",
+ "shot_caption": "danosseasoning.com",
+ "saw_lines": [
+  "Spice buyers try a blend once, keep the ones that work, and reorder them on a schedule.",
+  "So the sale is won in the first line, where the offer and the reorder reason must appear.",
+  "Your site offers subscribe and save, yet 0 of 26 ads mention it. Put that offer in the opening line of three new ads, printing up to 10% on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "6",
+    "ads mention any offer"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads mention a subscription"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers subscribe and save, yet 0 of 26 ads mention it. New buyers see no reason to act. Put that offer in the opening line of three new ads, printing up to 10% on the creative."
+   ],
+   [
+    "Shipping question goes unanswered",
+    "Your site lists free shipping for the lower 48 states, yet 0 of 30 ads mention shipping or delivery. First time buyers hold off when delivery is unclear. Open three new ads with the free shipping line."
+   ],
+   [
+    "Subscription never gets advertised",
+    "Your site runs subscribe and save at 10% each time you restock, yet 0 of 30 ads mention a subscription. Repeat buyers never hear about it. Run two retention ads with the subscription saving as the headline."
+   ],
+   [
+    "How it arrives stays unanswered",
+    "Your site explains how orders arrive, yet 0 of 30 ads mention delivery. A buyer ordering spices online wants to know the box arrives intact. Shoot one video of the box on a doorstep, answering it in three seconds."
+   ]
+  ],
+  "images": [
+   "dan-o-s-seasoning_1.jpg",
+   "dan-o-s-seasoning_2.jpg",
+   "dan-o-s-seasoning_3.jpg"
+  ]
+ },
+ "ads_1": "Subscribe and save openers tested against the chicken and steak hook, plus free shipping",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok, Twitter, Youtube"
+}
