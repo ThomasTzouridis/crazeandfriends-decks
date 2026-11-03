@@ -1,0 +1,59 @@
+{
+ "slug": "happy-v",
+ "company": "Happy V",
+ "full_name": "Bilyana Andreeva",
+ "logo": "happy-v.png",
+ "shot": "happy-v.jpg",
+ "shot_caption": "happyv.com",
+ "saw_lines": [
+  "Intimate health buyers try one box, judge it on the first week, then reorder only if it clearly worked.",
+  "So a first time buyer decides from the ad alone, and a plain ad without proof or a price loses her.",
+  "Your site shows 25,000 reviews and 1,000,000 customers, but 0 of 30 ads use either. Put 25,000 reviews on every creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads use site proof"
+   ],
+   [
+    "0",
+    "ads name free shipping"
+   ],
+   [
+    "11",
+    "ads share one copy"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site shows 25,000 reviews and 1,000,000 customers, yet 0 of 30 ads use either number. Buyers need proof in the ad to trust a supplement. Put 25,000 reviews on every creative and open two ads with a review quote."
+   ],
+   [
+    "Site offers stay off ads",
+    "Your site offers 10% off the first order and free shipping on refills, but your ad copy names neither. Buyers get no reason to act. Put free shipping on refills in line one of three ads and on the creative."
+   ],
+   [
+    "Price is missing from ads",
+    "Your site lists prices from $1.99 to $33.99, yet 0 of 30 ads mention price or cost. A buyer comparing supplements will not click without knowing what a box costs. Lead one ad with the price per box."
+   ],
+   [
+    "One copy repeats across ads",
+    "One exact copy runs in 11 of 29 ads, so the same women hear one opening over and over. Buyers tune out repeats. Keep the body copy, rewrite the opening line and swap the creative in each of the 11."
+   ]
+  ],
+  "images": [
+   "happy-v_1.jpg",
+   "happy-v_2.jpg",
+   "happy-v_3.jpg"
+  ]
+ },
+ "ads_1": "Review-led creative with fresh openings, replacing the one copy running in 11 ads",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
