@@ -1,0 +1,59 @@
+{
+ "slug": "lili-radu",
+ "company": "Lili Radu",
+ "full_name": "Patrick Loewe",
+ "logo": "lili-radu.png",
+ "shot": "lili-radu.jpg",
+ "shot_caption": "vee-collective.com",
+ "saw_lines": [
+  "Handbag buyers check size, strap and laptop fit before they click, then come back for the same style in new colors.",
+  "So the sale is decided in line one, where buyers ask if the bag fits, and your ads never answer it.",
+  "Your site offers 10% off your first purchase, yet 0 of 9 ads mention it. Put that offer in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention percent off"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "21",
+    "catalog feed ads"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from ads",
+    "Your site offers 10% off the first purchase, yet 0 of 9 ads mention it. A new buyer has no reason to act today. Put that 10% first purchase offer in line one of three new ads, and on the creative."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site lists free shipping above 200 EUR, yet 0 of 30 ads mention shipping. Buyers check delivery before they click, and silence loses to the next brand. Answer it first in three new ads, with free shipping above 200 EUR."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads carries a proof number, so new buyers have nothing to trust but the photo. Buyers want a count, like reviews or orders shipped. Pick one figure you can stand behind and open three ads with it."
+   ],
+   [
+    "Mostly catalog ads",
+    "21 of your 30 live ads are catalog feed ads with no story behind them. Only 9 ads carry written copy about the bag. Add three story ads showing it on a commute or weekend trip."
+   ]
+  ],
+  "images": [
+   "lili-radu_1.jpg",
+   "lili-radu_2.jpg",
+   "lili-radu_3.jpg"
+  ]
+ },
+ "ads_1": "Offer first creative for handbags, tested against a shipping answer",
+ "soc_1": "Brand social strategy across Facebook and Instagram, your two linked channels"
+}
