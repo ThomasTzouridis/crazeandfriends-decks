@@ -1,0 +1,59 @@
+{
+ "slug": "my-nook",
+ "company": "My Nook",
+ "full_name": "Patrick Rudomino",
+ "logo": "my-nook.png",
+ "shot": "my-nook.jpg",
+ "shot_caption": "mynook.com.au",
+ "saw_lines": [
+  "Parents do not buy a play couch on impulse. They check washing, fit and safety, then buy once for years of play.",
+  "So the sale is won or lost in line one, where a parent decides if the ad is worth a click.",
+  "Your site shows 2000+ 5 Star Reviews, yet 0 of 27 ads carry a proof number. Open two ads with a review quote and put 100,000 happy families in line one."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "27",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry proof numbers"
+   ],
+   [
+    "5",
+    "Shop now to homepage"
+   ],
+   [
+    "12",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers missing from ads",
+    "Your site shows 2000+ 5 Star Reviews, yet 0 of 27 ads carry a proof number, so buyers have no reason to click. Put 100,000 happy families in the first line and open two ads with a review quote."
+   ],
+   [
+    "Shipping missing from ads",
+    "Your site explains shipping, yet 0 of 27 ads mention shipping or delivery, so buyers must click away to learn it. Open each new ad with your free shipping offer in the first line, aimed at first time buyers."
+   ],
+   [
+    "Shop now lands on homepage",
+    "5 Shop now ads send buyers to the homepage, not the product they saw, so the click has to start again. Point each of those ads to the product its video shows, and name that product&rsquo;s price in the first line."
+   ],
+   [
+    "Winning ads go unused",
+    "12 ads have run 60+ days, yet none of your 15 newer ads reuses a winner&rsquo;s opening line. Build the next three ads as variations of your oldest winner, which opens with thoughtfully designed modular furniture."
+   ]
+  ],
+  "images": [
+   "my-nook_1.jpg",
+   "my-nook_2.jpg",
+   "my-nook_3.jpg"
+  ]
+ },
+ "ads_1": "Free shipping and 100,000 families in line one, built on the oldest winner&rsquo;s hook",
+ "soc_1": "Brand social strategy across Facebook and Instagram"
+}
