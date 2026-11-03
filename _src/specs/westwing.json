@@ -1,0 +1,59 @@
+{
+ "slug": "westwing",
+ "company": "Westwing",
+ "full_name": "Tomasz Dabek",
+ "logo": "westwing.png",
+ "shot": "westwing.jpg",
+ "shot_caption": "westwing.de",
+ "saw_lines": [
+  "Furniture buyers worry about how a big piece arrives before style. Damage and wait times decide whether they order.",
+  "So the sale is lost in the first seconds, when no delivery promise shows before the buyer scrolls past.",
+  "Your site explains how orders arrive, yet 0 of 30 ads mention delivery. Shoot one video of a box arriving and the chair unpacked, and open with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads explain arrival"
+   ],
+   [
+    "4",
+    "ads are creator posts"
+   ],
+   [
+    "9",
+    "ads share one opener"
+   ]
+  ],
+  "points": [
+   [
+    "Arrival goes unanswered",
+    "Your site explains how the furniture arrives, yet 0 of 30 ads mention delivery. Buyers worry about damage before they click, so the ad loses them. Shoot one video of a box arriving and the chair unpacked, and open with it."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 30 ads carry a proof number, so a first-time buyer has no sign others already trust the brand. Collect one real figure, such as a review count or orders shipped, and lead the next creative with it."
+   ],
+   [
+    "Creator posts run as ads",
+    "4 of 30 ads are creator posts run from the brand page, so the person talking about the chair reads like an ad. Whitelist those 4 posts from each creator&rsquo;s own account, then test variations with new first lines against them."
+   ],
+   [
+    "One opener leads the copy",
+    "9 of 30 copy ads open on one line, let your space do the talking, so buyers see the same hook. Test two new opening angles against it, such as a room before and after, and keep the stronger one."
+   ]
+  ],
+  "images": [
+   "westwing_1.jpg",
+   "westwing_2.jpg",
+   "westwing_3.jpg"
+  ]
+ },
+ "ads_1": "Video of a chair arriving, unpacked in a room, with new opening lines",
+ "soc_1": "Brand social strategy across Instagram, Pinterest, TikTok and YouTube"
+}
