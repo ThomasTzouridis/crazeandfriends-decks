@@ -1,0 +1,59 @@
+{
+ "slug": "ig-development-georgia",
+ "company": "IG Development Georgia",
+ "full_name": "Nodar Sabanadze",
+ "logo": "ig-development-georgia.png",
+ "shot": "ig-development-georgia.jpg",
+ "shot_caption": "thecitymall.ge",
+ "saw_lines": [
+  "Shoppers choose a mall for the whole outing, so a promotion for the day counts more than the brand name.",
+  "So the sale is won or lost in the opening line, where an offer or proof must show before people scroll.",
+  "Your 4 ads carry no proof number, so new buyers have nothing to weigh the claim against. Add one real figure, like your review count, to every creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "5",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "0",
+    "carry an offer"
+   ],
+   [
+    "2",
+    "different CTAs"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "0 of your 4 ads carry a proof number, so a first time buyer has nothing to weigh the claim against. Pull one real figure, such as your review count, and print it on the creative in the next batch."
+   ],
+   [
+    "No offer in your ads",
+    "0 of your 4 ads carry an offer, so a new buyer has no reason to act today. Write new ads that open with a first order offer, a discount or a bundle, and print it on the creative itself."
+   ],
+   [
+    "No single call to action",
+    "Your ads mix Visit profile, No button and nothing at all, so a tap has no clear next page. Pick one call to action and point every ad at the page its copy describes, such as the homepage at thecitymall.ge."
+   ],
+   [
+    "Ads across four placements",
+    "Your ads run across Facebook, Instagram, Threads and Audience Network, yet no ad is shaped for the screen it lands on. Cut Threads and Audience Network from the next batch and write for Facebook and Instagram alone first."
+   ]
+  ],
+  "images": [
+   "ig-development-georgia_1.jpg",
+   "ig-development-georgia_2.jpg",
+   "ig-development-georgia_3.jpg"
+  ]
+ },
+ "ads_1": "First order offer and review number open each new ad on Facebook and Instagram",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
