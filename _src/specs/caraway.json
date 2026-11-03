@@ -1,0 +1,59 @@
+{
+ "slug": "caraway",
+ "company": "Caraway",
+ "full_name": "Jordan Nathan",
+ "logo": "caraway.png",
+ "shot": "caraway.jpg",
+ "shot_caption": "carawayhome.com",
+ "saw_lines": [
+  "Buyers replace cookware once a pan wears out, then judge the brand on its health claims and proof before they click.",
+  "So trust has to sit in the first line, or the buyer never reaches your offer.",
+  "Your site shows 200,000+ Reviews, yet 0 of 28 live ads carry a proof number. Put 200,000+ on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "28",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "0",
+    "ads mention subscription"
+   ],
+   [
+    "3",
+    "ads land on homepage"
+   ]
+  ],
+  "points": [
+   [
+    "The proof stays off ads",
+    "Your site shows 200,000+ Reviews, yet 0 of 28 live ads carry a proof number, so cold buyers lack a reason to trust you. Put 200,000+ on the creative and open two ads with a review quote."
+   ],
+   [
+    "Subscribe offer missing from ads",
+    "Your site offers subscribe and save, yet 0 of 22 ads mention it and only 5 of 22 mention any offer, so buyers see no saving to act on. Put the subscribe offer in the first line of three new ads."
+   ],
+   [
+    "Subscription never advertised",
+    "Your site runs a subscribe offer, yet 0 of 28 live ads mention a subscription, so repeat buyers never hear about the saving. Run two retention ads with the subscription saving as the headline, aimed at past buyers."
+   ],
+   [
+    "Three ads land on homepage",
+    "Three of your Shop now ads send buyers to the homepage, not a product page, so the buyer has to hunt for the item they clicked. Point each of those ads to the product on screen, not the home page."
+   ]
+  ],
+  "images": [
+   "caraway_1.jpg",
+   "caraway_2.jpg",
+   "caraway_3.jpg"
+  ]
+ },
+ "ads_1": "Cookware creative led by 200,000+ reviews, tested against the subscribe offer",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok and X"
+}
