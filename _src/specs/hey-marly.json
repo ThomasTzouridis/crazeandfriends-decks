@@ -1,0 +1,59 @@
+{
+ "slug": "hey-marly",
+ "company": "Hey Marly",
+ "full_name": "Andre Poloczek",
+ "logo": "hey-marly.png",
+ "shot": "hey-marly.jpg",
+ "shot_caption": "heymarly.com",
+ "saw_lines": [
+  "Shoppers buying a bag or boot check the delivery cost before they click, and many leave when they cannot find it.",
+  "So the delivery answer must sit in the first line of the ad, or the buyer leaves before reading the price.",
+  "Your site lists shipping at 3,90 &euro;, yet 0 of 28 ads mention shipping or delivery. Open the next batch of puffer ads with that answer in line one."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "28",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "27",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping goes unanswered in ads",
+    "Your site lists shipping at 3,90 &euro;, yet 0 of 28 ads mention shipping or delivery, so a buyer scrolling past never sees the cost. Open the next three ads with the shipping answer in line one."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 28 ads shows a proof number, so a new buyer has no count to trust before clicking. Collect one real figure, like your review count, and open the next three ads with it."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 15 ads with fixed copy carry an offer, so a first time buyer has no reason to act today. Build a first order bundle at one set price and open new ads with it."
+   ],
+   [
+    "Winners not built on",
+    "27 of your 28 ads have run 60 days or more, but the newest ads open with fresh lines instead of a winner&rsquo;s opening. Build the next three ads as variations of your longest running Leo copy, changing the first line."
+   ]
+  ],
+  "images": [
+   "hey-marly_1.jpg",
+   "hey-marly_2.jpg",
+   "hey-marly_3.jpg"
+  ]
+ },
+ "ads_1": "Puffer bag variations opening on shipping, built from your Leo copy",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
