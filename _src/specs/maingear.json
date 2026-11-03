@@ -1,0 +1,59 @@
+{
+ "slug": "maingear",
+ "company": "MAINGEAR",
+ "full_name": "Wallace Santos",
+ "logo": "maingear.png",
+ "shot": "maingear.jpg",
+ "shot_caption": "maingear.com",
+ "saw_lines": [
+  "Gaming PC buyers compare builds by spec sheet, then need proof the box will run smoothly before they pay.",
+  "So the sale is decided in the ad, where a buyer looks for a price and a proof number before clicking.",
+  "Your 30 live ads never mention price, so buyers comparing gaming PCs have no number to weigh. Put the MG-1 price on three creatives next to the cost of its parts."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "mention price"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "5",
+    "send to the homepage"
+   ]
+  ],
+  "points": [
+   [
+    "Price never appears in ads",
+    "0 of your 30 live ads mention price, so buyers comparing gaming PCs have no number to weigh. Next, put the MG-1 price on three new creatives and set it beside the cost of the same parts bought separately."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 live ads carries a proof number, so a buyer scrolling past has nothing to trust in the first seconds. Next, collect one figure such as your review count or orders shipped, then lead three ads with it."
+   ],
+   [
+    "Creator content runs as ads",
+    "3 of your 21 ads are creator posts with a code, #ad and an @mention, run from your brand page, which lowers trust with new buyers. Next, whitelist those three posts from the creator account and cut three variations of each."
+   ],
+   [
+    "Shop now lands on homepage",
+    "5 of your Shop now ads send buyers to the homepage, not the product on screen, so a buyer who clicks an MG-1 ad has to search for it. Next, point those five ads to the MG-1 page they show."
+   ]
+  ],
+  "images": [
+   "maingear_1.jpg",
+   "maingear_2.jpg",
+   "maingear_3.jpg"
+  ]
+ },
+ "ads_1": "MG-1 creatives led by price, with the new proof figure as the closing line",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, X and YouTube"
+}
