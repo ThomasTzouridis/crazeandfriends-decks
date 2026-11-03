@@ -1,0 +1,59 @@
+{
+ "slug": "homewizard",
+ "company": "HomeWizard",
+ "full_name": "Paul Straathof",
+ "logo": "homewizard.png",
+ "shot": "homewizard.jpg",
+ "shot_caption": "homewizard.com",
+ "saw_lines": [
+  "Nobody wants a meter. They buy after a shocking bill or a solar install, then keep it for years.",
+  "So the sale is won in the first line, where the bill or solar panel gets named before the scroll.",
+  "Your 30 live ads carry no proof number, so collect one review count or orders shipped and lead the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "ads with an offer"
+   ],
+   [
+    "8",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 30 live ads shows a proof number, so a new buyer has no reason to trust you over the rest. Collect one number, like review count or orders shipped, and lead the next batch with it."
+   ],
+   [
+    "Most ads have no story",
+    "16 of your 30 live ads are catalog feed ads with no story, so nothing gives the feed a reason to stop. Add three story ads that open on a surprise energy bill and show the P1 meter as the fix."
+   ],
+   [
+    "No offer in the ads",
+    "0 of your 14 copy ads mention an offer, so a first time buyer gets nothing to act on today. Give buyers one reason to order now, a first order offer or a bundle, and open three new ads with it."
+   ],
+   [
+    "Openers spread thin",
+    "Your 14 copy ads open with 8 different stories and the biggest leads only 3 ads, so none gets enough repeats. Keep the two best, solar self use and energy bill savings, and build the next batch from them."
+   ]
+  ],
+  "images": [
+   "homewizard_1.jpg",
+   "homewizard_2.jpg",
+   "homewizard_3.jpg"
+  ]
+ },
+ "ads_1": "Solar self use and energy bill stories, each with a review count",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Youtube"
+}
