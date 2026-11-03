@@ -1,0 +1,59 @@
+{
+ "slug": "clickoutil",
+ "company": "Clickoutil",
+ "full_name": "Joffrey ROBESSON",
+ "logo": "clickoutil.png",
+ "shot": "clickoutil.jpg",
+ "shot_caption": "clickoutil.com",
+ "saw_lines": [
+  "Pros pick power tools by brand and battery platform, then add batteries and bits to the same order.",
+  "So the sale is won or lost in the first ad line, where a brand name needs a reason to order.",
+  "Your 5 written ads carry no proof number, so collect one real figure, such as your review count or orders shipped, and lead the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 3 Nov 2026",
+  "stats": [
+   [
+    "15",
+    "live Meta ads"
+   ],
+   [
+    "10",
+    "catalog feed ads"
+   ],
+   [
+    "6",
+    "Shop now to homepage"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ]
+  ],
+  "points": [
+   [
+    "No proof in your ads",
+    "0 of your 5 written ads carry a proof number, so buyers have nothing to weigh against the price. Collect one real figure, such as your review count or orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "Feed ads carry no story",
+    "10 of your 15 ads are feed ads with no story, so a cold buyer has no reason to stop scrolling. Build three story ads around one product, such as the Makita Makpac case, and show it in use."
+   ],
+   [
+    "Shop now lands on homepage",
+    "6 of your 7 Shop now ads send buyers to the homepage, not the tool in the ad, so the click has to search. Point each one to the product it shows, so buyers land on the item they clicked."
+   ],
+   [
+    "Offers miss new buyers",
+    "Your offers only appear in the Click Days and Makita ads, so a first time buyer on the other ads has no reason to act today. Open three new ads with a first order offer and print it on the creative."
+   ]
+  ],
+  "images": [
+   "clickoutil_1.jpg",
+   "clickoutil_2.jpg",
+   "clickoutil_3.jpg"
+  ]
+ },
+ "ads_1": "Story ads on one Makita or Bosch tool, opening on the job it does",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+}
