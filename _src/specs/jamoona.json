@@ -1,0 +1,59 @@
+{
+ "slug": "jamoona",
+ "company": "Jamoona",
+ "full_name": "Maurizio Pepe",
+ "logo": "jamoona.png",
+ "shot": "jamoona.jpg",
+ "shot_caption": "jamoona.com",
+ "saw_lines": [
+  "Indian grocery buyers reorder the same staples, rice, atta and dal, once they find a store they trust.",
+  "So the first order decides the account. A new buyer who sees a clear price on a staple orders again.",
+  "Your ads quote 2800+ reviews in 4 ads and 3000+ in 3, so buyers doubt both. Pick one number and print it on every creative in the next batch."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 4 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "7",
+    "open on one opener"
+   ],
+   [
+    "17",
+    "sent to homepage"
+   ],
+   [
+    "4",
+    "ads running 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Two review counts clash",
+    "Your ads quote 2800+ reviews in 4 ads and 3000+ in 3. A buyer who sees both wonders which is real, and that doubt stops the click. Pick one number and print it on every creative in the next batch."
+   ],
+   [
+    "One opener carries the copy",
+    "7 of 28 copy ads open on &ldquo;missing the taste of home?&rdquo; and the rest are single use. That story is the only opener being tested. Test two new openers: free delivery over &euro;39, and the 10kg Sona Masoori rice."
+   ],
+   [
+    "Shop now skips the product",
+    "17 of your Shop now ads send buyers to the homepage, not the product on screen. That extra search is where a sale gets lost. Point each one to the product it shows, such as Lentils &amp; Beans or Basmati Rice."
+   ],
+   [
+    "Proven winners need siblings",
+    "4 ads have run 60+ days, and the oldest is your &ldquo;No Indian shop nearby&rdquo; image. That message works, so build three variations of it: one on the 10kg Sona Masoori rice, one on Schani snacks, one with a customer quote."
+   ]
+  ],
+  "images": [
+   "jamoona_1.jpg",
+   "jamoona_2.jpg",
+   "jamoona_3.jpg"
+  ]
+ },
+ "ads_1": "New openers beside the taste story, led by free delivery and 10kg rice.",
+ "soc_1": "Brand social strategy across Facebook and Instagram, your two linked channels"
+}
