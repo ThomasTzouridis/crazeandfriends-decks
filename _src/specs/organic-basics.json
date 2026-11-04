@@ -1,0 +1,59 @@
+{
+ "slug": "organic-basics",
+ "company": "Organic Basics",
+ "full_name": "Yael Zwanziger",
+ "logo": "organic-basics.png",
+ "shot": "organic-basics.jpg",
+ "shot_caption": "organicbasics.com",
+ "saw_lines": [
+  "Basics get replaced in packs and reordered in the same cut, so most buyers never browse for something new.",
+  "So a reorder is won or lost in the first line, when a buyer decides if the offer is worth a click.",
+  "Your site offers a first order discount, yet only 3 of 27 ads mention it. Put that discount in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 4 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "3",
+    "ads name the offer"
+   ],
+   [
+    "0",
+    "ads mention subscription"
+   ],
+   [
+    "15",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "First order offer missing",
+    "Your site offers a first order discount, yet only 3 of 27 ads mention it, so a new buyer sees no reason to act. Put that discount in the first line of three new ads and repeat it on the creative."
+   ],
+   [
+    "Subscription never advertised",
+    "The site advertises subscribe and save, yet 0 of 30 ads mention a subscription, so buyers who would reorder have nothing to sign up for. Run two retention ads with subscribe and save as the headline, aimed at past buyers."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 live ads shows a proof number, so buyers have no count to trust. Collect one real figure, such as your review count or orders shipped, and open the next batch of ads with it."
+   ],
+   [
+    "Winners not built on",
+    "15 ads have run 60+ days, yet none of the 15 newer ads reuses a winner&rsquo;s opening line, so each new ad starts from zero. Build the next three ads as variations of your oldest winner, keeping its opening line."
+   ]
+  ],
+  "images": [
+   "organic-basics_1.jpg",
+   "organic-basics_2.jpg",
+   "organic-basics_3.jpg"
+  ]
+ },
+ "ads_1": "Offer-led variations of your oldest winner, opening with the first order discount",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok and YouTube"
+}
