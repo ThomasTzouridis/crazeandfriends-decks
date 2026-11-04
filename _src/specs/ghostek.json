@@ -1,0 +1,59 @@
+{
+ "slug": "ghostek",
+ "company": "GHOSTEK",
+ "full_name": "Vadim Mikhailov",
+ "logo": "ghostek.png",
+ "shot": "",
+ "shot_caption": "ghostek.com",
+ "saw_lines": [
+  "Phone case buyers pick by model and then by feel, and they replace a case whenever they upgrade the phone.",
+  "So the sale is won or lost in the first line, where a shopper checks if the case fits their exact phone.",
+  "Your 22 live ads show no proof number, so collect one, such as your review count or orders shipped, and lead the next three ads with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 4 Nov 2026",
+  "stats": [
+   [
+    "22",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "ads mention free shipping"
+   ],
+   [
+    "3",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 22 ads shows a proof number, so a stranger scrolling past has no reason to trust the case. Collect one review count or orders shipped figure and open the next three ads with it on screen."
+   ],
+   [
+    "Free shipping never in ads",
+    "Your site promotes free shipping, yet 0 of 22 ads mention it, so a first time buyer sees no reason to act today. Put the free shipping answer in the first line of three new ads, ahead of the waterproof claim."
+   ],
+   [
+    "All video, no stills",
+    "All 22 ads are video, so you have no stills for retargeting, where past viewers need a quick look at the fit. Shoot stills of the S26 Ultra and Pixel 11 Pro XL cases and run three to past viewers."
+   ],
+   [
+    "Winners not built on",
+    "3 ads have run 60+ days, but 19 newer ads never reuse their opening, so a proven hook stays in one ad. Build the next three ads as variations of your oldest winner, keeping its opening and swapping case and scene."
+   ]
+  ],
+  "images": [
+   "ghostek_1.jpg",
+   "ghostek_2.jpg",
+   "ghostek_3.jpg"
+  ]
+ },
+ "ads_1": "Proof led variations of the S26 Ultra winner, free shipping in line one",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok and YouTube"
+}
