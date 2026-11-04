@@ -1,0 +1,59 @@
+{
+ "slug": "haverhill",
+ "company": "HAVERHILL",
+ "full_name": "Andrej Strojin",
+ "logo": "haverhill.png",
+ "shot": "haverhill.jpg",
+ "shot_caption": "haverhill.com",
+ "saw_lines": [
+  "Birthstone jewelry is bought as a gift for one person, so buyers look for their stone and name first.",
+  "So the sale is won in the first line, where a gift buyer decides whether this piece suits the person.",
+  "Your site offers 20% off bestsellers, but only 1 of 23 ads mention it. Put the 20% off in the first line of three new ads and on the creative."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 4 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "12",
+    "open on one story"
+   ],
+   [
+    "17",
+    "Shop now to homepage"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers 20% off bestsellers, but only 1 of 23 ads mentions it. A cold buyer has no reason to act. Put the 20% off in the first line of three new ads and on the creative."
+   ],
+   [
+    "One opener carries the account",
+    "12 of 23 copy ads open on the same &ldquo;tell your story&rdquo; line, so they all speak to the same buyer. Run three new angles against it: the opal pieces, the letter bracelet, and the stackable ring."
+   ],
+   [
+    "No proof in your ads",
+    "None of your 30 ads shows a proof number, so a gift buyer has nothing concrete to trust. Collect one real figure, such as your review count or orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "Shop now lands on homepage",
+    "17 Shop now ads send buyers to your homepage, not the product on screen. A buyer who clicked a bracelet has to search again. Point each one to the exact piece the ad shows, such as the letter bracelet."
+   ]
+  ],
+  "images": [
+   "haverhill_1.jpg",
+   "haverhill_2.jpg",
+   "haverhill_3.jpg"
+  ]
+ },
+ "ads_1": "Opal and letter bracelet ads opening on the 20% off bestsellers offer",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest and TikTok"
+}
