@@ -2,7 +2,6 @@
  "slug": "icelandair-ground-services",
  "company": "Icelandair Ground Services",
  "full_name": "Katrin Erna Gunnarsdottir",
- "logo": "icelandair-ground-services.png",
  "shot": "icelandair-ground-services.jpg",
  "shot_caption": "icelandair.com",
  "saw_lines": [
@@ -55,5 +54,6 @@
   ]
  },
  "ads_1": "Iceland stopover story ads on the Toronto opener, each with a first order offer",
- "soc_1": "Brand social strategy for the channels your buyers already use"
+ "soc_1": "Brand social strategy for the channels your buyers already use",
+ "logo": "icelandair-ground-services.png"
 }

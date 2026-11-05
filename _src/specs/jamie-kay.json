@@ -2,7 +2,6 @@
  "slug": "jamie-kay",
  "company": "Jamie Kay",
  "full_name": "Zion Armstrong",
- "logo": "jamie-kay.svg",
  "shot": "jamie-kay.jpg",
  "shot_caption": "jamiekay.com",
  "saw_lines": [
@@ -55,5 +54,6 @@
   ]
  },
  "ads_1": "First order offer creative for fall dresses, with new openers replacing the one story",
- "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok",
+ "logo": "jamie-kay.png"
 }

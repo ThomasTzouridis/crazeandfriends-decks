@@ -2,7 +2,6 @@
  "slug": "va-bv",
  "company": "VA BV",
  "full_name": "Gaspar van Elmbt, EMBA, BSc",
- "logo": "va-bv.png",
  "shot": "va-bv.jpg",
  "shot_caption": "va-imaging.com",
  "saw_lines": [
@@ -11,5 +10,6 @@
   "Your 40 text Google ads carry developer error messages, not a reason to buy. Rewrite them around one spec, one delivery time and one warranty."
  ],
  "ads_1": "Google text ads built on one spec, delivery time and extended warranty",
- "soc_1": "Brand social strategy across YouTube, your only linked channel"
+ "soc_1": "Brand social strategy across YouTube, your only linked channel",
+ "logo": "va-bv.png"
 }

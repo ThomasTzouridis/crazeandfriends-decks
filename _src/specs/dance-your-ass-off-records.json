@@ -2,7 +2,6 @@
  "slug": "dance-your-ass-off-records",
  "company": "'Dance Your Ass Off' Records",
  "full_name": "Vincent Desmouceaux",
- "logo": "dance-your-ass-off-records.png",
  "shot": "",
  "shot_caption": "discogs.com",
  "saw_lines": [
@@ -55,5 +54,6 @@
   ]
  },
  "ads_1": "Video-led creative built on the Salsa and Cumbia records, one new story per batch",
- "soc_1": "Brand social strategy for the channels your buyers already use"
+ "soc_1": "Brand social strategy for the channels your buyers already use",
+ "logo": "dance-your-ass-off-records.png"
 }

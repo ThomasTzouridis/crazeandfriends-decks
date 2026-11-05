@@ -2,7 +2,6 @@
  "slug": "schlumberger-wein-und-sektkellerei",
  "company": "Schlumberger Wein- und Sektkellerei",
  "full_name": "Patrick Meszarits",
- "logo": "schlumberger-wein-und-sektkellerei.png",
  "shot": "schlumberger-wein-und-sektkellerei.jpg",
  "shot_caption": "schlumberger.at",
  "saw_lines": [
@@ -55,5 +54,6 @@
   ]
  },
  "ads_1": "Verjus tea creative with new openers, a first order offer and one proof number",
- "soc_1": "Brand social strategy across Facebook and Instagram"
+ "soc_1": "Brand social strategy across Facebook and Instagram",
+ "logo": "schlumberger-wein-und-sektkellerei.png"
 }

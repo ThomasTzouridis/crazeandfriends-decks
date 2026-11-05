@@ -2,7 +2,6 @@
  "slug": "dm-drogerie-markt-deutschland",
  "company": "dm-drogerie markt Deutschland",
  "full_name": "Benjamin Menges",
- "logo": "dm-drogerie-markt-deutschland.png",
  "shot": "dm-drogerie-markt-deutschland.jpg",
  "shot_caption": "dm.de",
  "saw_lines": [
@@ -55,5 +54,6 @@
   ]
  },
  "ads_1": "Fresh openings tested against the couch tip, each led by a first order offer",
- "soc_1": "Brand social strategy for the channels your buyers already use"
+ "soc_1": "Brand social strategy for the channels your buyers already use",
+ "logo": "dm-drogerie-markt-deutschland.png"
 }

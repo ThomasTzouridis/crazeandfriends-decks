@@ -2,7 +2,6 @@
  "slug": "blk-box",
  "company": "BLK BOX",
  "full_name": "Gregory Bradley",
- "logo": "blk-box.png",
  "shot": "blk-box.jpg",
  "shot_caption": "blkboxfitness.com",
  "saw_lines": [
@@ -55,5 +54,6 @@
   ]
  },
  "ads_1": "Install stories and HYROX openers, each with the first order discount on the creative",
- "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube"
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok and YouTube",
+ "logo": "blk-box.png"
 }
