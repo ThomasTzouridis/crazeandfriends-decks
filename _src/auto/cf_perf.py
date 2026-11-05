@@ -18,11 +18,11 @@ import os, sys, re, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import cf_poll as P
 
-ECOM_LIST = 1013263
+ECOM_LIST = 1120002   # "Ecom 10-500k, connected back other clients" in workspace 172761 (was 1013263 in the old organization)
 TAB = 'Performance'
 COPY_TAB = 'Copy'
-COPY_A = [668531, 668533, 668534, 668535, 668536]   # IMPACT copy A, 5k refund (2026-10-20), one campaign per sender
-COPY_B = [668537, 668538, 668539, 668540, 668541]   # IMPACT copy B, no 5k
+COPY_A = [711568, 711570, 711576, 711574, 711592, 711594, 711596, 711598, 711604]   # copy A (message 2 two days later), workspace 172761, 2026-11-05, one campaign per sender
+COPY_B = [711569, 711572, 711577, 711575, 711593, 711595, 711597, 711599, 711605]   # copy B (message 2 three hours later)
 START = '2026-01-01T00:00:00Z'
 
 
@@ -125,7 +125,7 @@ def main():
         data.append({'range': '%s!D%d:F%d' % (TAB, r, r), 'values': [v[1:]]})
         log.append((name, v, s and {k: s[k] for k in ('connectionsSent', 'connectionsAccepted', 'totalMessageStarted', 'totalMessageReplies', 'autoTaggedInterested')}))
     # Copy tab: one row per copy, C:F = the same 4 rates over the campaigns that send that copy (COPIES maps a phrase in column A to campaigns)
-    copies = {'ecom + presentation': ('ecom', [649994, 649995, 649996, 649997, 649998]),   # the 5 original ecom campaigns
+    copies = {'ecom + presentation': ('ecom', []),   # the 5 original ecom campaigns lived in the old organization (gone 2026-11-05): row stays blank
               'impact a': ('a', COPY_A),                                                   # IMPACT copy A, 5k refund (2026-10-20)
               'impact b': ('b', COPY_B)}                                                   # IMPACT copy B, no 5k (2026-10-20)
     ca = sv.values().get(spreadsheetId=P.SHEET, range='%s!A2:A80' % COPY_TAB).execute().get('values', [])
