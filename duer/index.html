@@ -299,6 +299,28 @@ html.cfphone .talk .r figcaption{left:14px;bottom:14px;padding:8px 12px;gap:2px}
 html.cfphone .talk .r b{font-size:16px}
 html.cfphone .talk .r span{font-size:10px}
 
+/* Offer slide */
+.offer{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4cqw;margin-top:2.6cqw}
+.offer .o{background:var(--tile);padding:1.8cqw 1.8cqw 2cqw;display:flex;flex-direction:column;gap:.7cqw}
+.offer .lab{font:500 .95cqw var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.offer b{font:800 2.6cqw/1 var(--display);text-transform:uppercase}
+.offer b .mark{padding:0 .15em}
+.offer p{font-size:1.25cqw;line-height:1.4;margin:0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4cqw;margin-top:2.2cqw;border-top:.12cqw solid var(--line);padding-top:1.8cqw}
+.steps .k{display:flex;flex-direction:column;gap:.5cqw}
+.steps .n{display:flex;align-items:baseline;gap:.8cqw}
+.steps .n i{font:800 2.2cqw/1 var(--display);font-style:normal;background:var(--hi);padding:0 .25em}
+.steps .n b{font:800 1.9cqw/1 var(--display);text-transform:uppercase}
+.steps p{font-size:1.2cqw;line-height:1.4;margin:0}
+.steps .t{font:500 .95cqw var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+html.cfphone .offer{grid-template-columns:1fr;gap:8px;margin-top:14px}
+html.cfphone .offer .o{padding:12px 14px 14px;gap:4px}
+html.cfphone .offer .lab,html.cfphone .steps .t{font-size:9px}
+html.cfphone .offer b{font-size:22px}
+html.cfphone .offer p,html.cfphone .steps p{font-size:13px}
+html.cfphone .steps{grid-template-columns:1fr;gap:12px;margin-top:16px;padding-top:14px;border-top-width:1px}
+html.cfphone .steps .n i{font-size:18px}
+html.cfphone .steps .n b{font-size:16px}
 /* Next pill: bottom center on every slide, names the next slide, hidden on the last one; phone: sits above the bar */
 #nxt{position:fixed;left:50%;bottom:calc(2.2vh + 6px);transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:.5em;padding:.55em 1.1em .55em 1.25em;border:2px solid var(--paper);border-radius:999px;background:var(--ink);color:var(--paper);font:700 clamp(14px,1.6vw,22px)/1 var(--body);letter-spacing:.01em;text-decoration:none;white-space:nowrap;box-shadow:0 8px 24px rgba(19,20,16,.28);cursor:pointer;transition:transform .15s,background .15s}
 #nxt:hover{transform:translateX(-50%) translateY(-2px);background:#000}
@@ -314,64 +336,28 @@ html.cfphone #nxt span:last-of-type{overflow:hidden;text-overflow:ellipsis}
 <div class="reveal"><div class="slides"><section>
 
 <section aria-label="Cover"><div class="s cover">
-  <div class="eyebrow in">Partnership proposal</div>
   <div class="pair in"><img class="wm" src="../assets/cf-logo.png" alt="craze&amp;friends"><span class="x">×</span><img class="clogo" src="../assets/clients/duer.png" alt="DUER" style="height:0.601em;width:2.494em"></div>
-  <p class="sub in">What a partnership could look like, and how we both could benefit from it.</p>
   <p class="prep in">Prepared for Bryan Anderson</p>
   <div class="strip" aria-hidden="true"><img src="../assets/team/t1.jpg" alt=""><img src="../assets/team/t2.jpg" alt=""><img src="../assets/team/t3.jpg" alt=""><img src="../assets/team/t6.jpg" alt=""><img src="../assets/team/t8.jpg" alt=""><img src="../assets/team/t5.jpg" alt=""></div>
 </div></section>
 
-<section aria-label="What we saw"><div class="s up">
-  <h2 class="in">What we saw at <span class="mark">DUER</span></h2>
-  <div class="saw in">
-    <div class="lines"><p>Shoppers buying comfort pants judge stretch, fabric and fit in seconds, then decide whether the pair deserves a second look.</p><p>So the sale is won or lost in the first line, where stretch and fit must land before the scroll.</p><p class="turn">Your site shows 45,000+ 5 Star Reviews, yet 0 of 30 ads carry a proof number. Put 45,000+ on the creative and open two ads with a review quote.</p></div>
-    <figure class="shot"><img src="../assets/shots/duer.jpg" alt="DUER website"></figure>
+<section aria-label="The offer"><div class="s">
+  <div class="eyebrow in">The offer for DUER</div>
+  <h2 class="in">Ad revenue up 30% in 90 days, <span class="mark">or you get paid</span>.</h2>
+  <div class="offer in">
+    <div class="o"><span class="lab">The target</span><b><span class="mark">+30%</span> ad revenue</b><p>Within 90 days of the start date, measured against the baseline we capture on day one.</p></div>
+    <div class="o"><span class="lab">The condition</span><b>Costs stay flat</b><p>No higher ad budget, no extras added on top of what we agree.</p></div>
+    <div class="o"><span class="lab">If we miss it</span><b>100% refund <span class="mark">+ $5,000</span></b><p>Every fee paid to craze&amp;friends goes back, plus $5,000 transferred to DUER's bank account.</p></div>
+  </div>
+  <div class="steps in">
+    <div class="k"><div class="n"><i>1</i><b>Call</b></div><p>We go through where DUER stands today and you grant us access to the accounts.</p><span class="t">30 minutes</span></div>
+    <div class="k"><div class="n"><i>2</i><b>Audit &amp; assessment</b></div><p>We audit what you are doing now and set out what we can achieve and what the first 90 days look like.</p><span class="t">7 business days from access</span></div>
+    <div class="k"><div class="n"><i>3</i><b>Proposal</b></div><p>Based on the audit: scope, deliverables, retainer, term and the guarantee in writing.</p><span class="t">Presented on one call</span></div>
   </div>
 </div></section>
 
-<section aria-label="Your ads"><div class="s up"><h2 class="in">Where your ads could <span class="mark">work harder</span></h2><div class="adsgrid in"><div class="pts"><div class="pt"><b>Proof numbers missing from ads</b><p>The site shows 45,000+ 5 Star Reviews, yet 0 of 30 ads carry a proof number, so new buyers get claims with nothing behind them. Put 45,000+ on the creative and in line one. Open two ads with a review quote.</p></div><div class="pt"><b>One opener carries the account</b><p>6 of 15 copy ads open on &ldquo;with natural fibers for breathability&rdquo;, so one pitch repeats across the account. Name two or three new angles from your product, such as the no track pants swap, and run each against it.</p></div><div class="pt"><b>Same copy reused across ads</b><p>One exact copy runs in 6 of 15 ads, so a shopper who sees one sees it again and tunes out. Keep the body copy, change the opening line and the creative in each. Shoot a fresh photo for each version.</p></div><div class="pt"><b>The shipping offer goes unused</b><p>The site promotes free shipping on orders $99+, yet 0 of 15 ads lead with it, so a first time buyer has no reason to order today. Lead three new ads with free shipping over $99 and 30 day returns.</p></div></div><div><div class="adimgs"><img src="../assets/ads/duer_1.jpg" alt="Current ad"><img src="../assets/ads/duer_2.jpg" alt="Current ad"><img src="../assets/ads/duer_3.jpg" alt="Current ad"></div><div class="adstats"><div><b>30</b><span>live Meta ads</span></div><div><b>0</b><span>ads with proof numbers</span></div><div><b>6</b><span>open on one opener</span></div><div><b>0</b><span>ads lead with shipping</span></div></div><p class="adsrc">Source: Meta Ad Library, active ads, 21 Oct 2026</p></div></div></div></section>
-<section aria-label="How we could help"><div class="s">
-  <div class="eyebrow in">How we could help DUER</div>
-  <h2 class="in">Your entire Ads &amp; Socials structure, <span class="mark">managed</span>.</h2>
-  <div class="cols in">
-    <div class="col"><span class="lab">Ads</span><h3>Ads that pull their weight.</h3>
-      <ul><li>Review and shipping openers for the No Sweat Pant, tested against breathability</li><li>Multi channel media buying on Meta and Google</li><li>Data driven budget scaling, backed by server side tracking and attribution</li></ul></div>
-    <div class="col"><span class="lab">Socials</span><h3>One voice across every channel.</h3>
-      <ul><li>Brand social strategy across Facebook, Instagram, Twitter and Youtube</li><li>Executive ghostwriting and social selling</li><li>Newsletter production</li></ul></div>
-  </div>
-  <p class="bottomline in">Both run from one team, so creative, spend and reporting stay in one place.</p>
-</div></section>
-
-<section aria-label="Who we are"><div class="s who">
-  <div class="eyebrow in">Who we are</div>
-  <h2 class="in">Puzzle it with <span class="mark">friends</span>.</h2>
-  <div class="two in">
-    <div class="lines">
-      <p>A full service marketing agency. We design, build, and scale brands with agile, plug and play growth teams.</p>
-      <p>Strategy, design, development, ads, SEO, outreach and social, under one roof.</p>
-      <p>Teams that seamlessly fit into your business, so you deal with one partner instead of a stack of vendors.</p>
-    </div>
-    <div class="grid10"><figure class="p"><div class="ph" style="background-position:0% 0%"></div><figcaption><b>Ognjen Varađanin</b><span>CEO &amp; Marketing Strategist</span></figcaption></figure><figure class="p"><div class="ph" style="background-position:25% 0%"></div><figcaption><b>Ryan Ball</b><span>Head of International Growth</span></figcaption></figure><figure class="p"><div class="ph" style="background-position:50% 0%"></div><figcaption><b>Jovana Milojević</b><span>Head of Brand Strategy</span></figcaption></figure><figure class="p"><div class="ph" style="background-position:75% 0%"></div><figcaption><b>Đorđe Radovanović</b><span>Head of Product &amp; Experience</span></figcaption></figure><figure class="p"><div class="ph" style="background-position:100% 0%"></div><figcaption><b>Veljko Sprečaković</b><span>Head of Performance &amp; Growth</span></figcaption></figure><figure class="p"><div class="ph" style="background-position:0% 100%"></div><figcaption><b>Ana Stanković</b><span>Head of Client Partnerships</span></figcaption></figure><figure class="p"><div class="ph" style="background-position:25% 100%"></div><figcaption><b>Nemanja Stanojević</b><span>Head of Research &amp; Development</span></figcaption></figure><figure class="p"><div class="ph" style="background-position:50% 100%"></div><figcaption><b>Jelena Novaković</b><span>Head of Video &amp; Motion</span></figcaption></figure><figure class="p"><div class="ph" style="background-position:75% 100%"></div><figcaption><b>Aleksandar Ilić</b><span>Head of Content and SEO</span></figcaption></figure><figure class="p"><div class="ph" style="background-position:100% 100%"></div><figcaption><b>Mateja Milošević</b><span>AI &amp; Automation Partner</span></figcaption></figure></div>
-  </div>
-</div></section>
-
-<section aria-label="How we work together"><div class="s">
-  <div class="eyebrow in">How we work together</div>
-  <h2 class="in">Pick the shape that <span class="mark">fits</span>.</h2>
-  <div class="models in">
-    <div class="m"><span class="lab">If you have a team</span><h3>The Plugin</h3><p>For scale ups with existing teams that have one missing piece.</p></div>
-    <div class="m"><span class="lab">If you are building one</span><h3>The Architect</h3><p>For founders building an in house team from scratch.</p></div>
-    <div class="m"><span class="lab">If you start from zero</span><h3>The Powerhouse</h3><p>For companies starting from zero. We run the whole thing.</p></div>
-  </div>
-  <div class="stats in">
-    <div class="st"><b>8</b><span>Average ecommerce<br>ROAS</span></div>
-    <div class="st"><b>4H</b><span>Average<br>response time</span></div>
-    <div class="st"><b>$200</b><span>Average lead<br>acquisition cost</span></div>
-  </div>
-</div></section>
-
-<section aria-label="Some of our work"><div class="s top">
-  <h2 class="in">Work that <span class="mark">moved numbers</span></h2>
+<section aria-label="More of our work"><div class="s top">
+  <h2 class="in">More of <span class="mark">our work</span></h2>
   <div class="cases vgrid in"><div class="case card"><button class="vid" data-v="lokation" style="background-image:url(../assets/work/lokation.jpg)" aria-label="Play LoKation video"><span class="lbl">LoKation</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Real estate</span><h3>LoKation</h3><p class="num">1,039</p><p>agents recruited across 6 markets in 180 days</p></div><div class="case card"><button class="vid" data-v="essi" style="background-image:url(../assets/work/essi.jpg)" aria-label="Play ESSI video"><span class="lbl">ESSI</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Medical clinic</span><h3>ESSI</h3><p class="num">$150 → $38</p><p>cost per lead in four months, surgical capacity full</p></div><div class="case card"><button class="vid" data-v="optionsplaybook" style="background-image:url(../assets/work/optionsplaybook.jpg)" aria-label="Play Options Playbook video"><span class="lbl">Options Playbook</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Education</span><h3>Options Playbook</h3><p class="num">+1,400%</p><p>book sales, with 95% of organic traffic kept through the SEO migration</p></div><div class="case card"><button class="vid" data-v="whippedvelvet" style="background-image:url(../assets/work/whippedvelvet.jpg)" aria-label="Play Whipped Velvet video"><span class="lbl">Whipped Velvet</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Skincare</span><h3>Whipped Velvet</h3><p class="num">0 → live store</p><p>logo, packaging, copy and a Shopify store, built from nothing by one team</p></div></div>
   <div class="marquee in" aria-label="Clients"><div class="track"><img src="../assets/logos/l1.svg" alt=""><img src="../assets/logos/l2.svg" alt=""><img src="../assets/logos/l4.svg" alt=""><img src="../assets/logos/l5.svg" alt=""><img src="../assets/logos/l6.svg" alt=""><img src="../assets/logos/l7.svg" alt=""><img src="../assets/logos/l8.svg" alt=""><img src="../assets/logos/l9.svg" alt=""><img src="../assets/logos/l10.svg" alt=""><img src="../assets/logos/l1.svg" alt=""><img src="../assets/logos/l2.svg" alt=""><img src="../assets/logos/l4.svg" alt=""><img src="../assets/logos/l5.svg" alt=""><img src="../assets/logos/l6.svg" alt=""><img src="../assets/logos/l7.svg" alt=""><img src="../assets/logos/l8.svg" alt=""><img src="../assets/logos/l9.svg" alt=""><img src="../assets/logos/l10.svg" alt=""></div></div>
 </div></section>
