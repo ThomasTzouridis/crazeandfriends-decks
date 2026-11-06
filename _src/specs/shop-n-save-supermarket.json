@@ -1,0 +1,59 @@
+{
+ "slug": "shop-n-save-supermarket",
+ "company": "Shop N Save Supermarket",
+ "full_name": "Nisheel Kisun",
+ "logo": "shop-n-save-supermarket.png",
+ "shot": "shop-n-save-supermarket.jpg",
+ "shot_caption": "shopnsavefood.com",
+ "saw_lines": [
+  "Game day shoppers buy for a crowd and want the whole spread in one trip, at a price they can check.",
+  "So the sale is won or lost in the ad, before any click, on whether price and arrival are visible.",
+  "Your 30 ads never mention price, yet the homepage shows prices. Open one ad with the price per pound, then test three variations of that."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 6 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention price"
+   ],
+   [
+    "0",
+    "ads cover delivery"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ]
+  ],
+  "points": [
+   [
+    "Price never appears in ads",
+    "Your 30 ads never mention price, yet the homepage shows prices. Without a price, shoppers cannot tell if the food is a bargain. Open one ad with the price per pound, then test three variations of that."
+   ],
+   [
+    "Arrival questions go unanswered",
+    "Your site explains how orders arrive, yet 0 of 30 ads say so. Buyers wondering if a tailgate order reaches them in time will skip the ad. Shoot one video of an order arriving and open the next batch with it."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads carries a proof number, so a new shopper has nothing concrete to trust. Collect one real figure, such as orders shipped or entries received, and print it on the creative of your oldest ads."
+   ],
+   [
+    "No offer in ads",
+    "0 of 30 ads carry an offer, so new buyers have no reason to act today. Pair the food, snacks and drinks into one bundle at a set price. Lead three new ads with that bundle or a first order offer."
+   ]
+  ],
+  "images": [
+   "shop-n-save-supermarket_1.jpg",
+   "shop-n-save-supermarket_2.jpg",
+   "shop-n-save-supermarket_3.jpg"
+  ]
+ },
+ "ads_1": "Price per pound creative for tailgate food, with the giveaway as a test",
+ "soc_1": "Brand social strategy across Facebook, Pinterest, Twitter and YouTube"
+}
