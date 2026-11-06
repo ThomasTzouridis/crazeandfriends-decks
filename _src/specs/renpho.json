@@ -1,0 +1,59 @@
+{
+ "slug": "renpho",
+ "company": "RENPHO",
+ "full_name": "Toby Yu",
+ "logo": "renpho.png",
+ "shot": "renpho.jpg",
+ "shot_caption": "renpho.com",
+ "saw_lines": [
+  "Shoppers buy a body scale once, then judge it every morning by whether the numbers feel believable enough to trust.",
+  "So the sale is won or lost in the first two lines, before a buyer decides the ad is worth reading.",
+  "Your offer sits after 93% of the copy in a median ad of 133 words, so move the 15% off any order from your site into the first two lines of every ad."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 6 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "93%",
+    "copy before the offer"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "11",
+    "creator posts as ads"
+   ]
+  ],
+  "points": [
+   [
+    "The offer is buried",
+    "Free shipping and the guarantee sit after 93% of the copy on a median ad of 133 words, so most buyers never reach them. Move the 15% off any order from your site into the first two lines of every ad."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 27 written ads carries a proof number, such as a review count or orders shipped, so buyers judge the scale on claims alone. Collect one real count, then lead every new ad with it in the first line."
+   ],
+   [
+    "Creator posts run as ads",
+    "11 of 27 ads are creator posts run from your brand page. Without the creator name on them, the trust they built does not carry over, so buyers hesitate. Whitelist those posts from the creator account, then cut three new variations."
+   ],
+   [
+    "Copy runs too long",
+    "Your median ad runs 133 words and your longest runs 247, so the buyer scrolls past before the offer or the reason to buy. Cut every ad to two lines and the offer, then test that short version against your long copy."
+   ]
+  ],
+  "images": [
+   "renpho_1.jpg",
+   "renpho_2.jpg",
+   "renpho_3.jpg"
+  ]
+ },
+ "ads_1": "Two line openers on the body scan result, tested against the workout question",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, X, YouTube"
+}
