@@ -1,0 +1,59 @@
+{
+ "slug": "all4golf",
+ "company": "ALL4GOLF",
+ "full_name": "Johannes Jurecka",
+ "logo": "all4golf.png",
+ "shot": "all4golf.jpg",
+ "shot_caption": "all4golf.de",
+ "saw_lines": [
+  "Golfers rarely buy gear on impulse. They ask if it fits their handicap, how it arrives and if returns are easy.",
+  "So a buyer who cannot see how the order arrives leaves before the price matters.",
+  "Your site explains how it arrives, yet 0 of 30 ads show it. Shoot one video of the box arriving at the golfer&rsquo;s door and run it first."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 6 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads show delivery"
+   ],
+   [
+    "0",
+    "video ads"
+   ],
+   [
+    "19",
+    "catalog feed cards"
+   ]
+  ],
+  "points": [
+   [
+    "Delivery is unanswered",
+    "Your site explains how it arrives, but 0 of 30 ads mention delivery, so a golfer weighing irons has no answer before buying. Shoot one short video of the box arriving at the door and lead with it."
+   ],
+   [
+    "No video in the mix",
+    "0 of 30 ads are video, so a golfer scrolling your feed never sees a swing. Shoot three short videos of a club, a bag and a glove in use, and run them on Instagram and Facebook first."
+   ],
+   [
+    "No proof number",
+    "None of your 30 ads shows a proof number, so buyers have nothing to weigh against the price. Collect one real number, such as a review count or orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "Most ads have no story",
+    "19 of 30 ads are feed cards with no story, so a golfer scrolling Instagram gets a product grid and no reason to stop. Add three story ads, such as which set fits your handicap or what a fitting involves."
+   ]
+  ],
+  "images": [
+   "all4golf_1.jpg",
+   "all4golf_2.jpg",
+   "all4golf_3.jpg"
+  ]
+ },
+ "ads_1": "Video and story ads on delivery, club fit and product in use",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Youtube"
+}
