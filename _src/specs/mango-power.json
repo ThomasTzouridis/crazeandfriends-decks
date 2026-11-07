@@ -1,0 +1,59 @@
+{
+ "slug": "mango-power",
+ "company": "Mango Power",
+ "full_name": "Steve Wang",
+ "logo": "mango-power.png",
+ "shot": "mango-power.jpg",
+ "shot_caption": "mangopower.com",
+ "saw_lines": [
+  "Home battery buyers compare capacity, output and warranty line by line, and they stop at the first doubt.",
+  "So the sale is won or lost in the first line, where the refund promise has to sit beside the price.",
+  "Your site lists a 30 Days Money Back Guarantee, yet 0 of 29 ads mention it, while 24 of 29 mention a discount. Lead three new ads with the guarantee."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 7 Nov 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention your guarantee"
+   ],
+   [
+    "2",
+    "ads run 60+ days"
+   ],
+   [
+    "16",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "Guarantee missing from ads",
+    "Your site lists a 30 Days Money Back Guarantee, yet 0 of 29 ads mention it. 24 of 29 mention a discount, so buyers see the price but not the safety net. Lead three new ads with the guarantee."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 29 ads carries a proof number, so a buyer has nothing concrete to trust before clicking. Collect one real figure, such as a review count or orders shipped, and lead three new ads with it."
+   ],
+   [
+    "Winners not built on",
+    "Two ads have run 60+ days, yet none of the 27 newer ads reuses their opening line, so new buyers meet untested hooks. Build three new ads from the oldest winner, keeping its opening line and adding the guarantee."
+   ],
+   [
+    "Openers spread too thin",
+    "16 different opening stories run across 29 copy ads, and the biggest one opens 4 ads, so none of them gets enough repetition to show what works. Pick the two best stories and build the next batch only from them."
+   ]
+  ],
+  "images": [
+   "mango-power_1.jpg",
+   "mango-power_2.jpg",
+   "mango-power_3.jpg"
+  ]
+ },
+ "ads_1": "Guarantee led creative for home backup kits, with the discount as the second line",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Twitter and YouTube"
+}
