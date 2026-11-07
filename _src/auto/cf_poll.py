@@ -15,7 +15,8 @@ ADS = os.path.join(HOME, 'ads_ecom')
 CAMPAIGNS = [711568, 711570, 711576, 711574, 711592, 711594, 711596, 711598, 711604,   # copy A (message 2 two days later), new HeyReach workspace 172761 since 2026-11-05: Ognjen, Veljko, Djordje, Jovana, Ana, Minja, Nemanja, Jelena, Iva
              711569, 711572, 711577, 711575, 711593, 711595, 711597, 711599, 711605,   # copy B (message 2 three hours later), same sender order; later campaign wins for a lead in two
              714765, 714767, 714769, 714771, 714773, 714775, 714777, 714779, 714781,   # Tech A (Prospeo Tech/IT/FinServ CEOs, 2026-11-07), same sender order
-             714766, 714768, 714770, 714772, 714774, 714776, 714778, 714780, 714782]   # Tech B
+             714766, 714768, 714770, 714772, 714774, 714776, 714778, 714780, 714782,   # Tech B
+             714849, 714851]   # Ryan Ball Tech A, Tech B (2026-11-08, the 283 Tech leads moved to Ryan)
 WS = 172761   # craze&friends workspace in the new HeyReach organization (2026-11-05); the old 165608 is gone
 B = 'https://api.heyreach.io/api/public'
 STATE = os.path.join(ROOT, '_private', 'cf_poll_state.json')
@@ -27,7 +28,8 @@ PER_RUN = 40            # decks per run (runs every 6h, message 1 is 24h after t
 LISTS = dict(zip(CAMPAIGNS, [1120194, 1120196, 1120198, 1120200, 1120202, 1120205, 1120207, 1120209, 1120211,
                               1120195, 1120197, 1120199, 1120201, 1120204, 1120206, 1120208, 1120210, 1120212,
                               1128533, 1128535, 1128537, 1128539, 1128541, 1128543, 1128545, 1128547, 1128549,
-                              1128534, 1128536, 1128538, 1128540, 1128542, 1128544, 1128546, 1128548, 1128550]))  # campaign -> its lead list (carries the URL custom field)
+                              1128534, 1128536, 1128538, 1128540, 1128542, 1128544, 1128546, 1128548, 1128550,
+                              1128640, 1128642]))  # campaign -> its lead list (carries the URL custom field)
 SHEET = '1ZJp5PxD40R43vZRSMHY7KCYsBsjU3l-V7-Ao8Qqxb2U'  # "Craze&Friends | Meetings & Tracking"
 TAB = 'Presentation Log'   # ONE tab, one row per lead who CONNECTED BACK (never the unconnected campaign leads). Auto columns A:AC are rewritten every run, manual columns AD:AK are never touched.
 AUTO_HDR = ['Lead', 'Company', 'Sender', 'Campaign', 'LinkedIn id', 'Connection status (HeyReach)', 'Connected', 'First seen connected', 'Message 1 due (about)',
