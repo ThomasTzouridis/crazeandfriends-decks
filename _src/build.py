@@ -1,6 +1,11 @@
 """Build one craze&friends deck per spec: py build.py specs/<slug>.json -> ../<slug>/index.html
-Layout since 2026-11-05: Cover, The offer, More of our work, Let's talk (4 slides). saw_lines / shot / ads in a spec are kept but no longer rendered."""
+Layout since 2026-11-05: Cover, The offer, More of our work, Let's talk (4 slides). saw_lines / shot / ads in a spec are kept but no longer rendered.
+py build.py --lang de specs/<slug>.json -> ../<slug>/de/index.html, the same deck in German (texts from i18n.json, see i18n.py)."""
 import json, sys, os, html
+LANG = None
+if '--lang' in sys.argv:
+    i = sys.argv.index('--lang'); LANG = sys.argv[i + 1]; del sys.argv[i:i + 2]
+    if LANG == 'en': LANG = None
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 PEOPLE = [("Ognjen Varađanin","CEO &amp; Marketing Strategist"),("Ryan Ball","Head of International Growth"),("Jovana Milojević","Head of Brand Strategy"),("Đorđe Radovanović","Head of Product &amp; Experience"),("Veljko Sprečaković","Head of Performance &amp; Growth"),("Ana Stanković","Head of Client Partnerships"),("Nemanja Stanojević","Head of Research &amp; Development"),("Jelena Novaković","Head of Video &amp; Motion"),("Aleksandar Ilić","Head of Content and SEO"),("Mateja Milošević","AI &amp; Automation Partner")]
 CELLS = ''.join(f'<figure class="p"><div class="ph" style="background-position:{(i%5)*25}% {(i//5)*100}%"></div><figcaption><b>{n}</b><span>{r}</span></figcaption></figure>' for i,(n,r) in enumerate(PEOPLE))
@@ -47,7 +52,13 @@ for path in sys.argv[1:]:
     if not sp.get('full_name'): sys.exit(f"{path}: full_name missing (cover says Prepared for <full name>)")
     if not sp.get('logo'): sys.exit(f"{path}: logo missing (assets/clients/<file>)")
     prep = e(sp['full_name'])
-    logo = logo_tag(sp['logo'], sp['company'])
+    logo = None
+    if LANG:   # the language page shows exactly the logo of the English page that is already live
+        import re
+        ex = os.path.join(ROOT, sp['slug'], 'index.html')
+        mm = re.search(r'<img class="clogo"[^>]*>', open(ex, encoding='utf-8').read()) if os.path.exists(ex) else None
+        logo = mm.group(0) if mm else None
+    logo = logo or logo_tag(sp['logo'], sp['company'])
     sl = sp.get('saw_lines') or ['']
     lines = ''.join(f'<p>{l}</p>' for l in sl[:-1]) + f'<p class="turn">{sl[-1]}</p>'
     # HARD RULE (Thomas 2026-10-11): spec has a shot file -> two column slide 2 with the picture, exactly as always.
@@ -64,8 +75,16 @@ for path in sys.argv[1:]:
                f'<div class="adsgrid in"><div class="pts">{pts}</div><div><div class="adimgs">{imgs}</div><div class="adstats">{sts}</div>'
                f'<p class="adsrc">Source: {e(a["source"])}</p></div></div></div></section>')
     out = open(os.path.join(HERE,'template.html'),encoding='utf-8').read()
+    if LANG:
+        sys.path.insert(0, HERE); import i18n
+        out = i18n.apply(out, LANG)
     for k,v in {'COMPANY':co,'PREPARED':prep,'SAW_LINES':lines,'SHOT':shot,'CELLS':CELLS,'LOGOS':LOGOS,'ADS_SLIDE':ads,'LOGO':logo,'ADS_1':sp.get('ads_1',''),'SOC_1':sp.get('soc_1',''),'SAW_CLASS':'' if sp.get('shot') else ' noshot'}.items():
         out = out.replace('{{'+k+'}}', v)
-    d = os.path.join(ROOT, sp['slug']); os.makedirs(d, exist_ok=True)
+    d = os.path.join(ROOT, sp['slug'])
+    if LANG:   # one folder deeper: every relative path gains a level
+        assert '../../' not in out
+        out = out.replace('../assets/', '../../assets/').replace('../vendor/', '../../vendor/')
+        d = os.path.join(d, LANG)
+    os.makedirs(d, exist_ok=True)
     open(os.path.join(d,'index.html'),'w',encoding='utf-8').write(out)
-    print('built', sp['slug'])
+    print('built', sp['slug'] + ('/' + LANG if LANG else ''))

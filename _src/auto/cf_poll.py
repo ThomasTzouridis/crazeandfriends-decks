@@ -12,11 +12,11 @@ import os, sys, re, json, time, shutil, subprocess, urllib.request, urllib.error
 HERE = os.path.dirname(os.path.abspath(__file__)); SRC = os.path.dirname(HERE); ROOT = os.path.dirname(SRC)
 HOME = os.path.expanduser('~')
 ADS = os.path.join(HOME, 'ads_ecom')
-CAMPAIGNS = [711568, 711570, 711576, 711574, 711592, 711594, 711596, 711598, 711604,   # copy A (message 2 two days later), new HeyReach workspace 172761 since 2026-11-05: Ognjen, Veljko, Djordje, Jovana, Ana, Minja, Nemanja, Jelena, Iva
-             711569, 711572, 711577, 711575, 711593, 711595, 711597, 711599, 711605,   # copy B (message 2 three hours later), same sender order; later campaign wins for a lead in two
-             714765, 714767, 714769, 714771, 714773, 714775, 714777, 714779, 714781,   # Tech A (Prospeo Tech/IT/FinServ CEOs, 2026-11-07), same sender order
-             714766, 714768, 714770, 714772, 714774, 714776, 714778, 714780, 714782,   # Tech B
-             714849, 714851]   # Ryan Ball Tech A, Tech B (2026-11-08, the 283 Tech leads moved to Ryan)
+CFG = json.load(open(os.path.join(HERE, 'cf_campaigns.json'), encoding='utf-8'))   # campaign id -> lead list id, the ONE place a new campaign is added
+COPY_A = [int(k) for k in CFG['copy_a']]   # copy A (message 2 two days later), one campaign per sender
+COPY_B = [int(k) for k in CFG['copy_b']]   # copy B (message 2 three hours later)
+LISTS = {int(k): v for g in ('copy_a', 'copy_b', 'other') for k, v in CFG[g].items()}   # campaign -> its lead list (carries the URL custom field)
+CAMPAIGNS = list(LISTS)
 WS = 172761   # craze&friends workspace in the new HeyReach organization (2026-11-05); the old 165608 is gone
 B = 'https://api.heyreach.io/api/public'
 STATE = os.path.join(ROOT, '_private', 'cf_poll_state.json')
@@ -25,11 +25,6 @@ CONNECTED = re.compile(r'(?i)accept|^connected|already')
 NOT_CONNECTED = {'None', 'ConnectionSent', 'ConnectionRequested', 'Pending'}
 MAX_ATTEMPTS = 3
 PER_RUN = 40            # decks per run (runs every 6h, message 1 is 24h after the accept), the rest waits for the next run
-LISTS = dict(zip(CAMPAIGNS, [1120194, 1120196, 1120198, 1120200, 1120202, 1120205, 1120207, 1120209, 1120211,
-                              1120195, 1120197, 1120199, 1120201, 1120204, 1120206, 1120208, 1120210, 1120212,
-                              1128533, 1128535, 1128537, 1128539, 1128541, 1128543, 1128545, 1128547, 1128549,
-                              1128534, 1128536, 1128538, 1128540, 1128542, 1128544, 1128546, 1128548, 1128550,
-                              1128640, 1128642]))  # campaign -> its lead list (carries the URL custom field)
 SHEET = '1ZJp5PxD40R43vZRSMHY7KCYsBsjU3l-V7-Ao8Qqxb2U'  # "Craze&Friends | Meetings & Tracking"
 TAB = 'Presentation Log'   # ONE tab, one row per lead who CONNECTED BACK (never the unconnected campaign leads). Auto columns A:AC are rewritten every run, manual columns AD:AK are never touched.
 AUTO_HDR = ['Lead', 'Company', 'Sender', 'Campaign', 'LinkedIn id', 'Connection status (HeyReach)', 'Connected', 'First seen connected', 'Message 1 due (about)',
@@ -41,6 +36,7 @@ HDR = AUTO_HDR + MAN_HDR
 NA = len(AUTO_HDR)
 SITE = 'https://crazeandfriends-cases.com/'
 sys.path.insert(0, os.path.join(HOME, 'Desktop', 'AIOS'))
+BAD = []      # campaigns HeyReach refused this run
 ALL = {}      # every lead of the 5 campaigns this run: id -> HeyReach facts
 KEY = ''
 
@@ -101,10 +97,19 @@ def ensure_tab(sv):
     sv.values().update(spreadsheetId=SHEET, range="'%s'!A1" % TAB, valueInputOption='RAW', body={'values': [HDR]}).execute()
 
 
-def live_code(slug):
+def deck_path(slug, lang=''):
+    """English deck /<slug>/, a lead with a language gets /<slug>/<lang>/ (lang comes from the lead map)."""
+    return slug + ('/' + lang if lang else '')
+
+
+def url_path(u):
+    return re.sub(r'^https?://[^/]+', '', (u or '').strip()).split('?')[0].split('#')[0].strip('/').lower()
+
+
+def live_code(slug, lang=''):
     """200 = a real deck is served, 404 = GitHub Pages is serving the generic fallback."""
     try:
-        return urllib.request.urlopen(urllib.request.Request(SITE + slug + '/', headers={'User-Agent': 'Mozilla/5.0'}), timeout=15).status
+        return urllib.request.urlopen(urllib.request.Request(SITE + deck_path(slug, lang) + '/', headers={'User-Agent': 'Mozilla/5.0'}), timeout=15).status
     except urllib.error.HTTPError as e: return e.code
     except Exception: return 0
 
@@ -112,7 +117,8 @@ def live_code(slug):
 def verdict(c, st):
     slug, hu = c['slug'], c.get('hr_url') or ''
     if not hu: return 'NO URL FIELD IN HEYREACH'
-    if hu.rstrip('/').split('/')[-1] != slug: return 'URL MISMATCH: HeyReach sends /%s/, lead map says /%s/' % (hu.rstrip('/').split('/')[-1], slug)
+    want = deck_path(slug, c.get('lang') or '')
+    if url_path(hu) != want: return 'URL MISMATCH: HeyReach sends /%s/, lead map says /%s/' % (url_path(hu), want)
     age = (time.time() - c['first_ts']) / 60
     s = st.get('status')
     if c.get('live') == 200 and s == 'built': return 'OK'
@@ -138,7 +144,7 @@ def sync_sheet(state):
             if not a: out.append([''] * NA); continue
             slug = a.get('slug', ''); st = state.get(slug, {}) if slug else {}; k = st.get('last') or {}
             if a.get('connected') and slug:
-                chk = verdict({'slug': slug, 'hr_url': a.get('hr_url', ''), 'first_ts': a['first_ts'], 'live': a.get('live')}, st)
+                chk = verdict({'slug': slug, 'lang': a.get('lang', ''), 'hr_url': a.get('hr_url', ''), 'first_ts': a['first_ts'], 'live': a.get('live')}, st)
             elif a.get('connected'): chk = 'NOT IN LEAD MAP, no deck'
             else: chk = 'not connected yet'
             due = datetime.datetime.fromtimestamp(a['first_ts'] + 86400).strftime('%Y-%m-%d %H:%M') if a.get('connected') else ''
@@ -175,17 +181,21 @@ def connected_leads():
     global KEY
     KEY = key
     out, seen = {}, {}
-    ALL.clear()
+    ALL.clear(); del BAD[:]
     for cid in CAMPAIGNS:
         off = 0
         while True:
-            d = hr('/campaign/GetLeadsFromCampaign', key, {'campaignId': cid, 'offset': off, 'limit': 100})
+            try: d = hr('/campaign/GetLeadsFromCampaign', key, {'campaignId': cid, 'offset': off, 'limit': 100})
+            except urllib.error.HTTPError as e:   # a deleted or broken campaign never stops the other ones (2026-11-07: 18 deleted Tech campaigns killed every run)
+                say('campaign', cid, 'skipped: HTTP', e.code); BAD.append(cid); break
             items = d.get('items') or []
             for i in items:
                 st = i.get('leadConnectionStatus') or 'None'
                 seen[st] = seen.get(st, 0) + 1
                 m = re.search(r'linkedin\.com/in/([^/?#]+)', (i.get('linkedInUserProfile') or {}).get('profileUrl') or '', re.I)
                 pr = i.get('linkedInUserProfile') or {}
+                # a lead moved to another sender stays in its old campaign as Failed (LeadDeletedFromList): the live campaign wins
+                if m and (i.get('leadCampaignStatus') or '') == 'Failed' and (ALL.get(requote(m.group(1))) or {}).get('camp_status', 'Failed') != 'Failed': continue
                 if m: ALL[requote(m.group(1))] = {'status': st, 'campaign': cid, 'sender': i.get('linkedInSenderFullName') or '', 'msg_status': i.get('leadMessageStatus') or '',
                                                   'camp_status': i.get('leadCampaignStatus') or '', 'last_action': (i.get('lastActionTime') or '')[:19].replace('T', ' '),
                                                   'name': ('%s %s' % (pr.get('firstName') or '', pr.get('lastName') or '')).strip(), 'company': pr.get('companyName') or ''}
@@ -251,16 +261,84 @@ def log_row(slug, lead, st, result, ran, secs, note):
                   'note': (note or '')[:300].replace('\n', ' ')}
 
 
+def lite_build(slug, lead, st, t0):
+    """No ads data for this company: the deck is still built, it needs only company, name and logo (4 slide layout since 2026-11-05).
+    Logo from tools/logo.py exactly as deck_auto.py does it, company name as text when nothing usable. No model call."""
+    st['attempts'] = st.get('attempts', 0) + 1
+    dom = norm_domain(lead.get('website'))
+    url = lead['website'] if re.match(r'https?://', lead.get('website') or '') else 'https://' + dom
+    cl = os.path.join(ROOT, 'assets', 'clients'); logo_file, note = None, ''
+    if dom:
+        try:
+            rl = subprocess.run([sys.executable, os.path.join(SRC, 'tools', 'logo.py'), slug, lead['company'], url, '--bg', '#ffffff', '--out', cl, '--on-none', 'text', '--json'],
+                                capture_output=True, text=True, timeout=400, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+            jl = [l for l in (rl.stdout or '').splitlines() if l.startswith('JSON ')]
+            if jl: logo_file = json.loads(jl[-1][5:]).get('file')
+        except Exception as e: note = 'logo tool failed: %s' % str(e)[-120:]
+    sp = os.path.join(SRC, 'specs', slug + '.json')
+
+    def run(lf):
+        json.dump({'slug': slug, 'company': lead['company'], 'full_name': lead['name'], 'logo': lf}, open(sp, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
+        return subprocess.run([sys.executable, os.path.join(SRC, 'build.py'), sp], cwd=SRC, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=300,
+                              env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    p = run(logo_file) if logo_file else None
+    if not p or p.returncode or not os.path.exists(os.path.join(ROOT, slug, 'index.html')):   # no logo or the guard refused it: company name as text
+        sys.path.insert(0, os.path.join(SRC, 'tools')); import logo as _lg
+        logo_file = slug + '.png'; _lg.wordmark(lead['company'], _lg.INK).save(os.path.join(cl, logo_file)); note = (note + ' logo: company name as text').strip()
+        p = run(logo_file)
+    if p.returncode == 0 and os.path.exists(os.path.join(ROOT, slug, 'index.html')):
+        git('add', '--', *slug_files(slug))
+        git('commit', '-q', '-m', 'deck %s (auto, no ads data)' % slug)
+        st.update(status='built', at=now(), built_ts=time.time(), error='')
+        log_row(slug, lead, st, 'BUILT (no ads data, no model call)', {}, int(time.time() - t0), note)
+        say('built', slug, 'lite'); return True
+    tail = (p.stdout + p.stderr)[-300:]
+    shutil.rmtree(os.path.join(ROOT, slug), ignore_errors=True)
+    if os.path.exists(sp): os.remove(sp)
+    st.update(status='failed' if st['attempts'] >= MAX_ATTEMPTS else 'retry', error='lite build: ' + tail[-200:], at=now())
+    log_row(slug, lead, st, 'FAILED lite build' if st['status'] == 'failed' else 'RETRY (lite build)', {}, int(time.time() - t0), tail)
+    if st['status'] == 'failed': alert('deck for %s (/%s/) failed %d times (no ads data build). Fallback page stays. %s' % (lead['company'], slug, st['attempts'], tail[-200:]))
+    return False
+
+
+def lang_pages(conn, leads, state):
+    """A connected lead with a language in the lead map gets /<slug>/<lang>/ as soon as the English deck of the slug exists. Returns pages built."""
+    n = 0
+    for lid in conn:
+        lead = leads.get(lid) or {}
+        slug, lang = lead.get('slug'), lead.get('lang') or ''
+        if not slug or not lang: continue
+        sp = os.path.join(SRC, 'specs', slug + '.json')
+        if os.path.exists(os.path.join(ROOT, slug, lang, 'index.html')) or not os.path.exists(os.path.join(ROOT, slug, 'index.html')): continue
+        tmp = None
+        if not os.path.exists(sp):   # a deck made before specs were kept: the language page needs only these four facts, the logo is taken from the live page
+            tmp = sp = os.path.join(HOME, 'cf-run', slug + '.lang.json'); os.makedirs(os.path.dirname(sp), exist_ok=True)
+            json.dump({'slug': slug, 'company': lead['company'], 'full_name': lead['name'], 'logo': slug + '.png'}, open(sp, 'w', encoding='utf-8'))
+        try:
+            p = subprocess.run([sys.executable, os.path.join(SRC, 'build.py'), sp, '--lang', lang], cwd=SRC, capture_output=True, text=True, encoding='utf-8', errors='replace',
+                               timeout=300, env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+            f = slug + '/' + lang + '/index.html'
+            if p.returncode == 0 and os.path.exists(os.path.join(ROOT, f)):
+                git('add', '--', f); git('commit', '-q', '-m', 'deck %s/%s (auto, language page)' % (slug, lang)); n += 1; say('built', slug + '/' + lang)
+            else:
+                shutil.rmtree(os.path.join(ROOT, slug, lang), ignore_errors=True)
+                k = 'lang|' + slug + '/' + lang
+                say('language page failed', slug, lang, (p.stdout + p.stderr)[-300:])
+                if k not in state.setdefault('_flagged', []): state['_flagged'].append(k); alert('language page /%s/%s/ failed, the fallback page stays: %s' % (slug, lang, (p.stdout + p.stderr)[-200:]))
+        except Exception as e: say('language page error', slug, lang, e)
+        finally:
+            if tmp and os.path.exists(tmp): os.remove(tmp)
+    return n
+
+
 def build(slug, lead, state):
     st = state.setdefault(slug, {'status': 'new', 'attempts': 0})
     t0 = time.time()
     domain = norm_domain(lead['website'])
     data = os.path.join(HOME, 'cf-run', slug)
     shutil.rmtree(data, ignore_errors=True)
-    res = extract(domain, data)
-    if not res:
-        st.update(status='failed', error='no ads data for ' + domain, at=now()); log_row(slug, lead, st, 'FAILED no ads data', {}, 0, 'no record for ' + domain)
-        alert('no ads data for %s (%s). The generic fallback page stays live at /%s/.' % (lead['company'], domain, slug)); return False
+    res = extract(domain, data) if domain else None
+    if not res: return lite_build(slug, lead, st, t0)
     st['attempts'] += 1
     runj = os.path.join(SRC, 'auto', 'runs', slug, 'run.json')
     shutil.rmtree(os.path.dirname(runj), ignore_errors=True)
@@ -333,12 +411,12 @@ def main():
             if not c:
                 c = cs[lid] = {'first_ts': time.time(), 'first_seen': now()}
             c.update(name=lead['name'], company=lead['company'], sender=info['sender'] or lead.get('sender', ''), campaign=info['campaign'],
-                     status=info['status'], slug=lead['slug'], hr_url=urls.get(lid, c.get('hr_url', '')))
+                     status=info['status'], slug=lead['slug'], lang=lead.get('lang', ''), hr_url=urls.get(lid, c.get('hr_url', '')))
         for lid, info in ALL.items():
             lead = leads.get(lid) or {}
             ra = al.setdefault(lid, {})
             ra.update(info); ra['connected'] = lid in conn
-            ra['name'] = lead.get('name') or info['name']; ra['company'] = lead.get('company') or info['company']; ra['slug'] = lead.get('slug', '')
+            ra['name'] = lead.get('name') or info['name']; ra['company'] = lead.get('company') or info['company']; ra['slug'] = lead.get('slug', ''); ra['lang'] = lead.get('lang', '')
             ra['hr_url'] = urls.get(lid, ra.get('hr_url', ''))
             if ra['connected'] and not ra.get('first_ts'):
                 ra['first_ts'] = (cs.get(lid) or {}).get('first_ts') or time.time(); ra['first_seen'] = (cs.get(lid) or {}).get('first_seen') or now()
@@ -355,10 +433,12 @@ def main():
             known = state.setdefault('_unmatched', [])
             new = [u for u in unmatched if u not in known]
             if new: alert('%d connected leads are not in the lead map, no deck: %s' % (len(new), ', '.join(new[:5]))); known += new
+        for s in todo:   # 'no ads data' used to be final; such a deck is now built without ads data
+            if state.get(s, {}).get('status') == 'failed' and str(state[s].get('error', '')).startswith('no ads data'): state[s].update(status='retry', attempts=0)
         pending = [s for s in todo if state.get(s, {}).get('status') in (None, 'new', 'retry') and not os.path.exists(os.path.join(ROOT, s, 'index.html'))]
         say('slugs connected:', len(todo), 'to build:', len(pending), pending[:20])
         if a.dry:
-            for lid, c in state.get('_conn', {}).items(): print(c['company'], c['slug'], c.get('hr_url'), c['first_seen'])
+            for lid, c in state.get('_conn', {}).items(): print(c['company'], deck_path(c['slug'], c.get('lang') or ''), c.get('hr_url'), c['first_seen'])
             return
         built = 0
         for slug in pending[:PER_RUN]:
@@ -369,14 +449,16 @@ def main():
                 say('error', slug, e)
                 if state[slug]['status'] == 'failed': alert('deck for %s (/%s/) crashed %d times: %s' % (todo[slug]['company'], slug, MAX_ATTEMPTS, str(e)[-200:]))
             json.dump(state, open(STATE, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
+        built += lang_pages(conn, leads, state)
         if built and not push(): alert('git push FAILED after building %d decks, they are committed locally and go out on the next run' % built)
         elif not built:
             ahead = git('rev-list', '--count', '@{u}..HEAD', check=False).strip()
             if ahead not in ('', '0'): push()
         done = {}
         for lid, c in cs.items():
-            if c['slug'] not in done: done[c['slug']] = live_code(c['slug'])
-            c['live'] = done[c['slug']]
+            k = deck_path(c['slug'], c.get('lang') or '')
+            if k not in done: done[k] = live_code(c['slug'], c.get('lang') or '')
+            c['live'] = done[k]
             if lid in al: al[lid]['live'] = c['live']
         sync_sheet(state)
         json.dump(state, open(STATE, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)

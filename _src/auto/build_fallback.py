@@ -1,10 +1,12 @@
 """404.html: the generic deck every not-yet-built slug lands on (GitHub Pages serves 404.html for any missing path),
 so a lead who clicks early never sees a dead link. Company and name come from _private/cf_leads.json via the slug in the URL.
-Real decks overwrite it by simply existing at <slug>/index.html.   py build_fallback.py"""
+Real decks overwrite it by simply existing at <slug>/index.html.   py build_fallback.py
+Language: /<slug>/<lang>/ shows the same generic deck in that language (texts from i18n.json, swapped in the browser)."""
 import os, sys, json, html
 HERE = os.path.dirname(os.path.abspath(__file__)); SRC = os.path.dirname(HERE); ROOT = os.path.dirname(SRC)
 sys.path.insert(0, SRC); sys.argv = [sys.argv[0]]
 import build  # CELLS, LOGOS (the loop only runs with spec args)
+import i18n
 leads = json.load(open(os.path.join(ROOT, '_private', 'cf_leads.json'), encoding='utf-8'))
 m = {}
 for v in leads.values():
@@ -19,9 +21,19 @@ rep = {'<span class="x">×</span>{{LOGO}}': '', '{{COMPANY}}': '__CO__', '{{PREP
        '{{SOC_1}}': 'Brand social strategy for the channels your buyers already use'}
 for k, v in rep.items(): t = t.replace(k, v)
 t = t.replace('../assets', '/assets').replace('../vendor', '/vendor')
-js = ('<script>(()=>{const M=' + json.dumps(m, ensure_ascii=False, separators=(',', ':')).replace('</', '<' + chr(92) + '/') + ';'
-      'const e=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");const r=M[location.pathname.split("/").filter(Boolean)[0]]||"your brand";'
-      'document.body.innerHTML=document.body.innerHTML.split("__CO__").join(e(r));'
+t = i18n.fonts(t)
+# languages: E = the English texts as the browser serialises them, T[lang] = the same list translated
+en = [a for a, _ in i18n.pairs('en', co='__CO__', prep='prep_team')]
+for a in en: assert t.count(a) == 1, a
+tr = {l: [b for _, b in i18n.pairs(l, co='__CO__', prep='prep_team')] for l in i18n.LANGS}
+dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(',', ':')).replace('</', '<' + chr(92) + '/')
+js = ('<script>(()=>{const M=' + dump(m) + ',E=' + dump(en) + ',T=' + dump(tr) + ';'
+      'const e=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");const sg=location.pathname.split("/").filter(Boolean);'
+      'const r=M[(sg[0]||"").toLowerCase()]||"your brand",L=(sg[1]||"").toLowerCase(),P=T[L];let h=document.body.innerHTML;'
+      'if(P){E.forEach((a,i)=>{h=h.split(a).join("\\u0001"+i+"\\u0002")});h=h.replace(/\\u0001(\\d+)\\u0002/g,(x,i)=>P[+i]);document.documentElement.lang=L;'
+      # the Next pill sits below this script, so it is not in the body yet: set its word once the page is parsed
+      'const N=' + dump({l: i18n.T[l]['next'] for l in i18n.LANGS}) + ';document.addEventListener("DOMContentLoaded",()=>{const s=document.querySelector("#nxt span");if(s)s.textContent=N[L]})}'
+      'document.body.innerHTML=h.split("__CO__").join(e(r));'
       'document.title=r+" × craze&friends";})();</script>\n')
 marker = '<script src="/vendor/reveal.js">'
 assert marker in t

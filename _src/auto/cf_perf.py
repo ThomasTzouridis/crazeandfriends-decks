@@ -21,8 +21,7 @@ import cf_poll as P
 ECOM_LIST = 1120002   # "Ecom 10-500k, connected back other clients" in workspace 172761 (was 1013263 in the old organization)
 TAB = 'Performance'
 COPY_TAB = 'Copy'
-COPY_A = [711568, 711570, 711576, 711574, 711592, 711594, 711596, 711598, 711604]   # copy A (message 2 two days later), workspace 172761, 2026-11-05, one campaign per sender
-COPY_B = [711569, 711572, 711577, 711575, 711593, 711595, 711597, 711599, 711605]   # copy B (message 2 three hours later)
+COPY_A, COPY_B = P.COPY_A, P.COPY_B   # from cf_campaigns.json: copy A (message 2 two days later), copy B (message 2 three hours later), one campaign each per sender
 START = '2026-01-01T00:00:00Z'
 
 
