@@ -1,0 +1,59 @@
+{
+ "slug": "nutri-bay-com",
+ "company": "Nutri-Baycom",
+ "full_name": "Jean Charles Bernacconi",
+ "logo": "nutri-bay-com.png",
+ "shot": "",
+ "shot_caption": "nutri-bay.com",
+ "saw_lines": [
+  "Endurance athletes pick gels by taste and gut tolerance, then reorder the one that did not upset them on race day.",
+  "So the sale is decided in the first line, where a new athlete weighs the offer and the proof before clicking.",
+  "Your site shows over 2,700 reviews, yet 0 of 30 ads carry a proof number. Put the review count on the creative and open two ads with a customer quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 12 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "0",
+    "ads mention WELCOME10"
+   ],
+   [
+    "11",
+    "Shop now ads hit homepage"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers missing from ads",
+    "Your site shows over 2,700 reviews, yet 0 of 30 ads carry a proof number, so cold buyers get no trust signal. Put the review count on the creative and open two ads with a customer quote."
+   ],
+   [
+    "New customer offer missing",
+    "Your site offers new customers WELCOME10 for 10% off, yet 0 of 27 ads mention it, so new buyers never see the code before they click. Put WELCOME10 in the first line of three new ads and on the creative."
+   ],
+   [
+    "Creator posts run as ads",
+    "Only 2 of 27 ads are creator posts pushed from your brand page, so a creator&rsquo;s trust stays on their account, not with buyers who see your ads. Whitelist those two from the creator account and cut three variations."
+   ],
+   [
+    "Shop now lands on homepage",
+    "11 Shop now ads send buyers to the homepage, not the product on screen, so a buyer has to search the range again. Point each of those ads to the product or brand page its own copy names."
+   ]
+  ],
+  "images": [
+   "nutri-bay-com_1.jpg",
+   "nutri-bay-com_2.jpg",
+   "nutri-bay-com_3.jpg"
+  ]
+ },
+ "ads_1": "Race-day gel video with WELCOME10 in line one and review count on screen",
+ "soc_1": "Brand social strategy across Facebook, Instagram and YouTube"
+}
