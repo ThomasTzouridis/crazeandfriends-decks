@@ -1,0 +1,59 @@
+{
+ "slug": "thrifted",
+ "company": "Thrifted",
+ "full_name": "Jonny Kemp",
+ "logo": "thrifted.png",
+ "shot": "thrifted.jpg",
+ "shot_caption": "thrifted.com",
+ "saw_lines": [
+  "Vintage buyers hunt one specific piece in one size, and a unique jacket is gone if they wait.",
+  "So the sale is won or lost in the first line, where a buyer decides whether the piece is worth stopping for.",
+  "Your site carries the number 150, yet 0 of 30 ads use any proof number. Open two ads with a review quote and print the 150 figure on three more."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 12 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "5",
+    "copy ads, one opener"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ]
+  ],
+  "points": [
+   [
+    "Proof numbers missing from ads",
+    "Your site carries the number 150, yet 0 of 30 ads use any proof number, so new buyers have no reason to trust the click. Open two ads with a review quote and print the 150 figure on three more."
+   ],
+   [
+    "Your offer is missing from ads",
+    "Your site offers up to 70% off, yet 0 of 5 ads mention any discount, so a buyer scrolling past has no reason to click. Put the 70% off in the first line of three new ads and on the creative."
+   ],
+   [
+    "One opener carries the account",
+    "All 5 of your copy ads open on the same line, so you have never tested a second reason to buy. Write two or three new openers around Carhartt workwear or 90s sportswear and test them against it."
+   ],
+   [
+    "Shipping question unanswered in ads",
+    "Your site answers how shipping works, yet 0 of 30 ads mention shipping or delivery, so a new buyer must click away to learn it. Open three new ads with the shipping answer in line one, such as ship dates."
+   ]
+  ],
+  "images": [
+   "thrifted_1.jpg",
+   "thrifted_2.jpg",
+   "thrifted_3.jpg"
+  ]
+ },
+ "ads_1": "Three new openers built on workwear and 90s sportswear, tested against the current opener",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter and YouTube"
+}
