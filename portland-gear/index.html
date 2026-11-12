@@ -365,7 +365,7 @@ html.cfphone #nxt span:last-of-type{overflow:hidden;text-overflow:ellipsis}
 <section aria-label="Let's talk"><div class="s talk">
   <div class="l">
     <h2 class="in">Let's talk about <span class="mark">Portland Gear</span></h2>
-    <a class="btn in" href="https://calendly.com/og_crazeandfriends/30min" target="_blank" rel="noopener">Book a call →</a>
+    <a class="btn in" href="https://calendar.app.google/RsP2D7TzKFEbaB1S6" target="_blank" rel="noopener">Book a call →</a>
     <div class="pair in"><img class="wm" src="../assets/cf-logo.png" alt="craze&amp;friends"><span class="x">×</span><img class="clogo" src="../assets/clients/portland-gear.png" alt="Portland Gear" style="height:0.678em;width:2.211em"></div>
     <p class="contact in"><a href="https://www.crazeandfriends.com" target="_blank" rel="noopener">crazeandfriends.com</a> · <a href="https://www.linkedin.com/company/crazeandfriends" target="_blank" rel="noopener">linkedin.com/company/crazeandfriends</a></p>
   </div>
@@ -457,7 +457,7 @@ const idx=()=>{try{if(phone)return(+document.querySelector('.pc b').textContent|
 let max=0,act=0,last=Date.now();
 send('open',{ref:document.referrer||'',ua:navigator.userAgent,w:innerWidth,tz:(Intl.DateTimeFormat().resolvedOptions().timeZone||''),lang:navigator.language||'',total:tot,phone});
 setInterval(()=>{const n=Date.now();if(document.visibilityState==='visible')act+=n-last;last=n;const i=idx();if(i>max){max=i;if(i>1)send('slide',{max,total:tot})}},1000);
-document.addEventListener('click',e=>{const v=e.target.closest('.vid');if(v)send('video',{v:v.dataset.v});if(e.target.closest('a[href*="calendly.com"]'))send('book',{max})},true);
+document.addEventListener('click',e=>{const v=e.target.closest('.vid');if(v)send('video',{v:v.dataset.v});if(e.target.closest('a[href*="calendar.app.google"]'))send('book',{max})},true);
 let gone=0;const bye=()=>{if(gone)return;gone=1;send('leave',{secs:Math.round(act/1000),max})};document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')bye();else gone=0});addEventListener('pagehide',bye);
 setInterval(()=>{if(document.visibilityState==='visible')send('ping',{secs:Math.round(act/1000),max})},30000);
 })();

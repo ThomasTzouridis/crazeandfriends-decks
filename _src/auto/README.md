@@ -89,8 +89,8 @@ Google Sheet "Craze&Friends | Meetings & Tracking" (id 1ZJp5PxD40R43vZRSMHY7KCYs
 ## Deck tracking + bookings, the full pathway (cf_track.py, mac-hub job `cf_track`, every 4 h since 2026-10-16 evening, 15 min and 2 h before that, live 2026-10-12)
 Sheet: Craze&Friends | Meetings & Tracking, https://docs.google.com/spreadsheets/d/1ZJp5PxD40R43vZRSMHY7KCYsBsjU3l-V7-Ao8Qqxb2U
 
-**1. Booking link.** Every Book a call button (template, 404 fallback, every deck, every copy on the PC) = https://calendly.com/og_crazeandfriends/30min.
-Never any other link. Calendly PAT: `CALENDLY_CRAZEANDFRIENDS_PAT` in AIOS .env (PC + Mac); no `users:read` scope, so the user URI is fixed in the script.
+**1. Booking link.** Every Book a call button (template, 404 fallback, every deck, every case page) = https://calendar.app.google/RsP2D7TzKFEbaB1S6 (Ryan's Google Calendar appointment page, swapped in on Ryan's request 2026-11-12; before that https://calendly.com/og_crazeandfriends/30min).
+Never any other link. Since the swap the Calendly booking match below sees no new deck bookings (Google appointment pages have no booking API and drop UTM tags); Book clicks are still counted (`a[href*="calendar.app.google"]`). Calendly PAT: `CALENDLY_CRAZEANDFRIENDS_PAT` in AIOS .env (PC + Mac); no `users:read` scope, so the user URI is fixed in the script.
 
 **2. How a deck reports.** Every deck (template.html, 404.html, all `*/index.html`) carries one tracking `<script>` before `</body>`. It sends small
 beacons (`navigator.sendBeacon`, text/plain, no CORS preflight) to mac-hub `https://macbook-air-von-thomas.tail94ea31.ts.net/webhook/cf-deck-track`
