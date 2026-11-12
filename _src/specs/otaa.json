@@ -1,0 +1,59 @@
+{
+ "slug": "otaa",
+ "company": "OTAA",
+ "full_name": "Fameez Haroon",
+ "logo": "otaa.png",
+ "shot": "otaa.jpg",
+ "shot_caption": "otaa.com",
+ "saw_lines": [
+  "Men buy a tie for one occasion, a wedding or a job interview, then rebuy when the set feels worn out.",
+  "So the sale is won or lost in the first line, where the offer and the proof have to show up.",
+  "Your site shows 400,000+ customers and 17,500+ reviews, yet only 1 of 30 ads carries a proof number. Put 17,500+ reviews on the creative and open two ads with a quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 12 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "1",
+    "proof number in ads"
+   ],
+   [
+    "1",
+    "ad names the offer"
+   ],
+   [
+    "6",
+    "creator posts as ads"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays off the creative",
+    "Your site shows 400,000+ customers and 17,500+ reviews, yet only 1 of 30 ads carries a proof number. Cold buyers need that trust before they click. Put 17,500+ reviews on the creative and open two ads with a customer quote."
+   ],
+   [
+    "The sitewide offer is missing",
+    "Your site offers 30% off sitewide, yet only 1 of 23 ads mention it. New buyers have no price reason to click today. Put the 30% off offer in the first line of three new ads and on the creative."
+   ],
+   [
+    "Creator posts run as ads",
+    "6 of 23 ads are creator posts with a code or @mention, run from your brand page. Buyers cannot tell who is selling. Whitelist those six from the creator account and cut three variations of the best, tie in frame."
+   ],
+   [
+    "Shop now lands on homepage",
+    "4 Shop now ads send buyers to the homepage, not the product on screen. A buyer who came for one tie has to search again. Point each of the four to the exact product its ad shows."
+   ]
+  ],
+  "images": [
+   "otaa_1.jpg",
+   "otaa_2.jpg",
+   "otaa_3.jpg"
+  ]
+ },
+ "ads_1": "Sitewide 30% off opening line, backed by 17,500+ reviews on the creative",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, X and YouTube"
+}
