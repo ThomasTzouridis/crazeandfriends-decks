@@ -1,0 +1,59 @@
+{
+ "slug": "taltap",
+ "company": "Taltap",
+ "full_name": "Daniel Marhel",
+ "logo": "taltap.png",
+ "shot": "taltap.jpg",
+ "shot_caption": "taltap.work",
+ "saw_lines": [
+  "Temp workers join an app for the next shift, choosing by pay shown up front and a schedule they control.",
+  "So the reason to apply must sit in line one, since a worker who scrolls past has no reason to stop.",
+  "Your 22 live ads show 0 proof numbers, so a worker has nothing to weigh. Collect one real count, such as workers placed, and lead every new ad with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 13 Nov 2026",
+  "stats": [
+   [
+    "22",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "8",
+    "different opening stories"
+   ],
+   [
+    "3",
+    "ads running 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 22 live ads shows a proof number, so a worker has no hard fact to judge you by. Collect one real count, such as workers placed or shifts filled, and open the next batch with it."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 18 copy ads mention an offer, so an undecided worker has no reason to tap today. Give new workers one reason to act, such as a first shift bonus, and put it in line one of three new ads."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 18 copy ads open with 8 different stories, and the biggest one leads 4 of them, so no single pitch gets tested enough to learn from. Pick the two strongest openings and build the next batch from them, three variations each."
+   ],
+   [
+    "Three winners need company",
+    "Three of your ads have run 60 days or more, so they already work. Build three more variations of the oldest winner, changing the city and the shift type while keeping its core angle, so the proven idea reaches new workers."
+   ]
+  ],
+  "images": [
+   "taltap_1.jpg",
+   "taltap_2.jpg",
+   "taltap_3.jpg"
+  ]
+ },
+ "ads_1": "Creative around one proven opening, a worker count and a first shift bonus",
+ "soc_1": "Brand social strategy across Facebook and Instagram"
+}
