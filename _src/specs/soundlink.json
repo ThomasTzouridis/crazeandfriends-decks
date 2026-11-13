@@ -1,0 +1,59 @@
+{
+ "slug": "soundlink",
+ "company": "Soundlink",
+ "full_name": "Ariel Segura",
+ "logo": "soundlink.png",
+ "shot": "soundlink.jpg",
+ "shot_caption": "getsoundlink.com",
+ "saw_lines": [
+  "Labels buy attribution tools after one campaign they cannot explain, then judge each one by whether it names the winning ad.",
+  "So the sale is won or lost in the first line, where a label looks for proof and finds none.",
+  "Your 29 ads carry no proof number, so collect one real figure, such as your review count or orders shipped, and lead the next batch with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 13 Nov 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads carry an offer"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ],
+   [
+    "26",
+    "different openers"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 29 ads shows a proof number, so a cold viewer has nothing concrete to trust before clicking. Collect one real figure, like your review count or orders shipped, and open the next batch with it on the creative."
+   ],
+   [
+    "Every ad is brand new",
+    "All 29 ads started within the last 9 days, so none has had time to prove its hook. Keep your best one and build the next three as variations of it, changing only the first line and the closing line."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 29 ads carry an offer, so a first time buyer has no reason to act today. Give new buyers one reason to buy now, a first order discount or starter bundle, and open three new ads with it."
+   ],
+   [
+    "Openers spread thin",
+    "Your 29 ads use 26 different openers, so no single hook gets a clear test. Pick the two best openers, the 4 ways labels guess and the We ran 3 ads story, and build the next batch only from them."
+   ]
+  ],
+  "images": [
+   "soundlink_1.jpg",
+   "soundlink_2.jpg",
+   "soundlink_3.jpg"
+  ]
+ },
+ "ads_1": "Variations of the best hook, opening with a proof number and first order offer",
+ "soc_1": "Brand social strategy across Facebook, Instagram and Twitter"
+}
