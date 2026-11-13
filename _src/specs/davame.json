@@ -1,0 +1,59 @@
+{
+ "slug": "davame",
+ "company": "Dáváme",
+ "full_name": "Tomas Wiesner",
+ "logo": "davame.png",
+ "shot": "davame.jpg",
+ "shot_caption": "davame.cz",
+ "saw_lines": [
+  "Owners rarely buy a CRM on impulse. They wait until the spreadsheet breaks, then ask a colleague before they trust anyone.",
+  "So sales are won in the first ad, where a cold buyer decides whether a Pipedrive partner is worth a click.",
+  "Your 29 live ads carry 0 proof numbers, so lead the next batch with one client result on the creative, such as projects delivered."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 13 Nov 2026",
+  "stats": [
+   [
+    "29",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof"
+   ],
+   [
+    "0",
+    "ads with offer"
+   ],
+   [
+    "20",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "No proof in your ads",
+    "0 of 29 ads carry a proof number, so a cold viewer has no reason to trust a Pipedrive partner. Collect one number from your client work, such as projects delivered, and open the next batch with it on the creative."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 29 ads carry an offer, so a first time buyer has no reason to act today. Put a first order offer or a bundle in the first line of your next batch of ads."
+   ],
+   [
+    "Openers spread too thin",
+    "20 different openings across 29 copy ads, and the biggest leads only 3. Buyers meet a new pitch each time, so no story repeats enough to build recall. Pick your best stories and build the next batch from them."
+   ],
+   [
+    "Winners need variations",
+    "11 ads have run 60+ days, so they are your longest running base. Build 3 more variations of the oldest one, changing the opening line and the product detail, and keep its body copy. Run them beside it."
+   ]
+  ],
+  "images": [
+   "davame_1.jpg",
+   "davame_2.jpg",
+   "davame_3.jpg"
+  ]
+ },
+ "ads_1": "Proof led CRM creative from your best openers and a first order offer",
+ "soc_1": "Brand social strategy across Facebook, Instagram and YouTube"
+}
