@@ -10,6 +10,29 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 PEOPLE = [("Ognjen Varađanin","CEO &amp; Marketing Strategist"),("Ryan Ball","Head of International Growth"),("Jovana Milojević","Head of Brand Strategy"),("Đorđe Radovanović","Head of Product &amp; Experience"),("Veljko Sprečaković","Head of Performance &amp; Growth"),("Ana Stanković","Head of Client Partnerships"),("Nemanja Stanojević","Head of Research &amp; Development"),("Jelena Novaković","Head of Video &amp; Motion"),("Aleksandar Ilić","Head of Content and SEO"),("Mateja Milošević","AI &amp; Automation Partner")]
 CELLS = ''.join(f'<figure class="p"><div class="ph" style="background-position:{(i%5)*25}% {(i//5)*100}%"></div><figcaption><b>{n}</b><span>{r}</span></figcaption></figure>' for i,(n,r) in enumerate(PEOPLE))
 LOGOS = ''.join(f'<img src="../assets/logos/l{i}.svg" alt="">' for i in [1,2,4,5,6,7,8,9,10])
+# Last slide ("Let's talk"): the HeyReach sender of the lead's campaign, spec key "sender" (full name or first name, as HeyReach gives it).
+# key = first name, lowercase, ascii -> (name, title, photo in assets/team, background-position). No or unknown sender = Ryan, as every deck before 2026-11-13.
+SENDERS = {
+ 'ognjen': ("Ognjen Varađanin", "CEO &amp; Marketing Strategist", 't1.jpg'), 'ryan': ("Ryan Ball", "Head of International Growth", 'ryan.jpg'),
+ 'jovana': ("Jovana Milojević", "Head of Brand Strategy", 't3.jpg'), 'djordje': ("Đorđe Radovanović", "Head of Product &amp; Experience", 't4.jpg'),
+ 'veljko': ("Veljko Sprečaković", "Head of Performance &amp; Growth", 't5.jpg'), 'ana': ("Ana Stanković", "Head of Client Partnerships", 't6.jpg'),
+ 'nemanja': ("Nemanja Stanojević", "Head of Research &amp; Development", 't7.jpg'), 'jelena': ("Jelena Novaković", "Head of Video &amp; Motion", 't8.jpg'),
+ 'minja': ("Minja Djordjevic", "Head of Design Production", 'minja-djordjevic.jpg'), 'iva': ("Iva Varađanin", "Sales Development Representative", 'iva-varadjanin.jpg'),
+ 'elias': ("Elias Rupp", "Head of Creatives", 'elias-rupp.jpg'), 'paraskevi': ("Paraskevi Tsatsopita", "Chief Human Resources Officer", 'paraskevi-tsatsopita.jpg'),
+ 'yuri': ("Yuri Melny", "Head of Marketing", 'yuri-melny.jpg'), 'jeff': ("Jeff Ihidov", "Chief Sales Officer", 'jeff-ihidov.jpg'),
+ 'olena': ("Olena Irkliienko", "Head of Videography", 'olena-irkliienko.jpg'), 'illia': ("Illia Plot", "Chief Operating Officer", 'illia-plot.jpg')}
+
+
+def sender_of(name):
+    import unicodedata
+    k = ((name or '').strip().split() or [''])[0].lower().replace('đ', 'dj')
+    k = ''.join(c for c in unicodedata.normalize('NFKD', k) if not unicodedata.combining(c))
+    k = k if k in SENDERS else 'ryan'
+    n, r, f = SENDERS[k]
+    if not os.path.exists(os.path.join(ROOT, 'assets', 'team', f)): sys.exit(f'sender photo missing: assets/team/{f}')
+    return k, n, r, f
+
+
 BG = '#ffffff'   # the slide paper, the logo tool checks against it
 
 
@@ -75,10 +98,12 @@ for path in sys.argv[1:]:
                f'<div class="adsgrid in"><div class="pts">{pts}</div><div><div class="adimgs">{imgs}</div><div class="adstats">{sts}</div>'
                f'<p class="adsrc">Source: {e(a["source"])}</p></div></div></div></section>')
     out = open(os.path.join(HERE,'template.html'),encoding='utf-8').read()
+    sk, sn, sr, sf = sender_of(sp.get('sender'))
     if LANG:
         sys.path.insert(0, HERE); import i18n
         out = i18n.apply(out, LANG)
-    for k,v in {'COMPANY':co,'PREPARED':prep,'SAW_LINES':lines,'SHOT':shot,'CELLS':CELLS,'LOGOS':LOGOS,'ADS_SLIDE':ads,'LOGO':logo,'ADS_1':sp.get('ads_1',''),'SOC_1':sp.get('soc_1',''),'SAW_CLASS':'' if sp.get('shot') else ' noshot'}.items():
+        if sk == 'ryan': sr = i18n.render(i18n.T[LANG]['role'], '', '')   # i18n.json carries Ryan's title per language, every other title stays English
+    for k,v in {'COMPANY':co,'PREPARED':prep,'SAW_LINES':lines,'SHOT':shot,'CELLS':CELLS,'LOGOS':LOGOS,'ADS_SLIDE':ads,'LOGO':logo,'ADS_1':sp.get('ads_1',''),'SOC_1':sp.get('soc_1',''),'SAW_CLASS':'' if sp.get('shot') else ' noshot','SENDER_NAME':sn,'SENDER_ROLE':sr,'SENDER_PHOTO':sf,'SENDER_POS':'50% 15%'}.items():
         out = out.replace('{{'+k+'}}', v)
     d = os.path.join(ROOT, sp['slug'])
     if LANG:   # one folder deeper: every relative path gains a level

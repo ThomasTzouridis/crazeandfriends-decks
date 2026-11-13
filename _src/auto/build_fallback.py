@@ -18,14 +18,16 @@ saw = ('<p>We looked at how __CO__ shows up online and in paid ads.</p>'
 rep = {'<span class="x">×</span>{{LOGO}}': '', '{{COMPANY}}': '__CO__', '{{PREPARED}}': 'the __CO__ team', '{{SAW_LINES}}': saw, '{{SHOT}}': '<div></div>',
        '{{SAW_CLASS}}': ' noshot', '{{ADS_SLIDE}}': '', '{{CELLS}}': build.CELLS, '{{LOGOS}}': build.LOGOS,
        '{{ADS_1}}': 'Ad creative and testing built around your best sellers',
-       '{{SOC_1}}': 'Brand social strategy for the channels your buyers already use'}
+       '{{SOC_1}}': 'Brand social strategy for the channels your buyers already use',
+       # the fallback has no lead, so no sender: Ryan, as before the sender slots (build.py SENDERS)
+       '{{SENDER_NAME}}': build.SENDERS['ryan'][0], '{{SENDER_ROLE}}': build.SENDERS['ryan'][1], '{{SENDER_PHOTO}}': build.SENDERS['ryan'][2], '{{SENDER_POS}}': '50% 15%'}
 for k, v in rep.items(): t = t.replace(k, v)
 t = t.replace('../assets', '/assets').replace('../vendor', '/vendor')
 t = i18n.fonts(t)
 # languages: E = the English texts as the browser serialises them, T[lang] = the same list translated
-en = [a for a, _ in i18n.pairs('en', co='__CO__', prep='prep_team')]
+en = [a for a, _ in i18n.pairs('en', co='__CO__', prep='prep_team')] + ['<span>%s</span>' % i18n.render(i18n.T['en']['role'], '', '')]   # the role is a sender slot, not in i18n.PAT
 for a in en: assert t.count(a) == 1, a
-tr = {l: [b for _, b in i18n.pairs(l, co='__CO__', prep='prep_team')] for l in i18n.LANGS}
+tr = {l: [b for _, b in i18n.pairs(l, co='__CO__', prep='prep_team')] + ['<span>%s</span>' % i18n.render(i18n.T[l]['role'], '', '')] for l in i18n.LANGS}
 dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(',', ':')).replace('</', '<' + chr(92) + '/')
 js = ('<script>(()=>{const M=' + dump(m) + ',E=' + dump(en) + ',T=' + dump(tr) + ';'
       'const e=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");const sg=location.pathname.split("/").filter(Boolean);'

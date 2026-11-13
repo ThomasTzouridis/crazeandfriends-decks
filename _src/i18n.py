@@ -20,7 +20,7 @@ PAT = [('s_cover', '<section aria-label="§">'), ('s_offer', '<section aria-labe
        ('h_work', '<h2 class="in">§</h2>'),
        ('c1y', '<span class="yr">§</span>'), ('c1p', '<p>§</p>'), ('c2y', '<span class="yr">§</span>'), ('c2p', '<p>§</p>'),
        ('c3y', '<span class="yr">§</span>'), ('c3p', '<p>§</p>'), ('c4y', '<span class="yr">§</span>'), ('c4n', '<p class="num">§</p>'), ('c4p', '<p>§</p>'),
-       ('h_talk', '<h2 class="in">§</h2>'), ('btn', 'rel="noopener">§</a>'), ('role', '<span>§</span>'), ('next', '<span>§</span>')]
+       ('h_talk', '<h2 class="in">§</h2>'), ('btn', 'rel="noopener">§</a>'), ('next', '<span>§</span>')]
 # Big Shoulders Display and Chivo have no Cyrillic or Greek: Roboto steps in for the glyphs they miss
 FONT_A = 'family=Chivo+Mono:wght@400;500&display=swap'
 FONT_B = 'family=Chivo+Mono:wght@400;500&family=Roboto+Condensed:wght@700;800;900&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap'

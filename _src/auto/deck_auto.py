@@ -21,6 +21,7 @@ OFFER = r'(?i)buy one|bogo|b1g1|\d+% off|free shipping|save \$?\d|discount|bundl
 PROOF = r'(?i)(\d[\d,]{2,}\+?)\s*(men|women|customers|reviews|people|users|families|orders|sold|members|farms|five.star|5.star)'
 CLAIM = r'(?i)clinically|cure|heals|reverses|guaranteed results|lose \d|years younger|rebuilds'
 slug, full_name, company, website, datadir = sys.argv[1:6]
+sender = sys.argv[6] if len(sys.argv) > 6 else ''   # HeyReach sender of the lead's campaign, shown on the last slide (build.py SENDERS)
 domain = re.sub(r'^www\.', '', re.sub(r'^https?://', '', website.strip().lower())).split('/')[0]
 url = website if website.startswith('http') else 'https://' + website
 work = os.path.join(HERE, 'runs', slug); os.makedirs(work, exist_ok=True)
@@ -455,6 +456,7 @@ if spec is None:
 # ---------- 4. spec + build ----------
 final = {'slug': slug, 'company': company, 'full_name': full_name, 'logo': logo_file, 'shot': (slug + '.jpg') if os.path.exists(os.path.join(ROOT, 'assets', 'shots', slug + '.jpg')) else '', 'shot_caption': domain,
          'saw_lines': spec['saw_lines']}
+if sender: final['sender'] = sender
 if spec.get('ads') and len(images) >= 1:
     final['ads'] = {'source': f"Meta Ad Library, active ads, {datetime.date.today().strftime('%d %b %Y').lstrip('0')}",
                     'stats': spec['ads']['stats'], 'points': spec['ads']['points'], 'images': images}

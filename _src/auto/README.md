@@ -162,3 +162,6 @@ Test from the PC only with Playwright + `--host-resolver-rules=MAP macbook-air-v
 otherwise the tailnet block eats the beacons. New decks get the tracker from the template automatically.
 
 **7. Limits.** Tracking is per deck slug: leads sharing one deck (e.g. KIABI) share the numbers. Old/example decks are tracked but have no Log row.
+
+## Sender on the last slide (2026-11-13)
+The "Let's talk" slide shows the HeyReach sender of the lead's campaign: photo, name, title. Spec key `sender` (HeyReach `linkedInSenderFullName`, matched by first name), table `SENDERS` in `build.py` (16 senders, photos in `assets/team`). `cf_poll.py` passes the sender of the first connected lead of a slug to `deck_auto.py` (6th argument) and to the no ads data build. No or unknown sender = Ryan Ball, as on every deck built before. A new sender = one line in `SENDERS` plus a 475x594 photo in `assets/team`.

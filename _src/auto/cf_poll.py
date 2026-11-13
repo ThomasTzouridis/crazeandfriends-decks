@@ -278,7 +278,7 @@ def lite_build(slug, lead, st, t0):
     sp = os.path.join(SRC, 'specs', slug + '.json')
 
     def run(lf):
-        json.dump({'slug': slug, 'company': lead['company'], 'full_name': lead['name'], 'logo': lf}, open(sp, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
+        json.dump({'slug': slug, 'company': lead['company'], 'full_name': lead['name'], 'logo': lf, 'sender': lead.get('sender', '')}, open(sp, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
         return subprocess.run([sys.executable, os.path.join(SRC, 'build.py'), sp], cwd=SRC, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=300,
                               env=dict(os.environ, PYTHONIOENCODING='utf-8'))
     p = run(logo_file) if logo_file else None
@@ -313,7 +313,7 @@ def lang_pages(conn, leads, state):
         tmp = None
         if not os.path.exists(sp):   # a deck made before specs were kept: the language page needs only these four facts, the logo is taken from the live page
             tmp = sp = os.path.join(HOME, 'cf-run', slug + '.lang.json'); os.makedirs(os.path.dirname(sp), exist_ok=True)
-            json.dump({'slug': slug, 'company': lead['company'], 'full_name': lead['name'], 'logo': slug + '.png'}, open(sp, 'w', encoding='utf-8'))
+            json.dump({'slug': slug, 'company': lead['company'], 'full_name': lead['name'], 'logo': slug + '.png', 'sender': conn[lid].get('sender') or lead.get('sender', '')}, open(sp, 'w', encoding='utf-8'))
         try:
             p = subprocess.run([sys.executable, os.path.join(SRC, 'build.py'), sp, '--lang', lang], cwd=SRC, capture_output=True, text=True, encoding='utf-8', errors='replace',
                                timeout=300, env=dict(os.environ, PYTHONIOENCODING='utf-8'))
@@ -342,7 +342,7 @@ def build(slug, lead, state):
     st['attempts'] += 1
     runj = os.path.join(SRC, 'auto', 'runs', slug, 'run.json')
     shutil.rmtree(os.path.dirname(runj), ignore_errors=True)
-    p = subprocess.run([sys.executable, os.path.join(SRC, 'auto', 'deck_auto.py'), slug, lead['name'], lead['company'], lead['website'], data],
+    p = subprocess.run([sys.executable, os.path.join(SRC, 'auto', 'deck_auto.py'), slug, lead['name'], lead['company'], lead['website'], data, lead.get('sender', '')],
                        cwd=os.path.join(SRC, 'auto'), capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=1500,
                        env=dict(os.environ, PYTHONIOENCODING='utf-8', PYTHONPATH=os.path.join(HOME, 'Desktop', 'AIOS', 'Internal Clay')))
     tail = (p.stdout + p.stderr)[-600:]
@@ -424,10 +424,10 @@ def main():
         for lid, stt in conn.items():
             lead = leads.get(lid)
             if not lead: unmatched.append(lid); continue
-            todo.setdefault(lead['slug'], lead)
+            todo.setdefault(lead['slug'], dict(lead, sender=stt.get('sender') or lead.get('sender', '')))   # last slide shows the HeyReach sender of the first connected lead of the slug
         if a.slug:
             lead = next((v for v in leads.values() if v['slug'] == a.slug), None)
-            if lead and (a.slug in todo or a.force): todo = {a.slug: lead}
+            if lead and (a.slug in todo or a.force): todo = {a.slug: todo.get(a.slug) or lead}
             else: say('slug not connected (use --force)'); return
         if unmatched:
             known = state.setdefault('_unmatched', [])
