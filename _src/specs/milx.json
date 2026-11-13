@@ -1,0 +1,59 @@
+{
+ "slug": "milx",
+ "company": "Milx",
+ "full_name": "Paul Lekhnovsky",
+ "logo": "milx.png",
+ "shot": "milx.jpg",
+ "shot_caption": "milx.app",
+ "saw_lines": [
+  "Creators don&rsquo;t choose a payout app on features. They choose whichever one moves their money fastest.",
+  "So the sale is lost in the first line, when the opener is a finance label instead of the payout delay.",
+  "Your 10 of 28 copy ads run one identical text, so keep that copy and swap the opening line and creative in each."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 13 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "10",
+    "reuse one exact copy"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "9",
+    "days since oldest ad"
+   ]
+  ],
+  "points": [
+   [
+    "One copy repeats across ads",
+    "10 of your 28 copy ads run the same text, so creators scroll past what they already saw. Keep that copy, change the opening line and creative in each, and test three new openers about the payout delay."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads carries a proof number, so a creator skimming the feed has nothing to trust before tapping install. Put your 4.6 rating and a count of reviews on every creative, and open the next batch with it."
+   ],
+   [
+    "Every ad is brand new",
+    "All 30 ads started within the last 9 days, so each one still has to earn trust from zero. Keep your oldest ad live and build three variations of it, changing the headline, image or opening line in each."
+   ],
+   [
+    "One opener leads the copy",
+    "10 of your 28 copy ads open on the same finance app line, so the feed sees one pitch. Test two new angles against it: the AdSense speed question from your FAQ, and a creator testimonial about a payout landing."
+   ]
+  ],
+  "images": [
+   "milx_1.jpg",
+   "milx_2.jpg",
+   "milx_3.jpg"
+  ]
+ },
+ "ads_1": "Payout delay creative led by the AdSense speed angle and fresh openers",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, X and YouTube"
+}
