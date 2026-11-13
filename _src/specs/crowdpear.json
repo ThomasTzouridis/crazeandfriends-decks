@@ -1,0 +1,59 @@
+{
+ "slug": "crowdpear",
+ "company": "Crowdpear",
+ "full_name": "Arunas Lekavicius",
+ "logo": "crowdpear.png",
+ "shot": "crowdpear.jpg",
+ "shot_caption": "crowdpear.com",
+ "saw_lines": [
+  "Investors compare return, risk and trust before they move money, and most decide on the one number they can check.",
+  "So the return and the risk belong in the first line, because a scroller who must click through never sees it.",
+  "Your 28 live Meta ads have 0 video, so run three short videos of the app in use, starting with the sign up flow."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 13 Nov 2026",
+  "stats": [
+   [
+    "28",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "video ads"
+   ],
+   [
+    "9",
+    "ads share one copy"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ]
+  ],
+  "points": [
+   [
+    "No video in your ads",
+    "0 of your 28 live ads are video, so Meta investors never see the app move before they click. Make three short videos of the app in use and test them against your most repeated ad."
+   ],
+   [
+    "One copy, nine ads",
+    "The same copy runs in 9 of your 25 copy ads, so a lead who sees one scrolls past the repeat. Keep the body text, change the opening line and creative in each, and test two new openers."
+   ],
+   [
+    "No proof number",
+    "None of your 28 live ads shows a proof number, so an investor has no hard figure to weigh. Collect one checkable figure, such as a funded loan count, and open three new ads with it."
+   ],
+   [
+    "One opener leads",
+    "9 of your 25 copy ads open on the same &ldquo;register on Crowdpear&rdquo; line, so one opener is repeated more than any other. Test two angles against it: how loans are secured, and what a first step looks like."
+   ]
+  ],
+  "images": [
+   "crowdpear_1.jpg",
+   "crowdpear_2.jpg",
+   "crowdpear_3.jpg"
+  ]
+ },
+ "ads_1": "App videos and fresh openers on loan security, tested against the register hook",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
