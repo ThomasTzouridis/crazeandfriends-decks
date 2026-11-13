@@ -1,0 +1,59 @@
+{
+ "slug": "ai-hero",
+ "company": "AI Hero",
+ "full_name": "Mateusz Cisowski",
+ "logo": "ai-hero.png",
+ "shot": "ai-hero.jpg",
+ "shot_caption": "aihero.pl",
+ "saw_lines": [
+  "Managers buy AI training to fix a team problem they can name, and they want proof before the budget is signed.",
+  "So the sale is won or lost in the first line, before a manager has any reason to read on.",
+  "Your 12 ads open on the same line, so a cold manager sees one pitch. Name two or three angles, like the implementation plan, and run each against the current opener."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 13 Nov 2026",
+  "stats": [
+   [
+    "12",
+    "live Meta ads"
+   ],
+   [
+    "12",
+    "open on one opener"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "11",
+    "days since oldest start"
+   ]
+  ],
+  "points": [
+   [
+    "One opener carries the account",
+    "All 12 ads open on the same line, &ldquo;warsztaty managerskie z AI to&rdquo;, so a cold manager sees one pitch and nothing else. Name two or three new angles, like the implementation plan, and run each against the current opener."
+   ],
+   [
+    "One copy in every ad",
+    "Your 12 ads run one copy word for word, so a buyer who sees one has seen them all. Keep the copy as your base, but change the opening line and the video each time, so each view brings something new."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 12 ads shows a proof number, so a manager reading about results gets no figure to trust. Collect one number, such as your review count or orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "Every ad is brand new",
+    "All 12 ads started within the last 11 days, so none has run long enough to show which idea holds. Keep one ad and build the next three as variations of it, with the same story and a new first line."
+   ]
+  ],
+  "images": [
+   "ai-hero_1.jpg",
+   "ai-hero_2.jpg",
+   "ai-hero_3.jpg"
+  ]
+ },
+ "ads_1": "New openers built on the implementation plan, tested against the current story",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
