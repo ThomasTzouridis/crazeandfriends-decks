@@ -1,0 +1,59 @@
+{
+ "slug": "talentriver",
+ "company": "Talentriver",
+ "full_name": "Tim Janbell Tellqvist",
+ "logo": "talentriver.png",
+ "shot": "talentriver.jpg",
+ "shot_caption": "talentriver.ai",
+ "saw_lines": [
+  "Recruiters rarely switch sourcing tools over a feature list. They test one live search, then switch if it finds new people.",
+  "So the sale is won in the first line, and your ads give no number or offer to answer the question.",
+  "Your 19 live ads, 0 with a proof number, leave a recruiter nothing to weigh the tool against. Pull one real count and open the next three ads with it."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 13 Nov 2026",
+  "stats": [
+   [
+    "19",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads with proof"
+   ],
+   [
+    "0",
+    "ads with an offer"
+   ],
+   [
+    "18",
+    "different openings"
+   ]
+  ],
+  "points": [
+   [
+    "No proof in your ads",
+    "0 of 19 ads carry a proof number, so a recruiter has nothing to weigh the tool against before clicking. Next move: pull one real count, like searches run, and open the next three ads with it."
+   ],
+   [
+    "No offer in your ads",
+    "0 of 19 ads mention an offer or discount, so a new buyer has no reason to act today. Next move: bundle a guided first search as a first order offer, and open three new ads with it."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 19 ads open with 18 different stories, so no angle is repeated enough. The one you already repeat most, replace your old sourcing tool, leads 2 ads. Next move: keep that story and build three variations from it."
+   ],
+   [
+    "Buttons don&rsquo;t match the promise",
+    "Your ads use Learn more on 15, See details on 3 and Sign up on 1, so the button rarely matches the promise. Next move: one button per angle that names the payoff, like Read the story for case studies."
+   ]
+  ],
+  "images": [
+   "talentriver_1.jpg",
+   "talentriver_2.jpg",
+   "talentriver_3.jpg"
+  ]
+ },
+ "ads_1": "Recruiter creative built on the sourcing story, with one proof number per ad",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
