@@ -1,0 +1,59 @@
+{
+ "slug": "feno",
+ "company": "Feno",
+ "full_name": "Sebastian Dalsted",
+ "logo": "feno.png",
+ "shot": "feno.jpg",
+ "shot_caption": "feno.co",
+ "saw_lines": [
+  "Nobody switches toothbrushes often. People replace one when it frays, and keep it until a dentist gives them a reason.",
+  "So the sale is won or lost in line one, where a shopper decides if a brush is worth a look.",
+  "Your site shows a 4.9 rating, yet 0 of 30 ads carry a proof number. Put the 4.9 rating on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 13 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "18",
+    "open on one line"
+   ],
+   [
+    "0",
+    "mention subscribe and save"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site shows a 4.9 rating, yet 0 of 30 ads carry a proof number, so a new buyer has nothing to check. Put the 4.9 rating on the creative and open two ads with a review quote."
+   ],
+   [
+    "No offer in your ads",
+    "Your site offers Subscribe and Save, yet 0 of 30 ads mention any offer or discount. Buyers who would reorder never see the saving. Put the subscription saving in line one of three new ads and on the creative."
+   ],
+   [
+    "One opener carries the account",
+    "18 of 30 ads open on the same 2 minute brushing line, so most of your reach hears one pitch. Write two new angles from your own product, like the built-in scanner tracking your mouth, and test each against that opener."
+   ],
+   [
+    "Retention ads are missing",
+    "Your site sells a subscription, yet 0 of 30 ads mention one, so repeat buyers see no reason to reorder. Run two retention ads for past customers with the subscription saving as the headline and 20 seconds as proof."
+   ]
+  ],
+  "images": [
+   "feno_1.jpg",
+   "feno_2.jpg",
+   "feno_3.jpg"
+  ]
+ },
+ "ads_1": "Scanner and 20 second angles, each carrying the 4.9 rating and subscription saving",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, X and YouTube"
+}
