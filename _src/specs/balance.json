@@ -1,0 +1,59 @@
+{
+ "slug": "balance",
+ "company": "Balance",
+ "full_name": "Albert Beltran Feliu",
+ "logo": "balance.png",
+ "shot": "balance.jpg",
+ "shot_caption": "thebalancephone.com",
+ "saw_lines": [
+  "Parents buying a first phone for a child care most about what gets blocked, and they check that before anything else.",
+  "So the sale is decided in the first line, where a parent looks for what the phone blocks.",
+  "Your site shows 30,000 subscribers and 273 reviews, yet 0 of 30 ads carry either number, so put 273 reviews on the creative and open two ads with a review quote."
+ ],
+ "ads": {
+  "source": "Meta Ad Library, active ads, 13 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads use the guarantee"
+   ],
+   [
+    "13",
+    "different opening stories"
+   ],
+   [
+    "12",
+    "ads running 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site shows 30,000 happy subscribers and 273 reviews, yet 0 of 30 ads carry either number, so cold viewers have no reason to trust the phone. Put 273 reviews on the creative and open two ads with a review quote."
+   ],
+   [
+    "Guarantee missing from ads",
+    "Your site offers a money-back guarantee, yet 0 of 28 copy ads mention it, so a first time buyer has no reason to act today. Put it in the first line of three new ads and on the creative."
+   ],
+   [
+    "Openers spread thin",
+    "Your 28 copy ads open with 13 different stories and the biggest leads only 4, so no hook repeats enough to learn from. Keep the two strongest, the family agreement and the quiz, and build the next batch only from them."
+   ],
+   [
+    "Winners need fresh variations",
+    "12 ads have run 60+ days, so the oldest one, A smartphone without social media, is your base to build from. Make three variations of it, each with a new first line, so the account stops relying on one message."
+   ]
+  ],
+  "images": [
+   "balance_1.jpg",
+   "balance_2.jpg",
+   "balance_3.jpg"
+  ]
+ },
+ "ads_1": "Family agreement and quiz hooks, with the guarantee on every creative.",
+ "soc_1": "Brand social strategy across Instagram and TikTok."
+}
