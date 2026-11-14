@@ -21,6 +21,8 @@ SENDERS = {
  'elias': ("Elias Rupp", "Head of Creatives", 'elias-rupp.jpg'), 'paraskevi': ("Paraskevi Tsatsopita", "Chief Human Resources Officer", 'paraskevi-tsatsopita.jpg'),
  'yuri': ("Yuri Melny", "Head of Marketing", 'yuri-melny.jpg'), 'jeff': ("Jeff Ihidov", "Chief Sales Officer", 'jeff-ihidov.jpg'),
  'olena': ("Olena Irkliienko", "Head of Videography", 'olena-irkliienko.jpg'), 'illia': ("Illia Plot", "Chief Operating Officer", 'illia-plot.jpg')}
+# Thomas 2026-11-14: decks of Veljko's and Djordje's campaigns always show Ognjen.
+SENDERS['veljko'] = SENDERS['djordje'] = SENDERS['ognjen']
 
 
 def sender_of(name):
