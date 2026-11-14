@@ -24,6 +24,7 @@ SENDERS = {
 # Thomas 2026-11-14: decks of Veljko's, Djordje's, Nemanja's and Jelena's campaigns always show Ognjen. Paraskevi shows her name only, no title.
 SENDERS['veljko'] = SENDERS['djordje'] = SENDERS['nemanja'] = SENDERS['jelena'] = SENDERS['ognjen']
 SENDERS['paraskevi'] = (SENDERS['paraskevi'][0], '', SENDERS['paraskevi'][2])
+SENDERS['olena'] = (SENDERS['olena'][0], '', SENDERS['olena'][2])   # Thomas 2026-11-14: name only
 
 
 def sender_of(name):
