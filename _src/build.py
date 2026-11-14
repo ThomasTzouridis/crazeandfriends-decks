@@ -19,8 +19,8 @@ SENDERS = {
  'nemanja': ("Nemanja Stanojević", "Head of Research &amp; Development", 't7.jpg'), 'jelena': ("Jelena Novaković", "Head of Video &amp; Motion", 't8.jpg'),
  'minja': ("Minja Djordjevic", "Head of Design Production", 'minja-djordjevic.jpg'), 'iva': ("Iva Varađanin", "Sales Development Representative", 'iva-varadjanin.jpg'),
  'elias': ("Elias Rupp", "Head of Creatives", 'elias-rupp.jpg'), 'paraskevi': ("Paraskevi Tsatsopita", "Chief Human Resources Officer", 'paraskevi-tsatsopita.jpg'),
- 'yuri': ("Yuri Melny", "Head of Marketing", 'yuri-melny.jpg'), 'jeff': ("Jeff Ihidov", "Chief Sales Officer", 'jeff-ihidov.jpg'),
- 'olena': ("Olena Irkliienko", "Head of Videography", 'olena-irkliienko.jpg'), 'illia': ("Illia Plot", "Chief Operating Officer", 'illia-plot.jpg')}
+ 'yuri': ("Yuri Melny", "Head of Marketing", 'yuri-melny.jpg'), 'jeff': ("Jeff Ihidov", "Chief Sales Of&zwnj;ficer", 'jeff-ihidov.jpg'),
+ 'olena': ("Olena Irkliienko", "Head of Videography", 'olena-irkliienko.jpg'), 'illia': ("Illia Plot", "Chief Operating Of&zwnj;ficer", 'illia-plot.jpg')}
 # Thomas 2026-11-14: decks of Veljko's, Djordje's, Nemanja's and Jelena's campaigns always show Ognjen. Paraskevi shows her name only, no title.
 SENDERS['veljko'] = SENDERS['djordje'] = SENDERS['nemanja'] = SENDERS['jelena'] = SENDERS['ognjen']
 SENDERS['paraskevi'] = (SENDERS['paraskevi'][0], '', SENDERS['paraskevi'][2])
