@@ -21,8 +21,9 @@ SENDERS = {
  'elias': ("Elias Rupp", "Head of Creatives", 'elias-rupp.jpg'), 'paraskevi': ("Paraskevi Tsatsopita", "Chief Human Resources Officer", 'paraskevi-tsatsopita.jpg'),
  'yuri': ("Yuri Melny", "Head of Marketing", 'yuri-melny.jpg'), 'jeff': ("Jeff Ihidov", "Chief Sales Officer", 'jeff-ihidov.jpg'),
  'olena': ("Olena Irkliienko", "Head of Videography", 'olena-irkliienko.jpg'), 'illia': ("Illia Plot", "Chief Operating Officer", 'illia-plot.jpg')}
-# Thomas 2026-11-14: decks of Veljko's and Djordje's campaigns always show Ognjen.
-SENDERS['veljko'] = SENDERS['djordje'] = SENDERS['ognjen']
+# Thomas 2026-11-14: decks of Veljko's, Djordje's, Nemanja's and Jelena's campaigns always show Ognjen. Paraskevi shows her name only, no title.
+SENDERS['veljko'] = SENDERS['djordje'] = SENDERS['nemanja'] = SENDERS['jelena'] = SENDERS['ognjen']
+SENDERS['paraskevi'] = (SENDERS['paraskevi'][0], '', SENDERS['paraskevi'][2])
 
 
 def sender_of(name):
@@ -107,6 +108,7 @@ for path in sys.argv[1:]:
         if sk == 'ryan': sr = i18n.render(i18n.T[LANG]['role'], '', '')   # i18n.json carries Ryan's title per language, every other title stays English
     for k,v in {'COMPANY':co,'PREPARED':prep,'SAW_LINES':lines,'SHOT':shot,'CELLS':CELLS,'LOGOS':LOGOS,'ADS_SLIDE':ads,'LOGO':logo,'ADS_1':sp.get('ads_1',''),'SOC_1':sp.get('soc_1',''),'SAW_CLASS':'' if sp.get('shot') else ' noshot','SENDER_NAME':sn,'SENDER_ROLE':sr,'SENDER_PHOTO':sf,'SENDER_POS':'50% 15%'}.items():
         out = out.replace('{{'+k+'}}', v)
+    if not sr: out = out.replace('</b><span></span></figcaption>', '</b></figcaption>')   # no title: name only
     d = os.path.join(ROOT, sp['slug'])
     if LANG:   # one folder deeper: every relative path gains a level
         assert '../../' not in out
