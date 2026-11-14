@@ -18,8 +18,7 @@ PAT = [('s_cover', '<section aria-label="§">'), ('s_offer', '<section aria-labe
        ('k2', '<b>§</b>'), ('k2p', '<p>§</p>'), ('k2t', '<span class="t">§</span>'),
        ('k3', '<b>§</b>'), ('k3p', '<p>§</p>'), ('k3t', '<span class="t">§</span>'),
        ('h_work', '<h2 class="in">§</h2>'),
-       ('c1y', '<span class="yr">§</span>'), ('c1p', '<p>§</p>'), ('c2y', '<span class="yr">§</span>'), ('c2p', '<p>§</p>'),
-       ('c3y', '<span class="yr">§</span>'), ('c3p', '<p>§</p>'), ('c4y', '<span class="yr">§</span>'), ('c4n', '<p class="num">§</p>'), ('c4p', '<p>§</p>'),
+       ('w1', '<p class="num">+61%</p><p>§</p>'), ('w2', '<p class="num">+46%</p><p>§</p>'), ('w3', '<p class="num">+34%</p><p>§</p>'), ('w4', '<p class="num">+39%</p><p>§</p>'), ('w5', '<p class="num">+51%</p><p>§</p>'), ('w6', '<p class="num">+78%</p><p>§</p>'),
        ('h_talk', '<h2 class="in">§</h2>'), ('btn', 'rel="noopener">§</a>'), ('next', '<span>§</span>')]
 # Big Shoulders Display and Chivo have no Cyrillic or Greek: Roboto steps in for the glyphs they miss
 FONT_A = 'family=Chivo+Mono:wght@400;500&display=swap'

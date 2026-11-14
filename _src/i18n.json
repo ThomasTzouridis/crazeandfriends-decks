@@ -39,7 +39,13 @@
   "h_talk": "Let's talk about <m>{company}</m>",
   "btn": "Book a call →",
   "role": "Head of International Growth",
-  "next": "Next"
+  "next": "Next",
+  "w1": "ad revenue in 4 months, on 7% less ad spend",
+  "w2": "ad revenue in 3 months, on 4% more ad spend",
+  "w3": "ad revenue in 3 months, on the same ad spend",
+  "w4": "ad revenue in 3 months, on the same ad spend",
+  "w5": "ad revenue in 4 months, on 11% less ad spend",
+  "w6": "ad revenue in 5 months, on 21% more ad spend"
  },
  "bg": {
   "s_cover": "Корица",
@@ -81,7 +87,13 @@
   "h_talk": "Да поговорим за <m>{company}</m>",
   "btn": "Запази разговор →",
   "role": "Head of International Growth",
-  "next": "Напред"
+  "next": "Напред",
+  "w1": "приходи от реклами за 4 месеца, при 7% по-малък рекламен бюджет",
+  "w2": "приходи от реклами за 3 месеца, при 4% по-голям рекламен бюджет",
+  "w3": "приходи от реклами за 3 месеца, при същия рекламен бюджет",
+  "w4": "приходи от реклами за 3 месеца, при същия рекламен бюджет",
+  "w5": "приходи от реклами за 4 месеца, при 11% по-малък рекламен бюджет",
+  "w6": "приходи от реклами за 5 месеца, при 21% по-голям рекламен бюджет"
  },
  "cs": {
   "s_cover": "Úvod",
@@ -123,7 +135,13 @@
   "h_talk": "Pojďme probrat firmu <m>{company}</m>",
   "btn": "Domluvit hovor →",
   "role": "Head of International Growth",
-  "next": "Dál"
+  "next": "Dál",
+  "w1": "příjmů z reklam za 4 měsíce, při o 7% nižších výdajích na reklamu",
+  "w2": "příjmů z reklam za 3 měsíce, při o 4% vyšších výdajích na reklamu",
+  "w3": "příjmů z reklam za 3 měsíce, při stejných výdajích na reklamu",
+  "w4": "příjmů z reklam za 3 měsíce, při stejných výdajích na reklamu",
+  "w5": "příjmů z reklam za 4 měsíce, při o 11% nižších výdajích na reklamu",
+  "w6": "příjmů z reklam za 5 měsíců, při o 21% vyšších výdajích na reklamu"
  },
  "da": {
   "s_cover": "Forside",
@@ -165,7 +183,13 @@
   "h_talk": "Lad os tale om <m>{company}</m>",
   "btn": "Book et opkald →",
   "role": "Head of International Growth",
-  "next": "Næste"
+  "next": "Næste",
+  "w1": "annonceomsætning på 4 måneder, med 7% lavere annoncebudget",
+  "w2": "annonceomsætning på 3 måneder, med 4% højere annoncebudget",
+  "w3": "annonceomsætning på 3 måneder, med samme annoncebudget",
+  "w4": "annonceomsætning på 3 måneder, med samme annoncebudget",
+  "w5": "annonceomsætning på 4 måneder, med 11% lavere annoncebudget",
+  "w6": "annonceomsætning på 5 måneder, med 21% højere annoncebudget"
  },
  "de": {
   "s_cover": "Cover",
@@ -207,7 +231,13 @@
   "h_talk": "Lass uns über <m>{company}</m> reden",
   "btn": "Call buchen →",
   "role": "Head of International Growth",
-  "next": "Weiter"
+  "next": "Weiter",
+  "w1": "Werbeumsatz in 4 Monaten, bei 7% weniger Werbebudget",
+  "w2": "Werbeumsatz in 3 Monaten, bei 4% mehr Werbebudget",
+  "w3": "Werbeumsatz in 3 Monaten, bei gleichem Werbebudget",
+  "w4": "Werbeumsatz in 3 Monaten, bei gleichem Werbebudget",
+  "w5": "Werbeumsatz in 4 Monaten, bei 11% weniger Werbebudget",
+  "w6": "Werbeumsatz in 5 Monaten, bei 21% mehr Werbebudget"
  },
  "el": {
   "s_cover": "Εξώφυλλο",
@@ -249,7 +279,13 @@
   "h_talk": "Ας μιλήσουμε για την <m>{company}</m>",
   "btn": "Κλείσε μια κλήση →",
   "role": "Head of International Growth",
-  "next": "Επόμενο"
+  "next": "Επόμενο",
+  "w1": "έσοδα από διαφημίσεις σε 4 μήνες, με 7% λιγότερη διαφημιστική δαπάνη",
+  "w2": "έσοδα από διαφημίσεις σε 3 μήνες, με 4% περισσότερη διαφημιστική δαπάνη",
+  "w3": "έσοδα από διαφημίσεις σε 3 μήνες, με την ίδια διαφημιστική δαπάνη",
+  "w4": "έσοδα από διαφημίσεις σε 3 μήνες, με την ίδια διαφημιστική δαπάνη",
+  "w5": "έσοδα από διαφημίσεις σε 4 μήνες, με 11% λιγότερη διαφημιστική δαπάνη",
+  "w6": "έσοδα από διαφημίσεις σε 5 μήνες, με 21% περισσότερη διαφημιστική δαπάνη"
  },
  "es": {
   "s_cover": "Portada",
@@ -291,7 +327,13 @@
   "h_talk": "Hablemos de <m>{company}</m>",
   "btn": "Agenda una llamada →",
   "role": "Head of International Growth",
-  "next": "Siguiente"
+  "next": "Siguiente",
+  "w1": "en ingresos por anuncios en 4 meses, con un 7% menos de inversión publicitaria",
+  "w2": "en ingresos por anuncios en 3 meses, con un 4% más de inversión publicitaria",
+  "w3": "en ingresos por anuncios en 3 meses, con la misma inversión publicitaria",
+  "w4": "en ingresos por anuncios en 3 meses, con la misma inversión publicitaria",
+  "w5": "en ingresos por anuncios en 4 meses, con un 11% menos de inversión publicitaria",
+  "w6": "en ingresos por anuncios en 5 meses, con un 21% más de inversión publicitaria"
  },
  "et": {
   "s_cover": "Kaas",
@@ -333,7 +375,13 @@
   "h_talk": "Räägime ettevõttest <m>{company}</m>",
   "btn": "Broneeri kõne →",
   "role": "Head of International Growth",
-  "next": "Edasi"
+  "next": "Edasi",
+  "w1": "reklaamitulu 4 kuuga, 7% väiksema reklaamieelarvega",
+  "w2": "reklaamitulu 3 kuuga, 4% suurema reklaamieelarvega",
+  "w3": "reklaamitulu 3 kuuga, sama reklaamieelarvega",
+  "w4": "reklaamitulu 3 kuuga, sama reklaamieelarvega",
+  "w5": "reklaamitulu 4 kuuga, 11% väiksema reklaamieelarvega",
+  "w6": "reklaamitulu 5 kuuga, 21% suurema reklaamieelarvega"
  },
  "fi": {
   "s_cover": "Kansi",
@@ -375,7 +423,13 @@
   "h_talk": "Puhutaan yrityksestä <m>{company}</m>",
   "btn": "Varaa puhelu →",
   "role": "Head of International Growth",
-  "next": "Seuraava"
+  "next": "Seuraava",
+  "w1": "mainostuloja 4 kuukaudessa, 7% pienemmällä mainosbudjetilla",
+  "w2": "mainostuloja 3 kuukaudessa, 4% suuremmalla mainosbudjetilla",
+  "w3": "mainostuloja 3 kuukaudessa, samalla mainosbudjetilla",
+  "w4": "mainostuloja 3 kuukaudessa, samalla mainosbudjetilla",
+  "w5": "mainostuloja 4 kuukaudessa, 11% pienemmällä mainosbudjetilla",
+  "w6": "mainostuloja 5 kuukaudessa, 21% suuremmalla mainosbudjetilla"
  },
  "fr": {
   "s_cover": "Couverture",
@@ -417,7 +471,13 @@
   "h_talk": "Parlons de <m>{company}</m>",
   "btn": "Réserver un appel →",
   "role": "Head of International Growth",
-  "next": "Suivant"
+  "next": "Suivant",
+  "w1": "de revenus publicitaires en 4 mois, avec 7% de budget publicitaire en moins",
+  "w2": "de revenus publicitaires en 3 mois, avec 4% de budget publicitaire en plus",
+  "w3": "de revenus publicitaires en 3 mois, avec le même budget publicitaire",
+  "w4": "de revenus publicitaires en 3 mois, avec le même budget publicitaire",
+  "w5": "de revenus publicitaires en 4 mois, avec 11% de budget publicitaire en moins",
+  "w6": "de revenus publicitaires en 5 mois, avec 21% de budget publicitaire en plus"
  },
  "hr": {
   "s_cover": "Naslovnica",
@@ -459,7 +519,13 @@
   "h_talk": "Razgovarajmo o brendu <m>{company}</m>",
   "btn": "Rezerviraj poziv →",
   "role": "Head of International Growth",
-  "next": "Dalje"
+  "next": "Dalje",
+  "w1": "prihoda od oglasa u 4 mjeseca, uz 7% manje ulaganja u oglase",
+  "w2": "prihoda od oglasa u 3 mjeseca, uz 4% više ulaganja u oglase",
+  "w3": "prihoda od oglasa u 3 mjeseca, uz ista ulaganja u oglase",
+  "w4": "prihoda od oglasa u 3 mjeseca, uz ista ulaganja u oglase",
+  "w5": "prihoda od oglasa u 4 mjeseca, uz 11% manje ulaganja u oglase",
+  "w6": "prihoda od oglasa u 5 mjeseci, uz 21% više ulaganja u oglase"
  },
  "hu": {
   "s_cover": "Borító",
@@ -501,7 +567,13 @@
   "h_talk": "Beszéljünk <m>{company}</m> kapcsán",
   "btn": "Időpontfoglalás →",
   "role": "Head of International Growth",
-  "next": "Tovább"
+  "next": "Tovább",
+  "w1": "hirdetési bevétel 4 hónap alatt, 7%-kal kevesebb hirdetési költéssel",
+  "w2": "hirdetési bevétel 3 hónap alatt, 4%-kal több hirdetési költéssel",
+  "w3": "hirdetési bevétel 3 hónap alatt, ugyanakkora hirdetési költéssel",
+  "w4": "hirdetési bevétel 3 hónap alatt, ugyanakkora hirdetési költéssel",
+  "w5": "hirdetési bevétel 4 hónap alatt, 11%-kal kevesebb hirdetési költéssel",
+  "w6": "hirdetési bevétel 5 hónap alatt, 21%-kal több hirdetési költéssel"
  },
  "it": {
   "s_cover": "Copertina",
@@ -543,7 +615,13 @@
   "h_talk": "Parliamo di <m>{company}</m>",
   "btn": "Prenota una call →",
   "role": "Head of International Growth",
-  "next": "Avanti"
+  "next": "Avanti",
+  "w1": "di ricavi pubblicitari in 4 mesi, con il 7% di spesa pubblicitaria in meno",
+  "w2": "di ricavi pubblicitari in 3 mesi, con il 4% di spesa pubblicitaria in più",
+  "w3": "di ricavi pubblicitari in 3 mesi, con la stessa spesa pubblicitaria",
+  "w4": "di ricavi pubblicitari in 3 mesi, con la stessa spesa pubblicitaria",
+  "w5": "di ricavi pubblicitari in 4 mesi, con il 11% di spesa pubblicitaria in meno",
+  "w6": "di ricavi pubblicitari in 5 mesi, con il 21% di spesa pubblicitaria in più"
  },
  "lt": {
   "s_cover": "Viršelis",
@@ -585,7 +663,13 @@
   "h_talk": "<m>{company}</m>: pakalbėkime",
   "btn": "Rezervuok skambutį →",
   "role": "Head of International Growth",
-  "next": "Toliau"
+  "next": "Toliau",
+  "w1": "reklamos pajamų per 4 mėnesius, su 7% mažesnėmis reklamos išlaidomis",
+  "w2": "reklamos pajamų per 3 mėnesius, su 4% didesnėmis reklamos išlaidomis",
+  "w3": "reklamos pajamų per 3 mėnesius, su tomis pačiomis reklamos išlaidomis",
+  "w4": "reklamos pajamų per 3 mėnesius, su tomis pačiomis reklamos išlaidomis",
+  "w5": "reklamos pajamų per 4 mėnesius, su 11% mažesnėmis reklamos išlaidomis",
+  "w6": "reklamos pajamų per 5 mėnesius, su 21% didesnėmis reklamos išlaidomis"
  },
  "lv": {
   "s_cover": "Vāks",
@@ -627,7 +711,13 @@
   "h_talk": "<m>{company}</m>: parunāsim",
   "btn": "Piesaki zvanu →",
   "role": "Head of International Growth",
-  "next": "Tālāk"
+  "next": "Tālāk",
+  "w1": "reklāmas ieņēmumu 4 mēnešos, ar 7% mazākiem reklāmas izdevumiem",
+  "w2": "reklāmas ieņēmumu 3 mēnešos, ar 4% lielākiem reklāmas izdevumiem",
+  "w3": "reklāmas ieņēmumu 3 mēnešos, ar tiem pašiem reklāmas izdevumiem",
+  "w4": "reklāmas ieņēmumu 3 mēnešos, ar tiem pašiem reklāmas izdevumiem",
+  "w5": "reklāmas ieņēmumu 4 mēnešos, ar 11% mazākiem reklāmas izdevumiem",
+  "w6": "reklāmas ieņēmumu 5 mēnešos, ar 21% lielākiem reklāmas izdevumiem"
  },
  "mk": {
   "s_cover": "Насловна",
@@ -669,7 +759,13 @@
   "h_talk": "Да разговараме за <m>{company}</m>",
   "btn": "Закажи разговор →",
   "role": "Head of International Growth",
-  "next": "Следно"
+  "next": "Следно",
+  "w1": "приходи од реклами за 4 месеци, со 7% помал буџет за реклами",
+  "w2": "приходи од реклами за 3 месеци, со 4% поголем буџет за реклами",
+  "w3": "приходи од реклами за 3 месеци, со ист буџет за реклами",
+  "w4": "приходи од реклами за 3 месеци, со ист буџет за реклами",
+  "w5": "приходи од реклами за 4 месеци, со 11% помал буџет за реклами",
+  "w6": "приходи од реклами за 5 месеци, со 21% поголем буџет за реклами"
  },
  "nl": {
   "s_cover": "Cover",
@@ -711,7 +807,13 @@
   "h_talk": "Laten we praten over <m>{company}</m>",
   "btn": "Plan een call →",
   "role": "Head of International Growth",
-  "next": "Volgende"
+  "next": "Volgende",
+  "w1": "advertentie-omzet in 4 maanden, met 7% minder advertentiebudget",
+  "w2": "advertentie-omzet in 3 maanden, met 4% meer advertentiebudget",
+  "w3": "advertentie-omzet in 3 maanden, met hetzelfde advertentiebudget",
+  "w4": "advertentie-omzet in 3 maanden, met hetzelfde advertentiebudget",
+  "w5": "advertentie-omzet in 4 maanden, met 11% minder advertentiebudget",
+  "w6": "advertentie-omzet in 5 maanden, met 21% meer advertentiebudget"
  },
  "no": {
   "s_cover": "Forside",
@@ -753,7 +855,13 @@
   "h_talk": "La oss snakke om <m>{company}</m>",
   "btn": "Book en samtale →",
   "role": "Head of International Growth",
-  "next": "Neste"
+  "next": "Neste",
+  "w1": "annonseinntekter på 4 måneder, med 7% lavere annonsebudsjett",
+  "w2": "annonseinntekter på 3 måneder, med 4% høyere annonsebudsjett",
+  "w3": "annonseinntekter på 3 måneder, med samme annonsebudsjett",
+  "w4": "annonseinntekter på 3 måneder, med samme annonsebudsjett",
+  "w5": "annonseinntekter på 4 måneder, med 11% lavere annonsebudsjett",
+  "w6": "annonseinntekter på 5 måneder, med 21% høyere annonsebudsjett"
  },
  "pl": {
   "s_cover": "Okładka",
@@ -795,7 +903,13 @@
   "h_talk": "Porozmawiajmy o firmie <m>{company}</m>",
   "btn": "Umów rozmowę →",
   "role": "Head of International Growth",
-  "next": "Dalej"
+  "next": "Dalej",
+  "w1": "przychodów z reklam w 4 miesiące, przy budżecie reklamowym niższym o 7%",
+  "w2": "przychodów z reklam w 3 miesiące, przy budżecie reklamowym wyższym o 4%",
+  "w3": "przychodów z reklam w 3 miesiące, przy tym samym budżecie reklamowym",
+  "w4": "przychodów z reklam w 3 miesiące, przy tym samym budżecie reklamowym",
+  "w5": "przychodów z reklam w 4 miesiące, przy budżecie reklamowym niższym o 11%",
+  "w6": "przychodów z reklam w 5 miesięcy, przy budżecie reklamowym wyższym o 21%"
  },
  "pt": {
   "s_cover": "Capa",
@@ -837,7 +951,13 @@
   "h_talk": "Vamos falar de <m>{company}</m>",
   "btn": "Marcar chamada →",
   "role": "Head of International Growth",
-  "next": "Seguinte"
+  "next": "Seguinte",
+  "w1": "em receita de anúncios em 4 meses, com 7% menos investimento em anúncios",
+  "w2": "em receita de anúncios em 3 meses, com 4% mais investimento em anúncios",
+  "w3": "em receita de anúncios em 3 meses, com o mesmo investimento em anúncios",
+  "w4": "em receita de anúncios em 3 meses, com o mesmo investimento em anúncios",
+  "w5": "em receita de anúncios em 4 meses, com 11% menos investimento em anúncios",
+  "w6": "em receita de anúncios em 5 meses, com 21% mais investimento em anúncios"
  },
  "ptbr": {
   "s_cover": "Capa",
@@ -879,7 +999,13 @@
   "h_talk": "Vamos falar de <m>{company}</m>",
   "btn": "Agendar reunião →",
   "role": "Head of International Growth",
-  "next": "Próximo"
+  "next": "Próximo",
+  "w1": "em receita de anúncios em 4 meses, com 7% menos investimento em anúncios",
+  "w2": "em receita de anúncios em 3 meses, com 4% mais investimento em anúncios",
+  "w3": "em receita de anúncios em 3 meses, com o mesmo investimento em anúncios",
+  "w4": "em receita de anúncios em 3 meses, com o mesmo investimento em anúncios",
+  "w5": "em receita de anúncios em 4 meses, com 11% menos investimento em anúncios",
+  "w6": "em receita de anúncios em 5 meses, com 21% mais investimento em anúncios"
  },
  "ro": {
   "s_cover": "Copertă",
@@ -921,7 +1047,13 @@
   "h_talk": "Hai să vorbim despre <m>{company}</m>",
   "btn": "Programează un apel →",
   "role": "Head of International Growth",
-  "next": "Mai departe"
+  "next": "Mai departe",
+  "w1": "venituri din reclame în 4 luni, cu 7% mai puțin buget de reclame",
+  "w2": "venituri din reclame în 3 luni, cu 4% mai mult buget de reclame",
+  "w3": "venituri din reclame în 3 luni, cu același buget de reclame",
+  "w4": "venituri din reclame în 3 luni, cu același buget de reclame",
+  "w5": "venituri din reclame în 4 luni, cu 11% mai puțin buget de reclame",
+  "w6": "venituri din reclame în 5 luni, cu 21% mai mult buget de reclame"
  },
  "sk": {
   "s_cover": "Úvod",
@@ -963,7 +1095,13 @@
   "h_talk": "Poďme prebrať firmu <m>{company}</m>",
   "btn": "Dohodnúť hovor →",
   "role": "Head of International Growth",
-  "next": "Ďalej"
+  "next": "Ďalej",
+  "w1": "príjmov z reklám za 4 mesiace, pri o 7% nižších výdavkoch na reklamu",
+  "w2": "príjmov z reklám za 3 mesiace, pri o 4% vyšších výdavkoch na reklamu",
+  "w3": "príjmov z reklám za 3 mesiace, pri rovnakých výdavkoch na reklamu",
+  "w4": "príjmov z reklám za 3 mesiace, pri rovnakých výdavkoch na reklamu",
+  "w5": "príjmov z reklám za 4 mesiace, pri o 11% nižších výdavkoch na reklamu",
+  "w6": "príjmov z reklám za 5 mesiacov, pri o 21% vyšších výdavkoch na reklamu"
  },
  "sl": {
   "s_cover": "Naslovnica",
@@ -1005,7 +1143,13 @@
   "h_talk": "Pogovorimo se o podjetju <m>{company}</m>",
   "btn": "Rezerviraj klic →",
   "role": "Head of International Growth",
-  "next": "Naprej"
+  "next": "Naprej",
+  "w1": "prihodkov od oglasov v 4 mesecih, ob 7% nižjem oglaševalskem proračunu",
+  "w2": "prihodkov od oglasov v 3 mesecih, ob 4% višjem oglaševalskem proračunu",
+  "w3": "prihodkov od oglasov v 3 mesecih, ob enakem oglaševalskem proračunu",
+  "w4": "prihodkov od oglasov v 3 mesecih, ob enakem oglaševalskem proračunu",
+  "w5": "prihodkov od oglasov v 4 mesecih, ob 11% nižjem oglaševalskem proračunu",
+  "w6": "prihodkov od oglasov v 5 mesecih, ob 21% višjem oglaševalskem proračunu"
  },
  "sr": {
   "s_cover": "Naslovna",
@@ -1047,7 +1191,13 @@
   "h_talk": "Razgovarajmo o brendu <m>{company}</m>",
   "btn": "Zakaži poziv →",
   "role": "Head of International Growth",
-  "next": "Dalje"
+  "next": "Dalje",
+  "w1": "prihoda od oglasa za 4 meseca, uz 7% manje ulaganja u oglase",
+  "w2": "prihoda od oglasa za 3 meseca, uz 4% više ulaganja u oglase",
+  "w3": "prihoda od oglasa za 3 meseca, uz ista ulaganja u oglase",
+  "w4": "prihoda od oglasa za 3 meseca, uz ista ulaganja u oglase",
+  "w5": "prihoda od oglasa za 4 meseca, uz 11% manje ulaganja u oglase",
+  "w6": "prihoda od oglasa za 5 meseci, uz 21% više ulaganja u oglase"
  },
  "sv": {
   "s_cover": "Omslag",
@@ -1089,7 +1239,13 @@
   "h_talk": "Låt oss prata om <m>{company}</m>",
   "btn": "Boka ett samtal →",
   "role": "Head of International Growth",
-  "next": "Nästa"
+  "next": "Nästa",
+  "w1": "annonsintäkter på 4 månader, med 7% lägre annonsbudget",
+  "w2": "annonsintäkter på 3 månader, med 4% högre annonsbudget",
+  "w3": "annonsintäkter på 3 månader, med samma annonsbudget",
+  "w4": "annonsintäkter på 3 månader, med samma annonsbudget",
+  "w5": "annonsintäkter på 4 månader, med 11% lägre annonsbudget",
+  "w6": "annonsintäkter på 5 månader, med 21% högre annonsbudget"
  },
  "tr": {
   "s_cover": "Kapak",
@@ -1131,7 +1287,13 @@
   "h_talk": "<m>{company}</m> için konuşalım",
   "btn": "Görüşme planla →",
   "role": "Head of International Growth",
-  "next": "Sonraki"
+  "next": "Sonraki",
+  "w1": "reklam geliri 4 ayda, 7% daha az reklam harcamasıyla",
+  "w2": "reklam geliri 3 ayda, 4% daha fazla reklam harcamasıyla",
+  "w3": "reklam geliri 3 ayda, aynı reklam harcamasıyla",
+  "w4": "reklam geliri 3 ayda, aynı reklam harcamasıyla",
+  "w5": "reklam geliri 4 ayda, 11% daha az reklam harcamasıyla",
+  "w6": "reklam geliri 5 ayda, 21% daha fazla reklam harcamasıyla"
  },
  "uk": {
   "s_cover": "Обкладинка",
@@ -1173,6 +1335,12 @@
   "h_talk": "<m>{company}</m>: поговорімо",
   "btn": "Обрати час →",
   "role": "Head of International Growth",
-  "next": "Далі"
+  "next": "Далі",
+  "w1": "доходу від реклами за 4 місяці, при на 7% меншому рекламному бюджеті",
+  "w2": "доходу від реклами за 3 місяці, при на 4% більшому рекламному бюджеті",
+  "w3": "доходу від реклами за 3 місяці, при тому ж рекламному бюджеті",
+  "w4": "доходу від реклами за 3 місяці, при тому ж рекламному бюджеті",
+  "w5": "доходу від реклами за 4 місяці, при на 11% меншому рекламному бюджеті",
+  "w6": "доходу від реклами за 5 місяців, при на 21% більшому рекламному бюджеті"
  }
 }

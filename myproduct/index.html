@@ -117,6 +117,15 @@ img.wm{display:block;height:1.62em;width:auto;max-width:none}
 .s.top{justify-content:flex-start;padding-top:6.5cqw}
 .vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;margin-top:2.4cqw;transition:grid-template-columns .8s cubic-bezier(.2,.7,.2,1),margin .5s}
 .vgrid.open{margin-top:1.4cqw}
+html:not(.cfphone) .vgrid.six{grid-template-columns:repeat(6,1fr)}
+html:not(.cfphone) .vgrid.six .vid{height:7.6cqw}
+html:not(.cfphone) .vgrid.six .case h3{font-size:1.6cqw}
+html:not(.cfphone) .vgrid.six .case .num{font-size:2.1cqw}
+html:not(.cfphone) .vgrid.six .case p:not(.num){font-size:1.05cqw}
+html:not(.cfphone) .vgrid.six.open .vid{height:24.7cqw}
+html:not(.cfphone) .vgrid.six:not(.open) .play{width:2.6cqw;height:2.6cqw;left:.7cqw;bottom:.7cqw}
+html:not(.cfphone) .vgrid.six:not(.open) .play::after{border-width:.45cqw 0 .45cqw .75cqw}
+div.vid{cursor:default}
 .card{display:flex;flex-direction:column;gap:.6cqw;min-width:0}
 .vid{position:relative;display:block;width:100%;height:11.7cqw;border:0;padding:0;cursor:pointer;background:var(--ink) center/cover;overflow:hidden;transition:height .8s cubic-bezier(.2,.7,.2,1),width .8s cubic-bezier(.2,.7,.2,1),box-shadow .6s}
 .vid::before{content:"";position:absolute;inset:0;background:inherit;transition:filter .6s,transform .8s cubic-bezier(.2,.7,.2,1)}
@@ -131,6 +140,9 @@ img.wm{display:block;height:1.62em;width:auto;max-width:none}
 .vid .x{position:absolute;top:.8cqw;right:.8cqw;z-index:3;width:2.6cqw;height:2.6cqw;border-radius:50%;background:var(--hi);color:var(--ink);font:700 1.9cqw/2.6cqw var(--body);text-align:center;display:none;box-shadow:0 .3cqw .9cqw rgba(0,0,0,.35)}
 .vid .x:hover{background:var(--ink);color:var(--hi)}
 .case .yr{font:500 .95cqw var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:.4cqw}
+.case h3 a.go{color:inherit;text-decoration:none;font-size:.62em;vertical-align:.32em;margin-left:.3em;opacity:.5;transition:opacity .2s,color .2s}.case h3 a.go:hover{opacity:1;color:#F0E933}
+.vgrid.six .case h3{margin-top:.7cqw}
+html.cfphone .vgrid.six .case h3{margin-top:6px}
 .case h3,.tm h3{font:800 2cqw/1 var(--display);text-transform:uppercase;margin:0;transition:font-size .5s}
 .case .num{font:800 2.6cqw/1 var(--display);align-self:flex-start;background:var(--hi);padding:.1em .2em 0;margin-top:.3cqw}
 .case p{font-size:1.2cqw;line-height:1.4}
@@ -358,7 +370,7 @@ html.cfphone #nxt span:last-of-type{overflow:hidden;text-overflow:ellipsis}
 
 <section aria-label="More of our work"><div class="s top">
   <h2 class="in">More of <span class="mark">our work</span></h2>
-  <div class="cases vgrid in"><div class="case card"><button class="vid" data-v="lokation" style="background-image:url(../assets/work/lokation.jpg)" aria-label="Play LoKation video"><span class="lbl">LoKation</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Real estate</span><h3>LoKation</h3><p class="num">1,039</p><p>agents recruited across 6 markets in 180 days</p></div><div class="case card"><button class="vid" data-v="essi" style="background-image:url(../assets/work/essi.jpg)" aria-label="Play ESSI video"><span class="lbl">ESSI</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Medical clinic</span><h3>ESSI</h3><p class="num">$150 → $38</p><p>cost per lead in four months, surgical capacity full</p></div><div class="case card"><button class="vid" data-v="optionsplaybook" style="background-image:url(../assets/work/optionsplaybook.jpg)" aria-label="Play Options Playbook video"><span class="lbl">Options Playbook</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Education</span><h3>Options Playbook</h3><p class="num">+1,400%</p><p>book sales, with 95% of organic traffic kept through the SEO migration</p></div><div class="case card"><button class="vid" data-v="whippedvelvet" style="background-image:url(../assets/work/whippedvelvet.jpg)" aria-label="Play Whipped Velvet video"><span class="lbl">Whipped Velvet</span><span class="play"></span><span class="x" aria-hidden="true">×</span></button><span class="yr">2026 · Skincare</span><h3>Whipped Velvet</h3><p class="num">0 → live store</p><p>logo, packaging, copy and a Shopify store, built from nothing by one team</p></div></div>
+  <div class="cases vgrid six in"><div class="case card"><div class="vid" role="img" aria-label="DDG Fashion" style="background-image:url(../assets/work/ddgfashion.jpg?v=2)"></div><h3>DDG Fashion<a class="go" href="https://www.ddgfashion.rs" target="_blank" rel="noopener" aria-label="DDG Fashion website">↗</a></h3><p class="num">+61%</p><p>ad revenue in 4 months, on 7% less ad spend</p></div><div class="case card"><div class="vid" role="img" aria-label="Bishop &amp; Bishop" style="background-image:url(../assets/work/bishopbishop.jpg?v=2)"></div><h3>Bishop &amp; Bishop<a class="go" href="https://bishopbishoptokyo.com" target="_blank" rel="noopener" aria-label="Bishop &amp; Bishop website">↗</a></h3><p class="num">+46%</p><p>ad revenue in 3 months, on 4% more ad spend</p></div><div class="case card"><div class="vid" role="img" aria-label="Whipped Velvet" style="background-image:url(../assets/work/whippedvelvet.jpg)"></div><h3>Whipped Velvet<a class="go" href="https://whippedvelvet.com" target="_blank" rel="noopener" aria-label="Whipped Velvet website">↗</a></h3><p class="num">+34%</p><p>ad revenue in 3 months, on the same ad spend</p></div><div class="case card"><div class="vid" role="img" aria-label="LoKation" style="background-image:url(../assets/work/lokation.jpg)"></div><h3>LoKation<a class="go" href="https://lokationre.com" target="_blank" rel="noopener" aria-label="LoKation website">↗</a></h3><p class="num">+39%</p><p>ad revenue in 3 months, on the same ad spend</p></div><div class="case card"><div class="vid" role="img" aria-label="ESSI" style="background-image:url(../assets/work/essi.jpg)"></div><h3>ESSI<a class="go" href="https://internationalendo.com" target="_blank" rel="noopener" aria-label="ESSI website">↗</a></h3><p class="num">+51%</p><p>ad revenue in 4 months, on 11% less ad spend</p></div><div class="case card"><div class="vid" role="img" aria-label="Options Playbook" style="background-image:url(../assets/work/optionsplaybook.jpg?v=2)"></div><h3>Options Playbook<a class="go" href="https://www.optionsplaybook.com" target="_blank" rel="noopener" aria-label="Options Playbook website">↗</a></h3><p class="num">+78%</p><p>ad revenue in 5 months, on 21% more ad spend</p></div></div>
   <div class="marquee in" aria-label="Clients"><div class="track"><img src="../assets/logos/l1.svg" alt=""><img src="../assets/logos/l2.svg" alt=""><img src="../assets/logos/l4.svg" alt=""><img src="../assets/logos/l5.svg" alt=""><img src="../assets/logos/l6.svg" alt=""><img src="../assets/logos/l7.svg" alt=""><img src="../assets/logos/l8.svg" alt=""><img src="../assets/logos/l9.svg" alt=""><img src="../assets/logos/l10.svg" alt=""><img src="../assets/logos/l1.svg" alt=""><img src="../assets/logos/l2.svg" alt=""><img src="../assets/logos/l4.svg" alt=""><img src="../assets/logos/l5.svg" alt=""><img src="../assets/logos/l6.svg" alt=""><img src="../assets/logos/l7.svg" alt=""><img src="../assets/logos/l8.svg" alt=""><img src="../assets/logos/l9.svg" alt=""><img src="../assets/logos/l10.svg" alt=""></div></div>
 </div></section>
 
@@ -415,7 +427,7 @@ const stop=g=>{g.querySelectorAll('.on').forEach(c=>c.classList.remove('on'));g.
 const closeAll=()=>document.querySelectorAll('.vgrid.open').forEach(g=>{stop(g);g.classList.remove('open');g.style.gridTemplateColumns='';});
 document.addEventListener('click',e=>{
   if(e.target.closest('.x')){e.preventDefault();closeAll();return;}
-  const v=e.target.closest('.vid');if(!v)return;e.preventDefault();
+  const v=e.target.closest('.vid');if(!v||!v.dataset.v)return;e.preventDefault();
   const card=v.closest('.card'),grid=card.parentElement;if(card.classList.contains('on'))return;
   stop(grid);const cards=[...grid.children],i=cards.indexOf(card);
   grid.style.gridTemplateColumns=cards.map((c,j)=>j===i?'5fr':'1fr').join(' ');
@@ -457,7 +469,7 @@ const idx=()=>{try{if(phone)return(+document.querySelector('.pc b').textContent|
 let max=0,act=0,last=Date.now();
 send('open',{ref:document.referrer||'',ua:navigator.userAgent,w:innerWidth,tz:(Intl.DateTimeFormat().resolvedOptions().timeZone||''),lang:navigator.language||'',total:tot,phone});
 setInterval(()=>{const n=Date.now();if(document.visibilityState==='visible')act+=n-last;last=n;const i=idx();if(i>max){max=i;if(i>1)send('slide',{max,total:tot})}},1000);
-document.addEventListener('click',e=>{const v=e.target.closest('.vid');if(v)send('video',{v:v.dataset.v});if(e.target.closest('a[href*="calendar.app.google"]'))send('book',{max})},true);
+document.addEventListener('click',e=>{const v=e.target.closest('.vid');if(v&&v.dataset.v)send('video',{v:v.dataset.v});if(e.target.closest('a[href*="calendar.app.google"]'))send('book',{max})},true);
 let gone=0;const bye=()=>{if(gone)return;gone=1;send('leave',{secs:Math.round(act/1000),max})};document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')bye();else gone=0});addEventListener('pagehide',bye);
 setInterval(()=>{if(document.visibilityState==='visible')send('ping',{secs:Math.round(act/1000),max})},30000);
 })();
