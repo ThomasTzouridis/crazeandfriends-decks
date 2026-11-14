@@ -1,0 +1,60 @@
+{
+ "slug": "bearhug-sports",
+ "company": "Bearhug Sports",
+ "full_name": "Gareth Hobbs",
+ "logo": "bearhug-sports.png",
+ "shot": "bearhug-sports.jpg",
+ "shot_caption": "getabearhug.com",
+ "saw_lines": [
+  "Support buyers check how returns work before they order, since a wrong size is a sleeve they cannot wear.",
+  "So a buyer who doubts the fit scrolls past, since the risk never gets answered in the first line.",
+  "Your site shows 2,713 reviews, yet 0 of 30 ads show that count, so put 2,713 on the creative and open two ads with a review quote."
+ ],
+ "sender": "Paraskevi Paraskevi",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 14 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads show site reviews"
+   ],
+   [
+    "2",
+    "different customer numbers"
+   ],
+   [
+    "0",
+    "ads mention the guarantee"
+   ]
+  ],
+  "points": [
+   [
+    "Site reviews missing from ads",
+    "Your site shows 2,713 reviews, yet 0 of 30 ads show any of those counts, so a buyer clicking through meets proof the ad never mentioned. Put 2,713 on the creative and open two ads with a named review quote."
+   ],
+   [
+    "Customer numbers conflict",
+    "9 ads say 3500 reviews, 7 say 3500 customers, and 2 say 100000+ customers, so a buyer gets conflicting stories. Retire both customer claims and pick a single verified figure, the 2,713 review count, then use it on every creative."
+   ],
+   [
+    "Guarantee missing from ads",
+    "Your site promises a 30 day money back guarantee, yet 0 of 19 ads mention it while 17 push a discount. A hesitant buyer has no reason to click. Open 3 ads with the guarantee and put it on the creative."
+   ],
+   [
+    "Shipping goes unanswered in ads",
+    "Your site explains how orders ship, yet 0 of 30 ads mention shipping or delivery, so a new buyer must leave the ad to find out. Answer it in the first line of ads for new buyers, naming free UK shipping."
+   ]
+  ],
+  "images": [
+   "bearhug-sports_1.jpg",
+   "bearhug-sports_2.jpg",
+   "bearhug-sports_3.jpg"
+  ]
+ },
+ "ads_1": "Knee-support creative opening on the guarantee and the 2,713 review count",
+ "soc_1": "Brand social strategy across Facebook, Instagram and X"
+}
