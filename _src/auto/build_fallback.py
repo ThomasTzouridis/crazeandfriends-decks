@@ -31,7 +31,7 @@ tr = {l: [b for _, b in i18n.pairs(l, co='__CO__', prep='prep_team')] + ['<span>
 dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(',', ':')).replace('</', '<' + chr(92) + '/')
 js = ('<script>(()=>{const M=' + dump(m) + ',E=' + dump(en) + ',T=' + dump(tr) + ';'
       'const e=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");const sg=location.pathname.split("/").filter(Boolean);'
-      'const r=M[(sg[0]||"").toLowerCase()]||"your brand",L=(sg[1]||"").toLowerCase(),P=T[L];let h=document.body.innerHTML;'
+      'const g=(sg[0]||"").toLowerCase(),k=Object.keys(M).filter(x=>g===x||g.startsWith(x+"-")).sort((a,b)=>b.length-a.length)[0];const r=(k&&M[k])||"your brand",L=(sg[1]||"").toLowerCase(),P=T[L];let h=document.body.innerHTML;'
       'if(P){E.forEach((a,i)=>{h=h.split(a).join("\\u0001"+i+"\\u0002")});h=h.replace(/\\u0001(\\d+)\\u0002/g,(x,i)=>P[+i]);document.documentElement.lang=L;'
       # the Next pill sits below this script, so it is not in the body yet: set its word once the page is parsed
       'const N=' + dump({l: i18n.T[l]['next'] for l in i18n.LANGS}) + ';document.addEventListener("DOMContentLoaded",()=>{const s=document.querySelector("#nxt span");if(s)s.textContent=N[L]})}'

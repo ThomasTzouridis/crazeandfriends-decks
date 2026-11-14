@@ -9,7 +9,11 @@ Every claim on those three decks was checked by hand against the site and every 
 cd _src/auto
 py deck_auto.py <slug> "<Full Name>" "<Company>" <website url> <datadir>
 ```
-- `<slug>` = the lead's `URL` custom field in HeyReach (crazeandfriends-cases.com/<slug>/), one slug per company.
+- `<slug>` = the COMPANY deck (built once per company, the model call). It is never the link a lead gets.
+- HARD RULE (Thomas 2026-11-14): the link a lead gets is ALWAYS `crazeandfriends-cases.com/<company>-<firstname>-<lastname>/` (`pslug` in the lead map,
+  `/<pslug>/<lang>/` with a language). `cf_poll.py` assigns it (`assign_pslugs`: umlauts transliterated, titles, commas and brackets dropped, a clash gets -2),
+  builds the person page from the company spec with the lead's own name on the cover and his HeyReach sender (`person_pages`, no model call)
+  and writes it into the HeyReach custom field `URL` of every campaign lead and list lead (`sync_urls`) on every run. Never a company-only link.
 - `<datadir>` holds `res.json` (resources.jsonl record), `meta.json` (meta.jsonl record), `google.json` (google.jsonl record)
   and `media/<domain>/meta_NN.jpg, google_NN.jpg`, all from the Mac: `ssh thomastzouridis@100.93.68.58`, `~/ads_ecom`.
 - Output: `_src/specs/<slug>.json`, `../<slug>/index.html`, assets in `assets/shots|clients|ads`, token log `runs/<slug>/run.json`,
@@ -161,7 +165,7 @@ schedule_table.py (the wrapper does `git fetch` + `git merge --ff-only origin/ma
 Test from the PC only with Playwright + `--host-resolver-rules=MAP macbook-air-von-thomas.tail94ea31.ts.net 185.40.234.37` and webdriver=false,
 otherwise the tailnet block eats the beacons. New decks get the tracker from the template automatically.
 
-**7. Limits.** Tracking is per deck slug: leads sharing one deck (e.g. KIABI) share the numbers. Old/example decks are tracked but have no Log row.
+**7. Limits.** Tracking is per person deck (column O = pslug); opens of the old company deck a lead was sent before 2026-11-14 are added to his row. Old/example decks are tracked but have no Log row.
 
 ## Sender on the last slide (2026-11-13)
 The "Let's talk" slide shows the HeyReach sender of the lead's campaign: photo, name, title. Spec key `sender` (HeyReach `linkedInSenderFullName`, matched by first name), table `SENDERS` in `build.py` (16 senders, photos in `assets/team`). `cf_poll.py` passes the sender of the first connected lead of a slug to `deck_auto.py` (6th argument) and to the no ads data build. No or unknown sender = Ryan Ball, as on every deck built before. A new sender = one line in `SENDERS` plus a 475x594 photo in `assets/team`.

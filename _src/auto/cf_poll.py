@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
 """craze&friends deck poller. Runs on the Mac (mac-hub job cf_decks, every 6 h), checkout ~/cf-decks.
 HeyReach campaigns in CAMPAIGNS (9 copy A + 9 copy B in workspace 172761, 2026-11-05) -> leads who connected -> one deck per company slug (deck_auto.py, ONE Haiku call)
--> git push (GitHub Pages). Every slug already resolves to the generic 404.html fallback, so a lead is never sent a dead link.
+-> git push (GitHub Pages). Then every connected lead gets HIS OWN page /<company>-<firstname>-<lastname>/ (person slug 'pslug' in the lead map,
+cover "Prepared for <lead>", his HeyReach sender) built from the company deck without a model call, and the HeyReach custom field URL of
+every lead is kept at exactly that link (Thomas 2026-11-14: a deck URL is ALWAYS company-firstname-lastname, never the company alone).
+Every slug already resolves to the generic 404.html fallback, so a lead is never sent a dead link.
 Rules: a slug is built once; a hard copy failure is never retried (no second model call), it is alerted and the fallback stays;
 an infrastructure failure before the model call is retried on later runs, max 3 attempts.
   python3 _src/auto/cf_poll.py            real run
   python3 _src/auto/cf_poll.py --dry      list who would be built, change nothing
   python3 _src/auto/cf_poll.py --slug x   force one slug (must be connected in HeyReach or --force)
 """
-import os, sys, re, json, time, shutil, subprocess, urllib.request, urllib.error, datetime, argparse
+import os, sys, re, json, time, shutil, subprocess, urllib.request, urllib.error, datetime, argparse, unicodedata
 HERE = os.path.dirname(os.path.abspath(__file__)); SRC = os.path.dirname(HERE); ROOT = os.path.dirname(SRC)
 HOME = os.path.expanduser('~')
 ADS = os.path.join(HOME, 'ads_ecom')
@@ -97,6 +100,45 @@ def ensure_tab(sv):
     sv.values().update(spreadsheetId=SHEET, range="'%s'!A1" % TAB, valueInputOption='RAW', body={'values': [HDR]}).execute()
 
 
+TR = str.maketrans({'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss', 'ø': 'o', 'å': 'a', 'æ': 'ae', 'œ': 'oe', 'đ': 'd', 'ł': 'l', 'ı': 'i', 'þ': 'th', 'ð': 'd'})
+TITLE = re.compile(r'(?i)^(mba|emba|phd|ph\.?d\.?|dr\.?|prof\.?|m\.?a\.?|m\.?sc\.?|b\.?sc\.?|b\.?a\.?|llm|ll\.?m\.?|cfa|cpa|acca|mag\.?|dipl\.?[\w.-]*|ing\.?|jr\.?|sr\.?|mr\.?|mrs\.?|ms\.?)$')
+
+
+def slugify(s):
+    s = unicodedata.normalize('NFKD', (s or '').lower().translate(TR)).encode('ascii', 'ignore').decode()
+    return re.sub(r'[^a-z0-9]+', '-', s).strip('-')
+
+
+def person_part(name):
+    """'Vicki Janssen, MBA' -> vicki-janssen, 'Tina (Oprean) Ryee' -> tina-ryee, 'Juergen Mueller' from the umlaut spelling."""
+    n = re.sub(r'\([^)]*\)|"[^"]*"|\u201c[^\u201d]*\u201d', ' ', name or '').split(',')[0]
+    return slugify(' '.join(t for t in n.split() if not TITLE.match(t)))
+
+
+def assign_pslugs(leads):
+    """Every lead of the map gets pslug = <company slug>-<firstname>-<lastname>, unique (a clash gets -2, -3). Once set it never changes,
+    because HeyReach already carries it. Returns how many were added."""
+    taken = {v['pslug'] for v in leads.values() if v.get('pslug')} | {v['slug'] for v in leads.values() if v.get('slug')}
+    n = 0
+    for lid in sorted(leads):
+        v = leads[lid]
+        if v.get('pslug') or not v.get('slug'): continue
+        base = (v['slug'] + '-' + (person_part(v.get('name')) or slugify(lid)))[:90].strip('-')
+        ps, i = base, 2
+        while ps in taken: ps = '%s-%d' % (base, i); i += 1
+        v['pslug'] = ps; taken.add(ps); n += 1
+    return n
+
+
+def save_leads(leads):
+    f = os.path.join(ROOT, '_private', 'cf_leads.json')
+    json.dump(leads, open(f + '.tmp', 'w', encoding='utf-8'), indent=1, ensure_ascii=False); os.replace(f + '.tmp', f)
+
+
+def deck_url(lead):
+    return SITE + deck_path(lead['pslug'], lead.get('lang') or '') + '/'
+
+
 def deck_path(slug, lang=''):
     """English deck /<slug>/, a lead with a language gets /<slug>/<lang>/ (lang comes from the lead map)."""
     return slug + ('/' + lang if lang else '')
@@ -115,7 +157,7 @@ def live_code(slug, lang=''):
 
 
 def verdict(c, st):
-    slug, hu = c['slug'], c.get('hr_url') or ''
+    slug, hu = c.get('pslug') or c['slug'], c.get('hr_url') or ''
     if not hu: return 'NO URL FIELD IN HEYREACH'
     want = deck_path(slug, c.get('lang') or '')
     if url_path(hu) != want: return 'URL MISMATCH: HeyReach sends /%s/, lead map says /%s/' % (url_path(hu), want)
@@ -144,13 +186,13 @@ def sync_sheet(state):
             if not a: out.append([''] * NA); continue
             slug = a.get('slug', ''); st = state.get(slug, {}) if slug else {}; k = st.get('last') or {}
             if a.get('connected') and slug:
-                chk = verdict({'slug': slug, 'lang': a.get('lang', ''), 'hr_url': a.get('hr_url', ''), 'first_ts': a['first_ts'], 'live': a.get('live')}, st)
+                chk = verdict({'slug': slug, 'pslug': a.get('pslug', ''), 'lang': a.get('lang', ''), 'hr_url': a.get('hr_url', ''), 'first_ts': a['first_ts'], 'live': a.get('live')}, st)
             elif a.get('connected'): chk = 'NOT IN LEAD MAP, no deck'
             else: chk = 'not connected yet'
             due = datetime.datetime.fromtimestamp(a['first_ts'] + 86400).strftime('%Y-%m-%d %H:%M') if a.get('connected') else ''
             ms = a.get('msg_status', '')
             out.append([a['name'], a['company'], a['sender'], a['campaign'], lid, a['status'], 'Yes' if a.get('connected') else 'No', a.get('first_seen', ''), due,
-                        ms, 'Yes' if 'repl' in ms.lower() else 'No', a.get('camp_status', ''), a.get('last_action', ''), a.get('hr_url', ''), slug,
+                        ms, 'Yes' if 'repl' in ms.lower() else 'No', a.get('camp_status', ''), a.get('last_action', ''), a.get('hr_url', ''), a.get('pslug') or slug,
                         (st.get('status', 'not started') if slug else 'no slug'), st.get('at', '') if st.get('status') == 'built' else '', st.get('attempts', ''),
                         k.get('result', ''), k.get('calls', ''), k.get('in', ''), k.get('cw', ''), k.get('cr', ''), k.get('out', ''), k.get('total', ''), k.get('secs', ''),
                         a.get('live', ''), chk, k.get('note', '') or st.get('error', '')])
@@ -198,7 +240,8 @@ def connected_leads():
                 if m and (i.get('leadCampaignStatus') or '') == 'Failed' and (ALL.get(requote(m.group(1))) or {}).get('camp_status', 'Failed') != 'Failed': continue
                 if m: ALL[requote(m.group(1))] = {'status': st, 'campaign': cid, 'sender': i.get('linkedInSenderFullName') or '', 'msg_status': i.get('leadMessageStatus') or '',
                                                   'camp_status': i.get('leadCampaignStatus') or '', 'last_action': (i.get('lastActionTime') or '')[:19].replace('T', ' '),
-                                                  'name': ('%s %s' % (pr.get('firstName') or '', pr.get('lastName') or '')).strip(), 'company': pr.get('companyName') or ''}
+                                                  'name': ('%s %s' % (pr.get('firstName') or '', pr.get('lastName') or '')).strip(), 'company': pr.get('companyName') or '',
+                                                  'purl': pr.get('profileUrl') or ''}
                 if m and st not in NOT_CONNECTED and CONNECTED.search(st):
                     out[requote(m.group(1))] = {'status': st, 'campaign': cid, 'sender': i.get('linkedInSenderFullName') or '',
                                                 'name': ('%s %s' % (pr.get('firstName') or '', pr.get('lastName') or '')).strip()}
@@ -301,6 +344,67 @@ def lite_build(slug, lead, st, t0):
     return False
 
 
+def set_url(info, link):
+    """HeyReach custom field URL of one lead, in the campaign and in its lead list (message 1 reads it)."""
+    body = {'leadMemberIdOrUrl': info['purl'], 'customFields': {'URL': link}}
+    hr('/campaign/UpdateLeadCustomFields/campaigns/%d/leads/custom-fields' % info['campaign'], KEY, body, 'PATCH')
+    if LISTS.get(info['campaign']): hr('/list/UpdateLeadCustomFields/lists/%d/leads/custom-fields' % LISTS[info['campaign']], KEY, body, 'PATCH')
+
+
+def sync_urls(leads, urls, limit=None, only=None):
+    """Every lead of the campaigns whose URL field is not exactly his person link gets it written. Returns (written, failed)."""
+    ok = bad = 0
+    for lid, info in ALL.items():
+        if only is not None and lid not in only: continue
+        lead = leads.get(lid)
+        if not lead or not lead.get('pslug') or not info.get('purl'): continue
+        want = deck_url(lead)
+        if url_path(urls.get(lid)) == url_path(want): continue
+        if limit is not None and ok + bad >= limit: break
+        try: set_url(info, want); urls[lid] = want; ok += 1
+        except Exception as e: bad += 1; say('URL field write failed', lid, e)
+        if (ok + bad) % 250 == 0: say('URL fields written:', ok, 'failed:', bad)
+    say('URL fields written:', ok, 'failed:', bad)
+    return ok, bad
+
+
+def person_pages(conn, leads, state, limit=None):
+    """Every connected lead gets /<pslug>/ (and /<pslug>/<lang>/) as soon as the company deck /<slug>/ exists: the company spec with his name
+    and his HeyReach sender, no model call. Committed once per run. Returns pages built."""
+    pf = state.setdefault('_pfail', {})
+    files, n = [], 0
+    for lid in conn:
+        lead = leads.get(lid) or {}
+        slug, ps, lang = lead.get('slug'), lead.get('pslug'), lead.get('lang') or ''
+        if not slug or not ps or not os.path.exists(os.path.join(ROOT, slug, 'index.html')): continue
+        need = [l for l in [''] + ([lang] if lang else []) if not os.path.exists(os.path.join(ROOT, ps, l, 'index.html'))]
+        if not need or pf.get(ps, 0) >= MAX_ATTEMPTS: continue
+        if limit is not None and n >= limit: break
+        csp = os.path.join(SRC, 'specs', slug + '.json')
+        sp = json.load(open(csp, encoding='utf-8')) if os.path.exists(csp) else {'company': lead['company'], 'logo': slug + '.png'}
+        sp.update(slug=ps, full_name=lead['name'], sender=conn[lid].get('sender') or lead.get('sender', ''))
+        tmp = os.path.join(HOME, 'cf-run', ps + '.person.json'); os.makedirs(os.path.dirname(tmp), exist_ok=True)
+        json.dump(sp, open(tmp, 'w', encoding='utf-8'), ensure_ascii=False)
+        try:
+            for l in need:
+                p = subprocess.run([sys.executable, os.path.join(SRC, 'build.py'), tmp] + (['--lang', l] if l else []), cwd=SRC, capture_output=True, text=True,
+                                   encoding='utf-8', errors='replace', timeout=300, env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+                f = ps + ('/' + l if l else '') + '/index.html'
+                if p.returncode or not os.path.exists(os.path.join(ROOT, f)): raise RuntimeError((p.stdout + p.stderr)[-300:])
+                files.append(f); n += 1
+        except Exception as e:
+            pf[ps] = pf.get(ps, 0) + 1
+            say('person page failed', ps, e)
+            if pf[ps] >= MAX_ATTEMPTS: alert('person page /%s/ failed %d times, the lead lands on the fallback page: %s' % (ps, pf[ps], str(e)[-200:]))
+        finally:
+            if os.path.exists(tmp): os.remove(tmp)
+    if files:
+        for i in range(0, len(files), 200): git('add', '--', *files[i:i + 200])
+        git('commit', '-q', '-m', 'person decks (auto): %d pages, company-firstname-lastname' % n)
+        say('person pages built:', n)
+    return n
+
+
 def lang_pages(conn, leads, state):
     """A connected lead with a language in the lead map gets /<slug>/<lang>/ as soon as the English deck of the slug exists. Returns pages built."""
     n = 0
@@ -395,6 +499,7 @@ def main():
     try:
         git('pull', '--rebase', '--autostash', '-q')
         leads = json.load(open(os.path.join(ROOT, '_private', 'cf_leads.json'), encoding='utf-8'))
+        if assign_pslugs(leads): save_leads(leads)
         state = json.load(open(STATE, encoding='utf-8')) if os.path.exists(STATE) else {}
         conn = connected_leads()
         say('connected leads in HeyReach:', len(conn))
@@ -411,12 +516,12 @@ def main():
             if not c:
                 c = cs[lid] = {'first_ts': time.time(), 'first_seen': now()}
             c.update(name=lead['name'], company=lead['company'], sender=info['sender'] or lead.get('sender', ''), campaign=info['campaign'],
-                     status=info['status'], slug=lead['slug'], lang=lead.get('lang', ''), hr_url=urls.get(lid, c.get('hr_url', '')))
+                     status=info['status'], slug=lead['slug'], pslug=lead.get('pslug', ''), lang=lead.get('lang', ''), hr_url=urls.get(lid, c.get('hr_url', '')))
         for lid, info in ALL.items():
             lead = leads.get(lid) or {}
             ra = al.setdefault(lid, {})
             ra.update(info); ra['connected'] = lid in conn
-            ra['name'] = lead.get('name') or info['name']; ra['company'] = lead.get('company') or info['company']; ra['slug'] = lead.get('slug', ''); ra['lang'] = lead.get('lang', '')
+            ra['name'] = lead.get('name') or info['name']; ra['company'] = lead.get('company') or info['company']; ra['slug'] = lead.get('slug', ''); ra['pslug'] = lead.get('pslug', ''); ra['lang'] = lead.get('lang', '')
             ra['hr_url'] = urls.get(lid, ra.get('hr_url', ''))
             if ra['connected'] and not ra.get('first_ts'):
                 ra['first_ts'] = (cs.get(lid) or {}).get('first_ts') or time.time(); ra['first_seen'] = (cs.get(lid) or {}).get('first_seen') or now()
@@ -438,7 +543,8 @@ def main():
         pending = [s for s in todo if state.get(s, {}).get('status') in (None, 'new', 'retry') and not os.path.exists(os.path.join(ROOT, s, 'index.html'))]
         say('slugs connected:', len(todo), 'to build:', len(pending), pending[:20])
         if a.dry:
-            for lid, c in state.get('_conn', {}).items(): print(c['company'], deck_path(c['slug'], c.get('lang') or ''), c.get('hr_url'), c['first_seen'])
+            for lid, c in state.get('_conn', {}).items(): print(c['company'], deck_path(c.get('pslug') or c['slug'], c.get('lang') or ''), c.get('hr_url'), c['first_seen'])
+            print('URL fields that would be rewritten:', sum(1 for l, i in ALL.items() if (leads.get(l) or {}).get('pslug') and url_path(urls.get(l)) != url_path(deck_url(leads[l]))))
             return
         built = 0
         for slug in pending[:PER_RUN]:
@@ -450,14 +556,20 @@ def main():
                 if state[slug]['status'] == 'failed': alert('deck for %s (/%s/) crashed %d times: %s' % (todo[slug]['company'], slug, MAX_ATTEMPTS, str(e)[-200:]))
             json.dump(state, open(STATE, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
         built += lang_pages(conn, leads, state)
+        built += person_pages(conn, leads, state)
+        json.dump(state, open(STATE, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
         if built and not push(): alert('git push FAILED after building %d decks, they are committed locally and go out on the next run' % built)
         elif not built:
             ahead = git('rev-list', '--count', '@{u}..HEAD', check=False).strip()
             if ahead not in ('', '0'): push()
+        sync_urls(leads, urls)   # after the push: a lead's link is live (or on the fallback) before HeyReach can send it
+        for lid, c in cs.items(): c['hr_url'] = urls.get(lid, c.get('hr_url', ''))
+        for lid, ra in al.items(): ra['hr_url'] = urls.get(lid, ra.get('hr_url', ''))
         done = {}
         for lid, c in cs.items():
-            k = deck_path(c['slug'], c.get('lang') or '')
-            if k not in done: done[k] = live_code(c['slug'], c.get('lang') or '')
+            ps = c.get('pslug') or c['slug']
+            k = deck_path(ps, c.get('lang') or '')
+            if k not in done: done[k] = live_code(ps, c.get('lang') or '')
             c['live'] = done[k]
             if lid in al: al[lid]['live'] = c['live']
         sync_sheet(state)

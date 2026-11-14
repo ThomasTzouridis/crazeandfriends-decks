@@ -308,7 +308,9 @@ class Ctx:
         self.st, self.leads = st, leads
         self.sids = {sid: (slug, s) for slug, a in st['slugs'].items() for sid, s in a['sids'].items()}
         self.by_slug = {}
-        for k, v in leads.items(): self.by_slug.setdefault(v['slug'], []).append(k)
+        for k, v in leads.items():
+            self.by_slug.setdefault(v['slug'], []).append(k)
+            if v.get('pslug'): self.by_slug.setdefault(v['pslug'], []).append(k)   # person deck /<company>-<first>-<last>/ (2026-11-14)
         self._hr = self._convs = self._sb = None
         self.key = None
         self.errs = []   # (row name, error) of every enrich failure this run, reported by report()
@@ -852,7 +854,7 @@ def sync_meetings(sv, st, leads, tok):
             try:
                 if enrich_row(ctx, r, lid): updates.append({'range': 'Meetings!B%d:F%d' % (rn, rn), 'values': [r[1:6]]})
             except Exception as e: P.say('enrich failed for', r[0], repr(e)[:120]); ctx.errs.append((r[0], repr(e)[:120]))   # Prospeo 429 etc: retried next run
-            if active and lid and (leads.get(lid) or {}).get('slug'): booked[leads[lid]['slug']] = start
+            if active and lid and (leads.get(lid) or {}).get('slug'): booked[leads[lid].get('pslug') or leads[lid]['slug']] = start
             if active and lid: on_booked(ctx, lid, r)
             if active: slack_booking(ctx, r, key)
             seen.append((key, r, lid, active))
@@ -860,7 +862,7 @@ def sync_meetings(sv, st, leads, tok):
         res = resolve(ctx, inv, ev)
         row = meet_row(ctx, res, inv, ev, cell, key)
         new.append(row); have[key] = (None, row)
-        if active and res['lead'] and (leads.get(res['lead']) or {}).get('slug'): booked[leads[res['lead']]['slug']] = start
+        if active and res['lead'] and (leads.get(res['lead']) or {}).get('slug'): booked[leads[res['lead']].get('pslug') or leads[res['lead']]['slug']] = start
         if active and res['lead']: on_booked(ctx, res['lead'], row); st['perf_refresh'] = True
         if active: slack_booking(ctx, row, key)
         seen.append((key, row, res['lead'], active))
@@ -914,9 +916,15 @@ def run():
     if pl['gridProperties']['columnCount'] < need:
         sv.batchUpdate(spreadsheetId=P.SHEET, body={'requests': [{'appendDimension': {'sheetId': pl['sheetId'], 'dimension': 'COLUMNS', 'length': need - pl['gridProperties']['columnCount']}}]}).execute()
     slugs = [r[0] if r else '' for r in sv.values().get(spreadsheetId=P.SHEET, range="'%s'!O2:O" % P.TAB).execute().get('values', [])]
+    comp = {v['pslug']: v['slug'] for v in leads.values() if v.get('pslug')}
+
+    def opened(s):
+        # column O is the person slug since 2026-11-14; opens of the company deck /<slug>/ that the lead was sent before still count for him
+        a, b = st['slugs'].get(s), st['slugs'].get(comp.get(s, ''))
+        return {'sids': dict((b or {}).get('sids', {}), **(a or {}).get('sids', {}))} if (a or b) else None
     rows = []
     for s in slugs:
-        a = counted(st['slugs'].get(s))
+        a = counted(opened(s))
         if not a: rows.append(['', '', '', '', '', '', '', '', booked.get(s, ''), '']); continue
         rows.append([a['opens'], a['sessions'], ts(a['first']), ts(a['last']), a['max'], a['secs'],
                      ', '.join(a['videos']), a['book'], booked.get(s, ''), where(a['sids'])])
@@ -931,10 +939,10 @@ def run():
     for r in pl_rows:
         r = r + [''] * (13 - len(r))
         if r[7] in ('', 'None'): continue
-        a = counted(st['slugs'].get(r[12])); opened = 1 if a and a['opens'] else 0
+        a = counted(opened(r[12])); opened_ = 1 if a and a['opens'] else 0
         cid = int(r[1]) if r[1].strip().isdigit() else 0
         for sc in ['all'] + (['a'] if cid in cf_perf.COPY_A else []) + (['b'] if cid in cf_perf.COPY_B else []):
-            c = per.setdefault((sc, r[0]), [0, 0]); c[0] += 1; c[1] += opened
+            c = per.setdefault((sc, r[0]), [0, 0]); c[0] += 1; c[1] += opened_
     rate = lambda m, o: ('%.1f%%' % (100.0 * o / m)) if m else ''
     data, scope = [], 'all'
     for i, cell in enumerate(sv.values().get(spreadsheetId=P.SHEET, range='Performance!A1:A80').execute().get('values', []), start=1):
