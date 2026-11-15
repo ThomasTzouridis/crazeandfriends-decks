@@ -1,0 +1,60 @@
+{
+ "slug": "la-fraise",
+ "company": "La Fraise",
+ "full_name": "Matthieu Kern",
+ "logo": "la-fraise.png",
+ "shot": "la-fraise.jpg",
+ "shot_caption": "lafraise.pro",
+ "saw_lines": [
+  "Dental offices buy by watching how a quote reaches the patient, so they judge the process before the price.",
+  "So the sale is won in the first line, where a clinic manager decides if the process looks simple.",
+  "Your 13 live ads are all still images, so buyers never see a quote move. Shoot three videos of a quote reaching a patient phone and test them against your oldest ad."
+ ],
+ "sender": "Ryan Ball",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 15 Nov 2026",
+  "stats": [
+   [
+    "13",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "video ads"
+   ],
+   [
+    "3",
+    "ads share one copy"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ]
+  ],
+  "points": [
+   [
+    "Every ad is static",
+    "None of your 13 live ads is a video. A dental quote is a process, and still frames hide the steps. Shoot three videos of a quote reaching a patient phone and test them against your oldest ad."
+   ],
+   [
+    "One copy runs three times",
+    "3 of your 6 copy ads run one identical text, so a buyer who scrolls past one sees the same words again. Keep that body copy in one ad. Rewrite the opening line and swap the image in the other two."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 13 live ads carries a proof number, so a dentist scanning the feed has nothing concrete to trust. Collect one figure you can stand behind, such as practices onboarded, and open the next three ads with it."
+   ],
+   [
+    "One opener leads the account",
+    "3 of your 6 copy ads open on the same &ldquo;Du premier contact à la&rdquo; line, so the feed repeats one voice. Test two new openers against it, one built on the 5 hours a week saved, one on setup."
+   ]
+  ],
+  "images": [
+   "la-fraise_1.jpg",
+   "la-fraise_2.jpg",
+   "la-fraise_3.jpg"
+  ]
+ },
+ "ads_1": "Quote tracking video ads with two new openers in place of the Du premier contact line",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
