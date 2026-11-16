@@ -45,28 +45,16 @@ def logo_tag(f, company):
     """Client logo next to our wordmark. Sized in em of the wordmark by equal visual area, width and height set from
     the file's own aspect ratio so it can never stretch."""
     p = os.path.join(ROOT, 'assets', 'clients', f)
-    if f.endswith('.svg'):
-        import re
-        svg = open(p, encoding='utf-8').read()
-        m = re.search(r'viewBox="([^"]+)"', svg)
-        if m:
-            vb = m.group(1).replace(',', ' ').split(); w, h = float(vb[2]), float(vb[3])
-        else:   # no viewBox (some brand SVGs only carry width/height): use those, else assume square
-            mw = re.search(r'<svg[^>]*\swidth="([\d.]+)', svg); mh = re.search(r'<svg[^>]*\sheight="([\d.]+)', svg)
-            w, h = (float(mw.group(1)), float(mh.group(1))) if mw and mh else (1.0, 1.0)
-    else:
-        from PIL import Image, ImageChops
-        im = Image.open(p).convert('RGBA')
-        # trim empty margins (transparent or white) so padding inside the file can't shrink or offset the logo
-        a = im.getchannel('A').point(lambda v: 255 if v > 8 else 0)
-        ink = ImageChops.multiply(a, im.convert('L').point(lambda v: 255 if v < 245 else 0))
-        bb = ink.getbbox() or a.getbbox()
-        if bb and bb != (0, 0) + im.size: im = im.crop(bb); im.save(p); print('trimmed', f)
-        # a white logo disappears on the white slide
-        sys.path.insert(0, os.path.join(ROOT, '_src', 'tools')); from logo import guard
-        bad = guard(p, BG)                           # logos come from tools/logo.py only: sharp, wide, dark on the white slide
-        if bad: sys.exit(f"{f}: logo is {bad}. Run: py tools/logo.py {f[:-4]} \"{company}\" <website> --bg {BG} --out assets/clients --on-none text --spec specs/{f[:-4]}.json")
-        w, h = im.size
+    # HARD GATE (Thomas 2026-11-16, a wrong logo must never ship again): only a png written by tools/logo.py AFTER its identity check
+    # (the stamp inside the file: the company's own logo confirmed, or the company name as text) and untouched since. No svg, no
+    # copied header image, no old file. Never work around this gate: run the tool, it writes the name as text when unsure.
+    sys.path.insert(0, os.path.join(ROOT, '_src', 'tools')); from logo import guard, checked
+    stem = os.path.splitext(f)[0]
+    meta, bad = checked(p)
+    if not bad: bad = guard(p, BG)                   # sharp, wide, dark on the white slide
+    if bad: sys.exit(f"{f}: logo is {bad}. Run: py tools/logo.py {stem} \"{company}\" <website> --bg {BG} --out assets/clients --on-none text --spec specs/{stem}.json")
+    from PIL import Image
+    w, h = Image.open(p).size
     r = w / h
     lh = min(.8, (1.5 / r) ** .5)
     if lh * r > 3.6: lh = 3.6 / r

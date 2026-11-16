@@ -327,7 +327,7 @@ def lite_build(slug, lead, st, t0):
     p = run(logo_file) if logo_file else None
     if not p or p.returncode or not os.path.exists(os.path.join(ROOT, slug, 'index.html')):   # no logo or the guard refused it: company name as text
         sys.path.insert(0, os.path.join(SRC, 'tools')); import logo as _lg
-        logo_file = slug + '.png'; _lg.wordmark(lead['company'], _lg.INK).save(os.path.join(cl, logo_file)); note = (note + ' logo: company name as text').strip()
+        logo_file = slug + '.png'; _lg.write_text(lead['company'], os.path.join(cl, logo_file), why=note or 'logo tool gave no file or the build refused it'); note = (note + ' logo: company name as text').strip()
         p = run(logo_file)
     if p.returncode == 0 and os.path.exists(os.path.join(ROOT, slug, 'index.html')):
         git('add', '--', *slug_files(slug))

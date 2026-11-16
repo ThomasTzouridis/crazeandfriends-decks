@@ -324,7 +324,7 @@ try:
 except Exception as e: print('logo tool failed', e)
 if not logo_file:
     sys.path.insert(0, os.path.join(SRC, 'tools')); import logo as _lg
-    logo_file = slug + '.png'; _lg.wordmark(company, _lg.INK).save(os.path.join(ROOT, 'assets', 'clients', logo_file)); print('logo: text wordmark fallback')
+    logo_file = slug + '.png'; _lg.write_text(company, os.path.join(ROOT, 'assets', 'clients', logo_file), why='logo tool gave no file'); print('logo: text wordmark fallback')
 print('logo', logo_file)
 # 3 ad images by rule: live IMAGE ads first (longest running), then video thumbs; distinct files; height 700
 from PIL import Image
