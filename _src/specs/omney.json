@@ -1,0 +1,60 @@
+{
+ "slug": "omney",
+ "company": "Omney",
+ "full_name": "Alessandro Pedone",
+ "logo": "omney.png",
+ "shot": "omney.jpg",
+ "shot_caption": "omney.io",
+ "saw_lines": [
+  "Most people buying money advice start with a worry about their savings, then look for a guide they trust.",
+  "So the sale is won or lost in the first line, before the saver scrolls past to the offer.",
+  "Your 4 of 9 ads open on the same &ldquo;hai investito in banca&rdquo; hook, so one opener carries the account. Run 2 or 3 new angles from your guide against it."
+ ],
+ "sender": "Ryan Ball",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 16 Nov 2026",
+  "stats": [
+   [
+    "9",
+    "live Meta ads"
+   ],
+   [
+    "4",
+    "open on one hook"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "123",
+    "median words per ad"
+   ]
+  ],
+  "points": [
+   [
+    "One opener carries the account",
+    "4 of 9 copy ads open on &ldquo;hai investito in banca&rdquo;, so one line carries the account and a saver who scrolls past it is gone. Test two or three new angles from your guide, like the cost of waiting, against it."
+   ],
+   [
+    "Same copy, four ads",
+    "One exact copy runs in 4 of 9 ads, so the same pitch appears four times across the account. Keep the body copy, but change the opening line and the creative in each so each tests a different reason to click."
+   ],
+   [
+    "No proof in your ads",
+    "None of your 9 ads carries a proof number, so a new buyer has nothing concrete to trust before clicking. Pick one figure, such as a review count or orders shipped, and open the next batch with it on the creative."
+   ],
+   [
+    "Copy runs long",
+    "Your median ad runs 123 words and the longest reaches 141, so the call to action and any offer sit far below where a phone screen cuts the text. Use two lines of copy, then the offer, and cut the rest."
+   ]
+  ],
+  "images": [
+   "omney_1.jpg",
+   "omney_2.jpg",
+   "omney_3.jpg"
+  ]
+ },
+ "ads_1": "Fresh openers beyond the banca hook, tested against the cost of waiting",
+ "soc_1": "Brand social strategy across Instagram and Youtube, your linked channels"
+}
