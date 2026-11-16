@@ -21,18 +21,19 @@ SENDERS = {
  'elias': ("Elias Rupp", "Head of Creatives", 'elias-rupp.jpg'), 'paraskevi': ("Paraskevi Tsatsopita", "Chief Human Resources Officer", 'paraskevi-tsatsopita.jpg'),
  'yuri': ("Yuri Melny", "Head of Marketing", 'yuri-melny.jpg'), 'jeff': ("Jeff Ihidov", "Chief Sales Of&zwnj;ficer", 'jeff-ihidov.jpg'),
  'olena': ("Olena Irkliienko", "Head of Videography", 'olena-irkliienko.jpg'), 'illia': ("Illia Plot", "Chief Operating Of&zwnj;ficer", 'illia-plot.jpg')}
+SENDERS_OWN = dict(SENDERS)   # spec key "own_sender": true -> the sender's own photo even where an alias below maps him to Ognjen (Thomas 2026-11-16, Will Ellison deck shows Nemanja)
 # Thomas 2026-11-14: decks of Veljko's, Djordje's, Nemanja's and Jelena's campaigns always show Ognjen. Paraskevi shows her name only, no title.
 SENDERS['veljko'] = SENDERS['djordje'] = SENDERS['nemanja'] = SENDERS['jelena'] = SENDERS['ognjen']
 SENDERS['paraskevi'] = (SENDERS['paraskevi'][0], '', SENDERS['paraskevi'][2])
 SENDERS['olena'] = (SENDERS['olena'][0], '', SENDERS['olena'][2])   # Thomas 2026-11-14: name only
 
 
-def sender_of(name):
+def sender_of(name, own=False):
     import unicodedata
     k = ((name or '').strip().split() or [''])[0].lower().replace('đ', 'dj')
     k = ''.join(c for c in unicodedata.normalize('NFKD', k) if not unicodedata.combining(c))
     k = k if k in SENDERS else 'ryan'
-    n, r, f = SENDERS[k]
+    n, r, f = (SENDERS_OWN if own else SENDERS)[k]
     if not os.path.exists(os.path.join(ROOT, 'assets', 'team', f)): sys.exit(f'sender photo missing: assets/team/{f}')
     return k, n, r, f
 
@@ -102,7 +103,7 @@ for path in sys.argv[1:]:
                f'<div class="adsgrid in"><div class="pts">{pts}</div><div><div class="adimgs">{imgs}</div><div class="adstats">{sts}</div>'
                f'<p class="adsrc">Source: {e(a["source"])}</p></div></div></div></section>')
     out = open(os.path.join(HERE,'template.html'),encoding='utf-8').read()
-    sk, sn, sr, sf = sender_of(sp.get('sender'))
+    sk, sn, sr, sf = sender_of(sp.get('sender'), sp.get('own_sender'))
     if LANG:
         sys.path.insert(0, HERE); import i18n
         out = i18n.apply(out, LANG)
