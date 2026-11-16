@@ -1,0 +1,60 @@
+{
+ "slug": "alme",
+ "company": "Almé",
+ "full_name": "Emmanuelle szerer",
+ "logo": "alme.png",
+ "shot": "alme.jpg",
+ "shot_caption": "almeparis.com",
+ "saw_lines": [
+  "Plus size shoppers buy by fit before style, so they stop for a body like theirs and skip the rest.",
+  "So the sale is decided in the feed image, before the buyer ever clicks through to a product page.",
+  "Your 21 ads show no proof number, so buyers have no trust signal in the feed. Pick one proof number, such as orders shipped, and lead three new ads with it."
+ ],
+ "sender": "Jelena Novaković",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 16 Nov 2026",
+  "stats": [
+   [
+    "21",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "21",
+    "catalog feed ads"
+   ],
+   [
+    "21",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "No proof number in ads",
+    "None of your 21 ads shows a proof number, so a buyer in the feed has no reason to trust you over the next brand. Pick one proof number, such as orders shipped, and lead three new ads with it."
+   ],
+   [
+    "Feed ads with no story",
+    "All 21 of your ads are catalog feed ads with no story, so nothing explains why a product is worth stopping for. Write three story ads: a real wearer in sizes 36 to 54, and a fit tip."
+   ],
+   [
+    "No offer in your ads",
+    "None of your ads mention an offer or discount, so a first time buyer has no reason to act today. Put one reason to buy now, a first order offer or a bundle, in line one of three new ads."
+   ],
+   [
+    "Proven winners need variations",
+    "21 ads have run 60 days or more and 11 from June 2025 still run, so you already have proven winners to build from. Make three variations of the oldest one, each with new copy and a new image."
+   ]
+  ],
+  "images": [
+   "alme_1.jpg",
+   "alme_2.jpg",
+   "alme_3.jpg"
+  ]
+ },
+ "ads_1": "Real wearer story ads in sizes 36 to 54, tested against catalog",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
