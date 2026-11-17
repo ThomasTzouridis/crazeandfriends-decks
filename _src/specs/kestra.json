@@ -1,0 +1,60 @@
+{
+ "slug": "kestra",
+ "company": "Kestra",
+ "full_name": "Scott Wilson",
+ "logo": "kestra.png",
+ "shot": "kestra.jpg",
+ "shot_caption": "kestrafinancial.com",
+ "saw_lines": [
+  "Advisors rarely switch firms on impulse. They weigh payout, support and client control, then move once their firm stops fitting.",
+  "So the decision is made in the first line of an ad, before a tax guide or a report gets read.",
+  "Your 14 of 30 ads open on one federal tax question, so most viewers hear one line. Test two or three new angles, like the independence model, against it."
+ ],
+ "sender": "Ryan Ball",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 17 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "14",
+    "open on one story"
+   ],
+   [
+    "0",
+    "carry a proof number"
+   ],
+   [
+    "0",
+    "carry an offer"
+   ]
+  ],
+  "points": [
+   [
+    "One opener carries the account",
+    "14 of your 30 ads open on one federal tax question, so most viewers hear the same line and scroll past it. Test two or three new angles from your product, such as the independence model, each against the tax opener."
+   ],
+   [
+    "Same copy reused across ads",
+    "One exact copy runs in 14 of your 30 ads, so the same paragraph reaches viewers with nothing new to read. Keep the copy, but change the opening line and creative in each, so every version reads as fresh."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so a new viewer has no reason to trust the claim before clicking. Collect one figure, a review count or orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "No offer in your ads",
+    "0 of your 30 ads carry an offer, so a ready viewer has nothing to act on. Give new advisors one reason to move now, such as a first-year offer, and put it in line one of three new ads."
+   ]
+  ],
+  "images": [
+   "kestra_1.jpg",
+   "kestra_2.jpg",
+   "kestra_3.jpg"
+  ]
+ },
+ "ads_1": "Breakaway and independence hooks tested against the federal tax opener",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
