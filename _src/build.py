@@ -91,6 +91,11 @@ for path in sys.argv[1:]:
                f'<div class="adsgrid in"><div class="pts">{pts}</div><div><div class="adimgs">{imgs}</div><div class="adstats">{sts}</div>'
                f'<p class="adsrc">Source: {e(a["source"])}</p></div></div></div></section>')
     out = open(os.path.join(HERE,'template.html'),encoding='utf-8').read()
+    if sp.get('offer'):   # custom slide 2 for one lead (Thomas 2026-11-17, Keelan Waldock): spec key "offer" = html file under specs/ that replaces the whole offer section
+        import re
+        frag = open(os.path.join(HERE, 'specs', sp['offer']), encoding='utf-8').read()
+        out, n = re.subn(r'<section aria-label="The offer">.*?</section>', lambda m: frag.strip(), out, count=1, flags=re.S)
+        if n != 1: sys.exit(f"{path}: offer section not found in template.html")
     sk, sn, sr, sf = sender_of(sp.get('sender'), sp.get('own_sender'))
     if LANG:
         sys.path.insert(0, HERE); import i18n
