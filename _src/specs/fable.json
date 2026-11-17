@@ -1,0 +1,60 @@
+{
+ "slug": "fable",
+ "company": "Fable",
+ "full_name": "Joe Parenteau",
+ "logo": "fable.png",
+ "shot": "fable.jpg",
+ "shot_caption": "fable.com",
+ "saw_lines": [
+  "Buyers replace one broken glass, not the whole set. They check dishwasher safety and the price before they order.",
+  "So a buyer who cannot see shipping or price in the first line scrolls past, and the sale never starts.",
+  "Your site offers 15% off the first order, yet 0 of 29 ads mention it. Put that offer in the opening line of new ads and on the creative itself."
+ ],
+ "sender": "Ana Stanković",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 17 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads name the offer"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads with proof numbers"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from ads",
+    "Your site offers 15% off the first order, yet 0 of 29 ads mention it, so a new buyer has no reason to act. Put that offer in the opening line of new ads and on the creative itself."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site answers how orders ship, but 0 of 30 ads mention shipping, so buyers wonder how the glass arrives before they click. Open new ads with the shipping answer in the first line and repeat it on the creative."
+   ],
+   [
+    "Price never in ads",
+    "Your site shows $40 and $82 prices, yet 0 of 30 ads mention price, so a buyer cannot judge the cost before clicking. Lead one ad with the price per glass or per plate, so the cost feels small."
+   ],
+   [
+    "No proof number in ads",
+    "0 of 30 ads carry a proof number in the copy, so an unsure buyer has nothing concrete to trust before clicking. Add a count your ads do not use yet, such as orders shipped, and open new ads with it."
+   ]
+  ],
+  "images": [
+   "fable_1.jpg",
+   "fable_2.jpg",
+   "fable_3.jpg"
+  ]
+ },
+ "ads_1": "First order and shipping led creative for new buyers, tested against the glassware hook",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
