@@ -1,0 +1,60 @@
+{
+ "slug": "jurni",
+ "company": "Jurni",
+ "full_name": "Tom Naor",
+ "logo": "jurni.png",
+ "shot": "jurni.jpg",
+ "shot_caption": "getjurni.ai",
+ "saw_lines": [
+  "Fiber buyers want a habit they can keep, so they pick the drink that tastes like a treat, not a chore.",
+  "So the sale is won in the first line, when a buyer decides whether the fiber habit is worth trying today.",
+  "Your site shows over 10,000 happy faces, yet 0 of 30 ads carry it. Put that number on the creative, then open two ads with a review quote."
+ ],
+ "sender": "Ryan Ball",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 17 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "11",
+    "ads share one copy"
+   ],
+   [
+    "11",
+    "ads run 60+ days"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site shows over 10,000 happy faces, yet 0 of 30 ads carry a proof number, so new buyers get no reason to trust the drink. Put the number on the creative and open two ads with a review quote."
+   ],
+   [
+    "Same copy, repeated ads",
+    "The same copy runs in 11 of 29 ads, so repeat viewers tune it out and the pitch goes stale. Keep the body copy, but change the opening line and creative in each of those 11 ads."
+   ],
+   [
+    "One opener leads the account",
+    "11 of 29 copy ads open on the apple juice sold out line, and the rest are single use, so the account leans on one story. Test two new angles against that opener, one on taste and one on the 8g fiber."
+   ],
+   [
+    "Proven winners need variants",
+    "11 ads have run 60+ days, so the oldest copy is a proven winner, but it may tire as the same buyers see it again. Build three more variations of that winner, changing the first line and the creative in each."
+   ]
+  ],
+  "images": [
+   "jurni_1.jpg",
+   "jurni_2.jpg",
+   "jurni_3.jpg"
+  ]
+ },
+ "ads_1": "Liquid Salad taste-led creative with a new opener and the 10,000 proof number",
+ "soc_1": "Brand social strategy across X, your only linked channel"
+}
