@@ -1,0 +1,60 @@
+{
+ "slug": "valentte",
+ "company": "Valentte",
+ "full_name": "Luke Bream",
+ "logo": "valentte.png",
+ "shot": "valentte.jpg",
+ "shot_caption": "valentte.com",
+ "saw_lines": [
+  "Home fragrance is re-bought, not discovered. People find one scent they trust, run out, then reorder it without rereading the page.",
+  "So the first order is won on trust, and your ads do not name the guarantee or the shipping answer.",
+  "Your site shows 16,863 reed diffuser reviews, yet 0 ads use that count. Put 16,863 on the creative and open two ads with a review quote."
+ ],
+ "sender": "Minja Djordjevic",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 18 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention the guarantee"
+   ],
+   [
+    "5",
+    "ads with review counts"
+   ],
+   [
+    "10",
+    "different opening stories"
+   ]
+  ],
+  "points": [
+   [
+    "Proof stays on the site",
+    "Your site shows 16,863 reed diffuser reviews, but 0 ads use that count. Buyers trust a count over a claim, so this gap costs first orders. Put 16,863 on the creative and open two ads with a review quote."
+   ],
+   [
+    "Guarantee missing from ads",
+    "Your site offers a 90-Day Money-Back Guarantee, yet 0 of 16 ads mention it. A first-time buyer hesitates over an unknown brand without a refund promise, so it costs first orders. Put the guarantee in the first line of three ads."
+   ],
+   [
+    "Shipping unanswered in ads",
+    "Your site has a delivery page, yet 0 of 30 ads mention shipping or delivery. New buyers need to know how diffusers arrive before paying, so this stalls the sale. Answer shipping in the first line of ads for new buyers."
+   ],
+   [
+    "Openers spread too thin",
+    "Your 16 copy ads open with 10 different stories, and the biggest opens 3. Spread this thin, no story earns enough repeat views. Build the next batch from the two most used openers, &ldquo;your favourites are waiting&rdquo; and &ldquo;we&rsquo;ll be honest&rdquo;."
+   ]
+  ],
+  "images": [
+   "valentte_1.jpg",
+   "valentte_2.jpg",
+   "valentte_3.jpg"
+  ]
+ },
+ "ads_1": "Reed diffuser creative on your two top openers, with a review count printed",
+ "soc_1": "Brand social strategy across Facebook and Instagram"
+}
