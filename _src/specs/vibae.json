@@ -1,0 +1,60 @@
+{
+ "slug": "vibae",
+ "company": "Vibae",
+ "full_name": "Hannu Salminen",
+ "logo": "vibae.png",
+ "shot": "vibae.jpg",
+ "shot_caption": "vibae.com",
+ "saw_lines": [
+  "Shoppers pick comfort footwear by how it feels after a full day, then come back for a second pair in another style.",
+  "So the sale is won in the opening line, where shoppers judge the offer and fit before they click.",
+  "Your site offers 10% off your first order, yet only 1 of 21 ads mention it. Open three ads with that offer in line one, printed on the creative."
+ ],
+ "sender": "Minja Djordjevic",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 19 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "1",
+    "ads name the offer"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads mention subscription"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers 10% off the first order, but only 1 of 21 ads mention it, so a new buyer has no reason to act. Open three ads with that offer in line one and print the 10% on the creative."
+   ],
+   [
+    "Shipping question unanswered",
+    "Your site offers free shipping, yet 0 of 30 ads mention shipping or delivery, so a buyer must leave the ad for the answer. Open three ads with the free shipping line and the delivery window from your policy page."
+   ],
+   [
+    "Subscription never advertised",
+    "Your site offers subscribe and save, yet 0 of 30 ads mention a subscription, so repeat buyers never hear they can save by reordering. Run two retention ads for past buyers with subscribe and save as the headline."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 21 ads with copy carries a proof number, so buyers have no figure to trust. Collect one real figure, such as a review count or orders shipped, and open two ads with it in the first line."
+   ]
+  ],
+  "images": [
+   "vibae_1.jpg",
+   "vibae_2.jpg",
+   "vibae_3.jpg"
+  ]
+ },
+ "ads_1": "Offer-led creative for Vibae&rsquo;s ergonomic shoes, opening on the 10% first order",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok and Twitter"
+}
