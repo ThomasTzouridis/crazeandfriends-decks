@@ -1,0 +1,60 @@
+{
+ "slug": "pompeii",
+ "company": "POMPEII",
+ "full_name": "Jorge Vidri",
+ "logo": "pompeii.png",
+ "shot": "pompeii.jpg",
+ "shot_caption": "pompeiibrand.com",
+ "saw_lines": [
+  "Shoppers buy shoes and jackets to wear for years, then come back for the next pair once the first wears out.",
+  "So new buyers decide in the first line. Without an offer in your ads, they scroll past and buy elsewhere.",
+  "Your site offers subscribe and save, yet 0 of 23 ads mention it or any offer. Put that offer in the first line of three new ads and on the creative."
+ ],
+ "sender": "Elias Rupp",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 20 Nov 2026",
+  "stats": [
+   [
+    "26",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "0",
+    "ads show proof numbers"
+   ],
+   [
+    "5",
+    "Shop now ads go home"
+   ]
+  ],
+  "points": [
+   [
+    "Offer missing from the ads",
+    "Your site offers subscribe and save, yet 0 of 23 ads mention it or any offer, so a new buyer has no reason to act today. Put subscribe and save in the first line of three new ads."
+   ],
+   [
+    "Subscription never advertised",
+    "Your site promotes subscribe and save, yet 0 of 26 ads mention a subscription, so the repeat buyer never hears about it. Run two retention ads for past buyers with the subscription saving as the headline."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 26 ads shows a proof number, so a stranger has no count to trust before clicking. Collect one real number, such as your review count or orders shipped, and lead the next batch with it on the creative."
+   ],
+   [
+    "Shop now lands on homepage",
+    "5 of your Shop now ads send buyers to the homepage, not the product on screen, so they have to search again. Point each of the five to the exact product page its creative shows, one page per ad."
+   ]
+  ],
+  "images": [
+   "pompeii_1.jpg",
+   "pompeii_2.jpg",
+   "pompeii_3.jpg"
+  ]
+ },
+ "ads_1": "Shoe-led creative opening on subscribe and save, tested against the Walking story",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
