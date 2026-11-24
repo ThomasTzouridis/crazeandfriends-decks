@@ -1,0 +1,60 @@
+{
+ "slug": "powersheds",
+ "company": "Powersheds",
+ "full_name": "Jack Sutcliffe",
+ "logo": "powersheds.png",
+ "shot": "powersheds.jpg",
+ "shot_caption": "powersheds.com",
+ "saw_lines": [
+  "Garden buyers plan for years. They compare footprint, delivery and build quality, then choose one and expect it to last.",
+  "So the sale is won in the first line, where the offer decides whether a buyer clicks or scrolls past.",
+  "Your site offers 5% off through subscribe and save, yet 0 of 18 ads mention it. Open three new ads with the offer in the first line and on the creative."
+ ],
+ "sender": "Iva Varađanin",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 24 Nov 2026",
+  "stats": [
+   [
+    "28",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention the offer"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ],
+   [
+    "7",
+    "creator posts as ads"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site offers 5% off through subscribe and save, yet 0 of 18 ads mention it. A buyer who sees no discount has no reason to click. Open three new ads with the offer and print it on the creative."
+   ],
+   [
+    "Subscriptions never get advertised",
+    "Your site promotes subscribe and save, yet 0 of 28 ads mention a subscription. Without it, returning buyers have no reason to reorder. Run two retention ads with the subscription saving as the headline, aimed at past buyers."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 28 ads shows a proof number, so a cold buyer has nothing concrete to trust before they click. Pick one real figure, such as a review count or orders shipped, and lead the next batch with it."
+   ],
+   [
+    "Creator posts run as brand ads",
+    "7 of 18 ads are creator posts run from the brand page, so the creator&rsquo;s own account does not carry the ad. Whitelist those posts from the creator accounts and cut three variations of the best one."
+   ]
+  ],
+  "images": [
+   "powersheds_1.jpg",
+   "powersheds_2.jpg",
+   "powersheds_3.jpg"
+  ]
+ },
+ "ads_1": "Shed-focused offer ads opening with subscribe and save, tested against creator posts",
+ "soc_1": "Brand social strategy across Facebook, Instagram, TikTok, Twitter and YouTube"
+}
