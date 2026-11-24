@@ -1,0 +1,60 @@
+{
+ "slug": "avea",
+ "company": "Avea",
+ "full_name": "Sophie Chabloz",
+ "logo": "avea.png",
+ "shot": "avea.jpg",
+ "shot_caption": "avea-life.com",
+ "saw_lines": [
+  "Supplement buyers rarely trust a brand at first sight. They check reviews, then buy once an offer makes starting feel safe.",
+  "So the sale is won in the first two lines, where reviews and an offer must show before the buyer leaves.",
+  "Your site shows 100,000 customers and 3232 reviews, but only 1 of 30 ads carries a proof number. Put 3232 reviews on your best ads, opening two with a review quote."
+ ],
+ "sender": "Ana Stanković",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 24 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "mention first order offer"
+   ],
+   [
+    "93%",
+    "of copy before offer"
+   ],
+   [
+    "4",
+    "ads use claim words"
+   ]
+  ],
+  "points": [
+   [
+    "Site proof missing from ads",
+    "The site shows 100,000 customers and 3232 reviews, but only 1 of 30 ads carries a proof number. Cold buyers need proof before they trust a new supplement. Put 3232 reviews on your best ads, opening two with a review quote."
+   ],
+   [
+    "First order offer unused",
+    "Your site offers a first order discount, yet 0 of 24 ads mention it, so new buyers have no reason to act. Open three new ads with the first order discount in line one and on the creative."
+   ],
+   [
+    "Offer buried in long copy",
+    "The offer appears after 93% of the copy on a median ad of 80 words. Viewers who stop never reach it, so the sale is lost before they know. Put the discount in the first two lines of every ad."
+   ],
+   [
+    "Claim words limit reach",
+    "4 of 24 ads use claim words like clinically, cure or guaranteed results. Claims like these make cold buyers doubt the formula before they click. Replace them in those four ads with a review line about what customers noticed."
+   ]
+  ],
+  "images": [
+   "avea_1.jpg",
+   "avea_2.jpg",
+   "avea_3.jpg"
+  ]
+ },
+ "ads_1": "Review-led creative opening on the first order discount with 3232 reviews on frame",
+ "soc_1": "Brand social strategy across Facebook, Instagram and YouTube"
+}
