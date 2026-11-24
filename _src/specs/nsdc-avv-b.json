@@ -1,0 +1,60 @@
+{
+ "slug": "nsdc-avv-b",
+ "company": "Nsdc Avv-B",
+ "full_name": "Spoorthi M",
+ "logo": "nsdc-avv-b.png",
+ "shot": "nsdc-avv-b.jpg",
+ "shot_caption": "nih.gov",
+ "saw_lines": [
+  "Nobody joins a study on impulse. People check eligibility, weigh time and pay, then ask whether it is safe.",
+  "So the sign up is won or lost in the first seconds, when a stranger decides whether the study feels safe.",
+  "Your 0 of 19 ads are video, so no stranger sees a real person first. Film three videos of a participant describing day one, then test them against your oldest ad."
+ ],
+ "sender": "Ryan Ball",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 24 Nov 2026",
+  "stats": [
+   [
+    "19",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "video ads"
+   ],
+   [
+    "0",
+    "proof numbers"
+   ],
+   [
+    "0",
+    "ads with an offer"
+   ]
+  ],
+  "points": [
+   [
+    "No video in ads",
+    "0 of 19 ads are video, so no stranger sees a real person before reading the ask. Trust decides sign ups. Film three short videos of a visit and a participant describing day one, then test them against the oldest ad."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 19 ads shows a proof number, so a reader has no sense of how many people already took part. Collect one figure, such as people enrolled, and open the next batch with it on the creative."
+   ],
+   [
+    "Creator posts run as ads",
+    "2 of 19 ads are creator posts run from the brand page, which hides the voice that reassures a stranger. Whitelist both from the creator account and cut three variations opening on what the first visit was like."
+   ],
+   [
+    "No offer in ads",
+    "0 of 19 ads carry an offer, so a qualified reader has no reason to call today. Give new participants one reason to act today, such as a clearly stated bonus for the first visit, and lead with it in three ads."
+   ]
+  ],
+  "images": [
+   "nsdc-avv-b_1.jpg",
+   "nsdc-avv-b_2.jpg",
+   "nsdc-avv-b_3.jpg"
+  ]
+ },
+ "ads_1": "Participant video ads opening on the first visit, tested against the current image set",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Twitter and YouTube"
+}
