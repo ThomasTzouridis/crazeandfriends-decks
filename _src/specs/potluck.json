@@ -1,0 +1,60 @@
+{
+ "slug": "potluck",
+ "company": "Potluck",
+ "full_name": "Martin Spieker",
+ "logo": "potluck.png",
+ "shot": "potluck.jpg",
+ "shot_caption": "potluck.de",
+ "saw_lines": [
+  "Spice buyers repeat a blend they trust or give it as a gift, so a new buyer decides from one ad.",
+  "So the sale is won in the first line, where your ads name the blend and the reason to buy now.",
+  "Your site answers shipping costs and 10 working day delivery, yet 0 of 30 ads mention either. Put the shipping cost and delivery time in line one of new buyer ads."
+ ],
+ "sender": "Minja Djordjevic",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 25 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "5",
+    "ads share one copy"
+   ],
+   [
+    "0",
+    "proof numbers in ads"
+   ]
+  ],
+  "points": [
+   [
+    "Shipping goes unanswered",
+    "Your site answers shipping costs and 10 working day delivery, yet 0 of 30 ads mention either. New buyers cannot judge the cost before clicking, so they scroll past. Name shipping cost and delivery in line one of new buyer ads."
+   ],
+   [
+    "Same copy in five ads",
+    "One exact copy runs in 5 of 15 ads, so the same message repeats. Keep the body, but rewrite the opening line and creative in each of the five, so each ad gives its own reason to buy the Advent calendar."
+   ],
+   [
+    "No proof number in ads",
+    "None of your 30 ads shows a proof number, so new buyers get no reason to trust the brand at a glance. Collect one figure, like a review count or orders shipped, and open the next batch with it."
+   ],
+   [
+    "One opener leads the set",
+    "The Advent calendar opener opens 5 of 15 copy ads, and the other copy ads each open on a single line. Test two new angles against it, the price of a mini pot and a kids gift, in three ads each."
+   ]
+  ],
+  "images": [
+   "potluck_1.jpg",
+   "potluck_2.jpg",
+   "potluck_3.jpg"
+  ]
+ },
+ "ads_1": "Refill and mini-set ads that answer shipping first, with the Advent opener rewritten",
+ "soc_1": "Brand social strategy across Facebook, Instagram and TikTok"
+}
