@@ -1,0 +1,60 @@
+{
+ "slug": "logicc",
+ "company": "Logicc",
+ "full_name": "Bastian Schmitz",
+ "logo": "logicc.png",
+ "shot": "logicc.jpg",
+ "shot_caption": "logicc.com",
+ "saw_lines": [
+  "Regulated teams only adopt AI after checking where client data lives, and after a colleague vouches for it.",
+  "So the trust question must be answered in the first line, before a regulated buyer scrolls past to a rival.",
+  "Your 18 of 25 copy ads open on one line, so the same audience sees near identical hooks. Test two or three new angles from your own product against it."
+ ],
+ "sender": "Ryan Ball",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 25 Nov 2026",
+  "stats": [
+   [
+    "30",
+    "live Meta ads"
+   ],
+   [
+    "18",
+    "open on one opener"
+   ],
+   [
+    "10",
+    "run one exact copy"
+   ],
+   [
+    "0",
+    "carry an offer"
+   ]
+  ],
+  "points": [
+   [
+    "One opener carries the account",
+    "18 of your 25 copy ads open on the same line, so the same buyers see one hook over and over. Run three new openers instead: data stays in Germany, one tool for every model, no IT project needed."
+   ],
+   [
+    "One copy repeats across ads",
+    "10 of your 25 copy ads run one exact text, so the same words repeat and each new ad looks like the last one. Keep that text, but change the opening line and the visual in each of the 10 ads."
+   ],
+   [
+    "No proof in your ads",
+    "None of your 30 live ads shows a proof number, so a skeptical buyer has nothing concrete to weigh. Collect one real figure, such as a review count or orders shipped, and open the next batch with it."
+   ],
+   [
+    "No offer in your ads",
+    "0 of your 25 copy ads carry an offer, so a first time buyer has no reason to act today. Add a team bundle with onboarding included for new accounts, and put it in the first line of three new ads."
+   ]
+  ],
+  "images": [
+   "logicc_1.jpg",
+   "logicc_2.jpg",
+   "logicc_3.jpg"
+  ]
+ },
+ "ads_1": "Data residency and no IT project openers, tested against the current hook",
+ "soc_1": "Brand social strategy for the channels your buyers already use"
+}
