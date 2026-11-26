@@ -1,0 +1,60 @@
+{
+ "slug": "takeya-usa",
+ "company": "Takeya USA",
+ "full_name": "John Sanchez",
+ "logo": "takeya-usa.png",
+ "shot": "takeya-usa.jpg",
+ "shot_caption": "takeyausa.com",
+ "saw_lines": [
+  "Bottle buyers pick on what happens when the lid gets tossed in a bag, then replace the one that leaked.",
+  "So a new buyer who cannot see price, shipping or an offer in line one scrolls past with no reason to act.",
+  "Your site offers 30% off sitewide, yet 0 of 15 ads mention it. Lead three new ads with that offer in line one and on the creative."
+ ],
+ "sender": "Minja Djordjevic",
+ "ads": {
+  "source": "Meta Ad Library, active ads, 26 Nov 2026",
+  "stats": [
+   [
+    "18",
+    "live Meta ads"
+   ],
+   [
+    "0",
+    "ads mention any offer"
+   ],
+   [
+    "0",
+    "ads mention shipping"
+   ],
+   [
+    "0",
+    "ads mention price"
+   ]
+  ],
+  "points": [
+   [
+    "Site offer missing from ads",
+    "Your site promotes 30% off sitewide, yet 0 of 15 ads mention an offer, so a buyer who clicks has no reason to act today. Put the 30% off in line one of three new ads and on the creative."
+   ],
+   [
+    "Shipping question goes unanswered",
+    "Your site answers shipping in its FAQ, yet 0 of 18 ads mention shipping or delivery, so new buyers must click away to learn it. Open new ads by answering shipping and name free shipping on orders $49+."
+   ],
+   [
+    "Price never appears in ads",
+    "Your site shows prices from $29.99 to $44.99, yet 0 of 18 ads mention price, so a buyer cannot judge the cost before the click. Lead one ad with the price per bottle set against a daily coffee run."
+   ],
+   [
+    "How it arrives goes unanswered",
+    "Your site explains how orders arrive, yet 0 of 18 ads show how the bottle arrives, so a buyer cannot picture the delivery. Film the box arriving on a porch in one video and test it against your oldest ad."
+   ]
+  ],
+  "images": [
+   "takeya-usa_1.jpg",
+   "takeya-usa_2.jpg",
+   "takeya-usa_3.jpg"
+  ]
+ },
+ "ads_1": "Offer first creative for Takeya Actives and Sport bottles, opening on 30% off sitewide",
+ "soc_1": "Brand social strategy across Facebook, Instagram, Pinterest, TikTok, Twitter and YouTube"
+}
